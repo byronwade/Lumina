@@ -27,6 +27,7 @@ A command must not be marked `verified` until it has been run after the relevant
 | Area | Status | Evidence | Next step |
 | --- | --- | --- | --- |
 | Product thesis | drafted | `README.md`, `VISION.md` | Keep concise and user-facing. |
+| Product strategy | drafted | `docs/product-strategy.md` | Update after full deep research report returns. |
 | Architecture split | drafted | `ARCHITECTURE.md`, ADR 0001 | Revisit when package scaffolds land. |
 | Agent-native core | drafted | ADR 0002, `docs/agent-kernel.md` | Generate context capsules after graph and SEO outputs exist. |
 | Risk mitigation | drafted | `docs/risk-mitigation.md`, ADR 0003 | Keep required for map, agent, MCP, adapter, and safe-edit work. |
@@ -92,6 +93,7 @@ Until the monorepo exists, all commands below are target UX only.
 | Topic | Primary doc | Supporting docs |
 | --- | --- | --- |
 | Product thesis | `README.md` | `VISION.md` |
+| Product strategy | `docs/product-strategy.md` | `docs/comparisons.md`, `docs/benchmarks.md`, `docs/risk-mitigation.md` |
 | Architecture | `ARCHITECTURE.md` | `docs/decisions/*`, `docs/risk-mitigation.md` |
 | Package boundaries | `docs/package-map.md` | `ARCHITECTURE.md`, `AGENTS.md`, ADR 0004 |
 | CLI | `docs/cli.md` | `docs/prototype-acceptance.md`, `AGENTS.md`, ADR 0004 |
@@ -117,7 +119,7 @@ Until the monorepo exists, all commands below are target UX only.
 | Testing | `docs/testing.md` | `CONTRIBUTING.md`, `docs/task-backlog.md`, `docs/benchmarks.md` |
 | Release | `docs/release.md` | `docs/status.md`, `docs/compatibility.md` |
 | Examples | `docs/examples.md` | `docs/testing.md`, `docs/prototype-acceptance.md`, `docs/benchmarks.md` |
-| Comparisons | `docs/comparisons.md` | `README.md`, `VISION.md`, `docs/benchmarks.md` |
+| Comparisons | `docs/comparisons.md` | `README.md`, `VISION.md`, `docs/benchmarks.md`, `docs/product-strategy.md` |
 | Prompt library | `docs/prompts/frontier-skills-subagents-prompt.md` | `AGENTS.md`, `docs/agent-kernel.md` |
 
 ## Update Rules
@@ -129,7 +131,7 @@ Update this file whenever one of these changes:
 - A package is added, removed, or renamed.
 - A generated artifact is added, removed, or versioned.
 - A roadmap phase starts, completes, or changes scope.
-- A governance artifact such as a template, workflow, CODEOWNERS entry, release policy, public docs policy, benchmark policy, or prompt changes status.
+- A governance artifact such as a template, workflow, CODEOWNERS entry, release policy, public docs policy, benchmark policy, product strategy note, or prompt changes status.
 
 Every implementation PR should include a one-line status update when it changes the truth table.
 
