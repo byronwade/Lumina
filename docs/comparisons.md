@@ -9,24 +9,31 @@ This document is a positioning guide for contributors, docs, examples, and futur
 NeedleStart is not trying to win by cloning existing React frameworks. It is trying to win a newer category:
 
 ```txt
-Agent-native, SEO-first, graph-aware React applications.
+App-graph-native, SEO-safe, agent-safe React applications.
+```
+
+Public shorthand:
+
+```txt
+NeedleStart is the React framework where your app ships with a map.
 ```
 
 The positioning order is:
 
-1. Built for the age of AI agents building and maintaining apps.
-2. SEO-perfect and Bun-fast by default.
-3. Familiar React meta-framework ergonomics.
+1. App-graph-native: the framework where the application explains itself.
+2. SEO-safe, cache-explicit, and fast by default.
+3. Agent-safe workflows through stable JSON, MCP, context capsules, and safe edits.
+4. Familiar React meta-framework ergonomics.
 
 ## Comparison Rules
 
 - Be specific.
-- Avoid cheap dunking.
 - Explain tradeoffs.
 - Do not claim performance without benchmarks.
 - Do not claim parity before implementation exists.
 - Include "choose the other tool when" sections.
 - Keep planned behavior clearly marked as planned.
+- Compare NeedleStart's app-graph-native wedge, not just routing features.
 
 ## NeedleStart vs Next.js
 
@@ -35,11 +42,14 @@ NeedleStart should feel familiar to developers who know file-based React framewo
 NeedleStart aims to lead on:
 
 - Native semantic app graph.
+- Explainable render and cache behavior.
+- `needle inspect why` for route, file, render, cache, SEO, adapter, and graph decisions.
 - Agent context capsules.
 - MCP-friendly route and graph inspection.
 - Safe edit transactions.
-- SEO-first public route defaults.
+- SEO-safe public route defaults.
 - Explicit render modes.
+- No invisible caching.
 - Bun default path with adapter-aware output.
 - Hot API routes with generated validators and serializers.
 
@@ -49,9 +59,9 @@ Next.js is likely the better choice when:
 - You depend on established hosting integrations.
 - You need mature RSC behavior now.
 - You need broad community examples immediately.
-- Your team wants the default industry choice more than a new agent-native workflow.
+- Your team wants the default industry choice more than a new app-graph-native workflow.
 
-NeedleStart should not claim Next.js parity early. The first credible demo should prove the agent and graph workflow, not every framework feature.
+NeedleStart should not claim Next.js parity early. The first credible demo should prove the app graph, explainability, and agent-safe workflow, not every framework feature.
 
 ## NeedleStart vs TanStack Start
 
@@ -59,17 +69,20 @@ NeedleStart shares interest in typed, explicit full-stack behavior, but it shoul
 
 NeedleStart aims to lead on:
 
-- Framework-generated semantic map.
+- Framework-generated semantic app map.
+- Render, cache, and SEO explanations as generated contracts.
 - Agent-oriented context and safe edit APIs.
 - SEO-first route auditing.
 - Hot API compiler path.
 - Build-time manifests as a cross-tool contract.
+- App graph visibility for APIs, schemas, cache tags, tests, routes, and ownership.
 
 TanStack Start may be the better choice when:
 
 - You want TanStack Router and ecosystem alignment.
-- You prioritize type-safe routing and data APIs over agent-native workflow.
+- You prioritize type-safe routing and data APIs over app graph and agent-safe workflows.
 - You want a smaller conceptual framework surface.
+- You are comfortable adopting a younger type-safe full-stack framework without NeedleStart's map/edit contracts.
 
 ## NeedleStart vs Remix / React Router Framework Mode
 
@@ -78,16 +91,19 @@ NeedleStart can learn from explicit web fundamentals, but its differentiator is 
 NeedleStart aims to lead on:
 
 - Route graph and impact analysis.
+- Framework-generated explanations for route and render behavior.
 - Agent planning and context output.
 - SEO reports and generated manifests.
 - Adapter-aware build output.
 - Safe edit transactions.
+- Affected checks from app graph data.
 
 Remix or React Router framework mode may be the better choice when:
 
 - You want mature web-standard data APIs today.
 - You value established routing conventions over a new compiler graph.
-- You do not need agent-native repository workflows.
+- You do not need app-graph-native repository workflows.
+- You do not need agent-safe edit contracts.
 
 ## NeedleStart vs Astro
 
@@ -96,17 +112,20 @@ Astro is strong for content-heavy, island-style websites. NeedleStart should be 
 NeedleStart aims to lead on:
 
 - React-first app framework ergonomics.
-- Agent-native app graph.
-- Safe edit workflows.
+- App graph for large React apps.
+- Agent-safe edit workflows.
 - Full-stack API and hot API paths.
 - Large React app impact analysis.
+- SEO-safe public HTML with app-level relationships, cache tags, tests, and ownership in the graph.
 
 Astro may be the better choice when:
 
 - You are primarily building a content site.
-- You want mature partial hydration/island architecture today.
+- You want mature partial hydration or island architecture today.
 - You need broad content integrations immediately.
 - You do not need a React app graph or agent-safe edit system.
+
+NeedleStart should learn from Astro's public HTML discipline and docs quality without becoming a CMS.
 
 ## NeedleStart vs Vite App Plus Custom Server
 
@@ -116,6 +135,7 @@ NeedleStart aims to provide:
 
 - File-based routing.
 - Render modes.
+- Render and cache explanations.
 - SEO manifests.
 - API route conventions.
 - Hot API compiler.
@@ -123,13 +143,14 @@ NeedleStart aims to provide:
 - Agent context and MCP.
 - Safe edits.
 - Adapter output.
+- Public docs and benchmark contracts.
 
 A plain Vite app plus custom server may be better when:
 
 - Your app is small.
 - You do not need SSR/SSG conventions.
 - You prefer full custom control.
-- You do not need agent-native framework contracts.
+- You do not need app-graph-native framework contracts.
 
 ## NeedleStart vs A Generic Agent Rules File
 
@@ -141,6 +162,7 @@ NeedleStart aims to provide:
 - Related files.
 - Impact maps.
 - Stable diagnostics.
+- Render, cache, and SEO explanations.
 - Safe edit allow-lists.
 - Mutation logs.
 - MCP tools.
@@ -171,6 +193,12 @@ Do not prioritize these before the wedge is proven:
 Use:
 
 ```txt
+NeedleStart is the React framework where your app ships with a map.
+```
+
+Use:
+
+```txt
 NeedleStart gives agents and humans a map of the app, not just a folder tree.
 ```
 
@@ -183,26 +211,10 @@ Bun is the speed default. Node and static adapters are planned early so Bun is n
 Use:
 
 ```txt
-The compiler emits stable manifests so CLI, runtime, MCP, devtools, SEO, cache, and agents agree on the same app model.
+The compiler emits stable manifests so CLI, runtime, MCP, devtools, SEO, cache, benchmarks, docs, and agents agree on the same app model.
 ```
 
-Avoid:
-
-```txt
-NeedleStart is faster than everything.
-```
-
-Avoid:
-
-```txt
-NeedleStart replaces Next.js.
-```
-
-Avoid:
-
-```txt
-Agents can safely change anything.
-```
+Avoid overclaiming that NeedleStart replaces mature frameworks, is faster than everything, or makes every agent edit safe.
 
 ## Launch Comparison Checklist
 
@@ -213,6 +225,7 @@ Before publishing comparison material, verify:
 - Feature claims are implemented or clearly marked planned.
 - Security-sensitive claims mention safe edit gates.
 - Adapter claims match `docs/deployment.md`.
+- App graph and inspect/explain claims match implemented manifests and CLI output.
 - Examples exist for the workflows being promoted.
 
 ## Documentation Rule
