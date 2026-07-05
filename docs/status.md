@@ -28,9 +28,20 @@ A command must not be marked `verified` until it has been run after the relevant
 | --- | --- | --- | --- |
 | Product thesis | drafted | `README.md`, `VISION.md` | Keep concise and user-facing. |
 | Architecture split | drafted | `ARCHITECTURE.md`, ADR 0001 | Revisit when package scaffolds land. |
+| Agent-native core | drafted | ADR 0002, `docs/agent-kernel.md` | Generate context capsules after graph and SEO outputs exist. |
 | Risk mitigation | drafted | `docs/risk-mitigation.md`, ADR 0003 | Keep required for map, agent, MCP, adapter, and safe-edit work. |
+| CLI and adapter boundaries | drafted | ADR 0004, `docs/cli.md`, `docs/package-map.md` | Revisit only through a future ADR. |
 | Roadmap | drafted | `docs/roadmap.md` | Update as phases start or move. |
 | Task backlog | drafted | `docs/task-backlog.md` | Convert each PR slice into task files or issues. |
+| Release policy | drafted | `docs/release.md` | Activate when publish tooling exists. |
+| Compatibility policy | drafted | `docs/compatibility.md` | Fill version matrix only after implementation and CI. |
+| Examples strategy | drafted | `docs/examples.md` | Add examples once create-app and fixtures exist. |
+| Comparison positioning | drafted | `docs/comparisons.md` | Update when benchmarks or launch positioning exist. |
+| Accessibility strategy | drafted | `docs/accessibility.md` | Add diagnostics after rendering and SEO checks exist. |
+| Frontier skills and subagents prompt | drafted | `docs/prompts/frontier-skills-subagents-prompt.md` | Use to generate model-agnostic agent operating blueprints. |
+| GitHub templates | scaffolded | `.github/pull_request_template.md`, `.github/ISSUE_TEMPLATE/*` | Refine after first implementation PRs. |
+| CODEOWNERS | scaffolded | `CODEOWNERS` | Update when packages and examples exist. |
+| Docs check workflow | scaffolded | `.github/workflows/docs-check.yml` | Observe first PR run and tune if needed. |
 | Monorepo skeleton | planned | Phase 1 roadmap | Create Bun workspace and package scaffolds. |
 | Core data model | planned | Phase 1A roadmap | Lock `NeedleApp`, `RouteNode`, `GraphEdge`, and `NeedleDiagnostic`. |
 | CLI | planned | `docs/cli.md` | Implement `@needle/cli` after scaffolding. |
@@ -46,7 +57,6 @@ A command must not be marked `verified` until it has been run after the relevant
 | Hot API path | planned | `docs/hot-api-path.md` | Implement schema-backed handler generation. |
 | Cache system | planned | `docs/cache.md` | Define cache manifests and diagnostics before runtime caching. |
 | Needle Map | planned | `docs/needle-map.md` | Build file-level graph first. |
-| Agent Kernel | planned | `docs/agent-kernel.md` | Generate context capsules after graph and SEO outputs exist. |
 | MCP server | planned | `docs/mcp-server.md` | Start with read-only tools. |
 | Safe edits | planned | `docs/safe-edit-transactions.md` | Implement metadata edit as first low-risk write. |
 | Migration tooling | planned | `docs/migration.md` | Prototype constrained Next.js App Router migration. |
@@ -80,13 +90,14 @@ Until the monorepo exists, all commands below are target UX only.
 | --- | --- | --- |
 | Product thesis | `README.md` | `VISION.md` |
 | Architecture | `ARCHITECTURE.md` | `docs/decisions/*`, `docs/risk-mitigation.md` |
-| Package boundaries | `docs/package-map.md` | `ARCHITECTURE.md`, `AGENTS.md` |
-| CLI | `docs/cli.md` | `docs/prototype-acceptance.md`, `AGENTS.md` |
+| Package boundaries | `docs/package-map.md` | `ARCHITECTURE.md`, `AGENTS.md`, ADR 0004 |
+| CLI | `docs/cli.md` | `docs/prototype-acceptance.md`, `AGENTS.md`, ADR 0004 |
 | Config | `docs/config.md` | `docs/runtime-contract.md`, `docs/adapters.md` |
 | Routing | `docs/routing.md` | `docs/compiler-ir.md` |
 | Manifests | `docs/manifest-contracts.md` | `docs/compiler-ir.md`, `docs/runtime-contract.md` |
 | Runtime | `docs/runtime-contract.md` | `docs/deployment.md`, `docs/adapters.md` |
 | SEO | `docs/seo-engine.md` | `docs/routing.md`, `docs/manifest-contracts.md` |
+| Accessibility | `docs/accessibility.md` | `docs/seo-engine.md`, `docs/testing.md` |
 | Performance | `docs/performance.md` | `docs/testing.md` |
 | Cache | `docs/cache.md` | `docs/runtime-contract.md`, `docs/needle-map.md` |
 | API routes | `docs/api-routes.md` | `docs/schema.md`, `docs/hot-api-path.md` |
@@ -99,6 +110,10 @@ Until the monorepo exists, all commands below are target UX only.
 | Deployment | `docs/deployment.md` | `docs/adapters.md`, `docs/runtime-contract.md` |
 | Security | `docs/security.md`, `SECURITY.md` | `AGENTS.md`, `docs/mcp-server.md` |
 | Testing | `docs/testing.md` | `CONTRIBUTING.md`, `docs/task-backlog.md` |
+| Release | `docs/release.md` | `docs/status.md`, `docs/compatibility.md` |
+| Examples | `docs/examples.md` | `docs/testing.md`, `docs/prototype-acceptance.md` |
+| Comparisons | `docs/comparisons.md` | `README.md`, `VISION.md` |
+| Prompt library | `docs/prompts/frontier-skills-subagents-prompt.md` | `AGENTS.md`, `docs/agent-kernel.md` |
 
 ## Update Rules
 
@@ -109,6 +124,7 @@ Update this file whenever one of these changes:
 - A package is added, removed, or renamed.
 - A generated artifact is added, removed, or versioned.
 - A roadmap phase starts, completes, or changes scope.
+- A governance artifact such as a template, workflow, CODEOWNERS entry, release policy, or prompt changes status.
 
 Every implementation PR should include a one-line status update when it changes the truth table.
 
