@@ -2,13 +2,15 @@
 
 This file is the operating guide for AI agents working in this repository.
 
-Agents must read this file before editing code or documentation. When the project changes in a way that affects setup, commands, architecture, package boundaries, roadmap, generated artifacts, security, testing, or safety rules, agents must update this file and README.md in the same change when those user-facing truths change.
+Agents must read this file before editing code or documentation. When the project changes in a way that affects setup, commands, architecture, package boundaries, roadmap, generated artifacts, security, testing, product positioning, or safety rules, agents must update this file and README.md in the same change when those user-facing truths change.
 
 ## Project Identity
 
 Project name: NeedleStart.
 
-NeedleStart is an agent-native, SEO-first React framework for fast, large-scale web applications. It uses Bun for local workflow and the default adapter path, Vite/Rolldown for frontend build leverage, and a custom Needle compiler for route intelligence, SEO, graph, API generation, manifests, and agent context.
+NeedleStart is the app-graph-native, SEO-first React framework where the application ships with a map. It uses Bun for local workflow and the default adapter path, Vite/Rolldown for frontend build leverage, and a custom Needle compiler for route intelligence, render/cache explanations, SEO, graph, API generation, manifests, and agent context.
+
+The durable product wedge is not generic framework parity. It is making large React apps understandable, auditable, changeable, and verifiable by humans and AI agents through a first-class semantic app graph.
 
 ## Current Phase
 
@@ -28,6 +30,7 @@ Every agent change must evaluate whether these files need updates:
 - `ARCHITECTURE.md`
 - `SECURITY.md`
 - `docs/status.md`
+- `docs/product-strategy.md`
 - `docs/roadmap.md`
 - `docs/risk-mitigation.md`
 - `docs/package-map.md`
@@ -36,6 +39,10 @@ Every agent change must evaluate whether these files need updates:
 - `docs/config.md`
 - `docs/routing.md`
 - `docs/manifest-contracts.md`
+- `docs/public-docs.md`
+- `docs/website-content-map.md`
+- `docs/benchmarks.md`
+- `docs/benchmark-methodology.md`
 - `docs/security.md`
 - `docs/testing.md`
 
@@ -56,6 +63,7 @@ Update `AGENTS.md` when:
 - Generated-file rules change.
 - Package ownership or edit boundaries change.
 - Agent workflow changes.
+- Product positioning changes.
 - New high-risk areas are introduced.
 - Required documentation changes.
 
@@ -66,6 +74,7 @@ Update `docs/status.md` when:
 - A package is added, removed, or renamed.
 - A generated artifact is added, removed, or versioned.
 - A roadmap phase starts, completes, or changes scope.
+- A product strategy, public docs, benchmark, release, or governance artifact changes status.
 
 Update both `README.md` and `AGENTS.md` when:
 
@@ -74,6 +83,7 @@ Update both `README.md` and `AGENTS.md` when:
 - A new command is added.
 - A new generated artifact is introduced.
 - A phase is completed or redefined.
+- The market positioning changes.
 
 ## Setup
 
@@ -119,6 +129,7 @@ needle build
 needle start
 needle routes
 needle inspect
+needle inspect why
 needle check
 needle seo
 needle map
@@ -127,27 +138,33 @@ needle mcp
 needle edit
 needle migrate
 needle bench
+needle docs check-public
 ```
 
 ## Repository Rules
 
 - Prefer deterministic compiler output.
+- Prefer compiler explanations over runtime magic.
 - Prefer AST edits over string replacement for TypeScript source.
 - Add or update tests for every implemented feature.
 - Keep production runtime free of agent metadata.
 - Keep CLI JSON output stable, compact, schema-versioned, and documented.
 - Public SEO behavior must be tested when implemented.
+- Public HTML and accessibility-sensitive behavior must be visible in diagnostics when implemented.
 - New graph edges must include `kind`, `source`, `confidence`, and `why`.
+- Render, cache, SEO, adapter, and route decisions should include compact `why` explanations when practical.
 - Do not edit generated files manually.
 - Do not add network calls in tests unless explicitly required.
 - Do not introduce global mutable state in runtime adapters.
-- Do not implement a custom bundler before the Vite/Rolldown path is proven.
+- Do not implement a custom bundler before the Vite/Rolldown path and app-graph wedge are proven.
 - Do not make React Server Components the default render path before stable SSR, SSG, streaming, and the route compiler exist.
+- Do not chase Next.js parity feature by feature.
 - Do not let Needle Map be the only source of truth for safety-critical decisions.
 - Treat missing semantic contracts as low-confidence graph data instead of guessing.
 - Safe edits must be AST-based, previewable, logged, check-backed, and reversible.
 - User application code should not require Bun-only APIs; Bun-specific behavior belongs inside adapter packages.
-- Do not expose secret values in manifests, logs, MCP responses, or agent context.
+- Do not expose secret values in manifests, logs, MCP responses, benchmark outputs, public docs, or agent context.
+- Do not publish benchmark claims without raw data and methodology.
 
 ## Generated Files
 
@@ -176,6 +193,7 @@ Rules:
 - Generated files must not require manual edits.
 - Generated JSON must include schema versions where relevant.
 - Generated files must redact secrets.
+- Generated files should explain framework decisions through `why` fields where relevant.
 - Agent metadata must not be shipped in production runtime bundles.
 - Generated artifact changes must stay aligned with `docs/manifest-contracts.md`.
 
@@ -194,6 +212,8 @@ High-risk areas:
 - Runtime request routing.
 - Schema validators and serializers.
 - Server functions.
+- Public benchmark claims.
+- Public docs that could overclaim planned behavior.
 
 ## Risk Mitigation Rules
 
@@ -201,33 +221,38 @@ Agents must read `docs/risk-mitigation.md` before changing Needle Map, Agent Ker
 
 Agents must read `docs/security.md` before changing MCP, safe edits, environment handling, generated manifests, runtime adapters, logging, production output, or file-system tools.
 
+Agents must read `docs/product-strategy.md` before changing public positioning, roadmap priority, benchmark claims, or comparison language.
+
 Key rules:
 
 - Build semantic graph extraction in layers: file graph, explicit contracts, convention inference, then optional static analysis.
 - Prefer explicit `.contract.ts` files for high-confidence semantic edges.
 - Every `GraphEdge` must include `kind`, `source`, `confidence`, and `why`.
-- Keep the first prototype scoped to create app, SEO-safe pages, adapter-aware Bun serving, basic map, agent inspection, and safe metadata edit.
+- Keep the first prototype scoped to create app, SEO-safe pages, adapter-aware Bun serving, inspect/explain commands, basic map, agent inspection, and safe metadata edit.
 - Move Node adapter work earlier than the long-term adapter phase to reduce Bun adoption friction.
 - Keep adapter boundaries early: Bun-specific APIs stay in `@needle/adapter-bun`, Node compatibility stays in `@needle/adapter-node`, and static export logic stays in `@needle/adapter-static`.
 - Safe edit transactions must validate, preview, apply through AST, format, regenerate graph, run affected checks, log, and support undo.
 - High-risk safe edits in production workflows require explicit human sign-off.
-- New feature work must pass the scope gate: improves map or agent experience, adds minimal production runtime code, and has a clear fixture or agent demo.
+- New feature work must pass the scope gate: improves app graph, explainability, or agent experience; adds minimal production runtime code; and has a clear fixture or agent demo.
 
 Agents must treat high-risk changes as requiring stronger tests and clearer documentation.
 
 ## Architecture Principles
 
-1. Static-first, SSR when needed, client-only only when intentional.
-2. Agent-native, human-auditable.
-3. Compiler intelligence over runtime magic.
-4. Typed route graph is the app contract.
-5. SEO must pass by default for public pages.
-6. Hot APIs bypass React.
-7. Every generated artifact has a source and explanation.
-8. Large apps are not an afterthought.
-9. Production bundles do not ship agent metadata.
-10. No invisible caching.
-11. Bun is the speed default, not a portability trap.
+1. App-graph-native: the application ships with a map.
+2. Static-first, SSR when needed, client-only only when intentional.
+3. Agent-safe, human-auditable.
+4. Compiler intelligence over runtime magic.
+5. Typed route graph is the app contract.
+6. SEO must pass by default for public pages.
+7. Public HTML and accessibility matter with SEO.
+8. Hot APIs bypass React.
+9. Every generated artifact has a source and explanation.
+10. Large apps are not an afterthought.
+11. Production bundles do not ship agent metadata.
+12. No invisible caching.
+13. Bun is the speed default, not a portability trap.
+14. Benchmarks must be raw-data-backed and reproducible.
 
 ## Learning and Collaboration
 
@@ -256,8 +281,10 @@ For implemented features, use the smallest complete test set that proves behavio
 - HTTP tests for runtime adapter behavior.
 - Snapshot or stable JSON tests for agent-facing output.
 - Fixture tests for route discovery, SEO, API routes, and map generation.
-- Security redaction tests for config, manifests, MCP, logs, and agent context.
+- Explanation tests for render, cache, SEO, route, and graph decisions.
+- Security redaction tests for config, manifests, MCP, logs, public docs, benchmarks, and agent context.
 - Safe edit rejection tests as well as success tests.
+- Benchmark smoke tests before benchmark claims.
 
 Test output used by agents must be deterministic.
 
@@ -273,6 +300,7 @@ Use `docs/testing.md` as the detailed testing strategy.
 - Avoid undocumented magic.
 - Keep command examples aligned with `docs/cli.md`.
 - Keep generated artifact examples aligned with `docs/manifest-contracts.md`.
+- Keep public language aligned with the app-graph-native market push.
 
 ## Agent Workflow
 
@@ -281,8 +309,9 @@ Before editing:
 1. Read `README.md`.
 2. Read this `AGENTS.md`.
 3. Read `docs/status.md`.
-4. Read the relevant docs under `docs/`.
-5. Check whether the task is documentation-only, scaffolding, implementation, or verification.
+4. Read `docs/product-strategy.md` for positioning or roadmap work.
+5. Read the relevant docs under `docs/`.
+6. Check whether the task is documentation-only, scaffolding, implementation, or verification.
 
 While editing:
 
@@ -297,5 +326,5 @@ Before finishing:
 1. Run available checks.
 2. If checks cannot run because scaffolding does not exist, state that clearly.
 3. Verify `README.md` and `AGENTS.md` still describe the repository honestly.
-4. Verify docs stay aligned with `docs/status.md`, `docs/cli.md`, and `docs/manifest-contracts.md` when relevant.
+4. Verify docs stay aligned with `docs/status.md`, `docs/product-strategy.md`, `docs/cli.md`, and `docs/manifest-contracts.md` when relevant.
 5. Summarize changed files and remaining next steps.
