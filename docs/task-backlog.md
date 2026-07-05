@@ -2,6 +2,28 @@
 
 This backlog turns the roadmap into concrete implementation tasks. Each task should eventually become an issue or implementation plan using `docs/templates/task-template.md`.
 
+Use `docs/status.md` to track whether each task is planned, scaffolded, implemented, or verified.
+
+## PR 0: Documentation Contract Hardening
+
+Goal: turn Phase 0 planning into implementation contracts.
+
+Definition of done:
+
+- `docs/status.md` exists.
+- `docs/cli.md` exists.
+- `docs/config.md` exists.
+- `docs/routing.md` exists.
+- `docs/manifest-contracts.md` exists.
+- `docs/security.md` and root `SECURITY.md` exist.
+- `docs/testing.md` exists.
+- `docs/cache.md` exists.
+- `docs/schema.md` exists.
+- `docs/api-routes.md` exists.
+- `docs/deployment.md` exists.
+- README and docs hub link the new docs.
+- Package and adapter naming is consistent.
+
 ## PR 1: Monorepo Skeleton
 
 Goal: create the Bun workspace and package scaffolds.
@@ -14,7 +36,6 @@ Packages:
 - `@needle/compiler`
 - `@needle/vite-plugin`
 - `@needle/react`
-- `@needle/server-bun`
 - `@needle/router`
 - `@needle/seo`
 - `@needle/map`
@@ -32,6 +53,7 @@ Definition of done:
 - Every package has `package.json`.
 - Every package has `src/index.ts`.
 - Placeholder tests exist.
+- `docs/status.md` marks the skeleton as scaffolded.
 
 ## PR 1A: Core Data Model
 
@@ -39,10 +61,15 @@ Goal: lock the shared immutable data model in `@needle/core`.
 
 Definition of done:
 
+- `NeedleConfig` exists.
 - `NeedleApp` exists.
 - `RouteNode` exists.
+- `RenderMode` exists.
 - `GraphEdge` exists with `kind`, `source`, `confidence`, and `why`.
 - `NeedleDiagnostic` exists.
+- `CachePlan` exists.
+- Adapter capability type exists.
+- Manifest base type exists.
 - CLI, compiler, map, agent, MCP, adapters, and devtools import these types instead of defining local substitutes.
 - Type tests or placeholder tests verify the shape.
 
@@ -56,7 +83,9 @@ Definition of done:
 - `@needle/adapter-node` package exists.
 - `@needle/adapter-static` package exists.
 - Adapter capability type exists in `@needle/core`.
+- Placeholder adapter manifests can be represented.
 - User-facing docs explain Bun default plus Node/static compatibility.
+- `@needle/server-bun` is not introduced unless a future ADR defines a shared server core package.
 
 ## PR 2: Route Discovery
 
@@ -69,9 +98,23 @@ Definition of done:
 - Catch-all routes work.
 - Route groups are ignored in URLs.
 - API routes are distinguished.
+- Route IDs are stable.
 - Manifest order is deterministic.
+- Route collision diagnostics work.
 
-## PR 3: Vite Dev Integration
+## PR 3: CLI JSON Envelope
+
+Goal: implement a minimal CLI wrapper with stable JSON output rules.
+
+Definition of done:
+
+- `needle routes --json` uses the envelope from `docs/cli.md`.
+- Diagnostics use stable codes.
+- Exit codes follow `docs/cli.md`.
+- `--ci` avoids prompts.
+- `--json` does not print unrelated human output.
+
+## PR 4: Vite Dev Integration
 
 Goal: make `needle dev` start Vite and render a basic React page.
 
@@ -83,7 +126,7 @@ Definition of done:
 - Route manifest virtual module exists.
 - HMR updates changed page.
 
-## PR 4: React SSR and Hydration
+## PR 5: React SSR and Hydration
 
 Goal: support basic SSR and client hydration.
 
@@ -92,8 +135,9 @@ Definition of done:
 - Root route SSR works.
 - Client component counter hydrates.
 - Dev errors are readable.
+- Route and source file appear in useful diagnostics where available.
 
-## PR 5: Layouts and Params
+## PR 6: Layouts and Params
 
 Goal: support nested layouts, route params, and search params.
 
@@ -101,10 +145,11 @@ Definition of done:
 
 - Nested layouts render in order.
 - Dynamic params pass to pages.
+- Catch-all params pass to pages.
 - Search params pass to pages.
 - 404 and error page conventions work.
 
-## PR 6: Static Build
+## PR 7: Static Build and Render Manifest
 
 Goal: support `staticPage()` and emit static HTML.
 
@@ -113,10 +158,11 @@ Definition of done:
 - Static route emits HTML.
 - Render manifest records mode.
 - Invalid render export gets helpful diagnostic.
+- Generated output follows `docs/manifest-contracts.md`.
 
-## PR 7: Bun Server
+## PR 8: Bun Adapter Server
 
-Goal: support `needle start` for built apps.
+Goal: support `needle start` for built apps through `@needle/adapter-bun`.
 
 Definition of done:
 
@@ -125,9 +171,9 @@ Definition of done:
 - 404 works.
 - 500 works.
 - Cache headers are tested.
-- Bun server is implemented behind `@needle/adapter-bun`.
+- Bun-specific APIs stay inside `@needle/adapter-bun`.
 
-## PR 7A: Adapter-Aware Server Entry
+## PR 8A: Adapter-Aware Server Entry
 
 Goal: make generated server output adapter-aware.
 
@@ -139,7 +185,7 @@ Definition of done:
 - Static adapter can export compatible static routes.
 - Node adapter can serve a minimal SSR route.
 
-## PR 8: Metadata and SEO Audit
+## PR 9: Metadata and SEO Audit
 
 Goal: implement `defineMeta()` and `needle seo`.
 
@@ -150,8 +196,9 @@ Definition of done:
 - Robots generated.
 - Missing title, description, or canonical fails public route audit.
 - JSON output is stable.
+- SEO report follows `docs/manifest-contracts.md`.
 
-## PR 9: API Routes
+## PR 10: API Routes
 
 Goal: support API route files.
 
@@ -161,19 +208,47 @@ Definition of done:
 - Dynamic API params work.
 - Plain objects become JSON.
 - Response objects pass through.
+- 404 and 405 behavior is tested.
+- Production errors hide stack traces.
 
-## PR 10: Hot API Schema Path
+## PR 11: Schema DSL Baseline
 
-Goal: implement minimal `schema` and `apiHot()`.
+Goal: implement minimal `schema` primitives.
+
+Definition of done:
+
+- `string`, `number`, `boolean`, `enum`, `array`, `object`, and `uint64` exist.
+- Optional fields work.
+- Default fields work.
+- Validation errors use stable JSON.
+- Type tests or runtime tests cover supported primitives.
+
+## PR 12: Hot API Schema Path
+
+Goal: implement minimal `apiHot()`.
 
 Definition of done:
 
 - Params validate.
+- Query validates where declared.
+- Body validates where declared.
 - Response serializes.
 - Invalid input returns structured 400.
 - Benchmark fixture compares normal and hot API.
 
-## PR 11: Needle Map File Graph
+## PR 13: Cache Manifest Baseline
+
+Goal: make cache behavior explicit before deeper runtime caching.
+
+Definition of done:
+
+- Route cache metadata appears in `cache.manifest.json`.
+- Static, SSR, API, and hot API defaults are documented in output.
+- Cache tags appear in manifest.
+- Invalid cache durations fail validation.
+- Secret-like cache tags or keys are rejected or redacted.
+
+## PR 14: Needle Map File Graph
 
 Goal: generate a file-level map.
 
@@ -189,18 +264,20 @@ Definition of done:
 - Affected query works.
 - Explain query works.
 - JSON output is deterministic.
+- Every edge has `source`, `confidence`, and `why`.
 
-## PR 12: Agent Context
+## PR 15: Agent Context
 
 Goal: generate route context capsules.
 
 Definition of done:
 
 - `needle agent context --route / --json` works.
-- Context includes route, source, mode, SEO, components, checks, and safe edits.
+- Context includes route, source, mode, SEO, components, cache summary, checks, and safe edits.
 - Production build excludes agent metadata.
+- Context output redacts secrets.
 
-## PR 13: MCP Read-Only Server
+## PR 16: MCP Read-Only Server
 
 Goal: expose read-only framework tools through MCP.
 
@@ -211,8 +288,10 @@ Definition of done:
 - `get_route` works.
 - `get_related_files` works.
 - `get_seo_report` works.
+- MCP responses are stable JSON.
+- MCP read tools do not expose secrets.
 
-## PR 14: Safe Metadata Edit
+## PR 17: Safe Metadata Edit
 
 Goal: implement one safe edit path.
 
@@ -234,8 +313,9 @@ Definition of done:
 - Affected checks run.
 - Mutation log is written.
 - `needle edit undo <mutationId>` works.
+- Unknown field and high-risk edit rejection are tested.
 
-## PR 15: Node Adapter Baseline
+## PR 18: Node Adapter Baseline
 
 Goal: provide early Node compatibility so Bun is a speed default, not an adoption blocker.
 
@@ -245,8 +325,9 @@ Definition of done:
 - SSR route can run on Node.
 - Adapter capabilities are documented.
 - README documents Bun default plus Node compatibility.
+- Benchmarks distinguish Bun and Node paths when benchmarks exist.
 
-## PR 16: Agent Simulator Harness
+## PR 19: Agent Simulator Harness
 
 Goal: create a script that exercises the agent and MCP workflow without an external LLM.
 
@@ -260,7 +341,7 @@ Definition of done:
 - Simulator verifies mutation log output.
 - Rejected edits are tested.
 
-## PR 17: Migration Prototype
+## PR 20: Migration Prototype
 
 Goal: prototype `needle migrate from-next`.
 
