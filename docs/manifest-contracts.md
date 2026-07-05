@@ -1,6 +1,6 @@
 # Manifest Contracts
 
-NeedleStart is built around generated manifests. This document defines the planned contract for manifest shape, versioning, determinism, paths, diagnostics, and compatibility.
+NeedleStart is built around generated manifests. This document defines the planned contract for manifest shape, versioning, determinism, paths, diagnostics, explanations, and compatibility.
 
 Manifests are the spine of the framework. CLI, runtime adapters, SEO, Needle Map, Agent Kernel, MCP, devtools, tests, and deployment tools should read the same generated contracts instead of rediscovering application structure.
 
@@ -10,6 +10,7 @@ Manifests are the spine of the framework. CLI, runtime adapters, SEO, Needle Map
 - Give agents compact structured data instead of repository-wide scanning.
 - Keep production runtime small by moving decisions to build time.
 - Make every cache, route, SEO, adapter, and map decision inspectable.
+- Explain why render, cache, SEO, route, and graph decisions happened.
 - Avoid leaking secrets or agent-only metadata into production runtime bundles.
 - Make breaking changes explicit through schema versions.
 
@@ -44,6 +45,49 @@ Rules:
 - Do not include absolute paths unless a command explicitly requests local-only debug output.
 - Do not include secret values.
 - Keep production manifests free of agent context capsules unless explicitly designed for development use.
+- Any inferred or surprising decision should include a compact `why` explanation.
+
+## Explanation Contract
+
+Framework decisions should be explainable without forcing users or agents to reverse-engineer source code.
+
+Draft type:
+
+```ts
+export type Explanation = {
+  code: string
+  message: string
+  source: "compiler" | "config" | "route-export" | "metadata" | "schema" | "cache" | "adapter" | "graph" | "convention" | "manual"
+  confidence?: number
+}
+```
+
+Rules:
+
+- `code` should be stable enough for tests and agents.
+- `message` should be human-readable.
+- `source` should identify where the decision came from.
+- `confidence` is required when the decision is inferred rather than declared.
+- Explanation arrays should be short and sorted in decision order.
+
+Example:
+
+```json
+{
+  "why": [
+    {
+      "code": "NS_RENDER_DECLARED_STATIC",
+      "message": "Route declares staticPage().",
+      "source": "route-export"
+    },
+    {
+      "code": "NS_METADATA_STATIC",
+      "message": "Metadata is statically analyzable.",
+      "source": "metadata"
+    }
+  ]
+}
+```
 
 ## Manifest Locations
 
@@ -157,6 +201,7 @@ export type RoutesManifest = ManifestBase & {
       notFound?: string
       error?: string
     }
+    why?: Explanation[]
   }>
 }
 ```
@@ -175,7 +220,14 @@ Example:
       "file": "app/page.tsx",
       "kind": "page",
       "params": [],
-      "layouts": ["app/layout.tsx"]
+      "layouts": ["app/layout.tsx"],
+      "why": [
+        {
+          "code": "NS_ROUTE_PAGE_FILE",
+          "message": "app/page.tsx maps to the root page route.",
+          "source": "convention"
+        }
+      ]
     }
   ],
   "diagnostics": []
@@ -196,6 +248,7 @@ export type RenderManifest = ManifestBase & {
     revalidate?: RevalidatePlan
     generatedFiles: string[]
     adapterRequirements: string[]
+    why: Explanation[]
   }>
 }
 ```
@@ -206,6 +259,35 @@ Rules:
 - Static routes should list emitted HTML files.
 - SSR and API routes should list server handler modules.
 - Adapter requirements should be explicit, such as `http`, `streaming`, or `static-output`.
+- Every render mode should include `why`, even when the route explicitly declares the mode.
+
+Example:
+
+```json
+{
+  "id": "app.pricing.page",
+  "path": "/pricing",
+  "mode": "static",
+  "cache": {
+    "mode": "static",
+    "reason": "Route is compiled to static HTML."
+  },
+  "generatedFiles": ["dist/public/pricing/index.html"],
+  "adapterRequirements": ["static-output"],
+  "why": [
+    {
+      "code": "NS_RENDER_DECLARED_STATIC",
+      "message": "Route declares staticPage().",
+      "source": "route-export"
+    },
+    {
+      "code": "NS_RENDER_NO_REQUEST_APIS",
+      "message": "No request-time APIs were detected.",
+      "source": "compiler"
+    }
+  ]
+}
+```
 
 ## SEO Report
 
@@ -229,6 +311,7 @@ export type SeoReport = ManifestBase & {
       robots?: CheckResult
       statusCode?: CheckResult
     }
+    why?: Explanation[]
     safeFixes?: SafeFix[]
   }>
 }
@@ -252,6 +335,7 @@ export type CacheManifest = ManifestBase & {
     mode: string
     plan: CachePlan
     tags: string[]
+    why: Explanation[]
   }>
   tags: Array<{
     tag: string
@@ -266,6 +350,7 @@ Rules:
 - SSR and API routes default to `no-store` unless explicitly configured.
 - Cache tags must be queryable by Needle Map.
 - Micro-cache settings must be explicit and bounded.
+- Cache plans should explain the source of the behavior and whether it came from route config, render mode, adapter defaults, or API declarations.
 
 ## Map Manifest
 
@@ -478,6 +563,7 @@ Every manifest should have:
 - Redaction tests for secrets.
 - Schema version tests.
 - Snapshot tests only for stable, intentionally sorted output.
+- Explanation tests for render, cache, SEO, and graph decisions.
 
 ## Out of Scope Initially
 
