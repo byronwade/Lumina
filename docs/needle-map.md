@@ -6,6 +6,8 @@ It is the product spine: the framework-level map that lets humans, agents, CLI c
 
 Needle Map must be a core framework feature, not a side widget.
 
+For the visual model, see [App Graph Visual Map](app-graph-visual.md).
+
 ## Product Promise
 
 Needle Map should answer:
