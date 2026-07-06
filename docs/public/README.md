@@ -79,4 +79,5 @@ NeedleStart is still Phase 0. Public pages must not claim that commands, package
 - Mark planned commands as planned.
 - Avoid unsupported benchmark or security claims.
 - Prefer concise website copy over internal planning detail.
+- Follow [Public Frontmatter Standard](../public-frontmatter-standard.md) when a future docs renderer starts consuming page metadata.
 

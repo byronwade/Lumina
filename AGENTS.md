@@ -37,12 +37,16 @@ Every agent change must evaluate whether these files need updates:
 - `docs/docs-freshness-policy.md`
 - `docs/docs-maintenance-checklist.md`
 - `docs/docs-verification.md`
+- `docs/first-contribution.md`
+- `docs/review-checklist.md`
+- `docs/public-frontmatter-standard.md`
 - `docs/testing-contract.md`
 - `docs/cli-json-contract.md`
 - `docs/diagnostics-contract.md`
 - `docs/config-contract.md`
 - `docs/adapter-contract.md`
 - `docs/examples-contract.md`
+- `docs/examples-catalog.md`
 - `docs/routing-contract.md`
 - `docs/api-route-contract.md`
 - `docs/schema-contract.md`
@@ -50,13 +54,22 @@ Every agent change must evaluate whether these files need updates:
 - `docs/seo-contract.md`
 - `docs/accessibility-contract.md`
 - `docs/security-contract.md`
+- `docs/threat-model.md`
 - `docs/performance-contract.md`
+- `docs/benchmark-fixtures.md`
 - `docs/speed-decisions.md`
 - `docs/speed-capability-audit.md`
 - `docs/public-docs-site-architecture.md`
+- `docs/docs-site-build-plan.md`
 - `docs/phase-1-build-plan.md`
 - `docs/product-build-readiness.md`
 - `docs/versioning-and-upgrades.md`
+- `docs/decisions/README.md`
+- `docs/checklists/README.md`
+- `docs/checklists/phase-1-scaffold.md`
+- `docs/checklists/adapter-implementation.md`
+- `docs/checklists/performance-evidence.md`
+- `docs/glossary.md`
 - `docs/task-backlog.md`
 - `docs/skills/README.md`
 - `docs/subagents/README.md`
@@ -241,12 +254,20 @@ Test output used by agents must be deterministic.
 - Follow `docs/docs-freshness-policy.md` before finishing any change that can make docs stale.
 - Use `docs/docs-maintenance-checklist.md` before finishing documentation, command, package, status, governance, release, security, benchmark, or public-docs changes.
 - Use `docs/docs-verification.md` for repeatable documentation checks and report which checks passed.
+- Use `docs/first-contribution.md` when shaping first-time contributor or good-first-task guidance.
+- Use `docs/review-checklist.md` before review-ready changes, especially docs-system, security, performance, public-docs, package-boundary, or implementation work.
+- Use `docs/decisions/README.md` and `docs/templates/adr-template.md` when a change needs a durable architecture decision record.
+- Use `docs/public-frontmatter-standard.md` when changing public docs metadata, future frontmatter fields, route metadata, or docs-site validation.
+- Use `docs/checklists/phase-1-scaffold.md` when adding or reviewing monorepo scaffold work.
+- Use `docs/checklists/adapter-implementation.md` when adding or reviewing runtime adapter behavior.
+- Use `docs/checklists/performance-evidence.md` when adding or reviewing performance evidence or speed claims.
 - Use `docs/testing-contract.md` when changing test commands, fixture layout, snapshot policy, CI gates, HTTP tests, browser tests, security tests, performance tests, or evidence reporting.
 - Use `docs/cli-json-contract.md` when changing CLI JSON output, diagnostics, exit codes, or command automation behavior.
 - Use `docs/diagnostics-contract.md` when changing diagnostic codes, severity levels, source locations, remediation text, docs links, code frames, JSON diagnostic shape, or cross-surface diagnostic behavior.
 - Use `docs/config-contract.md` when changing config fields, config loading, env handling, normalized config, or config-generated output behavior.
 - Use `docs/adapter-contract.md` when changing adapter packages, adapter manifests, deployment output, runtime compatibility, static export behavior, health endpoints, adapter environment variables, or adapter capability claims.
 - Use `docs/examples-contract.md` when changing example apps, starter templates, create-command example support, fixture evidence, public guide snippets, or example status labels.
+- Use `docs/examples-catalog.md` when changing official example inventory, planned example status, example paths, or public guide-to-example mapping.
 - Use `docs/routing-contract.md` when changing route discovery, route IDs, file-route grammar, route manifest fields, route sorting, route diagnostics, or route fixtures.
 - Use `docs/api-route-contract.md` when changing API route handlers, method exports, request or response behavior, API schemas, API diagnostics, API manifest fields, API cache defaults, or hot API integration.
 - Use `docs/schema-contract.md` when changing schema helpers, validation results, issue shapes, query coercion, response serializers, OpenAPI mapping, schema manifests, or schema diagnostics.
@@ -254,10 +275,13 @@ Test output used by agents must be deterministic.
 - Use `docs/seo-contract.md` when changing metadata helpers, metadata merge behavior, sitemap output, robots output, structured data, SEO diagnostics, SEO reports, or public HTML indexability checks.
 - Use `docs/accessibility-contract.md` when changing framework-owned HTML, examples, docs UI, form errors, route focus behavior, accessibility diagnostics, or accessibility test evidence.
 - Use `docs/security-contract.md` when changing high-risk surfaces, secret handling, production errors, security headers, agent or MCP writes, package publishing, vulnerability intake, or security test evidence.
+- Use `docs/threat-model.md` when changing high-risk implementation work, generated artifacts, runtime routing, cache behavior, docs outputs, Agent Kernel, MCP tools, safe edits, or release flow.
 - Use `docs/performance-contract.md` when changing route budgets, performance diagnostics, `.needle/perf.report.json`, benchmark evidence, Core Web Vitals language, or public speed claims.
+- Use `docs/benchmark-fixtures.md` when changing benchmark fixture scope, fixture names, raw result layout, performance evidence paths, or benchmark claim gates.
 - Use `docs/speed-decisions.md` when changing rendering defaults, build pipeline choices, runtime request path, route code splitting, CSS delivery, production source maps, React Compiler, React streaming or hydration behavior, browser delivery hints, 103 Early Hints, optional RUM or field-data policy, API hot paths, caching strategy, compiler scaling, agent context size, or benchmark positioning.
 - Use `docs/speed-capability-audit.md` when reviewing whether all major speed surfaces have a documented decision, proof gate, and remaining implementation evidence.
 - Use `docs/public-docs-site-architecture.md` when changing public docs navigation, page metadata, future frontmatter, route mapping, or docs-site behavior.
+- Use `docs/docs-site-build-plan.md` when changing future public docs implementation phases, renderer selection gates, search, navigation, accessibility, or machine-readable docs outputs.
 - Use `docs/versioning-and-upgrades.md` when changing public APIs, command contracts, config, manifest schemas, generated files, compatibility claims, or release behavior.
 - Use direct, durable language.
 - Mark planned features as planned.
@@ -275,8 +299,9 @@ Before editing:
 3. Read the relevant docs under `docs/`.
 4. Check whether the task is documentation-only, scaffolding, implementation, or verification.
 5. Read `docs/engineering-standards.md` for non-trivial implementation, architecture, or process work.
-6. For AI collaboration or delegation changes, read `docs/skills/README.md` and `docs/subagents/README.md`.
-7. For Phase 1 scaffolding or package-boundary work, read `docs/phase-1-build-plan.md`.
+6. Read `docs/review-checklist.md` before preparing non-trivial work for review.
+7. For AI collaboration or delegation changes, read `docs/skills/README.md` and `docs/subagents/README.md`.
+8. For Phase 1 scaffolding or package-boundary work, read `docs/phase-1-build-plan.md`.
 
 While editing:
 

@@ -4,7 +4,7 @@ Status: Planned.
 
 This page maps repository docs to future public website pages.
 
-The route and metadata contract for these pages is defined in [Public Docs Site Architecture](public-docs-site-architecture.md).
+The route and metadata contract for these pages is defined in [Public Docs Site Architecture](public-docs-site-architecture.md) and [Public Frontmatter Standard](public-frontmatter-standard.md).
 
 ## Planned Website Navigation
 
@@ -61,11 +61,11 @@ The route and metadata contract for these pages is defined in [Public Docs Site 
 | --- | --- |
 | Home | `README.md`, `VISION.md` |
 | Public home | `docs/public/index.md`, `README.md`, `VISION.md` |
-| Public docs landing | `docs/public/docs.md`, `docs/README.md` |
+| Public docs landing | `docs/public/docs.md`, `docs/README.md`, `docs/public-docs-site-architecture.md`, `docs/public-frontmatter-standard.md`, `docs/docs-site-build-plan.md` |
 | Getting Started | `docs/public/guides/create-app.md`, `docs/public/reference/examples.md`, `docs/getting-started.md`, `docs/examples-contract.md`, `docs/status.md` |
 | Guides | `docs/public/guides/*`, `docs/guides.md` |
-| API Reference | `docs/public/reference/*`, `docs/api-reference.md`, `docs/cli.md`, `docs/cli-json-contract.md`, `docs/diagnostics-contract.md`, `docs/config.md`, `docs/adapter-contract.md`, `docs/examples-contract.md`, `docs/file-conventions.md`, `docs/routing-contract.md`, `docs/api-route-contract.md`, `docs/schema-contract.md`, `docs/cache-contract.md`, `docs/seo-contract.md`, `docs/accessibility-contract.md`, `docs/security-contract.md`, `docs/performance-contract.md`, `docs/testing-contract.md`, `docs/product-build-readiness.md` |
+| API Reference | `docs/public/reference/*`, `docs/api-reference.md`, `docs/cli.md`, `docs/cli-json-contract.md`, `docs/diagnostics-contract.md`, `docs/config.md`, `docs/adapter-contract.md`, `docs/examples-contract.md`, `docs/examples-catalog.md`, `docs/file-conventions.md`, `docs/routing-contract.md`, `docs/api-route-contract.md`, `docs/schema-contract.md`, `docs/cache-contract.md`, `docs/seo-contract.md`, `docs/accessibility-contract.md`, `docs/security-contract.md`, `docs/threat-model.md`, `docs/performance-contract.md`, `docs/benchmark-fixtures.md`, `docs/testing-contract.md`, `docs/product-build-readiness.md` |
 | Concepts | `docs/public/concepts/*`, `ARCHITECTURE.md`, `docs/needle-map.md`, `docs/agent-kernel.md` |
 | Deployment | `docs/public/deployment/*`, `docs/deployment.md`, `docs/adapters.md`, `docs/compatibility.md` |
-| Community | `docs/public/community/*`, `CONTRIBUTING.md`, `GOVERNANCE.md`, `CODE_OF_CONDUCT.md` |
+| Community | `docs/public/community/*`, `CONTRIBUTING.md`, `GOVERNANCE.md`, `CODE_OF_CONDUCT.md`, `docs/first-contribution.md` |
 | Comparisons | `docs/public/comparisons/*`, `docs/comparisons.md`, `docs/documentation-research.md` |

@@ -6,7 +6,7 @@ Audience: maintainers, performance reviewers, open source program reviewers.
 
 This page defines the standard for benchmark evidence.
 
-Route budget, Core Web Vitals target, performance report, and performance diagnostic rules live in [Performance Contract](performance-contract.md).
+Route budget, Core Web Vitals target, performance report, and performance diagnostic rules live in [Performance Contract](performance-contract.md). Planned fixture names and raw result layout live in [Benchmark Fixtures](benchmark-fixtures.md).
 
 Framework-level speed choices live in [Speed Decisions](speed-decisions.md). Benchmarks should prove or challenge those decisions; they should not be written as marketing numbers first.
 

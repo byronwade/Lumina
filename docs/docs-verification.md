@@ -101,7 +101,7 @@ This is a review aid, not a binary test.
 ### 5. Navigation Coverage Check
 
 ```powershell
-rg -n "product-build-readiness|project-structure|docs-verification|public-docs-site-architecture|docs-freshness-policy|docs-maintenance-checklist" README.md AGENTS.md docs\README.md docs\public\README.md docs\public\docs.md docs\website-content-map.md
+rg -n "first-contribution|review-checklist|threat-model|benchmark-fixtures|examples-catalog|docs-site-build-plan|decisions/README|checklists/README|public-frontmatter-standard|glossary|product-build-readiness|project-structure|docs-verification|public-docs-site-architecture|docs-freshness-policy|docs-maintenance-checklist" README.md AGENTS.md docs\README.md docs\public\README.md docs\public\docs.md docs\website-content-map.md
 ```
 
 Expected result: new durable docs are discoverable from the relevant root, docs hub, public docs, or website map surfaces.
@@ -117,7 +117,7 @@ Expected result: machine-readable docs outputs remain documented as planned, sch
 ### 7. Public Docs Site Contract Check
 
 ```powershell
-rg -n "frontmatter|canonical|docs-index\.json|llms\.txt|route mapping|renderer" docs\public-docs-site-architecture.md docs\public-docs.md docs\website-content-map.md docs\machine-readable-docs.md
+rg -n "frontmatter|canonical|docs-index\.json|llms\.txt|route mapping|renderer|public-frontmatter-standard|docs-site-build-plan" docs\public-docs-site-architecture.md docs\public-frontmatter-standard.md docs\docs-site-build-plan.md docs\public-docs.md docs\website-content-map.md docs\machine-readable-docs.md
 ```
 
 Expected result: public docs metadata, routes, navigation, renderer assumptions, and machine-readable outputs remain connected.
@@ -173,7 +173,7 @@ Expected result: route grammar, route IDs, manifest fields, diagnostics, fixture
 ### 14. Examples Contract Check
 
 ```powershell
-rg -n "examples-contract|Examples And Templates Contract|Verified|Runnable|Scaffolded|bun create needle|--example|large-app-fixture|agent-demo|reference/examples" README.md AGENTS.md docs\examples-contract.md docs\examples.md docs\getting-started.md docs\public\guides\create-app.md docs\public\reference\examples.md docs\product-build-readiness.md docs\testing-contract.md
+rg -n "examples-contract|examples-catalog|Examples And Templates Contract|Verified|Runnable|Scaffolded|bun create needle|--example|large-app-fixture|agent-demo|reference/examples" README.md AGENTS.md docs\examples-contract.md docs\examples-catalog.md docs\examples.md docs\getting-started.md docs\public\guides\create-app.md docs\public\reference\examples.md docs\product-build-readiness.md docs\testing-contract.md
 ```
 
 Expected result: example status labels, starter-template requirements, create-command examples, fixture expectations, public references, and verification evidence remain connected.
@@ -221,7 +221,7 @@ Expected result: WCAG target language, semantic HTML, keyboard behavior, focus b
 ### 20. Security Contract Check
 
 ```powershell
-rg -n "security-contract|Security Contract|threat model|secret|production error|security headers|vulnerability|advisory|provenance|supply chain|high-risk" README.md AGENTS.md SECURITY.md docs\security-contract.md docs\security.md docs\testing-contract.md docs\docs-verification.md docs\product-build-readiness.md docs\public\reference\security.md
+rg -n "security-contract|Security Contract|threat-model|Threat Model|threat model|secret|production error|security headers|vulnerability|advisory|provenance|supply chain|high-risk" README.md AGENTS.md SECURITY.md .github\PULL_REQUEST_TEMPLATE.md docs\security-contract.md docs\threat-model.md docs\security.md docs\testing-contract.md docs\docs-verification.md docs\product-build-readiness.md docs\public\reference\security.md
 ```
 
 Expected result: security target language, high-risk surfaces, threat model requirements, secret handling, production error behavior, security headers, advisory flow, supply-chain release rules, testing evidence, and public reference docs remain connected.
@@ -229,7 +229,7 @@ Expected result: security target language, high-risk surfaces, threat model requ
 ### 21. Performance Contract Check
 
 ```powershell
-rg -n "performance-contract|Performance Contract|Core Web Vitals|LCP|INP|CLS|perf.report|PERF_|budget|benchmark evidence|delivery|chunk count|source-map|RUM|field data|resourceHints|Early Hints|compression|bfcache|reference/performance" README.md AGENTS.md docs\performance-contract.md docs\performance.md docs\speed-strategy.md docs\benchmark-methodology.md docs\testing-contract.md docs\manifest-contracts.md docs\docs-verification.md docs\product-build-readiness.md docs\public\reference\performance.md
+rg -n "performance-contract|Performance Contract|benchmark-fixtures|Core Web Vitals|LCP|INP|CLS|perf.report|PERF_|budget|benchmark evidence|delivery|chunk count|source-map|RUM|field data|resourceHints|Early Hints|compression|bfcache|reference/performance" README.md AGENTS.md .github\PULL_REQUEST_TEMPLATE.md docs\performance-contract.md docs\performance.md docs\speed-strategy.md docs\benchmark-methodology.md docs\benchmark-fixtures.md docs\testing-contract.md docs\manifest-contracts.md docs\docs-verification.md docs\product-build-readiness.md docs\public\reference\performance.md
 ```
 
 Expected result: route budgets, Core Web Vitals target language, performance reports, delivery fields, chunk counts, source-map exposure, optional RUM and field-data policy, diagnostics, benchmark evidence, testing evidence, manifest references, public claim rules, and public reference docs remain connected.
@@ -241,6 +241,22 @@ rg -n "speed-capability-audit|Speed Capability Audit|speed-decisions|Speed Decis
 ```
 
 Expected result: speed-sensitive architecture choices, browser-delivery choices, rejected defaults, implementation gates, performance reports, benchmark methodology, README, AGENTS, architecture, and backlog remain connected.
+
+### 23. Contributor, ADR, Checklist, And Glossary Check
+
+```powershell
+rg -n "first-contribution|Architecture Decision Records|decisions/README|Implementation Checklists|checklists/phase-1-scaffold|checklists/adapter-implementation|checklists/performance-evidence|public-frontmatter-standard|Glossary" README.md AGENTS.md docs\README.md docs\docs-verification.md docs\website-content-map.md docs\public-docs-site-architecture.md docs\public\README.md
+```
+
+Expected result: first-contribution guidance, ADRs, implementation checklists, public frontmatter rules, and glossary coverage remain discoverable from repository entrypoints and docs verification.
+
+### 24. Review, Threat, Fixture, Example, And Docs-Site Check
+
+```powershell
+rg -n "review-checklist|threat-model|benchmark-fixtures|examples-catalog|docs-site-build-plan|PULL_REQUEST_TEMPLATE" README.md AGENTS.md .github\PULL_REQUEST_TEMPLATE.md docs\README.md docs\docs-verification.md docs\security-contract.md docs\benchmark-methodology.md docs\examples-contract.md docs\public-docs-site-architecture.md docs\website-content-map.md
+```
+
+Expected result: review gates, threat-model requirements, benchmark fixture planning, example catalog planning, docs-site implementation phases, and PR template evidence remain connected.
 
 ## Future Script Targets
 
@@ -278,6 +294,8 @@ Every documentation-heavy PR should report:
 - Whether public docs navigation changed.
 - Whether public docs metadata, route mapping, or renderer assumptions changed.
 - Whether machine-readable docs contracts changed.
+- Whether first-contribution guidance, ADRs, implementation checklists, glossary terms, or public frontmatter rules changed.
+- Whether review gates, threat models, benchmark fixtures, examples catalog, docs-site build plan, or pull request template requirements changed.
 - Whether test commands, fixture layout, snapshots, CI gates, browser artifacts, security tests, performance tests, or evidence reporting changed.
 - Whether CLI JSON, diagnostics, or exit-code contracts changed.
 - Whether diagnostic codes, categories, source locations, remediations, docs links, child diagnostics, or JSON diagnostic ordering changed.

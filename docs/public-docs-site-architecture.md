@@ -4,7 +4,7 @@ Status: Planned.
 
 Audience: docs site builders, maintainers, framework contributors, AI agents.
 
-This page defines the planned content model for turning `docs/public/` into an advanced public documentation site. It does not choose a final renderer yet. It defines the contracts that a VitePress, Docusaurus, Nextra, Mintlify, or custom NeedleStart docs app would need to consume.
+This page defines the planned content model for turning `docs/public/` into an advanced public documentation site. It does not choose a final renderer yet. It defines the contracts that a VitePress, Docusaurus, Nextra, Mintlify, or custom NeedleStart docs app would need to consume. Use [Docs Site Build Plan](docs-site-build-plan.md) for implementation phases and renderer decision gates.
 
 ## Why This Exists
 
@@ -57,7 +57,7 @@ The exact route map can change when the docs site renderer is chosen, but every 
 
 ## Frontmatter Contract
 
-Do not add frontmatter to all public pages until a docs parser exists. Once the parser exists, public pages should use this shape:
+The detailed field contract lives in [Public Frontmatter Standard](public-frontmatter-standard.md). Do not add frontmatter to all public pages until a docs parser exists. Once the parser exists, public pages should use this shape:
 
 ```yaml
 ---
@@ -99,6 +99,8 @@ Optional fields:
 | `related` | Source docs or public pages that clarify the topic. |
 | `tags` | Search, filtering, and `docs-index.json` tags. |
 | `hidden` | Exclude from navigation while preserving the page. |
+
+Use [Public Frontmatter Standard](public-frontmatter-standard.md) for required fields, optional fields, status rules, route rules, and validation rules.
 
 ## Navigation Model
 
@@ -171,7 +173,7 @@ These outputs should follow [Machine-Readable Documentation](machine-readable-do
 
 Before public launch, validate that:
 
-- Every public page has frontmatter or equivalent metadata.
+- Every public page has frontmatter or equivalent metadata that follows [Public Frontmatter Standard](public-frontmatter-standard.md).
 - Every public page has one canonical route.
 - Every public page has status and audience.
 - Every guide links to a source reference.

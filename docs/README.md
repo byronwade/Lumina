@@ -5,6 +5,7 @@ This directory is the source of truth for NeedleStart planning, architecture, ro
 ## Start Here
 
 - [Project Status](status.md): current phase, what exists, and what does not exist yet.
+- [First Contribution Path](first-contribution.md): focused path for first-time contributors and agents.
 - [Getting Started](getting-started.md): current status and target onboarding flow.
 - [Roadmap](roadmap.md): complete phase plan.
 - [Phase 1 Build Plan](phase-1-build-plan.md): concrete monorepo scaffold path and verification expectations.
@@ -16,6 +17,9 @@ This directory is the source of truth for NeedleStart planning, architecture, ro
 - [Documentation Verification](docs-verification.md): repeatable docs checks, expected evidence, and future script targets.
 - [Testing Contract](testing-contract.md): planned test layers, fixture layout, snapshots, CI gates, and evidence rules.
 - [Public Docs Site Architecture](public-docs-site-architecture.md): planned public docs content model, frontmatter, navigation, and validation.
+- [Public Frontmatter Standard](public-frontmatter-standard.md): planned metadata fields and validation rules for future public docs pages.
+- [Docs Site Build Plan](docs-site-build-plan.md): implementation phases and decision gates for the future public docs site.
+- [Review Checklist](review-checklist.md): review gates for docs, implementation, security, performance, and public docs changes.
 
 ## User-Facing Docs
 
@@ -40,6 +44,7 @@ This directory is the source of truth for NeedleStart planning, architecture, ro
 - [Manifest Contracts](manifest-contracts.md): planned generated manifest contracts.
 - [Examples](examples.md): planned examples and fixtures.
 - [Examples And Templates Contract](examples-contract.md): planned example statuses, READMEs, create-command integration, verification evidence, and public linking rules.
+- [Examples Catalog](examples-catalog.md): planned official examples, status labels, paths, and public guide mapping.
 
 ## Core Architecture Documents
 
@@ -70,6 +75,7 @@ This directory is the source of truth for NeedleStart planning, architecture, ro
 - [Performance Contract](performance-contract.md): planned route budgets, Core Web Vitals targets, performance reports, diagnostics, benchmark evidence, and claim rules.
 - [Benchmarks](benchmarks.md): planned benchmark areas and evidence rules.
 - [Benchmark Methodology](benchmark-methodology.md): required benchmark metadata and comparison rules.
+- [Benchmark Fixtures](benchmark-fixtures.md): planned fixture matrix, raw result layout, and claim rules.
 - [Prototype Acceptance Demo](prototype-acceptance.md): demo that proves the wedge.
 - [Task Backlog](task-backlog.md): first concrete implementation tasks.
 - [Compatibility](compatibility.md): planned runtime and platform compatibility.
@@ -79,6 +85,7 @@ This directory is the source of truth for NeedleStart planning, architecture, ro
 - [Examples And Templates Contract](examples-contract.md): planned example fixture, starter template, create-command, and public-guide evidence rules.
 - [Security](security.md): docs-level security requirements.
 - [Security Contract](security-contract.md): planned threat model, secret handling, production error, header, agent write, release, and evidence rules.
+- [Threat Model](threat-model.md): trust boundaries, assets, threats, controls, and threat-note template.
 - [Accessibility](accessibility.md): docs and example accessibility requirements.
 - [Accessibility Contract](accessibility-contract.md): planned framework-owned page, example, public docs, diagnostics, and verification rules.
 - [Public Docs Readiness](public-docs.md): requirements before docs become website content.
@@ -98,8 +105,16 @@ This directory is the source of truth for NeedleStart planning, architecture, ro
 - [Docs Maintenance Checklist](docs-maintenance-checklist.md): update triggers for future contributors.
 - [Documentation Verification](docs-verification.md): manual verification commands until package scripts exist.
 - [Glossary](glossary.md): shared terminology.
+- [First Contribution Path](first-contribution.md): first safe contribution path for Phase 0.
 - [AI Skill Playbooks](skills/README.md): vendor-neutral skill workflows for agents.
 - [AI Subagent Roles](subagents/README.md): delegated-agent role briefs.
+
+## Checklists
+
+- [Implementation Checklists](checklists/README.md)
+- [Phase 1 Scaffold Checklist](checklists/phase-1-scaffold.md)
+- [Adapter Implementation Checklist](checklists/adapter-implementation.md)
+- [Performance Evidence Checklist](checklists/performance-evidence.md)
 
 ## Templates
 
@@ -110,9 +125,15 @@ This directory is the source of truth for NeedleStart planning, architecture, ro
 
 ## Decision Records
 
+- [Architecture Decision Records](decisions/README.md)
 - [0001: Runtime and Build Split](decisions/0001-runtime-and-build-split.md)
 - [0002: Agent-Native Core](decisions/0002-agent-native-core.md)
 - [0003: Risk Mitigation From Day One](decisions/0003-risk-mitigation-from-day-one.md)
+- [0004: Vite/Rolldown Before Custom Bundler](decisions/0004-vite-rolldown-before-custom-bundler.md)
+- [0005: Bun Default With Node And Static Adapters](decisions/0005-bun-default-node-static-adapters.md)
+- [0006: Static-First Rendering](decisions/0006-static-first-rendering.md)
+- [0007: Agent-Safe Edits](decisions/0007-agent-safe-edits.md)
+- [0008: Docs-Level AI Playbooks](decisions/0008-docs-level-ai-playbooks.md)
 
 ## Documentation Rules
 

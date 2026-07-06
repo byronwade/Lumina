@@ -4,7 +4,7 @@ Status: Planned.
 
 Audience: framework contributors, maintainers, security reviewers, runtime adapter authors, AI agents.
 
-This page defines the planned security contract for NeedleStart implementation work. Security behavior is not implemented yet. The contract exists so high-risk features, diagnostics, runtime adapters, configuration, generated artifacts, release work, and agent tooling use the same security expectations.
+This page defines the planned security contract for NeedleStart implementation work. Security behavior is not implemented yet. The contract exists so high-risk features, diagnostics, runtime adapters, configuration, generated artifacts, release work, and agent tooling use the same security expectations. Use [Threat Model](threat-model.md) for trust boundaries, assets, threat notes, and high-risk review gates.
 
 ## Research Notes
 
@@ -185,6 +185,7 @@ Security-sensitive work should name evidence in review:
 Before full product build work touches high-risk surfaces, NeedleStart should have:
 
 - This security contract.
+- The shared [Threat Model](threat-model.md).
 - A public-facing security reference.
 - Feature-specific threat model notes.
 - Testing requirements for rejection and sanitization paths.

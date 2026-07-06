@@ -4,7 +4,7 @@ Status: Planned.
 
 Audience: app developers, framework contributors, docs maintainers, AI agents.
 
-This page defines how NeedleStart examples, starter templates, and public guide snippets should work once implementation exists. The repository is still Phase 0, so no example is verified yet.
+This page defines how NeedleStart examples, starter templates, and public guide snippets should work once implementation exists. The repository is still Phase 0, so no example is verified yet. The planned official inventory lives in [Examples Catalog](examples-catalog.md).
 
 ## Research Notes
 
