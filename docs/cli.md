@@ -1,32 +1,32 @@
 # CLI Reference
 
-Status: Planned.
+Status: Scaffolded.
 
 Audience: app developers, framework contributors, AI agents.
 
-This page is the future reference for `needle` commands. No CLI implementation exists yet.
+This page is the reference for `lumina` commands. `@lumina/cli` currently implements `lumina routes <appPath> --json` through the local `bun run lumina -- routes <appPath> --json` script. Other commands remain planned.
 
 Machine-readable command behavior is planned in [CLI JSON Contract](cli-json-contract.md). Human output may evolve, but `--json` output, exit codes, diagnostic codes, and schema versions become stable contracts once released.
 
 ## Planned Commands
 
-| Command | Purpose | JSON output required once implemented? |
+| Command | Purpose | Status | JSON output required once implemented? |
 | --- | --- | --- |
-| `lumina dev` | Start local development. | No |
-| `lumina build` | Build app, manifests, graph, SEO, and adapter output. | Yes |
-| `lumina start` | Start built output. | No |
-| `lumina routes` | List route manifest entries. | Yes |
-| `lumina inspect` | Inspect route, file, or artifact details. | Yes |
-| `lumina check` | Run framework-aware checks. | Yes |
-| `lumina test` | Run framework-aware test selection. | Yes |
-| `lumina seo` | Run SEO audit. | Yes |
-| `lumina map` | Query Lumina Map. | Yes |
-| `lumina workspace` | Inspect workspace graph, apps, and shared-file impact. | Yes |
-| `lumina agent` | Generate or inspect agent context. | Yes |
-| `lumina mcp` | Start MCP server. | No |
-| `lumina edit` | Preview, apply, inspect, and undo safe-edit transactions. | Yes |
-| `lumina migrate` | Prototype framework migration workflows. | Yes |
-| `lumina bench` | Run planned benchmark fixtures and emit evidence metadata. | Yes |
+| `lumina dev` | Start local development. | Planned | No |
+| `lumina build` | Build app, manifests, graph, SEO, and adapter output. | Planned | Yes |
+| `lumina start` | Start built output. | Planned | No |
+| `lumina routes` | List route manifest entries. | Implemented for `<appPath> --json` | Yes |
+| `lumina inspect` | Inspect route, file, or artifact details. | Planned | Yes |
+| `lumina check` | Run framework-aware checks. | Planned | Yes |
+| `lumina test` | Run framework-aware test selection. | Planned | Yes |
+| `lumina seo` | Run SEO audit. | Planned | Yes |
+| `lumina map` | Query Lumina Map. | Planned | Yes |
+| `lumina workspace` | Inspect workspace graph, apps, and shared-file impact. | Planned | Yes |
+| `lumina agent` | Generate or inspect agent context. | Planned | Yes |
+| `lumina mcp` | Start MCP server. | Planned | No |
+| `lumina edit` | Preview, apply, inspect, and undo safe-edit transactions. | Planned | Yes |
+| `lumina migrate` | Prototype framework migration workflows. | Planned | Yes |
+| `lumina bench` | Run planned benchmark fixtures and emit evidence metadata. | Planned | Yes |
 
 ## Planned Command Variants
 
@@ -81,7 +81,7 @@ These global flags are planned, not implemented:
 | `--verbose` | Emit additional human-readable progress or diagnostic detail. |
 | `--quiet` | Reduce non-essential human output. |
 
-Do not rely on these flags until `@lumina/cli` exists and tests pass.
+Do not rely on these flags until the owning command implements and tests them. The `--json` flag is implemented for `lumina routes <appPath>`.
 
 ## Planned Exit Code Policy
 
@@ -89,6 +89,6 @@ Exit codes are planned in [CLI JSON Contract](cli-json-contract.md). Commands sh
 
 ## Out Of Scope
 
-- Claiming command behavior before `@lumina/cli` exists.
+- Claiming command behavior before the specific `@lumina/cli` command exists.
 - Defining final option names before implementation.
 - Human-output formatting beyond planned examples.

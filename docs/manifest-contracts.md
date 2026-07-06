@@ -39,7 +39,7 @@ The `.lumina/*` files remain the source contracts for compiler, CLI, MCP, Agent 
 
 ## Routes Manifest Draft
 
-`.lumina/routes.json` should be the source of truth for discovered route files after compilation. The initial in-memory `lumina.routes.v0` manifest shape exists in `@lumina/compiler`, but writing `.lumina/routes.json` to disk is still planned. The detailed route grammar lives in [Routing Contract](routing-contract.md).
+`.lumina/routes.json` is the source of truth for discovered route files after route discovery runs. The initial compact `lumina.routes.v0` manifest writer exists in `@lumina/compiler`. The detailed route grammar lives in [Routing Contract](routing-contract.md).
 
 Draft route manifest envelope:
 
@@ -74,7 +74,7 @@ Draft route entry:
 }
 ```
 
-The initial route manifest shape is backed by route-discovery fixture tests. The final generated-file schema remains planned until `.lumina/routes.json` emission and snapshot coverage exist.
+The route manifest shape and `.lumina/routes.json` emission are backed by route-discovery, artifact, and CLI JSON tests. Broader generated artifacts remain planned until their owning implementations land.
 
 API route entries should follow [API Route Contract](api-route-contract.md) for method lists, schema flags, cache metadata, hot API flags, and API diagnostics.
 

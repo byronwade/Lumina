@@ -3,7 +3,7 @@
 Status: Scaffolded.
 Audience: AI agents, maintainers, framework contributors.
 
-This page defines the operating layer agents must use before building MVP Alpha behavior. It is documentation and workflow scaffolding only. It does not implement route discovery, rendering, CLI behavior, Lumina Map generation, Agent Kernel behavior, MCP tools, safe edits, generated `.lumina/*` artifacts, or runtime adapters.
+This page defines the operating layer agents must use while building MVP Alpha behavior. It is documentation and workflow scaffolding only. It does not itself implement rendering, CLI behavior beyond the current `routes --json` path, Lumina Map generation, Agent Kernel behavior, MCP tools, safe edits, render/map artifacts, or runtime adapters.
 
 ## Purpose
 

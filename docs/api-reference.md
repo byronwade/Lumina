@@ -26,7 +26,7 @@ Planned commands:
 | `lumina dev` | Planned | Start local development server. |
 | `lumina build` | Planned | Build static, SSR, API, graph, SEO, and adapter outputs. |
 | `lumina start` | Planned | Start a built app with the selected adapter. |
-| `lumina routes` | Planned | Inspect discovered routes. |
+| `lumina routes` | Implemented for `<appPath> --json` | Inspect discovered routes and emit `.lumina/routes.json`. |
 | `lumina inspect` | Planned | Inspect a route, file, or generated artifact. |
 | `lumina check` | Planned | Run framework-aware checks. |
 | `lumina test` | Planned | Run framework-aware test selection, including future affected-test mode. |

@@ -4,7 +4,7 @@ Status: Planned.
 
 Audience: framework contributors, maintainers, CI authors, AI agents.
 
-This page defines the testing contract for Lumina. Initial scaffold checks, route-discovery fixture tests, and benchmark skeleton path/status tests exist; broader feature-specific test tooling is still planned. The contract exists so package scaffolding, compiler work, runtime adapters, route fixtures, public docs, diagnostics, benchmarks, and agent workflows share one evidence model.
+This page defines the testing contract for Lumina. Initial scaffold checks, route-discovery fixture tests, route artifact/CLI JSON tests, and benchmark skeleton path/status tests exist; broader feature-specific test tooling is still planned. The contract exists so package scaffolding, compiler work, runtime adapters, route fixtures, public docs, diagnostics, benchmarks, and agent workflows share one evidence model.
 
 ## Goals
 

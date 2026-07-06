@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, statSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import type {
   LuminaDiagnostic,
@@ -18,6 +18,10 @@ export type RouteDiscoveryOptions = {
   routeRoot?: "app";
 };
 
+export type RoutesManifestWriteOptions = RouteDiscoveryOptions & {
+  outputDir?: ".lumina" | string;
+};
+
 export type RoutesManifest = {
   schemaVersion: "lumina.routes.v0";
   generatedBy: {
@@ -29,6 +33,11 @@ export type RoutesManifest = {
   };
   routes: RouteNode[];
   diagnostics: LuminaDiagnostic[];
+};
+
+export type RoutesManifestWriteResult = {
+  path: string;
+  manifest: RoutesManifest;
 };
 
 type ParsedSegments = {
@@ -56,6 +65,20 @@ export function createRoutesManifest(options: RouteDiscoveryOptions): RoutesMani
     },
     routes,
     diagnostics,
+  };
+}
+
+export function writeRoutesManifest(options: RoutesManifestWriteOptions): RoutesManifestWriteResult {
+  const outputDir = options.outputDir ?? ".lumina";
+  const manifest = createRoutesManifest(options);
+  const outputPath = toPosix(join(outputDir, "routes.json"));
+
+  mkdirSync(join(options.appRoot, outputDir), { recursive: true });
+  writeFileSync(join(options.appRoot, outputDir, "routes.json"), JSON.stringify(manifest), "utf8");
+
+  return {
+    path: outputPath,
+    manifest,
   };
 }
 

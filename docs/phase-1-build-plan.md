@@ -23,7 +23,7 @@ bun run performance:check
 bun run check
 ```
 
-`lumina dev`, `lumina build`, and the other CLI commands remain target UX, not implemented behavior. Public API examples in the docs are still drafts, except for the initial `@lumina/compiler` `createRoutesManifest` and `discoverRoutes` APIs covered by route-discovery tests.
+`lumina dev`, `lumina build`, and most other CLI commands remain target UX, not implemented behavior. `lumina routes <appPath> --json` is implemented through the local `bun run lumina -- routes <appPath> --json` script. Public API examples in the docs are still drafts, except for the initial `@lumina/compiler` route APIs and route manifest writer covered by route-discovery, artifact, and CLI tests.
 
 ## Phase 1 Goal
 
@@ -182,7 +182,7 @@ bun run performance:check
 
 If a command is not available yet, the PR must say so and update the relevant docs. Do not leave stale claims that the command passes.
 
-Tests should prove package entrypoints, shared type surfaces, and explicitly implemented compiler behavior. They should not imply rendering, adapter behavior, CLI behavior, or generated artifacts exist.
+Tests should prove package entrypoints, shared type surfaces, and explicitly implemented compiler or CLI behavior. They should not imply rendering, adapter behavior, CLI behavior beyond `routes --json`, or generated artifacts beyond `.lumina/routes.json` exist.
 
 When benchmark skeletons are added, checks should verify path existence, deterministic fixture naming, and claim hygiene only. They should not treat skeleton files as performance evidence.
 

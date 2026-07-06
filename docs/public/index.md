@@ -26,7 +26,7 @@ Lumina is designed to illuminate the full structure of large React applications.
 
 Lumina is in Phase 1: monorepo scaffold with the first compiler route-discovery slice implemented. The Bun workspace, package placeholders, shared core types, initial route-discovery API, CI, and enforcement scripts exist; framework runtime behavior is still planned.
 
-No runtime implementation, CLI behavior, generated route artifact writer, Lumina Map generator, MCP server, or safe edit system exists yet. The current repository defines the product direction, architecture, safety rules, docs system, package boundaries, and first implementation path.
+No runtime implementation, dev/build/start CLI behavior, render/map artifact writer, Lumina Map generator, MCP server, or safe edit system exists yet. The current repository defines the product direction, architecture, safety rules, docs system, package boundaries, route discovery, `.lumina/routes.json`, and first routes CLI path.
 
 See:
 

@@ -609,7 +609,7 @@ const productIdentityDocs = [
 const publicScaffoldStatusDocs = [
   {
     file: "docs/getting-started.md",
-    terms: ["Bun workspace", "package placeholders", "shared core types", "initial compiler route discovery", "CI", "enforcement scripts", "does not yet contain CLI behavior"],
+    terms: ["Bun workspace", "package placeholders", "shared core types", "route discovery", "CI", "enforcement scripts", "does not yet contain dev/build/start CLI behavior"],
   },
   {
     file: "docs/public/index.md",
@@ -743,19 +743,19 @@ const prototypeScopeTerms = [
 const currentImplementationStepDocs = [
   {
     file: "README.md",
-    terms: ["The next implementation stage is to connect route discovery to generated artifacts and CLI inspection."],
+    terms: ["The next implementation stage is to add basic render-mode output and the first map artifact."],
   },
   {
     file: "docs/status.md",
-    terms: ["The next implementation path is connecting route discovery to generated `.lumina/routes.json` files and CLI inspection."],
+    terms: ["The next implementation path is adding basic render-mode output and the first map artifact."],
   },
   {
     file: "docs/roadmap.md",
-    terms: ["The next implementation stage is connecting route discovery to generated artifacts and CLI inspection."],
+    terms: ["The next implementation stage is basic render-mode output and the first map artifact."],
   },
   {
     file: "docs/public/roadmap.md",
-    terms: ["The next implementation path is connecting route discovery to generated artifacts and CLI inspection."],
+    terms: ["The next implementation path is basic render-mode output and the first map artifact."],
   },
   {
     file: "docs/product-build-readiness.md",
@@ -763,7 +763,7 @@ const currentImplementationStepDocs = [
   },
   {
     file: "docs/task-backlog.md",
-    terms: ["Current implementation path: route discovery connects to generated artifacts and CLI inspection."],
+    terms: ["Current implementation path: add basic render-mode output and the first map artifact."],
   },
 ];
 
@@ -1442,8 +1442,8 @@ const staleStatusPatterns = [
   },
   {
     file: "docs/public/reference/cli.md",
-    pattern: /\| Command \| Purpose \|/i,
-    message: "docs/public/reference/cli.md should label its command table as planned while CLI behavior is unimplemented.",
+    pattern: /^\| Command \| Purpose \|$/im,
+    message: "docs/public/reference/cli.md should distinguish implemented routes CLI behavior from planned command surfaces.",
   },
   {
     file: "docs/public/reference/adapters.md",
@@ -1988,7 +1988,7 @@ const staleStatusPatterns = [
   {
     file: "docs/cli.md",
     pattern: /\| Command \| Purpose \| JSON output required\? \|/i,
-    message: "docs/cli.md should say JSON output is required once implemented while CLI behavior is unimplemented.",
+    message: "docs/cli.md should distinguish implemented routes JSON output from planned command surfaces.",
   },
   {
     file: "docs/config-contract.md",

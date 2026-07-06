@@ -1,28 +1,28 @@
 # CLI Reference
 
-Status: Planned.
+Status: Scaffolded.
 
 Audience: app developers, AI agents.
 
-The `@lumina/cli` package is scaffolded, but no Lumina CLI command behavior exists yet. This page is the public-facing reference home for planned commands.
+The `@lumina/cli` package implements the first route inspection path: `lumina routes <appPath> --json`, available locally as `bun run lumina -- routes <appPath> --json`. Other Lumina CLI commands remain planned.
 
-| Planned command | Purpose |
-| --- | --- |
-| `lumina dev` | Start local development. |
-| `lumina build` | Build app output and generated artifacts. |
-| `lumina start` | Start a built app. |
-| `lumina routes` | Inspect discovered routes. |
-| `lumina inspect` | Inspect a route, file, or generated artifact. |
-| `lumina check` | Run framework-aware checks. |
-| `lumina test` | Run framework-aware test selection. |
-| `lumina seo` | Run SEO audits. |
-| `lumina map` | Query Lumina Map. |
-| `lumina workspace` | Inspect workspace graph, apps, and shared-file impact. |
-| `lumina agent` | Generate or inspect agent context. |
-| `lumina mcp` | Start MCP server. |
-| `lumina edit` | Preview, apply, inspect, and undo safe-edit transactions. |
-| `lumina migrate` | Prototype migration workflows. |
-| `lumina bench` | Run benchmark fixtures and emit evidence metadata. |
+| Command | Purpose | Status |
+| --- | --- | --- |
+| `lumina dev` | Start local development. | Planned |
+| `lumina build` | Build app output and generated artifacts. | Planned |
+| `lumina start` | Start a built app. | Planned |
+| `lumina routes` | Inspect discovered routes. | Implemented for `<appPath> --json` |
+| `lumina inspect` | Inspect a route, file, or generated artifact. | Planned |
+| `lumina check` | Run framework-aware checks. | Planned |
+| `lumina test` | Run framework-aware test selection. | Planned |
+| `lumina seo` | Run SEO audits. | Planned |
+| `lumina map` | Query Lumina Map. | Planned |
+| `lumina workspace` | Inspect workspace graph, apps, and shared-file impact. | Planned |
+| `lumina agent` | Generate or inspect agent context. | Planned |
+| `lumina mcp` | Start MCP server. | Planned |
+| `lumina edit` | Preview, apply, inspect, and undo safe-edit transactions. | Planned |
+| `lumina migrate` | Prototype migration workflows. | Planned |
+| `lumina bench` | Run benchmark fixtures and emit evidence metadata. | Planned |
 
 Exact options, outputs, and exit codes will be documented after implementation.
 
@@ -78,7 +78,7 @@ lumina migrate --json
 lumina bench --json
 ```
 
-These JSON outputs are planned, not implemented. The shared envelope, diagnostic shape, exit-code policy, and stability rules live in [CLI JSON Contract](../../cli-json-contract.md).
+`lumina routes <appPath> --json` is implemented. The other JSON outputs are planned, not implemented. The shared envelope, diagnostic shape, exit-code policy, and stability rules live in [CLI JSON Contract](../../cli-json-contract.md).
 
 ## Source
 

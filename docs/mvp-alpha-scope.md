@@ -7,7 +7,7 @@ This page defines the first Lumina MVP Alpha target. It is a target scope, not a
 
 ## Current Evidence
 
-The repository currently has the Phase 1 scaffold: Bun workspace, package placeholders, shared `@lumina/core` scaffold types, initial `@lumina/compiler` route discovery and route manifest shaping, CI, and verification scripts. It does not yet have CLI behavior, generated `.lumina/*` artifacts, rendering, or Lumina Map generation.
+The repository currently has the Phase 1 scaffold: Bun workspace, package placeholders, shared `@lumina/core` scaffold types, `@lumina/compiler` route discovery, generated `.lumina/routes.json` output, `lumina routes --json`, CI, and verification scripts. It does not yet have render/map artifacts, broader CLI behavior, rendering, or Lumina Map generation.
 
 ## MVP Alpha Goal
 

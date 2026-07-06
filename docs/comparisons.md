@@ -18,7 +18,7 @@ Comparison docs should help users understand fit, not attack other projects.
 
 ## Current Status
 
-Comparison pages are planned. Lumina does not yet have route discovery, rendering, CLI behavior, runtime adapter behavior, benchmark fixtures, or public performance evidence. Any comparison written before those features exist must describe planned intent and current gaps.
+Comparison pages are planned. Lumina has route discovery, `.lumina/routes.json`, and `lumina routes --json`, but does not yet have rendering, runtime adapter behavior, measured benchmarks, or public performance evidence. Any comparison written before those features exist must describe planned intent and current gaps.
 
 ## Planned Comparisons
 

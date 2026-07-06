@@ -3,7 +3,7 @@
 Status: Planned.
 Audience: new users, app developers, AI agents.
 
-This is the target MVP Alpha onboarding path. The repository currently has the Phase 1 scaffold; app creation, CLI behavior, route discovery, rendering, and generated artifacts are not implemented yet.
+This is the target MVP Alpha onboarding path. The repository currently has the Phase 1 scaffold plus route discovery, `.lumina/routes.json`, and `lumina routes --json`; app creation, dev/build/start, rendering, render/map artifacts, and broader CLI behavior are not implemented yet.
 
 ## What You Will Build In MVP Alpha
 
@@ -31,7 +31,7 @@ bun run performance:check
 bun run check
 ```
 
-They verify scaffold health, documentation links and guardrails, package structure, TypeScript validity, performance-claim hygiene, scaffold tests, shared core model tests, initial route-discovery fixture behavior, and benchmark skeleton path/status coverage. The repository currently contains a Bun workspace, package placeholders, shared core types, initial compiler route discovery, early benchmark/status skeletons, and enforcement scripts; it does not yet contain CLI behavior, generated route artifacts, measured benchmark results, rendering, Lumina Map generation, or generated `.lumina/*` artifacts.
+They verify scaffold health, documentation links and guardrails, package structure, TypeScript validity, performance-claim hygiene, scaffold tests, shared core model tests, route-discovery fixture behavior, `.lumina/routes.json`, `lumina routes --json`, and benchmark skeleton path/status coverage. The repository currently contains a Bun workspace, package placeholders, shared core types, route discovery, early benchmark/status skeletons, and enforcement scripts; it does not yet contain dev/build/start CLI behavior, render/map artifacts, measured benchmark results, rendering, or Lumina Map generation.
 
 ## Target MVP App Creation
 
@@ -41,7 +41,7 @@ Target MVP behavior:
 bun create lumina my-app
 cd my-app
 lumina dev
-lumina routes --json
+bun run lumina -- routes <appPath> --json
 lumina inspect / --json
 lumina inspect why /
 lumina map --json
