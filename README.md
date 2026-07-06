@@ -431,7 +431,7 @@ This repository is in Phase 1: monorepo scaffold.
 
 The repository now has a Bun workspace, package placeholders, shared core types, CI, and enforcement scripts for docs, structure, performance-claim hygiene, type checking, and placeholder tests.
 
-No framework runtime implementation exists yet. Route discovery, rendering, CLI behavior, runtime adapters, Needle Map generation, MCP tools, and safe edits remain planned. The next implementation stage is Phase 1A: shared core data model expansion, followed by route discovery.
+No framework runtime implementation exists yet. Route discovery, rendering, CLI behavior, runtime adapters, Needle Map generation, MCP tools, and safe edits remain planned. The next implementation stage is Phase 1A: expand and stabilize the shared core data model, then begin route discovery.
 
 ## Philosophy
 

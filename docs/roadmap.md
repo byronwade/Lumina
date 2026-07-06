@@ -42,7 +42,7 @@ Unless a phase is explicitly marked `Verified.` or `Scaffolded.` with evidence, 
 
 ## Current Status
 
-The repository is in Phase 1. The monorepo scaffold exists with Bun workspace configuration, package placeholders, shared core scaffold types, CI, and enforcement scripts. The next implementation stage is Phase 1A: expand the shared core data model, followed by route discovery.
+The repository is in Phase 1. The monorepo scaffold exists with Bun workspace configuration, package placeholders, shared core scaffold types, CI, and enforcement scripts. The next implementation stage is Phase 1A: expand and stabilize the shared core data model, then begin route discovery.
 
 ## How We Build
 

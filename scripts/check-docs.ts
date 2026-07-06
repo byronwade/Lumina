@@ -628,6 +628,29 @@ const prototypeScopeTerms = [
   },
 ];
 
+const currentImplementationStepDocs = [
+  {
+    file: "README.md",
+    terms: ["The next implementation stage is Phase 1A: expand and stabilize the shared core data model, then begin route discovery."],
+  },
+  {
+    file: "docs/status.md",
+    terms: ["The next implementation step is Phase 1A: expand and stabilize the shared core data model, then begin route discovery."],
+  },
+  {
+    file: "docs/roadmap.md",
+    terms: ["The next implementation stage is Phase 1A: expand and stabilize the shared core data model, then begin route discovery."],
+  },
+  {
+    file: "docs/product-build-readiness.md",
+    terms: ["Phase 1A expands and stabilizes the shared core data model, then begins route discovery."],
+  },
+  {
+    file: "docs/task-backlog.md",
+    terms: ["Current implementation path: Phase 1A expands and stabilizes the shared core data model, then begins route discovery."],
+  },
+];
+
 const featureSchedulingGateDocs = [
   {
     file: "docs/compiler-ir.md",
@@ -2431,6 +2454,16 @@ for (const { file, terms } of prototypeScopeTerms) {
   for (const term of terms) {
     if (!content.includes(term)) {
       failures.push(`${file} does not distinguish prototype scope with required term: ${term}.`);
+    }
+  }
+}
+
+for (const { file, terms } of currentImplementationStepDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file);
+  for (const term of terms) {
+    if (!content.includes(term)) {
+      failures.push(`${file} does not document the current Phase 1A implementation path with required term: ${term}.`);
     }
   }
 }

@@ -7,6 +7,8 @@ This backlog turns the roadmap into concrete implementation tasks. Each task sho
 
 Unless a task is explicitly marked `Verified.` or `Scaffolded.` with evidence, its "Definition of done" is planned acceptance criteria, not a claim that the behavior exists today. Future implementation tasks should use `should` wording for behavior that does not exist yet.
 
+Current implementation path: Phase 1A expands and stabilizes the shared core data model, then begins route discovery.
+
 ## PR 0A: AI Collaboration Playbooks
 
 Goal: maintain docs-level, vendor-neutral skill and subagent guidance for AI companies and human reviewers.
