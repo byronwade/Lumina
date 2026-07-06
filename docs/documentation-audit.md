@@ -2,6 +2,8 @@
 
 Status: Draft.
 
+Audience: maintainers, documentation contributors, AI agents.
+
 This audit evaluates the NeedleStart documentation system against the goal of becoming a top-tier framework documentation experience. It is based on the current repository state and current public documentation patterns from leading framework and developer-tool projects.
 
 Detailed research notes live in `docs/documentation-research.md`.

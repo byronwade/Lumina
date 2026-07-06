@@ -2,6 +2,8 @@
 
 Status: Planned.
 
+Audience: maintainers, contributors, future website visitors, AI agents.
+
 NeedleStart's product strategy is to make the framework itself the map of the application.
 
 ## Positioning

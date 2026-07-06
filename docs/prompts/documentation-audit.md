@@ -2,6 +2,8 @@
 
 Status: Planned.
 
+Audience: AI agents, maintainers, documentation contributors.
+
 Use this prompt when auditing NeedleStart documentation. It does not replace `AGENTS.md`.
 
 ```txt

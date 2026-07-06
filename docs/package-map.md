@@ -4,6 +4,8 @@ This document defines package responsibilities and boundaries.
 
 Status: Scaffolded for package names and entrypoints; package behavior remains planned unless a package README, tests, and implementation evidence say otherwise.
 
+Audience: framework contributors, package owners, AI agents.
+
 ## Root Packages
 
 | Package | Responsibility |

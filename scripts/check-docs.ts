@@ -61,6 +61,22 @@ function allPublicDocs(): string[] {
     .sort();
 }
 
+function allDurableInternalDocs(): string[] {
+  return walkMarkdown(join(root, "docs"))
+    .map((path) => rel(path))
+    .filter((path) => {
+      if (path.startsWith("docs/public/")) return false;
+      if (path.startsWith("docs/templates/")) return false;
+      if (path.startsWith("docs/prompts/")) return path === "docs/prompts/README.md";
+      if (path.startsWith("docs/skills/")) return path === "docs/skills/README.md";
+      if (path.startsWith("docs/subagents/")) return path === "docs/subagents/README.md";
+      if (path.startsWith("docs/decisions/")) return path === "docs/decisions/README.md";
+      if (path.startsWith("docs/checklists/")) return path === "docs/checklists/README.md";
+      return true;
+    })
+    .sort();
+}
+
 for (const doc of requiredDocs) {
   if (!existsSync(join(root, doc))) {
     failures.push(`Missing required doc: ${doc}`);
@@ -262,6 +278,20 @@ for (const publicDoc of allPublicDocs()) {
   }
   if (!websiteContentMap.includes(publicDoc)) {
     failures.push(`docs/website-content-map.md does not map public page: ${publicDoc}`);
+  }
+}
+
+const docsHub = read("docs/README.md");
+for (const internalDoc of allDurableInternalDocs()) {
+  if (internalDoc === "docs/README.md") continue;
+  const hubTarget = internalDoc.slice("docs/".length);
+  if (!docsHub.includes(hubTarget)) {
+    failures.push(`docs/README.md does not list durable internal doc: ${hubTarget}`);
+  }
+
+  const topMatter = read(internalDoc).split(/\r?\n/).slice(0, 8).join("\n");
+  if (/^Status:/m.test(topMatter) && !/^Audience:/m.test(topMatter)) {
+    failures.push(`${internalDoc} has top-level status but no top-level audience.`);
   }
 }
 

@@ -2,6 +2,8 @@
 
 Status: Planned.
 
+Audience: app developers, documentation contributors, AI agents.
+
 Guides are task-focused walkthroughs. They should become the practical layer between the high-level README and exact API reference.
 
 The current repository has a Phase 1 scaffold, so this page defines the guide set NeedleStart should grow into as framework behavior is implemented.

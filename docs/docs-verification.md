@@ -282,7 +282,7 @@ The initial Bun workspace exposes these package scripts:
 
 Target behavior:
 
-- `docs:check` validates required docs, required links, local Markdown links, public docs navigation coverage, AI playbook placement, verification-section coverage, scaffold-status language, adapter package paths, and the current `bun.lockb` lockfile name.
+- `docs:check` validates required docs, required links, local Markdown links, durable internal docs hub coverage, top-level status/audience pairing, public docs navigation coverage, AI playbook placement, verification-section coverage, scaffold-status language, adapter package paths, and the current `bun.lockb` lockfile name.
 - `structure:check` validates workspace scripts, package names, package entrypoints, TypeScript scaffold files, CI, and forbidden runtime dependencies on agent-only packages.
 - `performance:check` validates performance docs, benchmark fixture coverage, raw-result rules, and unsupported public speed-claim patterns.
 - `check` runs the automated docs, structure, performance, typecheck, and test gates.

@@ -2,6 +2,8 @@
 
 Status: Planned.
 
+Audience: app developers, framework contributors, AI agents.
+
 This page documents the planned file and folder conventions for NeedleStart apps. These conventions are not implemented yet.
 
 For exact route parsing, route IDs, sorting, conflict diagnostics, and fixture requirements, see [Routing Contract](routing-contract.md).

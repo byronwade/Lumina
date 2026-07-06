@@ -2,6 +2,8 @@
 
 Status: Planned.
 
+Audience: app developers, framework contributors, AI agents.
+
 NeedleStart should eventually include visual explanations of Needle Map and the generated app graph.
 
 ## Current Asset

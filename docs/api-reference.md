@@ -2,6 +2,8 @@
 
 Status: Planned.
 
+Audience: app developers, framework contributors, AI agents.
+
 This page is the index for exact NeedleStart API contracts. It should become the place developers and agents use when they need precise command syntax, config fields, helper signatures, file conventions, generated JSON, and manifest shapes.
 
 ## Reference Page Rules

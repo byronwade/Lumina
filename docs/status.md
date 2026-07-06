@@ -2,6 +2,8 @@
 
 Status: Scaffolded.
 
+Audience: maintainers, contributors, AI agents.
+
 NeedleStart is in Phase 1: monorepo scaffold.
 
 ## What Exists

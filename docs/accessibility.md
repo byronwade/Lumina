@@ -2,6 +2,8 @@
 
 Status: Planned.
 
+Audience: docs maintainers, app developers, accessibility reviewers, AI agents.
+
 NeedleStart docs and future examples should support accessible applications and accessible documentation.
 
 The detailed accessibility requirements for framework-owned pages, examples, diagnostics, and tests are defined in [Accessibility Contract](accessibility-contract.md).

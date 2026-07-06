@@ -2,6 +2,8 @@
 
 Status: Planned.
 
+Audience: new users, app developers, AI agents.
+
 This page describes the target app onboarding path for NeedleStart. The repository is in Phase 1 scaffold, so repository maintenance commands are available, but the app creation commands below are not verified local commands yet.
 
 ## Current Repository Status

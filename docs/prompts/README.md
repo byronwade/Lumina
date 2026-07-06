@@ -2,6 +2,8 @@
 
 Status: Planned.
 
+Audience: AI agents, maintainers, documentation contributors.
+
 This directory is reserved for durable prompts that help humans and AI agents perform repeatable NeedleStart workflows.
 
 ## Planned Prompts

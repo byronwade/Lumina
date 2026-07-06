@@ -1,5 +1,9 @@
 # Documentation Standard
 
+Status: Planned.
+
+Audience: documentation contributors, maintainers, AI agents.
+
 NeedleStart should have documentation quality comparable to a mature framework. That means the docs must help a new developer start quickly, help an experienced developer find exact API details, and help an agent distinguish implemented behavior from planned behavior.
 
 This standard is inspired by mature framework docs that separate getting started material, task guides, API reference, and architecture notes. NeedleStart should use the same separation while remaining honest about the current scaffold status.
