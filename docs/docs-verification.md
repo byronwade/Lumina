@@ -300,7 +300,7 @@ Target behavior:
 
 - `docs:check` validates required docs, required links, local Markdown links, root docs metadata, durable internal docs hub coverage, top-level status/audience pairing, every Markdown status label format, public docs navigation coverage, AI playbook placement, verification-section coverage, scaffold-status language, package-map/build-plan/backlog package coverage, planned CLI command prefix consistency, adapter package paths, and the current `bun.lockb` lockfile name.
 - `structure:check` validates workspace scripts, package names, package entrypoints, TypeScript scaffold files, CI, and forbidden runtime dependencies on agent-only packages.
-- `performance:check` validates performance docs, benchmark fixture coverage, raw-result rules, and unsupported public speed-claim patterns.
+- `performance:check` validates performance docs, benchmark fixture coverage, raw-result rules, and unsupported root/public speed, benchmark, or SEO positioning claim patterns.
 - `check` runs the automated docs, structure, performance, typecheck, and test gates.
 
 Future work can split these into narrower `docs:links`, `docs:claims`, and `docs:index` commands after generated docs indexes exist.

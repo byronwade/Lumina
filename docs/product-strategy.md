@@ -15,7 +15,7 @@ NeedleStart is app-graph-native, SEO-first, React-based, and designed for humans
 - Semantic app graph.
 - Agent-safe workflows.
 - SEO-safe rendering.
-- Bun-fast default runtime with adapter compatibility.
+- Bun-first runtime paths with adapter compatibility.
 - Stable machine-readable manifests.
 
 See `VISION.md`, `docs/risk-mitigation.md`, and `docs/prototype-acceptance.md`.

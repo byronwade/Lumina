@@ -4,13 +4,15 @@ Status: Planned.
 
 Audience: maintainers, contributors, AI agents, future website visitors.
 
+Scope: target product direction, not implementation evidence.
+
 NeedleStart exists because the next generation of web frameworks must serve both humans and AI agents.
 
 The framework should make applications faster to ship, easier to audit, safer to modify, and better at exposing their own structure.
 
 ## One-Sentence Pitch
 
-NeedleStart is an agent-native React framework for building extremely fast, SEO-perfect, large-scale web apps with a semantic map of every route, component, API, schema, test, cache, and content relationship.
+NeedleStart is an agent-native React framework for building fast, SEO-safe, large-scale web apps with a semantic map of every route, component, API, schema, test, cache, and content relationship.
 
 ## The Enemy
 
@@ -56,7 +58,7 @@ The core bet is that agents will become normal contributors to large codebases. 
 
 ### Agent-Native
 
-NeedleStart must generate useful context for agents:
+NeedleStart is designed to generate useful context for agents:
 
 - Route context capsules.
 - Related files.
@@ -68,11 +70,11 @@ NeedleStart must generate useful context for agents:
 
 ### SEO-First
 
-Public pages must render meaningful HTML by default. The framework should make title, description, canonical URL, sitemap inclusion, robots behavior, Open Graph tags, structured data, and initial HTML inspectable.
+Public pages should render meaningful HTML by default. The framework should make title, description, canonical URL, sitemap inclusion, robots behavior, Open Graph tags, structured data, and initial HTML inspectable.
 
 ### Graph-Aware
 
-Needle Map must answer:
+Needle Map should answer:
 
 - What uses this?
 - What does this use?
@@ -113,7 +115,7 @@ Your framework should be the map, not the maze. Agents can inspect, plan changes
 
 ### Needle Map Promise
 
-Needle Map should answer instantly: what uses this, what does this use, what breaks if this changes, and which tests, SEO surfaces, cache tags, and owners are affected.
+Needle Map should make impact questions fast to answer once implementation and benchmarks prove the graph path: what uses this, what does this use, what breaks if this changes, and which tests, SEO surfaces, cache tags, and owners are affected.
 
 ## What NeedleStart Is Not
 

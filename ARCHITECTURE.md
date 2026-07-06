@@ -4,6 +4,8 @@ Status: Planned.
 
 Audience: maintainers, contributors, AI agents.
 
+Scope: target architecture for the planned framework; current implemented behavior is limited to the Phase 1 scaffold.
+
 NeedleStart is built around a simple split:
 
 - Bun handles runtime execution.

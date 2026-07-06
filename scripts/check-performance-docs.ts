@@ -51,10 +51,18 @@ const forbiddenPublicClaims = [
   /fastest\s+react\s+framework/i,
   /production-ready\s+performance/i,
   /verified\s+benchmark/i,
+  /SEO-perfect/i,
+  /Bun-fast/i,
+  /answer\s+instantly/i,
+  /extremely\s+fast/i,
 ];
 
 for (const file of [
   "README.md",
+  "VISION.md",
+  "ARCHITECTURE.md",
+  "docs/product-strategy.md",
+  "docs/risk-mitigation.md",
   "docs/public/index.md",
   "docs/public/docs.md",
   "docs/public/concepts/speed.md",

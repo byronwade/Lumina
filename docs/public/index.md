@@ -28,7 +28,7 @@ See:
 
 - Public pages that are SEO-safe by default.
 - Static-first rendering when possible.
-- Bun-fast runtime paths with adapter boundaries.
+- Bun-first runtime paths with adapter boundaries.
 - Vite/Rolldown frontend leverage.
 - A semantic app graph that humans and agents can inspect.
 - Safe, auditable agent workflows.
