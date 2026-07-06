@@ -96,6 +96,18 @@ const plannedNeedleCommandDocs = [
   "docs/public/reference/cli.md",
 ];
 
+const plannedJsonCommandContracts = [
+  "needle build --json",
+  "needle routes --json",
+  "needle inspect --json",
+  "needle check --json",
+  "needle seo --json",
+  "needle map --json",
+  "needle agent context --json",
+  "needle edit --json",
+  "needle migrate --json",
+];
+
 const canonicalGeneratedArtifacts = [
   ".needle/routes.json",
   ".needle/render-manifest.json",
@@ -366,6 +378,16 @@ const staleStatusPatterns = [
     file: "README.md",
     pattern: /Planned command once the package exists/i,
     message: "README.md still ties quick start to package existence instead of implemented app creation behavior.",
+  },
+  {
+    file: "docs/getting-started.md",
+    pattern: /\bbun dev\b|Add the Bun monorepo scaffold|Add package entrypoints and placeholder tests/i,
+    message: "docs/getting-started.md should use current scaffold status and `needle dev` target command language.",
+  },
+  {
+    file: "docs/public/guides/create-app.md",
+    pattern: /\bbun dev\b|remaining scaffold hardening/i,
+    message: "docs/public/guides/create-app.md should use `needle dev` target command language and current scaffold status.",
   },
   {
     file: "docs/README.md",
@@ -668,6 +690,15 @@ for (const file of plannedNeedleCommandDocs) {
   for (const command of plannedNeedleCommands) {
     if (!content.includes(command)) {
       failures.push(`${file} does not document planned CLI command: ${command}.`);
+    }
+  }
+}
+
+if (existsSync(join(root, "docs/cli-json-contract.md"))) {
+  const cliJsonContract = read("docs/cli-json-contract.md");
+  for (const command of plannedJsonCommandContracts) {
+    if (!cliJsonContract.includes(command)) {
+      failures.push(`docs/cli-json-contract.md does not document planned JSON command contract: ${command}.`);
     }
   }
 }

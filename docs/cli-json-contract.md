@@ -107,6 +107,8 @@ Initial planned command data shapes:
 | `needle map --json` | `{ "query": string, "nodes": GraphNode[], "edges": GraphEdge[] }` |
 | `needle agent context --json` | `{ "context": RouteContextCapsule }` |
 | `needle build --json` | `{ "outputs": BuildOutput[], "manifests": string[], "checks": CheckResult[] }` |
+| `needle edit --json` | `{ "transaction": SafeEditTransaction, "diff": DiffSummary, "checks": CheckResult[] }` |
+| `needle migrate --json` | `{ "migration": MigrationReport, "contracts": string[], "manualReview": string[] }` |
 
 The exact schemas belong in command-specific reference docs once implementation exists.
 

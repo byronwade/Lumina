@@ -25,8 +25,10 @@ Planned command once app creation behavior exists:
 ```bash
 bun create needle my-app
 cd my-app
-bun dev
+needle dev
 ```
+
+Generated apps should also expose `bun run dev`, `bun run build`, and `bun run start` package scripts that call the framework commands.
 
 Target result:
 
@@ -65,9 +67,14 @@ Planned generated output:
   map.json
   graph.json
   seo.report.json
+  perf.report.json
   context/
+    *.ctx.json
     agent-index.json
+  generated/
 dist/
+  adapter.manifest.json
+  *
 ```
 
 Generated files must not be edited manually.
@@ -97,11 +104,11 @@ The repository must keep CLI JSON output stable, compact, and documented as comm
 
 The next implementation work is:
 
-1. Add the Bun monorepo scaffold.
-2. Add package entrypoints and placeholder tests.
-3. Lock shared core types in `@needle/core`.
-4. Implement deterministic route discovery.
-5. Emit `.needle/routes.json`.
+1. Expand and stabilize shared core types in `@needle/core`.
+2. Implement deterministic route discovery.
+3. Emit `.needle/routes.json`.
+4. Add the stable CLI JSON envelope.
+5. Make `needle dev` start the first verified app path.
 
 See [Phase 1 Build Plan](phase-1-build-plan.md) and [Task Backlog](task-backlog.md).
 
