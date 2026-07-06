@@ -8,7 +8,7 @@ This document maps the documentation-system objective to current repository evid
 
 Coverage labels in the table below describe documentation coverage only. They do not describe implemented framework behavior, launch readiness, published package readiness, or benchmark evidence. When a row says planned documentation is covered, the matching framework behavior still requires implementation and verification before it can be marked implemented.
 
-## Evidence Summary
+## Documentation Evidence Summary
 
 | Requirement | Evidence | Documentation coverage |
 | --- | --- | --- |
@@ -81,6 +81,6 @@ These items are not completed as implemented framework behavior because the repo
 
 The documentation now contains homes, standards, and acceptance criteria for those items without claiming they exist.
 
-## Completion Judgment
+## Documentation Coverage Judgment
 
 The documentation-system deliverables requested in the audit brief are covered as repository documentation artifacts. Product implementation remains intentionally incomplete and status-labeled as planned until verified framework behavior exists.

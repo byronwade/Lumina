@@ -599,6 +599,8 @@ const documentationCompletionCoverageDocs = [
       "Covered as documentation",
       "Covered as planned documentation",
       "Phase 1 scaffold",
+      "Documentation Evidence Summary",
+      "Documentation Coverage Judgment",
     ],
   },
 ];
@@ -2676,6 +2678,10 @@ for (const { file, terms } of documentationCompletionCoverageDocs) {
 
   if (/\|\s*Status\s*\|/i.test(rawContent) || /\|\s*Satisfied(?: as planned docs)?\s*\|/i.test(rawContent)) {
     failures.push(`${file} must use documentation coverage labels instead of broad completion status labels.`);
+  }
+
+  if (/^## Evidence Summary$/m.test(rawContent) || /^## Completion Judgment$/m.test(rawContent)) {
+    failures.push(`${file} must use documentation-scoped audit headings, not broad completion headings.`);
   }
 }
 
