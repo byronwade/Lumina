@@ -2,7 +2,7 @@
 
 This document maps NeedleStart repository docs to a future public website structure.
 
-The website does not exist yet. This map keeps public docs, source-of-truth docs, and future navigation aligned before implementation begins.
+The website does not exist yet. This map keeps public docs, source-of-truth docs, community pages, and future navigation aligned before implementation begins.
 
 ## Goals
 
@@ -10,7 +10,9 @@ The website does not exist yet. This map keeps public docs, source-of-truth docs
 - Identify which repo docs should become website pages.
 - Keep public pages status-aware.
 - Avoid publishing raw internal process as primary user documentation.
+- Make open source contribution and governance paths visible.
 - Prepare the docs site to dogfood NeedleStart later.
+- Prepare public docs, previews, demos, and benchmark reports for Vercel hosting where appropriate.
 
 ## Proposed Website Structure
 
@@ -36,6 +38,12 @@ The website does not exist yet. This map keeps public docs, source-of-truth docs
   Next.js
   Astro
   TanStack Start
+/community
+  Open Source
+  Contributing
+  Code of Conduct
+  Governance
+  Security
 /security
   Policy
   Threat Model
@@ -48,8 +56,9 @@ The website does not exist yet. This map keeps public docs, source-of-truth docs
 | `/` | `README.md`, `VISION.md` | planned | Product landing page. |
 | `/docs` | `docs/README.md` | drafted | Docs index. |
 | `/docs/status` | `docs/status.md` | drafted | Public status page, possibly simplified. |
+| `/community` | `docs/open-source-community.md`, `CONTRIBUTING.md` | drafted | Open source community landing page. |
 | `/security` | `SECURITY.md`, `docs/security.md` | drafted | Security policy plus threat model summary. |
-| `/benchmarks` | `docs/benchmarks.md` | drafted after added | Benchmark overview and current availability. |
+| `/benchmarks` | `docs/benchmarks.md` | drafted | Benchmark overview and current availability. |
 | `/comparisons` | `docs/comparisons.md` | drafted | Honest comparison index. |
 
 ## Docs Navigation
@@ -62,6 +71,7 @@ The website does not exist yet. This map keeps public docs, source-of-truth docs
 | Quick Start | `README.md`, future create app docs | `/docs/quick-start` | First app path once verified. |
 | Project Status | `docs/status.md` | `/docs/status` | Show planned vs implemented truth. |
 | Philosophy | `VISION.md` | `/docs/philosophy` | Explain why graph and agents are core. |
+| Open Source | `docs/open-source-community.md` | `/community/open-source` | Explain open source posture, hosting intent, and community growth. |
 
 ### Framework
 
@@ -73,7 +83,7 @@ The website does not exist yet. This map keeps public docs, source-of-truth docs
 | API Routes | `docs/api-routes.md` | `/docs/api-routes` | API handlers and response behavior. |
 | Schema DSL | `docs/schema.md` | `/docs/schema` | Validation and serialization. |
 | Cache | `docs/cache.md` | `/docs/cache` | Cache plans, tags, headers. |
-| Deployment | `docs/deployment.md` | `/docs/deployment` | Bun, Node, static output. |
+| Deployment | `docs/deployment.md` | `/docs/deployment` | Bun, Node, static output, and later adapter paths. |
 | Compatibility | `docs/compatibility.md` | `/docs/compatibility` | Runtime and contract compatibility. |
 
 ### SEO
@@ -118,10 +128,13 @@ The website does not exist yet. This map keeps public docs, source-of-truth docs
 
 | Label | Source | Website slug | Public role |
 | --- | --- | --- | --- |
-| Contributing | `CONTRIBUTING.md` | `/docs/contributing` | Contribution flow. |
+| Open Source Community | `docs/open-source-community.md` | `/community/open-source` | Community posture, Vercel readiness, and impact metrics. |
+| Contributing | `CONTRIBUTING.md` | `/community/contributing` | Contribution flow. |
+| Code of Conduct | `CODE_OF_CONDUCT.md` | `/community/code-of-conduct` | Community standards. |
+| Governance | `GOVERNANCE.md` | `/community/governance` | Maintainer and decision process. |
 | Testing | `docs/testing.md` | `/docs/testing` | Test strategy. |
 | Release Policy | `docs/release.md` | `/docs/release` | Versioning and verification. |
-| Security | `SECURITY.md`, `docs/security.md` | `/docs/security` | Vulnerability reporting and threat model. |
+| Security | `SECURITY.md`, `docs/security.md` | `/security` | Vulnerability reporting and threat model. |
 
 ## Benchmarks Section
 
@@ -146,6 +159,21 @@ Every public benchmark result must include:
 - Raw data link.
 - Known limitations.
 - "What this benchmark does not prove" section.
+
+## Community Section
+
+Proposed community pages:
+
+| Page | Source | Purpose |
+| --- | --- | --- |
+| `/community` | `docs/open-source-community.md` | Open source landing page. |
+| `/community/open-source` | `docs/open-source-community.md` | Open source posture and Vercel readiness. |
+| `/community/contributing` | `CONTRIBUTING.md` | Contribution flow. |
+| `/community/code-of-conduct` | `CODE_OF_CONDUCT.md` | Community standards. |
+| `/community/governance` | `GOVERNANCE.md` | Maintainer and decision process. |
+| `/community/roadmap` | `docs/roadmap.md`, `docs/status.md` | Public roadmap and status. |
+
+The community section should make it easy for reviewers, contributors, and users to see that NeedleStart is open source, governed in public, and serious about community standards.
 
 ## Comparison Pages
 
@@ -179,7 +207,9 @@ Once NeedleStart can build the website, the docs site should demonstrate:
 - `llms.txt` and `llms-full.txt`.
 - Generated route manifest.
 - Needle Map for docs pages.
+- Community pages.
 - Benchmark pages from raw data.
+- Vercel preview deployments for docs and examples where appropriate.
 
 ## Website Build Outputs
 
@@ -195,9 +225,21 @@ dist/
   docs-index.json
   docs-search.json
   benchmark-results.json
+  community-index.json
 ```
 
 Exact paths should be decided when the website app exists.
+
+## Vercel Hosting Plan
+
+The public website should be suitable for Vercel hosting:
+
+- production docs site
+- pull request previews
+- example and demo previews
+- benchmark report pages
+
+This plan supports open source collaboration and review. It must not become a claim that NeedleStart apps can only deploy to Vercel.
 
 ## Documentation Rule
 
@@ -206,6 +248,8 @@ Update this map when:
 - A new public doc is added.
 - Website nav changes.
 - A doc becomes internal-only.
+- Community pages are added.
 - Benchmark pages are added.
 - Comparison pages are split into dedicated docs.
 - The website app is scaffolded.
+- Vercel hosting or preview strategy changes.
