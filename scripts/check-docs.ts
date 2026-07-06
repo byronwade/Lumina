@@ -858,6 +858,11 @@ const staleStatusPatterns = [
     message: ".github/PULL_REQUEST_TEMPLATE.md should reference diagnostic severity values, not severity levels.",
   },
   {
+    file: "docs/public/reference/cli.md",
+    pattern: /\| Command \| Purpose \|/i,
+    message: "docs/public/reference/cli.md should label its command table as planned while CLI behavior is unimplemented.",
+  },
+  {
     file: "README.md",
     pattern: /examples\/[\s\S]*dashboard\/(?!client)/i,
     message: "README.md should use the planned dashboard-client example path.",

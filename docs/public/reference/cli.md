@@ -6,7 +6,7 @@ Audience: app developers, AI agents.
 
 The `@needle/cli` package is scaffolded, but no NeedleStart CLI command behavior exists yet. This page is the public-facing reference home for planned commands.
 
-| Command | Purpose |
+| Planned command | Purpose |
 | --- | --- |
 | `needle dev` | Start local development. |
 | `needle build` | Build app output and generated artifacts. |

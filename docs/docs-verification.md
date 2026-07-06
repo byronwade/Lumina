@@ -175,7 +175,7 @@ rg -n "schemaVersion|diagnostics|Exit Codes|--json|stdout|exit-code|needle.cli|C
 
 Expected result: command automation behavior and planned command variants remain connected across CLI reference, API reference, manifests, agent context, MCP docs, and public CLI docs.
 
-Automated coverage in `bun run docs:check` also requires `docs/cli-json-contract.md` and `docs/public/reference/cli.md` to list every planned JSON automation command: `needle build --json`, `needle routes --json`, `needle inspect --json`, `needle check --json`, `needle seo --json`, `needle map --json`, `needle agent context --json`, `needle edit --json`, `needle migrate --json`, and `needle bench --json`.
+Automated coverage in `bun run docs:check` also requires `docs/cli-json-contract.md` and `docs/public/reference/cli.md` to list every planned JSON automation command: `needle build --json`, `needle routes --json`, `needle inspect --json`, `needle check --json`, `needle seo --json`, `needle map --json`, `needle agent context --json`, `needle edit --json`, `needle migrate --json`, and `needle bench --json`. Public CLI docs must also label the command table as planned while no CLI behavior exists.
 
 ### 12. Diagnostics Contract Check
 
