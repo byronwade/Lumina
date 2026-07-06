@@ -17,7 +17,7 @@ If a narrower change uses a narrower gate, the final report must state why the f
 
 | Gate | Enforces | Current command |
 | --- | --- | --- |
-| Documentation contracts | Required docs, local Markdown links, status labels, AGENTS sync coverage, public docs navigation, generated-artifact names, current-vs-planned wording, feature-contract vocabulary, and source-map coverage. | `bun run docs:check` |
+| Documentation contracts | Required docs, local Markdown links, status labels, AGENTS sync coverage, public docs navigation, MVP Alpha scope visibility, generated-artifact names, current-vs-planned wording, feature-contract vocabulary, and source-map coverage. | `bun run docs:check` |
 | Package structure | Workspace package names, package entrypoints, TypeScript scaffold files, CI presence, forbidden runtime dependencies on agent-only packages, and shared-core type ownership. | `bun run structure:check` |
 | Performance claim hygiene | Performance docs, benchmark fixture coverage, raw-result rules, and unsupported root or public speed, benchmark, or SEO positioning claims. | `bun run performance:check` |
 | Type surface | TypeScript project references and exported scaffold types. | `bun run typecheck` |
@@ -30,6 +30,7 @@ Before editing, agents must identify which docs own the change:
 
 - `README.md` and `docs/status.md` for current phase, public positioning, prototype status, setup commands, and feature status.
 - `AGENTS.md` for workflow, safety rules, package boundaries, generated-file rules, and verification commands.
+- `docs/mvp-alpha-scope.md` for included MVP Alpha behavior, deferred work, demo-app scope, and readiness evidence before prototype implementation expands.
 - `docs/package-map.md`, `docs/phase-1-build-plan.md`, and `docs/task-backlog.md` for package ownership, build sequence, and implementation tasks.
 - Feature contracts under `docs/*-contract.md` for behavior, diagnostics, generated artifacts, tests, and evidence.
 - `docs/performance-contract.md`, `docs/speed-strategy.md`, `docs/speed-decisions.md`, `docs/speed-capability-audit.md`, and `docs/benchmark-methodology.md` for speed-sensitive changes.

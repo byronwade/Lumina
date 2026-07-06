@@ -173,6 +173,16 @@ Expected result: agent rules, automation commands, claim gates, performance evid
 
 Automated coverage in `bun run docs:check` also requires `docs/agent-enforcement.md` to exist, be linked from README and the docs hub, appear in AGENTS required-documentation-sync, keep the command and claim-gate vocabulary aligned, and use the single combined root playbook placement rule.
 
+### 7B. MVP Alpha Scope Check
+
+```powershell
+rg -n "MVP Alpha|Target MVP behavior|Planned for MVP Alpha|Future" README.md AGENTS.md docs/mvp-alpha-scope.md docs/status.md docs/roadmap.md docs/getting-started.md docs/lumina-map.md docs/examples-catalog.md docs/examples.md docs/file-conventions.md
+```
+
+Expected result: the MVP Alpha scope is visible in root positioning, onboarding, map, status, roadmap, examples, and file conventions.
+
+Automated coverage in `bun run docs:check` requires README, status, roadmap, getting started, Lumina Map, examples catalog, and file conventions to keep `MVP Alpha` visible before core prototype work starts. It also requires `docs/mvp-alpha-scope.md` to be linked from README, AGENTS, and the docs hub.
+
 ### 8. Machine-Readable Docs Contract Check
 
 ```powershell

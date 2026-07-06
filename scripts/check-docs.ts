@@ -9,6 +9,7 @@ const requiredDocs = [
   "AGENTS.md",
   "docs/README.md",
   "docs/status.md",
+  "docs/mvp-alpha-scope.md",
   "docs/phase-1-build-plan.md",
   "docs/package-map.md",
   "docs/agent-enforcement.md",
@@ -32,6 +33,7 @@ const requiredEntryLinks = [
   "docs/benchmark-fixtures.md",
   "docs/examples-catalog.md",
   "docs/docs-site-build-plan.md",
+  "docs/mvp-alpha-scope.md",
 ];
 
 const rootDocsWithMetadata = [
@@ -54,6 +56,7 @@ const agentRequiredSyncDocs = [
   "ARCHITECTURE.md",
   "docs/README.md",
   "docs/status.md",
+  "docs/mvp-alpha-scope.md",
   "docs/roadmap.md",
   "docs/risk-mitigation.md",
   "docs/engineering-standards.md",
@@ -192,6 +195,16 @@ const plannedLuminaCommands = [
   "lumina edit",
   "lumina migrate",
   "lumina bench",
+];
+
+const mvpAlphaDocs = [
+  "README.md",
+  "docs/status.md",
+  "docs/roadmap.md",
+  "docs/getting-started.md",
+  "docs/lumina-map.md",
+  "docs/examples-catalog.md",
+  "docs/file-conventions.md",
 ];
 
 const plannedLuminaCommandDocs = [
@@ -3008,6 +3021,12 @@ for (const doc of requiredEntryLinks) {
   if (!readmeHasLink) failures.push(`README.md does not link ${plain}`);
   if (!docsHubHasLink) failures.push(`docs/README.md does not link ${markdownTarget}`);
   if (!agentsHasRule) failures.push(`AGENTS.md does not mention ${plain}`);
+}
+
+for (const doc of mvpAlphaDocs) {
+  if (!read(doc).includes("MVP Alpha")) {
+    failures.push(`${doc} must describe the MVP Alpha scope before core prototype work starts.`);
+  }
 }
 
 for (const file of walkMarkdown(root)) {

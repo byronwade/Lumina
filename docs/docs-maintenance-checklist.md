@@ -12,6 +12,7 @@ Also apply `docs/docs-freshness-policy.md` for any change that can make docs sta
 - `README.md` still describes current status honestly.
 - `AGENTS.md` still gives correct agent workflow and safety rules.
 - `docs/status.md` matches the real project phase.
+- `docs/mvp-alpha-scope.md` still matches the real MVP Alpha target when route discovery, render modes, Lumina Map output, CLI inspection, demo-app scope, or deferred work changes.
 - `docs/README.md` links to any new durable docs.
 - `.github/PULL_REQUEST_TEMPLATE.md` still reflects the required review gates.
 - `docs/docs-freshness-policy.md` still reflects current docs freshness rules.
@@ -62,6 +63,7 @@ Also apply `docs/docs-freshness-policy.md` for any change that can make docs sta
 - A new command is added.
 - A feature moves from planned to scaffolded, implemented, or verified.
 - A risk changes priority.
+- MVP Alpha included or deferred scope changes.
 
 ## Update Reference Docs When
 
