@@ -827,6 +827,11 @@ const staleStatusPatterns = [
     message: "docs/public/reference/project-structure.md claims planned example directories are scaffolded.",
   },
   {
+    file: "docs/documentation-audit.md",
+    pattern: /Many public-framework docs homes were missing before this pass|not yet specified in one place|The next step is to define `docs-index\.json`, `llms\.txt`, `llms-full\.txt`/i,
+    message: "docs/documentation-audit.md should reflect current docs homes and machine-readable docs contracts instead of pre-expansion gaps.",
+  },
+  {
     file: "README.md",
     pattern: /examples\/[\s\S]*dashboard\/(?!client)/i,
     message: "README.md should use the planned dashboard-client example path.",

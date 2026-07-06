@@ -26,12 +26,12 @@ The highest-impact move is to keep building a docs system where every feature ha
 
 ## 3. Current Docs Weaknesses
 
-- Many public-framework docs homes were missing before this pass: status, governance, security, release, testing, CLI, config, routing, deployment, examples, compatibility, and benchmark methodology.
+- Many public-framework docs homes now exist, including status, governance, security, release, testing, CLI, config, routing, deployment, examples, compatibility, and benchmark methodology. The current weakness is that most are planned-contract homes until implementation fills them with verified behavior.
 - Several docs are architecture-first and not yet beginner-first.
-- Reference material is not yet split into exact command, config, helper, manifest, and file-convention pages.
+- Reference homes now exist for commands, config, manifests, file conventions, and major feature contracts; helper-specific pages and verified examples still need implementation-backed detail.
 - Website-readiness is early: most docs are repo planning docs rather than polished public website content.
 - Contributor and maintainer processes need more explicit governance, release, security, and review paths.
-- Machine-readable docs plans exist, but `docs-index.json`, `llms.txt`, and schema-versioned examples are not yet specified in one place.
+- Machine-readable docs outputs now have a planned inventory and `docs-index.json` draft in `docs/machine-readable-docs.md`; generators, validation, and real output examples are still future work.
 
 ## 4. Biggest Market Opportunities
 
@@ -68,7 +68,7 @@ See `docs/documentation-research.md` for project-by-project notes.
 | App developers | Routing, config, SEO, API, deployment, examples. | Reference homes now exist; implementation absent. | Fill guides as features land. |
 | Framework contributors | Architecture, package map, tasks, tests. | Strong. | Add task-level acceptance criteria and testing docs. |
 | Maintainers | Governance, release, security, review process. | Added initial governance/security/release homes. | Define maintainer roles before public launch. |
-| AI agents | AGENTS, stable JSON, safe edit rules, package boundaries. | Strong early foundation. | Add machine-readable docs index plan and schemas. |
+| AI agents | AGENTS, stable JSON, safe edit rules, package boundaries. | Strong early foundation, with a planned machine-readable docs contract. | Implement and validate generated docs indexes once the docs pipeline exists. |
 | Security reviewers | Threat model, high-risk areas, reporting path. | High-risk areas documented; policy added. | Add threat-model docs per high-risk feature. |
 | Open source program reviewers | License, conduct, governance, security, contribution path. | License exists; conduct/governance/security added. | Add maintainer and release policy detail. |
 | Future website visitors | Public positioning, examples, comparisons. | Early. | Build website content map and public docs readiness checks. |
@@ -99,7 +99,7 @@ Maintainer docs need governance, release, security intake, decision records, and
 
 ## 11. Agent-Readiness Review
 
-Agent readiness is a differentiator. The docs already define stable JSON expectations, safe edit rules, graph edge requirements, and AI playbooks. The next step is to define `docs-index.json`, `llms.txt`, `llms-full.txt`, and schema-versioned output examples.
+Agent readiness is a differentiator. The docs already define stable JSON expectations, safe edit rules, graph edge requirements, AI playbooks, and the planned `docs-index.json`, `llms.txt`, and `llms-full.txt` outputs. The next step is to implement deterministic generation, validation, and real output examples once the docs pipeline exists.
 
 ## 12. Missing Docs
 
