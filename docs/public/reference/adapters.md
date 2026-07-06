@@ -33,7 +33,7 @@ These files are deployment output. Canonical compiler and agent artifacts stay u
 `dist/adapter.manifest.json` should describe:
 
 - adapter package,
-- runtime,
+- runtime through `runtime.name`,
 - entry file,
 - public directory,
 - capabilities, including compression, route-known resource hints, 103 Early Hints support, and bfcache-aware headers,
@@ -51,6 +51,17 @@ These files are deployment output. Canonical compiler and agent artifacts stay u
 - Static export should fail clearly for non-static routes.
 - Deployment pages must name unsupported features.
 - Secrets must not appear in generated adapter manifests.
+
+## Contract Vocabulary
+
+Public adapter docs are checked against the same planned contract terms as internal docs:
+
+- `@needle/adapter-bun`, `@needle/adapter-node`, and `@needle/adapter-static`.
+- `dist/adapter.manifest.json`, `runtime.name`, `capabilities`, and `nativeRouteDispatch`.
+- `Bun.serve` and `Bun.serve({ routes })` when the Bun adapter proves native route dispatch is faster.
+- health endpoint behavior and static export rules.
+- `ADAPTER_` diagnostics.
+- compression, 103 Early Hints, `resourceHints`, and bfcache-aware delivery.
 
 ## Source
 

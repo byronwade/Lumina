@@ -193,6 +193,8 @@ rg -n "adapter-contract|Adapter Contract|adapter.manifest|ADAPTER_|health endpoi
 
 Expected result: adapter packages, generated output, adapter manifest fields, capabilities, native route dispatch, compression, Early Hints, resource hints, bfcache-aware delivery, environment behavior, health endpoint behavior, static export rules, diagnostics, deployment docs, compatibility docs, and public reference docs remain connected.
 
+Automated coverage in `bun run docs:check` also requires adapter contract, adapter architecture, and public adapter reference docs to keep `@needle/adapter-bun`, `@needle/adapter-node`, `@needle/adapter-static`, `dist/adapter.manifest.json`, `runtime.name`, `capabilities`, `nativeRouteDispatch`, `Bun.serve`, health endpoint, static export, `ADAPTER_` diagnostics, compression, Early Hints, `resourceHints`, and bfcache language aligned.
+
 ### 15. Manifest Contract Check
 
 ```powershell

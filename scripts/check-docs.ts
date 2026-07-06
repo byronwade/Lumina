@@ -290,6 +290,12 @@ const configAdapterContractDocs = [
   "docs/public/reference/config.md",
 ];
 
+const adapterContractDocs = [
+  "docs/adapter-contract.md",
+  "docs/adapters.md",
+  "docs/public/reference/adapters.md",
+];
+
 const configEnvironmentContractDocs = [
   "docs/config-contract.md",
   "docs/config.md",
@@ -935,6 +941,32 @@ for (const file of configAdapterContractDocs) {
   ]) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing config/adapter contract term: ${term}.`);
+    }
+  }
+}
+
+for (const file of adapterContractDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of [
+    "@needle/adapter-bun",
+    "@needle/adapter-node",
+    "@needle/adapter-static",
+    "dist/adapter.manifest.json",
+    "runtime.name",
+    "capabilities",
+    "nativeroutedispatch",
+    "bun.serve",
+    "health endpoint",
+    "static export",
+    "adapter_",
+    "compression",
+    "early hints",
+    "resourcehints",
+    "bfcache",
+  ]) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing adapter contract term: ${term}.`);
     }
   }
 }
