@@ -68,7 +68,7 @@ app/blog/[slug]/page.tsx -> /blog/:slug
 
 ## Current Reality
 
-The repository has a Bun workspace, package placeholders, shared core types, CI, and enforcement scripts. The `create-lumina` package is scaffolded, but app creation behavior is not implemented yet. Use [MVP Alpha Scope](../../mvp-alpha-scope.md), [Phase 1 Build Plan](../../phase-1-build-plan.md), and [Task Backlog](../../task-backlog.md) for the implementation sequence.
+The repository has a Bun workspace, package placeholders, shared core types, initial compiler route discovery, CI, and enforcement scripts. The `create-lumina` package is scaffolded, but app creation behavior is not implemented yet. Use [MVP Alpha Scope](../../mvp-alpha-scope.md), [Phase 1 Build Plan](../../phase-1-build-plan.md), and [Task Backlog](../../task-backlog.md) for the implementation sequence.
 
 The future default starter must follow [Examples And Templates Contract](../../examples-contract.md) before this guide can be marked verified.
 

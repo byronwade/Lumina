@@ -9,7 +9,7 @@ Test command, fixture, snapshot, and CI expectations are defined in [Testing Con
 
 ## Current Truth
 
-Lumina now has the initial Phase 1 scaffold plus Phase 1A shared core model hardening: Bun workspace configuration, package directories, placeholder source files outside `@lumina/core`, contract-backed shared core model types, root verification scripts, and tests.
+Lumina now has the initial Phase 1 scaffold plus Phase 1A shared core model hardening and the first route-discovery compiler slice: Bun workspace configuration, package directories, placeholder source files outside `@lumina/core` and `@lumina/compiler`, contract-backed shared core model types, root verification scripts, route-discovery fixtures, and tests.
 
 Current verified scaffold commands:
 
@@ -23,7 +23,7 @@ bun run performance:check
 bun run check
 ```
 
-`lumina dev`, `lumina build`, and the other CLI commands remain target UX, not implemented behavior. Public API examples in the docs are still drafts.
+`lumina dev`, `lumina build`, and the other CLI commands remain target UX, not implemented behavior. Public API examples in the docs are still drafts, except for the initial `@lumina/compiler` `createRoutesManifest` and `discoverRoutes` APIs covered by route-discovery tests.
 
 ## Phase 1 Goal
 
@@ -39,7 +39,7 @@ The initial scaffold proves this foundation:
 
 Future Phase 1 hardening should preserve those guarantees while adding the smallest implementation surface needed for Phase 1B and route discovery.
 
-Before route discovery expands, Phase 1 should also add the early benchmark and fixture skeleton described in [Implementation Speed Rules](implementation-speed-rules.md). That skeleton may report `not implemented`; it must not publish speed claims or synthetic results.
+Before route discovery expands into generated artifacts, CLI behavior, or performance claims, Phase 1 should also add the early benchmark and fixture skeleton described in [Implementation Speed Rules](implementation-speed-rules.md). That skeleton may report `not implemented`; it must not publish speed claims or synthetic results.
 
 ## Package Scaffold
 
@@ -182,7 +182,7 @@ bun run performance:check
 
 If a command is not available yet, the PR must say so and update the relevant docs. Do not leave stale claims that the command passes.
 
-Tests should prove package entrypoints and shared type surfaces only. They should not imply route discovery, rendering, adapter behavior, or generated artifacts exist.
+Tests should prove package entrypoints, shared type surfaces, and explicitly implemented compiler behavior. They should not imply rendering, adapter behavior, CLI behavior, or generated artifacts exist.
 
 When benchmark skeletons are added, checks should verify path existence, deterministic fixture naming, and claim hygiene only. They should not treat skeleton files as performance evidence.
 

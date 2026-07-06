@@ -609,15 +609,15 @@ const productIdentityDocs = [
 const publicScaffoldStatusDocs = [
   {
     file: "docs/getting-started.md",
-    terms: ["Bun workspace", "package placeholders", "shared core types", "CI", "enforcement scripts", "does not yet contain CLI behavior"],
+    terms: ["Bun workspace", "package placeholders", "shared core types", "initial compiler route discovery", "CI", "enforcement scripts", "does not yet contain CLI behavior"],
   },
   {
     file: "docs/public/index.md",
-    terms: ["Bun workspace", "package placeholders", "shared core types", "CI", "enforcement scripts", "framework runtime behavior is still planned"],
+    terms: ["Bun workspace", "package placeholders", "shared core types", "initial route-discovery API", "CI", "enforcement scripts", "framework runtime behavior is still planned"],
   },
   {
     file: "docs/public/guides/create-app.md",
-    terms: ["Bun workspace", "package placeholders", "shared core types", "CI", "enforcement scripts", "app creation behavior is not implemented yet"],
+    terms: ["Bun workspace", "package placeholders", "shared core types", "initial compiler route discovery", "CI", "enforcement scripts", "app creation behavior is not implemented yet"],
   },
   {
     file: "docs/public/roadmap.md",
@@ -743,27 +743,27 @@ const prototypeScopeTerms = [
 const currentImplementationStepDocs = [
   {
     file: "README.md",
-    terms: ["The next implementation stage is Phase 1B early benchmark and fixture skeleton, Phase 1C large-repo workspace graph planning, then route discovery."],
+    terms: ["The next implementation stage is to add the early benchmark and fixture skeleton, then connect route discovery to generated artifacts and CLI inspection."],
   },
   {
     file: "docs/status.md",
-    terms: ["The next implementation path is Phase 1B early benchmark and fixture skeleton, Phase 1C large-repo workspace graph planning, then route discovery."],
+    terms: ["The next implementation path is the Phase 1B early benchmark and fixture skeleton, then connecting route discovery to generated `.lumina/routes.json` files and CLI inspection."],
   },
   {
     file: "docs/roadmap.md",
-    terms: ["The next implementation stage is Phase 1B early benchmark and fixture skeleton, Phase 1C large-repo workspace graph planning, then route discovery."],
+    terms: ["The next implementation stage is Phase 1B early benchmark and fixture skeleton, then connecting route discovery to generated artifacts and CLI inspection."],
   },
   {
     file: "docs/public/roadmap.md",
-    terms: ["The next implementation path is Phase 1B early benchmark and fixture skeleton, Phase 1C large-repo workspace graph planning, then route discovery."],
+    terms: ["The next implementation path is Phase 1B early benchmark and fixture skeleton, then connecting route discovery to generated artifacts and CLI inspection."],
   },
   {
     file: "docs/product-build-readiness.md",
-    terms: ["Phase 1B early benchmark skeleton work, Phase 1C large-repo workspace graph planning, and route discovery."],
+    terms: ["Phase 1B early benchmark skeleton work and generated route artifact or CLI integration."],
   },
   {
     file: "docs/task-backlog.md",
-    terms: ["Current implementation path: Phase 1B adds an early benchmark and fixture skeleton with no public claims, Phase 1C documents the large-repo workspace graph lane, then route discovery begins."],
+    terms: ["Current implementation path: Phase 1B adds an early benchmark and fixture skeleton with no public claims, then route discovery connects to generated artifacts and CLI inspection."],
   },
 ];
 
@@ -2274,7 +2274,7 @@ for (const { file, pattern, message } of staleStatusPatterns) {
 
 const readme = read("README.md");
 const readmeFirstScreen = readme.split(/\r?\n/).slice(0, 40).join("\n");
-if (!/This checkout is in Phase 1: monorepo scaffold\./.test(readmeFirstScreen)) {
+if (!/This checkout is in Phase 1: monorepo scaffold/.test(readmeFirstScreen)) {
   failures.push("README.md must state Phase 1 scaffold status near the top before broad product claims can be read as current behavior.");
 }
 

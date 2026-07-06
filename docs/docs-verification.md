@@ -121,7 +121,7 @@ Public API draft examples must say they are planned and not implemented yet unle
 
 Internal and public CLI reference tables must make the planned status visible in their headings or status columns. For example, use `JSON output required once implemented?` instead of a present-tense `JSON output required?` heading while `@lumina/cli` has no behavior.
 
-Automated coverage also requires README, AGENTS, Vision, product strategy, public home, and glossary docs to keep the canonical product identity aligned: Lumina is an `app-graph-native, SEO-first React framework` for humans and AI agents, the semantic app graph is the first-class primitive, public pages can use the short promise `Your app ships with a map`, short-form positioning should use `Build like Next.js` and `Type like TanStack Start`, and public agent workflow pages should use the `Agent-Safe Workflows` label instead of older agent-native product wording. Public index and roadmap pages must also name the current Phase 1 scaffold evidence: Bun workspace, package placeholders, shared core types, CI, and enforcement scripts.
+Automated coverage also requires README, AGENTS, Vision, product strategy, public home, and glossary docs to keep the canonical product identity aligned: Lumina is an `app-graph-native, SEO-first React framework` for humans and AI agents, the semantic app graph is the first-class primitive, public pages can use the short promise `Your app ships with a map`, short-form positioning should use `Build like Next.js` and `Type like TanStack Start`, and public agent workflow pages should use the `Agent-Safe Workflows` label instead of older agent-native product wording. Public index and roadmap pages must also name the current Phase 1 scaffold evidence: Bun workspace, package placeholders, shared core types, initial compiler route discovery, CI, and enforcement scripts.
 
 Top-level speed positioning must stay static-first and evidence-aware until benchmarks exist. `bun run performance:check` rejects unsupported public speed slogans such as `Ship fast with Bun and Vite`, `Bun-speed`, `Bun-first runtime paths`, generic `planned fast runtime paths`, `fastest safe rendering strategy`, or `maximum speed`.
 
@@ -163,7 +163,7 @@ Vision, prototype, public-roadmap, Phase 1 build plan, task backlog, and contrib
 
 Feature scheduling gates in compiler IR and risk-mitigation docs must use `planned acceptance criteria` wording for tests and agent demos, rather than ambiguous current-tense definition-of-done wording.
 
-The current implementation path must stay aligned across README, project status, roadmap, public roadmap, product-readiness, and backlog docs: Phase 1A shared core model hardening is implemented, Phase 1B adds the early benchmark and fixture skeleton, Phase 1C documents the large-repo workspace graph lane, then route discovery begins. Current-status and verification docs must distinguish scaffolded adapter packages from unimplemented runtime adapter behavior.
+The current implementation path must stay aligned across README, project status, roadmap, public roadmap, product-readiness, and backlog docs: Phase 1A shared core model hardening is implemented, the first `@lumina/compiler` route-discovery package API exists, Phase 1B adds the early benchmark and fixture skeleton, and the next route-discovery work connects generated artifacts and CLI inspection. Current-status and verification docs must distinguish scaffolded adapter packages from unimplemented runtime adapter behavior.
 
 ### 7A. Agent Enforcement Matrix Check
 
@@ -315,7 +315,7 @@ Expected result: example status labels, starter-template requirements, create-co
 
 Automated coverage in `bun run docs:check` also requires generated app package scripts (`bun run dev`, `bun run build`, and `bun run start`) to stay documented as wrappers around `lumina dev`, `lumina build`, and `lumina start` in the onboarding and examples docs. Example command blocks must not list both `bun run build` and direct `lumina build` as separate required build steps.
 
-Onboarding and create-app docs must name the current scaffold evidence consistently: Bun workspace, package placeholders, shared core types, CI, and enforcement scripts. They must also keep app creation and CLI behavior marked as not implemented.
+Onboarding and create-app docs must name the current scaffold evidence consistently: Bun workspace, package placeholders, shared core types, initial compiler route discovery, CI, and enforcement scripts. They must also keep app creation and CLI behavior marked as not implemented.
 
 Automated coverage also rejects stale example names or create-command flags such as `--template agent-demo`, `large-monorepo-fixture`, and `blog-seo-with-map`; use `--example`, `examples/agent-demo/`, `playgrounds/large-app-fixture/`, and `examples/blog-seo/` instead.
 

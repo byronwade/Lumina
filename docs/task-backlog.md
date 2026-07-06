@@ -7,7 +7,7 @@ This backlog turns the roadmap into concrete implementation tasks. Each task sho
 
 Unless a task is explicitly marked `Verified.` or `Scaffolded.` with evidence, its "Definition of done" is planned acceptance criteria, not a claim that the behavior exists today. Future implementation tasks should use `should` wording for behavior that does not exist yet.
 
-Current implementation path: Phase 1B adds an early benchmark and fixture skeleton with no public claims, Phase 1C documents the large-repo workspace graph lane, then route discovery begins. Phase 1A shared core model hardening is implemented in `@lumina/core`.
+Current implementation path: Phase 1B adds an early benchmark and fixture skeleton with no public claims, then route discovery connects to generated artifacts and CLI inspection. Phase 1A shared core model hardening is implemented in `@lumina/core`; the first route-discovery package API is implemented in `@lumina/compiler`.
 
 MVP Alpha implementation path: keep PR 1A through PR 4 focused on core model hardening, the early benchmark skeleton, large-repo architecture planning, route discovery, deterministic `.lumina/routes.json`, basic render mode data for `.lumina/render-manifest.json`, the first file-level `.lumina/map.json`, CLI inspection, and a demo app. API routes, MCP, safe edits, migration, Node adapter runtime behavior, benchmark publishing, and performance claims are post-MVP unless `docs/mvp-alpha-scope.md` changes in the same work.
 
@@ -570,6 +570,10 @@ Definition of done:
 Goal: discover `app/` routes and emit `.lumina/routes.json`.
 
 MVP Alpha role: this is the first visible framework behavior. It should support the demo app routes listed in `docs/mvp-alpha-scope.md` before broader route conventions expand.
+
+Task status: Scaffolded.
+
+Evidence: `@lumina/compiler` exposes `discoverRoutes` and `createRoutesManifest` for in-memory page/API route discovery, with fixture coverage for static routes, dynamic routes, catch-all routes, route groups, layout collection, API route distinction, deterministic manifest ordering, and duplicate-path diagnostics. Emitting `.lumina/routes.json` is still planned.
 
 Read first:
 

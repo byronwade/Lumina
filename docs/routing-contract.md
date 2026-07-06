@@ -4,7 +4,7 @@ Status: Planned.
 
 Audience: framework contributors, app developers, runtime adapter authors, AI agents.
 
-This page defines the planned route-discovery contract for Lumina. It is more exact than the overview in [Routing](routing.md) and [File Conventions](file-conventions.md), but it still describes target behavior because route discovery is not implemented yet.
+This page defines the route-discovery contract for Lumina. The initial `@lumina/compiler` package API now implements the MVP page/API route grammar and in-memory routes manifest shaping covered by fixture tests. CLI integration, generated `.lumina/routes.json` files, unsupported-convention diagnostics, case-collision diagnostics, runtime matching, and broader route conventions remain planned.
 
 ## Contract Goals
 
@@ -163,7 +163,7 @@ Draft manifest envelope:
 }
 ```
 
-The manifest schema belongs in [Manifest Contracts](manifest-contracts.md) once route discovery is implemented and tested.
+The initial in-memory manifest schema is implemented in `@lumina/compiler`. File emission to `.lumina/routes.json` remains planned and must continue to follow [Manifest Contracts](manifest-contracts.md).
 
 ## Sorting And Matching
 

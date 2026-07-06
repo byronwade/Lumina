@@ -31,7 +31,7 @@ bun run performance:check
 bun run check
 ```
 
-They verify scaffold health, documentation links and guardrails, package structure, TypeScript validity, performance-claim hygiene, scaffold tests, and shared core model tests. The repository currently contains a Bun workspace, package placeholders, shared core types, and enforcement scripts; it does not yet contain CLI behavior, route discovery, rendering, Lumina Map generation, or generated `.lumina/*` artifacts.
+They verify scaffold health, documentation links and guardrails, package structure, TypeScript validity, performance-claim hygiene, scaffold tests, shared core model tests, and initial route-discovery fixture behavior. The repository currently contains a Bun workspace, package placeholders, shared core types, initial compiler route discovery, and enforcement scripts; it does not yet contain CLI behavior, generated route artifacts, rendering, Lumina Map generation, or generated `.lumina/*` artifacts.
 
 ## Target MVP App Creation
 

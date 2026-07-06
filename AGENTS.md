@@ -14,7 +14,7 @@ Lumina is an app-graph-native, SEO-first React framework for humans and AI agent
 
 Current phase: Phase 1, monorepo scaffold.
 
-The repository currently contains documentation, a Bun workspace scaffold, package placeholders, contract-backed shared core model types, CI, and enforcement scripts. Do not invent implemented framework behavior in docs unless the implementation exists or the text clearly marks it as planned.
+The repository currently contains documentation, a Bun workspace scaffold, package placeholders, contract-backed shared core model types, initial `@lumina/compiler` route discovery and route manifest shaping, CI, and enforcement scripts. Do not invent implemented framework behavior in docs unless the implementation exists or the text clearly marks it as planned.
 
 The next prototype target is defined in `docs/mvp-alpha-scope.md`. Agents must keep MVP Alpha scope language aligned with README.md, this file, status, roadmap, getting started, examples, file conventions, and Lumina Map docs.
 
@@ -208,7 +208,7 @@ bun run performance:check
 bun run check
 ```
 
-These commands verify the scaffold, docs links, root docs metadata, docs navigation coverage, package-map/build-plan/backlog alignment, planned CLI command surface and prefix consistency, status-drift guardrails, config/adapter contract terms, generated artifact inventories across agent and machine-readable docs, package structure, shared-core type ownership, shared-core contract terminology, performance documentation guardrails, TypeScript surface, and tests. They do not prove route discovery, rendering, CLI behavior, runtime adapter behavior, Lumina Map generation, MCP tools, or safe edits.
+These commands verify the scaffold, docs links, root docs metadata, docs navigation coverage, package-map/build-plan/backlog alignment, planned CLI command surface and prefix consistency, status-drift guardrails, config/adapter contract terms, generated artifact inventories across agent and machine-readable docs, package structure, shared-core type ownership, shared-core contract terminology, performance documentation guardrails, TypeScript surface, initial route-discovery fixture behavior, and tests. They do not prove generated `.lumina/routes.json` files, rendering, CLI behavior, runtime adapter behavior, Lumina Map generation, MCP tools, or safe edits.
 
 ## Planned Commands
 

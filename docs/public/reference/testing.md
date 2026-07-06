@@ -4,7 +4,7 @@ Status: Planned.
 
 Audience: app developers, contributors, AI agents.
 
-Lumina testing is planned around deterministic fixtures, stable JSON snapshots, HTTP adapter checks, browser checks for user-visible behavior, and explicit evidence reporting. Initial scaffold checks exist; feature-specific test tooling is still planned.
+Lumina testing is planned around deterministic fixtures, stable JSON snapshots, HTTP adapter checks, browser checks for user-visible behavior, and explicit evidence reporting. Initial scaffold checks and route-discovery fixture tests exist; broader feature-specific test tooling is still planned.
 
 ## Scaffold Commands
 
@@ -17,7 +17,7 @@ bun run performance:check
 bun run check
 ```
 
-These commands are verified for the Phase 1 scaffold. They prove scaffold integrity, documentation links and guardrails, package structure, performance documentation hygiene, TypeScript validity, scaffold tests, and shared core model tests. They do not prove route discovery, rendering, runtime adapter behavior, Lumina Map generation, MCP tools, or safe edits.
+These commands are verified for the Phase 1 scaffold and the first compiler route-discovery slice. They prove scaffold integrity, documentation links and guardrails, package structure, performance documentation hygiene, TypeScript validity, scaffold tests, shared core model tests, and initial route-discovery fixture behavior. They do not prove generated `.lumina/routes.json` files, rendering, runtime adapter behavior, Lumina Map generation, MCP tools, or safe edits.
 
 ## Future Target Commands
 

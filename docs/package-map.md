@@ -6,7 +6,7 @@ Status: Scaffolded.
 
 Audience: framework contributors, package owners, AI agents.
 
-Scope: package names and entrypoints are scaffolded; package behavior remains planned unless a package README, tests, and implementation evidence say otherwise.
+Scope: package names and entrypoints are scaffolded; package behavior remains planned unless a package README, tests, and implementation evidence say otherwise. The initial `@lumina/compiler` route-discovery API is implemented and covered by route-discovery fixture tests.
 
 ## Root Packages
 
