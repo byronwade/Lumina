@@ -65,15 +65,26 @@ const rootPackage = readJson<{
   scripts?: Record<string, string>;
 }>("package.json");
 
+const expectedRootScripts: Record<string, string> = {
+  check: "bun run docs:check && bun run structure:check && bun run performance:check && bun run typecheck && bun test",
+  "docs:check": "bun scripts/check-docs.ts",
+  "performance:check": "bun scripts/check-performance-docs.ts",
+  "structure:check": "bun scripts/check-structure.ts",
+  test: "bun test tests/**/*.test.ts",
+  typecheck: "tsc -p tsconfig.json --noEmit",
+};
+
 for (const workspace of ["packages/*", "packages/adapters/*"]) {
   if (!rootPackage.workspaces?.includes(workspace)) {
     failures.push(`Root package.json is missing workspace: ${workspace}`);
   }
 }
 
-for (const script of ["check", "docs:check", "structure:check", "performance:check", "test", "typecheck"]) {
+for (const [script, command] of Object.entries(expectedRootScripts)) {
   if (!rootPackage.scripts?.[script]) {
     failures.push(`Root package.json is missing script: ${script}`);
+  } else if (rootPackage.scripts[script] !== command) {
+    failures.push(`Root package.json script ${script} must be ${command}`);
   }
 }
 
