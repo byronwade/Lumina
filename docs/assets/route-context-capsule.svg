@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">NeedleStart route context capsule</title>
+  <desc id="desc">A professional diagram showing how one route is summarized as a compact context capsule with source files, manifests, checks, and explanations.</desc>
+  <defs>
+    <style>
+      .bg{fill:#fbfdff}.card{fill:#fff;stroke:#dbe4ee;stroke-width:1.5}.muted{fill:#f8fafc;stroke:#e2e8f0}.title{font:700 34px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#0f172a}.sub{font:400 16px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#475569}.h{font:700 16px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#0f172a}.t{font:500 13px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#334155}.small{font:500 12px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#64748b}.code{font:500 12px SFMono-Regular,Consolas,Menlo,monospace;fill:#334155}.codeblue{font:600 12px SFMono-Regular,Consolas,Menlo,monospace;fill:#1d4ed8}.blueLine{stroke:#2563eb;stroke-width:2.4;fill:none}.dash{stroke:#94a3b8;stroke-width:2;stroke-dasharray:6 7;fill:none}.shadow{filter:url(#shadow)}
+    </style>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.08"/></filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="675" rx="28"/>
+  <text class="title" x="60" y="62">Route context: what a model reads</text>
+  <text class="sub" x="60" y="92">A route capsule summarizes the real graph evidence behind one page.</text>
+
+  <rect class="card shadow" x="60" y="140" width="270" height="405" rx="18"/>
+  <text class="h" x="84" y="176">Graph evidence</text>
+  <text class="small" x="84" y="200">Connected to route /pricing</text>
+  <rect class="muted" x="84" y="228" width="222" height="38" rx="9"/><text class="code" x="104" y="252">app/pricing/page.tsx</text>
+  <rect class="muted" x="84" y="274" width="222" height="38" rx="9"/><text class="code" x="104" y="298">app/layout.tsx</text>
+  <rect class="muted" x="84" y="320" width="222" height="38" rx="9"/><text class="code" x="104" y="344">PricingHero.tsx</text>
+  <rect class="muted" x="84" y="366" width="222" height="38" rx="9"/><text class="code" x="104" y="390">PricingTable.tsx</text>
+  <rect class="muted" x="84" y="412" width="222" height="38" rx="9"/><text class="code" x="104" y="436">pricing.test.tsx</text>
+  <rect class="muted" x="84" y="458" width="222" height="38" rx="9"/><text class="code" x="104" y="482">seo.report.json</text>
+
+  <rect class="card shadow" x="430" y="115" width="340" height="470" rx="20"/>
+  <text class="h" x="458" y="152">.needle/context/pricing.ctx.json</text>
+  <text class="small" x="458" y="176">Compact, stable, source-linked context</text>
+  <rect class="muted" x="458" y="202" width="284" height="300" rx="14"/>
+  <text class="codeblue" x="482" y="232">{</text>
+  <text class="code" x="500" y="256">"route": "/pricing",</text>
+  <text class="code" x="500" y="280">"mode": "static",</text>
+  <text class="code" x="500" y="304">"seo": "pass",</text>
+  <text class="code" x="500" y="328">"cache": "static",</text>
+  <text class="code" x="500" y="352">"components": 2,</text>
+  <text class="code" x="500" y="376">"checks": ["seo", "test"],</text>
+  <text class="code" x="500" y="400">"editable": ["metadata"],</text>
+  <text class="code" x="500" y="424">"why": ["declared static"]</text>
+  <text class="codeblue" x="482" y="474">}</text>
+  <rect x="458" y="524" width="86" height="34" rx="17" fill="#ecfdf5" stroke="#bbf7d0"/><text class="t" x="480" y="546">low risk</text>
+  <rect x="558" y="524" width="86" height="34" rx="17" fill="#eef6ff" stroke="#bfdbfe"/><text class="t" x="582" y="546">typed</text>
+  <rect x="658" y="524" width="84" height="34" rx="17" fill="#f8fafc" stroke="#e2e8f0"/><text class="t" x="681" y="546">small</text>
+
+  <rect class="card shadow" x="870" y="140" width="270" height="405" rx="18"/>
+  <text class="h" x="894" y="176">Tool answers</text>
+  <text class="small" x="894" y="200">Based on the same context</text>
+  <rect class="muted" x="894" y="228" width="222" height="50" rx="10"/><text class="t" x="914" y="252">Explain route behavior</text><text class="small" x="914" y="270">why static, why indexable</text>
+  <rect class="muted" x="894" y="292" width="222" height="50" rx="10"/><text class="t" x="914" y="316">Find related files</text><text class="small" x="914" y="334">components, tests, schemas</text>
+  <rect class="muted" x="894" y="356" width="222" height="50" rx="10"/><text class="t" x="914" y="380">Run affected checks</text><text class="small" x="914" y="398">seo, typecheck, tests</text>
+  <rect class="muted" x="894" y="420" width="222" height="50" rx="10"/><text class="t" x="914" y="444">Plan metadata edits</text><text class="small" x="914" y="462">preview and validate first</text>
+
+  <path class="blueLine" marker-end="url(#arrowBlue)" d="M330 342 C370 342 390 342 430 342"/>
+  <path class="blueLine" marker-end="url(#arrowBlue)" d="M770 342 C810 342 830 342 870 342"/>
+  <path class="dash" d="M600 585 C600 620 795 620 954 545"/>
+  <text class="small" x="600" y="635">Same context feeds CLI, MCP, affected checks, and future devtools.</text>
+</svg>
