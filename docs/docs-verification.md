@@ -204,10 +204,12 @@ Automated coverage in `bun run docs:check` also requires canonical generated art
 ### 16. Routing Contract Check
 
 ```powershell
-rg -n "routing-contract|Route ID|ROUTE_DUPLICATE_PATH|routes\.json|routeGroups|sourceFile|catch-all|route discovery" README.md AGENTS.md docs\routing-contract.md docs\routing.md docs\file-conventions.md docs\compiler-ir.md docs\manifest-contracts.md docs\api-routes.md docs\public\reference\file-conventions.md docs\public\reference\project-structure.md docs\public\reference\routing.md
+rg -n "routing-contract|Route ID|ROUTE_DUPLICATE_PATH|ROUTE_UNSUPPORTED_CONVENTION|routes\.json|routeGroups|sourceFile|app/api/users/\[id\]\.ts|optional catch-all|unsupported-convention|stable across operating systems|route discovery" README.md AGENTS.md docs\routing-contract.md docs\routing.md docs\file-conventions.md docs\compiler-ir.md docs\manifest-contracts.md docs\api-routes.md docs\public\reference\file-conventions.md docs\public\reference\project-structure.md docs\public\reference\routing.md
 ```
 
-Expected result: route grammar, route IDs, manifest fields, diagnostics, fixture requirements, overview docs, and public references remain connected.
+Expected result: route grammar, dynamic API examples, route IDs, manifest fields, optional catch-all unsupported-convention behavior, diagnostics, fixture requirements, overview docs, and public references remain connected.
+
+Automated coverage in `bun run docs:check` also requires routing, file-convention, and public routing docs to keep the dynamic API example, optional catch-all status, unsupported-convention diagnostic wording, route IDs, and cross-OS stability language aligned.
 
 ### 17. Examples Contract Check
 

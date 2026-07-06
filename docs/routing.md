@@ -18,6 +18,7 @@ For the exact planned route-discovery rules, route IDs, diagnostics, sorting, an
 | `app/docs/[...parts]/page.tsx` | `/docs/*` |
 | `app/(marketing)/pricing/page.tsx` | `/pricing` |
 | `app/api/health.ts` | `/api/health` |
+| `app/api/users/[id].ts` | `/api/users/:id` |
 
 ## Requirements
 
@@ -27,7 +28,8 @@ For the exact planned route-discovery rules, route IDs, diagnostics, sorting, an
 - API and page routes must be distinguished.
 - Manifests must use normalized POSIX-style paths.
 - Duplicate normalized route paths must produce diagnostics instead of arbitrary winner selection.
-- Route IDs must be deterministic and source-path-derived.
+- Route IDs must be deterministic, source-path-derived, stable across operating systems, and independent of absolute local paths.
+- Optional catch-all segments such as `[[...slug]]` are reserved for later support and should produce an unsupported-convention diagnostic until implemented.
 
 See `docs/file-conventions.md`, `docs/routing-contract.md`, and `docs/compiler-ir.md`.
 

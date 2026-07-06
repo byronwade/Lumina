@@ -23,9 +23,11 @@ NeedleStart plans to use file-based routing under `app/`. This page is the publi
 - Route groups in parentheses organize files without changing the URL.
 - Dynamic segments use bracket syntax such as `[slug]`.
 - Catch-all segments use spread bracket syntax such as `[...parts]`.
+- Optional catch-all segments such as `[[...slug]]` are reserved for later support and should produce an unsupported-convention diagnostic until implemented.
 - API route files live under `app/api/`.
 - Generated route manifests must use normalized paths and stable ordering.
 - Conflicting route files should produce diagnostics instead of arbitrary behavior.
+- Route IDs must be deterministic, path-derived, stable across operating systems, and independent of absolute local paths.
 
 ## Planned Generated Output
 

@@ -296,6 +296,14 @@ const configEnvironmentContractDocs = [
   "docs/public/reference/config.md",
 ];
 
+const routingContractDocs = [
+  "docs/routing-contract.md",
+  "docs/routing.md",
+  "docs/file-conventions.md",
+  "docs/public/reference/routing.md",
+  "docs/public/reference/file-conventions.md",
+];
+
 const statusDefinitionDocs = [
   "docs/status.md",
   "docs/documentation-standard.md",
@@ -883,6 +891,16 @@ for (const file of configEnvironmentContractDocs) {
   for (const term of ["server-only", "public prefix", ".env*", "secret", "generated artifacts", "diagnostics"]) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing config environment contract term: ${term}.`);
+    }
+  }
+}
+
+for (const file of routingContractDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of ["app/api/users/[id].ts", "optional catch-all", "unsupported-convention", "route ids", "stable across operating systems"]) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing routing contract term: ${term}.`);
     }
   }
 }

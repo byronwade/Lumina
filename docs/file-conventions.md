@@ -43,6 +43,8 @@ Target route mapping:
 
 Route groups in parentheses organize files without changing the URL path.
 
+Optional catch-all segments such as `[[...slug]]` are reserved for later support and should produce an unsupported-convention diagnostic until implemented.
+
 ## Layouts
 
 Planned layout convention:
@@ -139,6 +141,6 @@ When implemented, file convention output must:
 - Ignore route groups in URL paths.
 - Preserve enough source information for Needle Map and agent context.
 - Emit helpful diagnostics for invalid or conflicting routes.
-- Keep route IDs stable across operating systems.
+- Keep route IDs stable across operating systems and independent of absolute local paths.
 - Snapshot route order, parameters, and diagnostics in route-discovery fixtures once implementation exists.
 

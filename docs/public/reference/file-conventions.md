@@ -14,6 +14,11 @@ NeedleStart plans to use file-based routing under `app/`.
 | `app/docs/[...parts]/page.tsx` | `/docs/*` |
 | `app/(marketing)/pricing/page.tsx` | `/pricing` |
 | `app/api/health.ts` | `/api/health` |
+| `app/api/users/[id].ts` | `/api/users/:id` |
+
+Route groups in parentheses organize files without changing the URL path. Optional catch-all segments such as `[[...slug]]` are reserved for later support and should produce an unsupported-convention diagnostic until implemented.
+
+Route IDs must be deterministic, path-derived, stable across operating systems, and independent of absolute local paths.
 
 ## Source
 
