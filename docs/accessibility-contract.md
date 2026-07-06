@@ -32,7 +32,7 @@ The accessibility contract applies to:
 - Public docs pages.
 - Framework-owned error pages.
 - Route transition behavior.
-- Forms and validation errors in official examples.
+- Forms, validation behavior, and form errors in official examples.
 - Metadata and public HTML checks.
 - Browser fixtures and smoke tests.
 - Diagnostics and agent context that report accessibility risks.
@@ -127,7 +127,7 @@ Diagnostics must avoid legal conformance language unless a dedicated accessibili
 
 ## Testing Requirements
 
-Accessibility evidence should scale by surface:
+Accessibility testing evidence should scale by surface:
 
 | Surface | Required future evidence |
 | --- | --- |

@@ -36,9 +36,17 @@ Future checks should cover:
 - Image alt text.
 - Form labels and error messages.
 - Keyboard navigation.
-- Route transition focus behavior.
+- Route focus behavior for route transitions.
 - Invalid ARIA.
 - Public HTML smoke checks.
+
+Planned diagnostics should use `A11Y_` code prefixes and the shared diagnostic shape.
+
+## Evidence Rules
+
+- Accessibility claims require testing evidence.
+- WCAG 2.2 AA is a quality target, not a conformance claim.
+- Do not publish broad accessibility or WCAG conformance wording without browser checks and review evidence.
 
 ## Current Reality
 

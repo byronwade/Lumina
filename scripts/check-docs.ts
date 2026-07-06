@@ -314,6 +314,12 @@ const seoContractDocs = [
   "docs/public/guides/seo-metadata.md",
 ];
 
+const accessibilityContractDocs = [
+  "docs/accessibility-contract.md",
+  "docs/accessibility.md",
+  "docs/public/reference/accessibility.md",
+];
+
 const routingContractDocs = [
   "docs/routing-contract.md",
   "docs/routing.md",
@@ -944,6 +950,16 @@ for (const file of seoContractDocs) {
   for (const term of ["definemeta", "generatemeta", "sitemap", "robots", "structured data", "canonical", ".needle/seo.report.json", "severity", "meaningful initial html", "client-only"]) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing SEO contract term: ${term}.`);
+    }
+  }
+}
+
+for (const file of accessibilityContractDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of ["wcag 2.2 aa", "semantic html", "keyboard", "visible focus", "route focus", "form errors", "a11y_", "diagnostics", "testing evidence", "conformance claim"]) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing accessibility contract term: ${term}.`);
     }
   }
 }

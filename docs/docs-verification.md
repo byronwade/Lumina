@@ -270,10 +270,12 @@ Automated coverage in `bun run docs:check` also requires SEO contract, SEO overv
 ### 22. Accessibility Contract Check
 
 ```powershell
-rg -n "accessibility-contract|Accessibility Contract|WCAG|keyboard|focus|semantic HTML|A11Y_|route focus|form errors|reference/accessibility" README.md AGENTS.md docs\accessibility-contract.md docs\accessibility.md docs\testing-contract.md docs\seo-contract.md docs\docs-verification.md docs\product-build-readiness.md docs\public-docs.md docs\public\reference\accessibility.md
+rg -n "accessibility-contract|Accessibility Contract|WCAG 2.2 AA|keyboard|visible focus|semantic HTML|A11Y_|route focus|form errors|testing evidence|conformance claim|reference/accessibility" README.md AGENTS.md docs\accessibility-contract.md docs\accessibility.md docs\testing-contract.md docs\seo-contract.md docs\docs-verification.md docs\product-build-readiness.md docs\public-docs.md docs\public\reference\accessibility.md
 ```
 
 Expected result: WCAG target language, semantic HTML, keyboard behavior, focus behavior, form errors, diagnostics, testing evidence, public docs readiness, SEO overlap, and public reference docs remain connected.
+
+Automated coverage in `bun run docs:check` also requires accessibility contract, overview, and public reference docs to keep WCAG 2.2 AA target language, semantic HTML, keyboard behavior, visible focus, route focus, form errors, `A11Y_` diagnostics, testing evidence, and no-conformance-claim language aligned.
 
 ### 23. Security Contract Check
 
