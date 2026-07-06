@@ -40,7 +40,7 @@ Before expanding beyond the monorepo scaffold, the repository should have:
 - A target app structure and target monorepo structure.
 - Planned command names and a warning that they are not verified yet.
 - A planned CLI JSON envelope, diagnostic shape, and exit-code policy.
-- A shared planned diagnostic contract for codes, levels, categories, locations, remediations, docs links, child diagnostics, and safe JSON output.
+- A shared planned diagnostic contract for codes, severity values, categories, locations, remediations, docs links, child diagnostics, and safe JSON output.
 - A planned configuration loading, validation, environment-variable, and normalized-output contract.
 - A stable generated-file list for `.needle/*` and `dist/*`.
 - A first-pass docs hub and public docs navigation.
