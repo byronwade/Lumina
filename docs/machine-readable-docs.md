@@ -10,11 +10,14 @@ NeedleStart should make documentation consumable by humans and AI agents. Machin
 
 | Output | Purpose | Production bundle? |
 | --- | --- | --- |
-| `llms.txt` | Compact public summary for AI tools. | Public docs artifact only |
-| `llms-full.txt` | Full AI-readable project or app context. | Public docs artifact only |
+| `AGENTS.md` | App-local operating guide for AI agents in generated user applications. | No production runtime bundles |
+| `llms.txt` | Compact public docs or app-local summary for AI tools. | No production runtime bundles |
+| `llms-full.txt` | Full AI-readable public docs or app-local context. | No production runtime bundles |
 | `docs-index.json` | Index of docs pages, status, audience, tags, and source paths. | Public docs artifact only |
 | `.needle/context/*.ctx.json` | Route or surface context capsules for apps. | No production runtime bundles |
 | `.needle/context/agent-index.json` | Index of generated agent context. | No production runtime bundles |
+
+The root `AGENTS.md` in this repository is not generated. It remains the authoritative hand-maintained operating guide for contributors and AI agents working on NeedleStart itself. Generated `AGENTS.md` files are planned only for user applications created or managed by NeedleStart.
 
 ## `docs-index.json` Draft
 
@@ -78,6 +81,7 @@ NeedleStart should make documentation consumable by humans and AI agents. Machin
 - Keep AI-facing JSON compact.
 - Link each generated item back to its source doc when practical.
 - Distinguish docs for the framework repository from generated docs for user applications.
+- Do not let generated app-local agent files override this repository's root `AGENTS.md`.
 
 ## Maintenance
 

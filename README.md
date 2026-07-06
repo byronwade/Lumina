@@ -233,7 +233,7 @@ NeedleStart is built as five layers:
 1. Developer framework: file routes, layouts, React rendering, metadata, API routes, and CLI.
 2. Compiler: route graph, render modes, server/client splitting, SEO generation, cache plans, codegen, explanations, and manifests.
 3. Runtime and adapters: Bun, Node, and static output paths consume generated artifacts and serve built apps.
-4. Agent Kernel: AGENTS.md generation, context capsules, MCP server, safe edits, plans, and diagnostics.
+4. Agent Kernel: app-local `AGENTS.md` generation, context capsules, MCP server, safe edits, plans, and diagnostics.
 5. Needle Map: semantic dependency graph, impact analysis, affected checks, visual map, ownership, cache, SEO, and risk.
 
 The runtime must stay small. Build-time compiler output should carry the complexity.

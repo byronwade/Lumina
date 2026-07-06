@@ -432,7 +432,7 @@ Goal: make the framework usable by AI agents without forcing them to read the wh
 
 Definition of done:
 
-- `AGENTS.md` generated with project commands and rules.
+- App-local `AGENTS.md` generated with project commands and rules.
 - Context capsules generated per route.
 - Agent context command returns compact JSON.
 - Agent plan returns deterministic task skeletons.

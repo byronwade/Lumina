@@ -14,22 +14,23 @@ The Agent Kernel is the part of NeedleStart that makes applications understandab
 - Record mutation logs.
 - Keep production builds free of agent metadata.
 
-## Generated Files
+## Generated Outputs
 
-Planned generated files:
+The repository root `AGENTS.md` is a hand-maintained operating guide for NeedleStart contributors. The Agent Kernel must not overwrite it.
 
-```txt
-AGENTS.md
-llms.txt
-llms-full.txt
-docs-index.json
-.needle/graph.json
-.needle/routes.json
-.needle/map.json
-.needle/context/public.ctx.json
-.needle/context/api.ctx.json
-.needle/context/agent-index.json
-```
+Planned public docs and app-agent outputs:
+
+| Output | Scope | Purpose |
+| --- | --- | --- |
+| `AGENTS.md` | Generated app-local artifact | Agent operating guide for a user application created or managed by NeedleStart. |
+| `llms.txt` | Public docs or app-local artifact | Compact AI-readable summary. |
+| `llms-full.txt` | Public docs or app-local artifact | Expanded AI-readable context. |
+| `docs-index.json` | Public docs artifact | Machine-readable docs index for the future docs site. |
+| `.needle/graph.json` | Generated app artifact | Semantic app graph. |
+| `.needle/routes.json` | Generated app artifact | Route manifest. |
+| `.needle/map.json` | Generated app artifact | Queryable Needle Map output. |
+| `.needle/context/*.ctx.json` | Generated app artifact | Route or surface context capsules. |
+| `.needle/context/agent-index.json` | Generated app artifact | Index of generated agent context. |
 
 See `docs/machine-readable-docs.md` for the planned machine-readable documentation contract.
 

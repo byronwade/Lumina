@@ -164,7 +164,7 @@ Do not add frontmatter until the docs site parser exists or a static-site direct
 - Keep JSON examples compact and schema-versioned where possible.
 - Link from prose pages to exact reference pages.
 - Never ask agents to rely on inferred behavior when a manifest, schema, or contract should exist.
-- Generated agent docs such as `AGENTS.md`, `llms.txt`, `llms-full.txt`, and `docs-index.json` must not include secrets.
+- Generated app-local or public-docs agent artifacts such as app-local `AGENTS.md`, `llms.txt`, `llms-full.txt`, and `docs-index.json` must not include secrets.
 
 ## Benchmark Claim Rules
 

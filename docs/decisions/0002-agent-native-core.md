@@ -15,7 +15,7 @@ Make agent-native behavior a core framework feature from the beginning.
 
 This includes:
 
-- `AGENTS.md` generation.
+- App-local `AGENTS.md` generation.
 - Route context capsules.
 - Needle Map.
 - Stable JSON diagnostics.

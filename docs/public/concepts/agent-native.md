@@ -8,7 +8,7 @@ NeedleStart is designed for a future where AI agents are normal contributors to 
 
 ## Planned Agent Surfaces
 
-- `AGENTS.md` generation.
+- App-local `AGENTS.md` generation.
 - Route context capsules.
 - Needle Map queries.
 - MCP read tools.

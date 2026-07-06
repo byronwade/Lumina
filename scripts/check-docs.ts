@@ -236,6 +236,31 @@ const staleStatusPatterns = [
     message: "docs/public/reference/project-structure.md claims planned example directories are scaffolded.",
   },
   {
+    file: "README.md",
+    pattern: /Agent Kernel: AGENTS\.md generation/i,
+    message: "README.md must distinguish app-local AGENTS.md generation from the hand-maintained repository root AGENTS.md.",
+  },
+  {
+    file: "docs/agent-kernel.md",
+    pattern: /Planned generated files:\s*```txt\s*AGENTS\.md/i,
+    message: "docs/agent-kernel.md must distinguish app-local AGENTS.md generation from the repository root AGENTS.md.",
+  },
+  {
+    file: "docs/package-map.md",
+    pattern: /\| `@needle\/agent` \| AGENTS\.md generation/i,
+    message: "docs/package-map.md must describe app-local AGENTS.md generation.",
+  },
+  {
+    file: "docs/roadmap.md",
+    pattern: /- `AGENTS\.md` generated with project commands and rules/i,
+    message: "docs/roadmap.md must describe app-local AGENTS.md generation.",
+  },
+  {
+    file: "docs/public/concepts/agent-native.md",
+    pattern: /- `AGENTS\.md` generation\./i,
+    message: "docs/public/concepts/agent-native.md must describe app-local AGENTS.md generation.",
+  },
+  {
     file: "docs/speed-capability-audit.md",
     pattern: /Before Phase 1 package scaffold/i,
     message: "docs/speed-capability-audit.md still uses pre-scaffold language.",

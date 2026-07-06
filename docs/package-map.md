@@ -21,7 +21,7 @@ Scope: package names and entrypoints are scaffolded; package behavior remains pl
 | `@needle/router` | Generated route matcher, typed links, params, route helpers. |
 | `@needle/seo` | Metadata, sitemap, robots, OG images, structured data helpers, SEO audits. |
 | `@needle/map` | Semantic graph builder, file graph, query engine, affected checks. |
-| `@needle/agent` | AGENTS.md generation, context capsules, task skeletons, safe edit orchestration. |
+| `@needle/agent` | App-local `AGENTS.md` generation, context capsules, task skeletons, safe edit orchestration. |
 | `@needle/mcp` | MCP server tools and resources. |
 | `@needle/cache` | Cache tags, route cache, response cache, invalidation primitives. |
 | `@needle/schema` | Schema DSL, validators, serializers, OpenAPI generation. |

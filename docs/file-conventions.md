@@ -120,9 +120,9 @@ Planned special files:
 | `app/not-found.tsx` | Planned | Route-level or app-level 404 UI. |
 | `app/error.tsx` | Planned | Route-level or app-level error UI. |
 | `needle.config.ts` | Planned | Framework config. |
-| `AGENTS.md` | Planned generated app artifact | Agent operating guide for a user app. |
-| `llms.txt` | Planned generated app artifact | Compact AI-readable project summary. |
-| `llms-full.txt` | Planned generated app artifact | Full AI-readable project context. |
+| `AGENTS.md` | Planned app-local generated artifact | Agent operating guide for a user app. This does not describe the hand-maintained NeedleStart repository root `AGENTS.md`. |
+| `llms.txt` | Planned app-local or public-docs artifact | Compact AI-readable project summary. |
+| `llms-full.txt` | Planned app-local or public-docs artifact | Full AI-readable project context. |
 
 ## Generated Files
 
