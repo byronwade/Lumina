@@ -4,7 +4,7 @@ Status: Planned.
 
 Audience: app developers, framework contributors, docs maintainers, AI agents.
 
-This page defines how Lumina examples, starter templates, and public guide snippets should work once implementation exists. The repository is in Phase 1 scaffold, so no example is verified yet. Scaffolded source fixtures exist for `apps/www`, `examples/basic/`, `examples/blog-seo/`, `examples/multi-app-workspace/`, `examples/large-100-routes/`, and `examples/large-1000-routes/`; they are not runnable examples until dev/build/start behavior exists. The planned official inventory lives in [Examples Catalog](examples-catalog.md).
+This page defines how Lumina examples, starter templates, and public guide snippets should work once implementation exists. The repository is in Phase 1 scaffold, so no example is fully verified yet. Scaffolded source fixtures exist for `apps/www`, `examples/basic/`, `examples/blog-seo/`, `examples/multi-app-workspace/`, `examples/large-100-routes/`, and `examples/large-1000-routes/`; `apps/www` is runnable through the minimal local dev-server path, while standalone examples are not runnable examples until build/start behavior and broader runtime evidence exist. The planned official inventory lives in [Examples Catalog](examples-catalog.md).
 
 ## Research Notes
 

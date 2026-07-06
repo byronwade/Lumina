@@ -4,7 +4,7 @@ Status: Planned.
 
 Audience: app developers, framework contributors, AI agents.
 
-Examples should become the fastest way to understand Lumina behavior once implementation exists. Current example files are scaffolded source fixtures for the compiler and CLI, not runnable apps.
+Examples should become the fastest way to understand Lumina behavior once implementation exists. Current example files are scaffolded source fixtures for the compiler and CLI. The `apps/www` fixture is runnable through the minimal local `lumina dev` path; the standalone example directories are not verified runnable apps yet.
 
 The detailed requirements for examples, templates, verification evidence, and create-command integration are defined in [Examples And Templates Contract](examples-contract.md).
 
@@ -19,7 +19,7 @@ The official inventory is canonical in [Examples Catalog](examples-catalog.md). 
 - `examples/large-100-routes/`
 - `examples/large-1000-routes/`
 
-These fixtures have README status labels and route-discovery tests. They are not runnable or verified examples until dev/build/start commands and runtime behavior exist.
+These fixtures have README status labels and route-discovery tests. `apps/www` is covered by minimal dev-server tests; the standalone example directories are not runnable or verified examples until build/start commands and broader runtime behavior exist.
 
 ## Planned Examples
 
@@ -41,7 +41,7 @@ These directories do not exist yet. Do not describe them as scaffolded, runnable
 
 The first MVP source fixture is `apps/www/`. It demonstrates the same marketing-app route surface listed in [MVP Alpha Scope](mvp-alpha-scope.md), and it does not include API routes, MCP, safe edits, auth, databases, or benchmark claims.
 
-The MVP Alpha Demo should prove route discovery, basic render modes, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, and `lumina inspect why`.
+The MVP Alpha Demo should prove route discovery, basic render modes, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, and the first `lumina dev` route-serving path.
 
 ## Example Requirements
 

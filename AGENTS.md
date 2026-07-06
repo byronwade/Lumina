@@ -206,12 +206,14 @@ bun run docs:check
 bun run lumina -- routes <appPath> --json
 bun run lumina -- inspect <appPath> --json
 bun run lumina -- inspect <appPath> why <route>
+bun run lumina -- dev <appPath>
+bun run lumina -- dev <appPath> --once
 bun run structure:check
 bun run performance:check
 bun run check
 ```
 
-These commands verify the scaffold, docs links, root docs metadata, docs navigation coverage, package-map/build-plan/backlog alignment, planned CLI command surface and prefix consistency, status-drift guardrails, config/adapter contract terms, generated artifact inventories across agent and machine-readable docs, package structure, shared-core type ownership, shared-core contract terminology, performance documentation guardrails, TypeScript surface, route-discovery fixture behavior, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, and `.lumina/map.json` output, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, scaffolded `apps/www` and example fixture route evidence, early benchmark/status skeleton paths, and tests. They do not prove measured benchmark results, rendering, dev/build/start CLI behavior, runtime adapter behavior, MCP tools, or safe edits.
+These commands verify the scaffold, docs links, root docs metadata, docs navigation coverage, package-map/build-plan/backlog alignment, planned CLI command surface and prefix consistency, status-drift guardrails, config/adapter contract terms, generated artifact inventories across agent and machine-readable docs, package structure, shared-core type ownership, shared-core contract terminology, performance documentation guardrails, TypeScript surface, route-discovery fixture behavior, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, and `.lumina/map.json` output, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` Vite SSR route serving, scaffolded `apps/www` and example fixture route evidence, early benchmark/status skeleton paths, and tests. They do not prove measured benchmark results, production build/start behavior, runtime adapter behavior, route HMR, virtual route modules, client hydration, MCP tools, or safe edits.
 
 ## Planned Commands
 

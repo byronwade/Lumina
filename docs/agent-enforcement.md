@@ -5,7 +5,7 @@ Audience: AI agents, maintainers, contributors.
 
 This page maps Lumina's agent rules to the checks that currently enforce them. It is the operational bridge between `AGENTS.md`, the documentation contracts, package structure, performance guardrails, and the verification scripts.
 
-The current enforcement layer proves the Phase 1 scaffold, documentation system, route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, and benchmark/status skeleton paths. It does not prove unimplemented framework behavior such as rendering, dev/build/start CLI behavior, runtime adapter behavior, Lumina Map query CLI, MCP tools, or safe edit transactions.
+The current enforcement layer proves the Phase 1 scaffold, documentation system, route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` SSR route serving, and benchmark/status skeleton paths. It does not prove unimplemented framework behavior such as production build/start behavior, runtime adapter behavior, route HMR, virtual route modules, client hydration, Lumina Map query CLI, MCP tools, or safe edit transactions.
 
 ## Enforcement Rule
 

@@ -7,7 +7,7 @@ This page defines the first Lumina MVP Alpha target. It is a target scope, not a
 
 ## Current Evidence
 
-The repository currently has the Phase 1 scaffold: Bun workspace, package placeholders, shared `@lumina/core` scaffold types, `@lumina/compiler` route discovery, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, and `.lumina/map.json` output, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, scaffolded `apps/www` and example source fixtures, CI, and verification scripts. It does not yet have dev/build/start CLI behavior, rendering, or Lumina Map query CLI behavior.
+The repository currently has the Phase 1 scaffold: Bun workspace, package placeholders, shared `@lumina/core` scaffold types, `@lumina/compiler` route discovery, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, and `.lumina/map.json` output, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` Vite SSR route serving, scaffolded `apps/www` and example source fixtures, CI, and verification scripts. It does not yet have build/start CLI behavior, route HMR, virtual route modules, client hydration, production runtime serving, or Lumina Map query CLI behavior.
 
 ## MVP Alpha Goal
 
@@ -64,7 +64,7 @@ The first `apps/www` fixture contains:
 - `components/ExampleCard.tsx`
 - `lumina.config.ts`
 
-The fixture proves route discovery, generated route/render/map artifacts, Lumina Map nodes and edges, and `lumina inspect why`. Runtime rendering, dev/build/start behavior, and measured speed evidence remain required before MVP Alpha is ready.
+The fixture proves route discovery, generated route/render/map artifacts, Lumina Map nodes and edges, `lumina inspect why`, and minimal dev-server SSR page rendering. Route HMR, virtual route modules, client hydration, build/start behavior, production runtime serving, and measured speed evidence remain required before MVP Alpha is ready.
 
 ## Verification Required Before Calling MVP Alpha Ready
 

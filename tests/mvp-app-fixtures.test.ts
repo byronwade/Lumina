@@ -116,5 +116,5 @@ describe("MVP app and example fixtures", () => {
         rmSync(appRoot, { recursive: true, force: true });
       }
     }
-  });
+  }, 15_000);
 });

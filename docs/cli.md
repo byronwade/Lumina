@@ -4,7 +4,7 @@ Status: Scaffolded.
 
 Audience: app developers, framework contributors, AI agents.
 
-This page is the reference for `lumina` commands. `@lumina/cli` currently implements `lumina routes <appPath> --json`, `lumina inspect <appPath> --json`, and `lumina inspect <appPath> why <route>` through the local `bun run lumina -- ...` script. Other commands remain planned.
+This page is the reference for `lumina` commands. `@lumina/cli` currently implements `lumina routes <appPath> --json`, `lumina inspect <appPath> --json`, `lumina inspect <appPath> why <route>`, and a minimal `lumina dev <appPath>` through the local `bun run lumina -- ...` script. Other commands remain planned.
 
 Machine-readable command behavior is planned in [CLI JSON Contract](cli-json-contract.md). Human output may evolve, but `--json` output, exit codes, diagnostic codes, and schema versions become stable contracts once released.
 
@@ -12,7 +12,7 @@ Machine-readable command behavior is planned in [CLI JSON Contract](cli-json-con
 
 | Command | Purpose | Status | JSON output required once implemented? |
 | --- | --- | --- |
-| `lumina dev` | Start local development. | Planned | No |
+| `lumina dev` | Start local development. | Implemented for minimal `<appPath>` Vite SSR route serving; HMR, virtual route modules, and client hydration remain planned | No |
 | `lumina build` | Build app, manifests, graph, SEO, and adapter output. | Planned | Yes |
 | `lumina start` | Start built output. | Planned | No |
 | `lumina routes` | List route manifest entries. | Implemented for `<appPath> --json` | Yes |
@@ -35,6 +35,8 @@ These variants are referenced by roadmap, guide, and contract docs. They remain 
 | Command variant | Purpose |
 | --- | --- |
 | `lumina inspect why` | Implemented for route source, layout, render-mode, and artifact evidence. |
+| `lumina dev --port <port>` | Implemented for selecting a local dev-server port. |
+| `lumina dev --once` | Implemented for smoke-starting the dev server, writing artifacts, and closing immediately. |
 | `lumina build --affected` | Build only apps, routes, packages, and artifacts selected by the workspace graph. |
 | `lumina check --affected` | Run framework checks selected by affected workspace graph output. |
 | `lumina test --affected` | Run tests selected by affected apps, routes, packages, and shared files. |
@@ -82,6 +84,18 @@ These global flags are planned, not implemented:
 | `--quiet` | Reduce non-essential human output. |
 
 Do not rely on these flags until the owning command implements and tests them. The `--json` flag is implemented for `lumina routes <appPath>`.
+
+## Implemented Dev Command
+
+Local repository usage:
+
+```bash
+bun run lumina -- dev apps/www
+bun run lumina -- dev apps/www --port 5173
+bun run lumina -- dev apps/www --once
+```
+
+The implemented dev command writes `.lumina/routes.json`, `.lumina/render-manifest.json`, and `.lumina/map.json`, starts a Vite server, renders page routes through React SSR, and returns 404 HTML for unknown page routes. It does not yet implement route params, client hydration, route-manifest virtual modules, or HMR summaries.
 
 ## Planned Exit Code Policy
 

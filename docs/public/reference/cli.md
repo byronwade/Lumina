@@ -4,11 +4,11 @@ Status: Scaffolded.
 
 Audience: app developers, AI agents.
 
-The `@lumina/cli` package implements the first route inspection paths: `lumina routes <appPath> --json`, `lumina inspect <appPath> --json`, and `lumina inspect <appPath> why <route>`, available locally as `bun run lumina -- ...`. Other Lumina CLI commands remain planned.
+The `@lumina/cli` package implements the first route inspection paths and minimal dev-server path: `lumina routes <appPath> --json`, `lumina inspect <appPath> --json`, `lumina inspect <appPath> why <route>`, and `lumina dev <appPath>`, available locally as `bun run lumina -- ...`. Other Lumina CLI commands remain planned.
 
 | Command | Purpose | Status |
 | --- | --- | --- |
-| `lumina dev` | Start local development. | Planned |
+| `lumina dev` | Start local development. | Implemented for minimal `<appPath>` Vite SSR route serving; HMR and client hydration planned |
 | `lumina build` | Build app output and generated artifacts. | Planned |
 | `lumina start` | Start a built app. | Planned |
 | `lumina routes` | Inspect discovered routes. | Implemented for `<appPath> --json` |
@@ -25,6 +25,15 @@ The `@lumina/cli` package implements the first route inspection paths: `lumina r
 | `lumina bench` | Run benchmark fixtures and emit evidence metadata. | Planned |
 
 Exact options, outputs, and exit codes will be documented after implementation.
+
+Current local dev-server usage:
+
+```bash
+bun run lumina -- dev apps/www
+bun run lumina -- dev apps/www --once
+```
+
+The implemented dev path writes the first `.lumina` artifacts and renders page routes on the server. Production build/start behavior, route HMR, virtual route modules, and client hydration remain planned.
 
 ## Planned Command Variants
 

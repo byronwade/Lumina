@@ -9,7 +9,7 @@ Test command, fixture, snapshot, and CI expectations are defined in [Testing Con
 
 ## Current Truth
 
-Lumina now has the initial Phase 1 scaffold plus Phase 1A shared core model hardening and the first route-discovery compiler slice: Bun workspace configuration, package directories, placeholder source files outside `@lumina/core` and `@lumina/compiler`, contract-backed shared core model types, root verification scripts, route-discovery fixtures, and tests.
+Lumina now has the initial Phase 1 scaffold plus Phase 1A shared core model hardening, the first route-discovery compiler slice, and a minimal Vite dev-server slice: Bun workspace configuration, package directories, placeholder source files outside `@lumina/core`, `@lumina/compiler`, `@lumina/cli`, and `@lumina/vite-plugin`, contract-backed shared core model types, root verification scripts, route-discovery fixtures, dev-server fixtures, and tests.
 
 Current verified scaffold commands:
 
@@ -23,7 +23,7 @@ bun run performance:check
 bun run check
 ```
 
-`lumina dev`, `lumina build`, and most other CLI commands remain target UX, not implemented behavior. `lumina routes <appPath> --json`, `lumina inspect <appPath> --json`, and `lumina inspect <appPath> why <route>` are implemented through the local `bun run lumina -- ...` script. Public API examples in the docs are still drafts, except for the initial `@lumina/compiler` route, render-manifest, and map artifact APIs covered by route-discovery, artifact, and CLI tests.
+`lumina build`, `lumina start`, and most other CLI commands remain target UX, not implemented behavior. `lumina routes <appPath> --json`, `lumina inspect <appPath> --json`, `lumina inspect <appPath> why <route>`, and minimal `lumina dev <appPath>` are implemented through the local `bun run lumina -- ...` script. Public API examples in the docs are still drafts, except for the initial `@lumina/compiler` route, render-manifest, map artifact APIs, and minimal `@lumina/vite-plugin` dev-server API covered by route-discovery, artifact, CLI, and HTTP dev-server tests.
 
 ## Phase 1 Goal
 
@@ -182,7 +182,7 @@ bun run performance:check
 
 If a command is not available yet, the PR must say so and update the relevant docs. Do not leave stale claims that the command passes.
 
-Tests should prove package entrypoints, shared type surfaces, and explicitly implemented compiler or CLI behavior. They should not imply rendering, adapter behavior, CLI behavior beyond routes/inspect, or generated artifacts beyond `.lumina/routes.json`, `.lumina/render-manifest.json`, and `.lumina/map.json` exist.
+Tests should prove package entrypoints, shared type surfaces, and explicitly implemented compiler, CLI, or dev-server behavior. They should not imply production adapter behavior, CLI behavior beyond routes/inspect/minimal dev, route HMR, client hydration, or generated artifacts beyond `.lumina/routes.json`, `.lumina/render-manifest.json`, and `.lumina/map.json` exist.
 
 When benchmark skeletons are added, checks should verify path existence, deterministic fixture naming, and claim hygiene only. They should not treat skeleton files as performance evidence.
 
@@ -191,8 +191,9 @@ When benchmark skeletons are added, checks should verify path existence, determi
 Phase 1 should not implement:
 
 - Route discovery.
-- Vite dev server integration.
-- React rendering.
+- Production Vite build output.
+- Full React rendering behavior beyond minimal dev SSR.
+- Route HMR and client hydration.
 - Runtime request handling.
 - Lumina Map extraction.
 - MCP tools.

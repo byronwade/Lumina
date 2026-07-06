@@ -609,11 +609,11 @@ const productIdentityDocs = [
 const publicScaffoldStatusDocs = [
   {
     file: "docs/getting-started.md",
-    terms: ["Bun workspace", "package placeholders", "shared core types", "route discovery", "CI", "enforcement scripts", "does not yet contain dev/build/start CLI behavior"],
+    terms: ["Bun workspace", "package placeholders", "shared core types", "route discovery", "CI", "enforcement scripts", "does not yet contain build/start CLI behavior"],
   },
   {
     file: "docs/public/index.md",
-    terms: ["Bun workspace", "package placeholders", "shared core types", "initial route-discovery API", "CI", "enforcement scripts", "framework runtime behavior is still planned"],
+    terms: ["Bun workspace", "package placeholders", "shared core types", "initial route-discovery API", "minimal local Vite dev server", "CI", "enforcement scripts", "production framework runtime behavior is still planned"],
   },
   {
     file: "docs/public/guides/create-app.md",
@@ -621,7 +621,7 @@ const publicScaffoldStatusDocs = [
   },
   {
     file: "docs/public/roadmap.md",
-    terms: ["Bun workspace", "package placeholders", "shared core types", "CI", "enforcement scripts", "Runtime implementation is still planned"],
+    terms: ["Bun workspace", "package placeholders", "shared core types", "CI", "enforcement scripts", "Production runtime implementation is still planned"],
   },
 ];
 
@@ -743,19 +743,19 @@ const prototypeScopeTerms = [
 const currentImplementationStepDocs = [
   {
     file: "README.md",
-    terms: ["The next implementation stage is Vite dev integration for the scaffolded `apps/www` app and examples"],
+    terms: ["The next implementation stage is completing Vite dev HMR, virtual route modules, and client hydration, then static build output"],
   },
   {
     file: "docs/status.md",
-    terms: ["The next implementation path is Vite dev integration for the scaffolded `apps/www` app and examples"],
+    terms: ["The next implementation path is completing Vite dev HMR, virtual route modules, and client hydration, then static build output"],
   },
   {
     file: "docs/roadmap.md",
-    terms: ["The next implementation stage is Vite dev integration for the scaffolded `apps/www` app and examples."],
+    terms: ["The next implementation stage is completing Vite dev HMR, virtual route modules, and client hydration, then static build output."],
   },
   {
     file: "docs/public/roadmap.md",
-    terms: ["The next implementation path is Vite dev integration for the scaffolded `apps/www` app and examples."],
+    terms: ["The next implementation path is completing Vite dev HMR, virtual route modules, and client hydration, then static build output."],
   },
   {
     file: "docs/product-build-readiness.md",
@@ -763,7 +763,7 @@ const currentImplementationStepDocs = [
   },
   {
     file: "docs/task-backlog.md",
-    terms: ["Current implementation path: add Vite dev integration for the scaffolded `apps/www` app and examples."],
+    terms: ["Current implementation path: complete Vite dev HMR, virtual route modules, and client hydration, then static build output."],
   },
 ];
 

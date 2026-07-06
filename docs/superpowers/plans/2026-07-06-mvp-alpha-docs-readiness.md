@@ -74,7 +74,7 @@ This page defines the first Lumina MVP Alpha target. It is a target scope, not a
 
 ## Current Evidence
 
-The repository currently has the Phase 1 scaffold: Bun workspace, package placeholders, shared `@lumina/core` scaffold types, `@lumina/compiler` route discovery, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, CI, and verification scripts. It does not yet have dev/build/start CLI behavior, rendering, or Lumina Map query CLI behavior.
+The repository currently has the Phase 1 scaffold: Bun workspace, package placeholders, shared `@lumina/core` scaffold types, `@lumina/compiler` route discovery, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` Vite SSR route serving, CI, and verification scripts. It does not yet have build/start CLI behavior, route HMR, virtual route modules, client hydration, production runtime serving, or Lumina Map query CLI behavior.
 
 ## MVP Alpha Goal
 
@@ -283,7 +283,7 @@ Replace the broad current guide with this section order:
 Status: Planned.
 Audience: new users, app developers, AI agents.
 
-This is the target MVP Alpha onboarding path. The repository currently has the Phase 1 scaffold plus route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, and `lumina inspect why`; app creation, dev/build/start, rendering, and runtime serving are not implemented yet.
+This is the target MVP Alpha onboarding path. The repository currently has the Phase 1 scaffold plus route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, and minimal `lumina dev` Vite SSR route serving; app creation, build/start, route HMR, virtual route modules, client hydration, and production runtime serving are not implemented yet.
 
 ## What You Will Build In MVP Alpha
 ## Current Repository Commands

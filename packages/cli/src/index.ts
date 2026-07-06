@@ -4,6 +4,7 @@ import {
   writeRenderManifest,
   writeRoutesManifest,
 } from "@lumina/compiler";
+import { startLuminaDevServer } from "@lumina/vite-plugin";
 
 export const luminaCliStatus = {
   name: "@lumina/cli",
@@ -83,7 +84,34 @@ export async function runCli(argv: string[], io: CliIo = {}): Promise<number> {
     return 0;
   }
 
-  stderr("Usage: lumina routes <appPath> --json | lumina inspect <appPath> --json | lumina inspect <appPath> why <route>");
+  if (command === "dev" && appPath) {
+    const appRoot = resolve(appPath);
+    const portFlagIndex = flags.indexOf("--port");
+    const port = portFlagIndex >= 0 ? Number(flags[portFlagIndex + 1]) : undefined;
+    const dev = await startLuminaDevServer({
+      appRoot,
+      port: Number.isFinite(port) ? port : undefined,
+    });
+
+    stdout(
+      [
+        `Lumina dev ${appPath}`,
+        `Local ${dev.url}`,
+        `Routes ${dev.routes.length}`,
+        "Artifacts .lumina/routes.json, .lumina/render-manifest.json, .lumina/map.json",
+      ].join("\n"),
+    );
+
+    if (flags.includes("--once")) {
+      await dev.close();
+      return 0;
+    }
+
+    await waitForShutdown(dev.close);
+    return 0;
+  }
+
+  stderr("Usage: lumina dev <appPath> [--port <port>] | lumina routes <appPath> --json | lumina inspect <appPath> --json | lumina inspect <appPath> why <route>");
   return 2;
 }
 
@@ -113,6 +141,15 @@ function inspectApp(appRoot: string) {
       artifactCount: 3,
     },
   };
+}
+
+async function waitForShutdown(close: () => Promise<void>): Promise<void> {
+  await new Promise<void>((resolveShutdown) => {
+    const shutdown = () => resolveShutdown();
+    process.once("SIGINT", shutdown);
+    process.once("SIGTERM", shutdown);
+  });
+  await close();
 }
 
 if (import.meta.main) {

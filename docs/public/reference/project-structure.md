@@ -33,7 +33,7 @@ apps/www/
   README.md
 ```
 
-This fixture is scaffolded and compiler-verifiable. It is not yet a runnable dev/build/start app.
+This fixture is scaffolded, compiler-verifiable, and runnable through the minimal local `lumina dev` path. It is not yet a production build/start app.
 
 ## Target Generated App Structure
 

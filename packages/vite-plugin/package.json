@@ -8,6 +8,14 @@
   },
   "types": "./src/index.ts",
   "dependencies": {
-    "@lumina/core": "workspace:*"
+    "@lumina/compiler": "workspace:*",
+    "@lumina/core": "workspace:*",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "vite": "5.4.21"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3"
   }
 }

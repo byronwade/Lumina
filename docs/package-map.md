@@ -6,17 +6,17 @@ Status: Scaffolded.
 
 Audience: framework contributors, package owners, AI agents.
 
-Scope: package names and entrypoints are scaffolded; package behavior remains planned unless a package README, tests, and implementation evidence say otherwise. The initial `@lumina/compiler` route-discovery API is implemented and covered by route-discovery fixture tests.
+Scope: package names and entrypoints are scaffolded; package behavior remains planned unless a package README, tests, and implementation evidence say otherwise. The initial `@lumina/compiler` route-discovery API is implemented and covered by route-discovery fixture tests. The initial `@lumina/vite-plugin` dev-server API is implemented for minimal SSR page serving and covered by HTTP dev-server tests.
 
 ## Root Packages
 
 | Package | Responsibility |
 | --- | --- |
 | `create-lumina` | One-command project creation. |
-| `@lumina/cli` | Implemented `lumina routes <appPath> --json` path and planned command surface: `lumina dev`, `lumina build`, `lumina start`, `lumina inspect`, `lumina check`, `lumina test`, `lumina seo`, `lumina map`, `lumina workspace`, `lumina agent`, `lumina mcp`, `lumina edit`, `lumina migrate`, and `lumina bench`. |
+| `@lumina/cli` | Implemented `lumina routes <appPath> --json`, `lumina inspect <appPath> --json`, `lumina inspect <appPath> why <route>`, and minimal `lumina dev <appPath>` paths plus planned command surface: `lumina build`, `lumina start`, `lumina check`, `lumina test`, `lumina seo`, `lumina map`, `lumina workspace`, `lumina agent`, `lumina mcp`, `lumina edit`, `lumina migrate`, and `lumina bench`. |
 | `@lumina/core` | Shared types, config, route definitions, render modes, diagnostics, workspace graph, shared-file identity, generated artifact identity, and public helper types. |
 | `@lumina/compiler` | App discovery, workspace discovery, route IR, render mode extraction, manifests, generated modules, route asset metadata, API codegen, graph inputs, incremental planning, affected selection, and large-repo reports. |
-| `@lumina/vite-plugin` | Vite integration, virtual modules, route HMR, app-scoped invalidation, client and server entry wiring. |
+| `@lumina/vite-plugin` | Implemented minimal Vite dev-server integration for artifact generation and SSR page serving; planned virtual modules, route HMR, app-scoped invalidation, client hydration, and server entry wiring. |
 | `@lumina/react` | React SSR helpers, layouts, head manager, loaders, hydration, client entry helpers. |
 | `@lumina/router` | Generated route matcher, typed links, params, route helpers. |
 | `@lumina/seo` | Metadata, sitemap, robots, OG images, structured data helpers, SEO audits. |
@@ -79,6 +79,7 @@ Planned direction:
 
 - `@lumina/cli` may depend on most internal packages.
 - `@lumina/compiler` may depend on `@lumina/core`, `@lumina/schema`, `@lumina/seo`, and `@lumina/map` types.
+- `@lumina/vite-plugin` may depend on `@lumina/compiler` for dev-time artifact generation and on Vite/React runtime packages for local development only.
 - `@lumina/adapter-bun` should depend on generated output, `@lumina/core`, `@lumina/router`, and minimal runtime helpers.
 - `@lumina/react` should not depend on compiler internals.
 - `@lumina/mcp` should use stable APIs from `@lumina/map`, `@lumina/seo`, `@lumina/agent`, and `@lumina/core`.

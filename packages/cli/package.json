@@ -9,6 +9,7 @@
   "types": "./src/index.ts",
   "dependencies": {
     "@lumina/compiler": "workspace:*",
-    "@lumina/core": "workspace:*"
+    "@lumina/core": "workspace:*",
+    "@lumina/vite-plugin": "workspace:*"
   }
 }

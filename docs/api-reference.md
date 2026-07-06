@@ -23,7 +23,7 @@ Planned commands:
 
 | Command | Status | Purpose |
 | --- | --- | --- |
-| `lumina dev` | Planned | Start local development server. |
+| `lumina dev` | Implemented for minimal `<appPath>` Vite SSR route serving | Start local development server. |
 | `lumina build` | Planned | Build static, SSR, API, graph, SEO, and adapter outputs. |
 | `lumina start` | Planned | Start a built app with the selected adapter. |
 | `lumina routes` | Implemented for `<appPath> --json` | Inspect discovered routes and emit `.lumina/routes.json`. |

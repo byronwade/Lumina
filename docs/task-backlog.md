@@ -7,7 +7,7 @@ This backlog turns the roadmap into concrete implementation tasks. Each task sho
 
 Unless a task is explicitly marked `Verified.` or `Scaffolded.` with evidence, its "Definition of done" is planned acceptance criteria, not a claim that the behavior exists today. Future implementation tasks should use `should` wording for behavior that does not exist yet.
 
-Current implementation path: add Vite dev integration for the scaffolded `apps/www` app and examples. Phase 1A shared core model hardening is implemented in `@lumina/core`; route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, and scaffolded app/example route evidence are implemented; the early benchmark/status skeleton exists with `not implemented` status and no public claims.
+Current implementation path: complete Vite dev HMR, virtual route modules, and client hydration, then static build output. Phase 1A shared core model hardening is implemented in `@lumina/core`; route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev`, and scaffolded app/example route evidence are implemented; the early benchmark/status skeleton exists with `not implemented` status and no public claims.
 
 MVP Alpha implementation path: keep PR 1A through PR 4 focused on core model hardening, the early benchmark skeleton, large-repo architecture planning, route discovery, deterministic `.lumina/routes.json`, basic render mode data for `.lumina/render-manifest.json`, the first file-level `.lumina/map.json`, CLI inspection, and a demo app. API routes, MCP, safe edits, migration, Node adapter runtime behavior, benchmark publishing, and performance claims are post-MVP unless `docs/mvp-alpha-scope.md` changes in the same work.
 
@@ -600,10 +600,14 @@ Goal: make `lumina dev` start Vite and render a basic React page.
 
 MVP Alpha role: start the demo app path and keep route/render/map artifacts inspectable without pulling API routes, MCP, safe edits, migration, or benchmarks into the first slice.
 
+Task status: Scaffolded.
+
+Evidence: `@lumina/vite-plugin` exposes `startLuminaDevServer`, `@lumina/cli` exposes `dev <appPath>`, and `tests/vite-dev-server.test.ts` covers SSR page serving, generated route/render/map artifacts, Vite client passthrough, 404 behavior, and `--once` CLI smoke startup.
+
 Definition of done:
 
-- `lumina dev` should start.
-- Page should render on the server.
+- `lumina dev` starts.
+- Page renders on the server.
 - Client should hydrate.
 - Route manifest virtual module should exist.
 - HMR should update changed pages.

@@ -3,7 +3,7 @@
 Status: Planned.
 Audience: new users, app developers, AI agents.
 
-This is the target MVP Alpha onboarding path. The repository currently has the Phase 1 scaffold plus route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, scaffolded `apps/www`, and scaffolded example fixtures; app creation, dev/build/start, rendering, and runtime serving are not implemented yet.
+This is the target MVP Alpha onboarding path. The repository currently has the Phase 1 scaffold plus route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` Vite SSR route serving, scaffolded `apps/www`, and scaffolded example fixtures; app creation, build/start, client hydration, route HMR, virtual route modules, and production runtime serving are not implemented yet.
 
 ## What You Will Build In MVP Alpha
 
@@ -28,10 +28,11 @@ bun run typecheck
 bun run docs:check
 bun run structure:check
 bun run performance:check
+bun run lumina -- dev apps/www --once
 bun run check
 ```
 
-They verify scaffold health, documentation links and guardrails, package structure, TypeScript validity, performance-claim hygiene, scaffold tests, shared core model tests, route-discovery fixture behavior, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, scaffolded app/example route evidence, and benchmark skeleton path/status coverage. The repository currently contains a Bun workspace, package placeholders, shared core types, route/render/map artifact generation, route-centered CLI inspection, scaffolded `apps/www` and example fixtures, early benchmark/status skeletons, and enforcement scripts; it does not yet contain dev/build/start CLI behavior, measured benchmark results, rendering, or runtime serving.
+They verify scaffold health, documentation links and guardrails, package structure, TypeScript validity, performance-claim hygiene, scaffold tests, shared core model tests, route-discovery fixture behavior, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` SSR route serving, scaffolded app/example route evidence, and benchmark skeleton path/status coverage. The repository currently contains a Bun workspace, package placeholders, shared core types, route/render/map artifact generation, route-centered CLI inspection, scaffolded `apps/www` and example fixtures, early benchmark/status skeletons, and enforcement scripts; it does not yet contain build/start CLI behavior, measured benchmark results, route HMR, virtual route modules, client hydration, or production runtime serving.
 
 ## Target MVP App Creation
 
@@ -147,13 +148,14 @@ app/blog/[slug]/page.tsx -> /blog/:slug
 
 ## Start The Dev Server
 
-Target MVP behavior:
+Current local repository command:
 
 ```bash
-lumina dev
+bun run lumina -- dev apps/www
+bun run lumina -- dev apps/www --once
 ```
 
-The dev server should start the demo app, render the root route, and keep generated route, render, and map artifacts in sync with source changes. Until implementation exists, use repository maintenance checks instead of treating this command as verified.
+The implemented dev server starts the scaffolded `apps/www` app, writes `.lumina/routes.json`, `.lumina/render-manifest.json`, and `.lumina/map.json`, renders page routes through React SSR, and serves Vite internals. It does not yet keep route virtual modules, HMR summaries, client hydration, or dynamic route params in sync.
 
 ## Inspect Routes
 
@@ -201,7 +203,7 @@ Generated files must be deterministic and must not be edited manually.
 ## Troubleshooting During MVP Alpha
 
 - If `bun create lumina` is unavailable, use the repository scaffold and example fixture work until `create-lumina` is implemented.
-- If `lumina dev` is unavailable, the CLI package has not reached the MVP dev-server slice yet.
+- If `lumina dev` fails, run `bun run lumina -- dev apps/www --once` to separate startup and artifact generation from long-running server behavior.
 - If `.lumina/routes.json` is missing, route discovery has not produced artifacts yet.
 - If `.lumina/map.json` is missing, run the compiler artifact path before using map-based inspection.
 - If docs describe behavior that does not exist, mark it as `Target MVP behavior`, `Planned for MVP Alpha`, or `Future`.
