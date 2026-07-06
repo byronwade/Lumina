@@ -1057,6 +1057,11 @@ const staleStatusPatterns = [
     message: "docs/cli-json-contract.md should embed diagnostics with severity, not level.",
   },
   {
+    file: "docs/cli-json-contract.md",
+    pattern: /NEEDLE_ROUTE_CONFLICT/i,
+    message: "docs/cli-json-contract.md should use ROUTE_DUPLICATE_PATH for the route-conflict example.",
+  },
+  {
     file: "docs/config-contract.md",
     pattern: /"level":/i,
     message: "docs/config-contract.md should show diagnostic severity, not level.",

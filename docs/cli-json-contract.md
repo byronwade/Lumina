@@ -62,12 +62,12 @@ Diagnostics should follow [Diagnostics Contract](diagnostics-contract.md). CLI J
 
 ```json
 {
-  "code": "NEEDLE_ROUTE_CONFLICT",
+  "code": "ROUTE_DUPLICATE_PATH",
   "severity": "error",
-  "message": "Two files resolve to the same route.",
+  "message": "Two route files resolve to the same path.",
   "file": "app/(marketing)/pricing/page.tsx",
   "route": "/pricing",
-  "docs": "https://needlestart.dev/docs/reference/file-conventions"
+  "docs": "https://needlestart.dev/docs/reference/routing#route-conflicts"
 }
 ```
 
