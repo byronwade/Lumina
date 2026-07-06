@@ -46,8 +46,12 @@ example()
 ## Commands to Run
 
 ```bash
-bun test
+bun run docs:check
+bun run structure:check
+bun run performance:check
 bun run typecheck
+bun test
+bun run check
 ```
 
 ## Definition of Done

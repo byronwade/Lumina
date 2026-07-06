@@ -132,6 +132,7 @@ const scaffoldVerificationDocs = [
   "docs/testing.md",
   "docs/testing-contract.md",
   "docs/public/reference/testing.md",
+  "docs/templates/task-template.md",
 ];
 
 const canonicalGeneratedArtifacts = [
