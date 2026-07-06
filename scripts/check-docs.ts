@@ -327,6 +327,12 @@ const securityContractDocs = [
   "docs/public/reference/security.md",
 ];
 
+const performanceContractDocs = [
+  "docs/performance-contract.md",
+  "docs/performance.md",
+  "docs/public/reference/performance.md",
+];
+
 const routingContractDocs = [
   "docs/routing-contract.md",
   "docs/routing.md",
@@ -977,6 +983,16 @@ for (const file of securityContractDocs) {
   for (const term of ["high-risk", "threat model", "secret", "production error", "security headers", "vulnerability", "advisory", "provenance", "supply chain", "human sign-off", "testing evidence"]) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing security contract term: ${term}.`);
+    }
+  }
+}
+
+for (const file of performanceContractDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of ["core web vitals", "lcp", "inp", "cls", ".needle/perf.report.json", "perf_", "budget", "benchmark evidence", "delivery", "chunk count", "source-map", "rum", "field data", "resource hints", "early hints", "compression", "bfcache"]) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing performance contract term: ${term}.`);
     }
   }
 }

@@ -305,6 +305,8 @@ rg -n "performance-contract|Performance Contract|benchmark-fixtures|Core Web Vit
 
 Expected result: route budgets, Core Web Vitals target language, performance reports, delivery fields, chunk counts, source-map exposure, optional RUM and field-data policy, diagnostics, benchmark evidence, testing evidence, manifest references, public claim rules, and public reference docs remain connected.
 
+Automated coverage in `bun run docs:check` also requires performance contract, performance overview, and public performance reference docs to keep Core Web Vitals, LCP, INP, CLS, `.needle/perf.report.json`, `PERF_` diagnostics, budgets, benchmark evidence, delivery metadata, chunk count, source-map, RUM, field data, resource hints, Early Hints, compression, and bfcache language aligned.
+
 ### 26. Speed Decision Check
 
 ```powershell

@@ -23,6 +23,7 @@ NeedleStart should eventually report:
 - Performance budget status.
 - Route-level diagnostics.
 - Benchmark evidence when claims are made.
+- `PERF_` diagnostics for budget, delivery, source-map, Core Web Vitals, compression, Early Hints, bfcache, and benchmark issues.
 
 ## Core Web Vitals Targets
 
@@ -44,9 +45,9 @@ NeedleStart plans to generate:
 .needle/perf.report.json
 ```
 
-The report should include route IDs, paths, render modes, payload sizes, chunk counts, source-map exposure, budget status, and diagnostics.
+The report should include route IDs, paths, render modes, payload sizes, chunk count, source-map exposure, budget status, and diagnostics.
 
-It should also include planned route delivery metadata for scripts, styles, images, fonts, resource hints, compression, 103 Early Hints eligibility, bfcache blockers, and optional field-data evidence once those features exist.
+It should also include planned route delivery metadata for scripts, styles, images, fonts, resource hints through `resourceHints`, compression, 103 Early Hints eligibility, bfcache blockers, and optional RUM or field data evidence once those features exist.
 
 ## Public Claims
 
@@ -59,6 +60,9 @@ Do not claim NeedleStart is faster than another framework unless the claim links
 - Command run.
 - Raw results.
 - Methodology.
+- Benchmark evidence that explains equivalent behavior.
+
+RUM and field data remain optional app-owned evidence, not default framework telemetry.
 
 ## Current Reality
 
