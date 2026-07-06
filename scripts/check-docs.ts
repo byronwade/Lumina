@@ -107,6 +107,7 @@ const canonicalGeneratedArtifacts = [
   ".needle/context/agent-index.json",
   ".needle/generated/*",
   "dist/adapter.manifest.json",
+  "dist/*",
 ];
 
 const generatedArtifactDocs = [
@@ -525,6 +526,31 @@ const staleStatusPatterns = [
     file: "docs/public/reference/diagnostics.md",
     pattern: /"level":|`level`/i,
     message: "docs/public/reference/diagnostics.md should show diagnostic severity, not level.",
+  },
+  {
+    file: "docs/manifest-contracts.md",
+    pattern: /stable codes, levels/i,
+    message: "docs/manifest-contracts.md should reference diagnostic severity, not levels.",
+  },
+  {
+    file: "docs/cache.md",
+    pattern: /Cache manifest fields/i,
+    message: "docs/cache.md should reference cache metadata, not a required cache manifest.",
+  },
+  {
+    file: "docs/documentation-matrix.md",
+    pattern: /cache manifest baseline/i,
+    message: "docs/documentation-matrix.md should reference cache metadata baseline, not cache manifest baseline.",
+  },
+  {
+    file: "docs/speed-capability-audit.md",
+    pattern: /Cache manifest snapshots/i,
+    message: "docs/speed-capability-audit.md should reference cache metadata snapshots, not cache manifest snapshots.",
+  },
+  {
+    file: "docs/speed-decisions.md",
+    pattern: /Cache manifest snapshots/i,
+    message: "docs/speed-decisions.md should reference cache metadata snapshots, not cache manifest snapshots.",
   },
   {
     file: "docs/api-route-contract.md",

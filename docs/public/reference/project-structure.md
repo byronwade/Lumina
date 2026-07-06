@@ -51,9 +51,11 @@ Planned generated files:
     agent-index.json
   generated/
 dist/
+  adapter.manifest.json
+  *
 ```
 
-The canonical generated artifact names are `.needle/routes.json`, `.needle/render-manifest.json`, `.needle/map.json`, `.needle/graph.json`, `.needle/seo.report.json`, `.needle/perf.report.json`, `.needle/context/*.ctx.json`, `.needle/context/agent-index.json`, `.needle/generated/*`, and `dist/adapter.manifest.json`.
+The canonical generated artifact names are `.needle/routes.json`, `.needle/render-manifest.json`, `.needle/map.json`, `.needle/graph.json`, `.needle/seo.report.json`, `.needle/perf.report.json`, `.needle/context/*.ctx.json`, `.needle/context/agent-index.json`, `.needle/generated/*`, `dist/adapter.manifest.json`, and `dist/*`.
 
 Generated files must be deterministic and must not be edited manually.
 

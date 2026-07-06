@@ -24,7 +24,7 @@ The planned cache plan shape, HTTP header mapping, cache tags, revalidation beha
 - `revalidateTag`.
 - Cache report in dev and JSON output.
 - Cache diagnostics.
-- Cache manifest fields.
+- Cache metadata in render, performance, map, or future cache report artifacts.
 - Public cache reference.
 
 ## Out Of Scope

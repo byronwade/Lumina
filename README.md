@@ -272,7 +272,7 @@ Terminology: the first working slice is smaller and proves create app, SEO-safe 
 10. Static build.
 11. Adapter-aware Bun server.
 12. Metadata and SEO audit.
-13. Cache manifest baseline.
+13. Cache metadata baseline.
 14. API routes.
 15. Hot API schema path.
 16. Needle Map file graph.
@@ -349,6 +349,7 @@ Start here:
 - [API Reference](docs/api-reference.md)
 - [CLI JSON Contract](docs/cli-json-contract.md)
 - [Diagnostics Contract](docs/diagnostics-contract.md)
+- [Manifest Contracts](docs/manifest-contracts.md)
 - [Configuration Contract](docs/config-contract.md)
 - [Adapter Contract](docs/adapter-contract.md)
 - [Examples And Templates Contract](docs/examples-contract.md)

@@ -8,7 +8,7 @@ Manifest contracts are the stable bridge between the compiler, runtime adapters,
 
 Shared diagnostic fields in manifests should follow [Diagnostics Contract](diagnostics-contract.md).
 
-## Planned Manifests
+## Planned Generated Artifacts
 
 | Manifest | Purpose |
 | --- | --- |
@@ -22,6 +22,7 @@ Shared diagnostic fields in manifests should follow [Diagnostics Contract](diagn
 | `.needle/context/agent-index.json` | Agent context index. |
 | `.needle/generated/*` | Generated runtime modules. |
 | `dist/adapter.manifest.json` | Adapter capabilities. |
+| `dist/*` | Production build output. |
 
 Adapters may copy selected canonical artifacts into deployment-oriented files such as `dist/routes.manifest.json`, `dist/render.manifest.json`, and `dist/seo.report.json`. The `.needle/*` files remain the source contracts for compiler, CLI, MCP, Agent Kernel, devtools, and tests.
 
@@ -170,7 +171,7 @@ CLI JSON output has its own planned envelope in [CLI JSON Contract](cli-json-con
 
 Config-derived manifest fields should follow [Configuration Contract](config-contract.md), especially path normalization and secret-exclusion rules.
 
-Diagnostic fields should follow [Diagnostics Contract](diagnostics-contract.md), especially stable codes, levels, source locations, remediations, docs links, related locations, and secret-exclusion rules.
+Diagnostic fields should follow [Diagnostics Contract](diagnostics-contract.md), especially stable codes, severity values, source locations, remediations, docs links, related locations, and secret-exclusion rules.
 
 Adapter manifest fields should follow [Adapter Contract](adapter-contract.md), especially runtime name, package name, entry path, public directory, capability booleans, unsupported features, environment variable names, diagnostics, and evidence requirements.
 

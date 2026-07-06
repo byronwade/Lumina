@@ -282,7 +282,7 @@ Test output used by agents must be deterministic.
 - Use `docs/routing-contract.md` when changing route discovery, route IDs, file-route grammar, route manifest fields, route sorting, route diagnostics, or route fixtures.
 - Use `docs/api-route-contract.md` when changing API route handlers, method exports, request or response behavior, API schemas, API diagnostics, API manifest fields, API cache defaults, or hot API integration.
 - Use `docs/schema-contract.md` when changing schema helpers, validation results, issue shapes, query coercion, response serializers, OpenAPI mapping, schema manifests, or schema diagnostics.
-- Use `docs/cache-contract.md` when changing cache modes, cache headers, cache tags, revalidation, micro-cache behavior, cache manifests, cache diagnostics, or cache-related security rules.
+- Use `docs/cache-contract.md` when changing cache modes, cache headers, cache tags, revalidation, micro-cache behavior, cache metadata in manifests, cache diagnostics, or cache-related security rules.
 - Use `docs/seo-contract.md` when changing metadata helpers, metadata merge behavior, sitemap output, robots output, structured data, SEO diagnostics, SEO reports, or public HTML indexability checks.
 - Use `docs/accessibility-contract.md` when changing framework-owned HTML, examples, docs UI, form errors, route focus behavior, accessibility diagnostics, or accessibility test evidence.
 - Use `docs/security-contract.md` when changing high-risk surfaces, secret handling, production errors, security headers, agent or MCP writes, package publishing, vulnerability intake, or security test evidence.

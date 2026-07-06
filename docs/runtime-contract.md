@@ -58,6 +58,8 @@ Planned output:
   graph.json
   seo.report.json
   perf.report.json
+  context/
+    agent-index.json
   generated/
 dist/
   public/
@@ -107,7 +109,7 @@ The server should load:
 - Server entry.
 - API handler registry.
 - Static asset manifest.
-- Cache manifest.
+- Cache metadata from render, performance, map, or future cache report artifacts.
 - Adapter manifest.
 
 ## Adapter Manifest
