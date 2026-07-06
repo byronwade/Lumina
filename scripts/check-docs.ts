@@ -923,6 +923,16 @@ const staleStatusPatterns = [
     message: "docs/agent-kernel.md must distinguish app-local AGENTS.md generation from the repository root AGENTS.md.",
   },
   {
+    file: "docs/agent-kernel.md",
+    pattern: /\|\s*`\.needle\/[^`]+`\s*\|\s*Generated app artifact\s*\|/i,
+    message: "docs/agent-kernel.md should label .needle outputs as planned generated app artifacts until implementation exists.",
+  },
+  {
+    file: "docs/agent-kernel.md",
+    pattern: /\|\s*`dist\/[^`]+`\s*\|\s*Deployment artifact\s*\|/i,
+    message: "docs/agent-kernel.md should label dist outputs as planned deployment artifacts until implementation exists.",
+  },
+  {
     file: "docs/package-map.md",
     pattern: /\| `@needle\/agent` \| AGENTS\.md generation/i,
     message: "docs/package-map.md must describe app-local AGENTS.md generation.",

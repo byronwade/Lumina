@@ -26,21 +26,21 @@ Planned public docs and app-agent outputs:
 | `llms.txt` | Public docs or app-local artifact | Compact AI-readable summary. |
 | `llms-full.txt` | Public docs or app-local artifact | Expanded AI-readable context. |
 | `docs-index.json` | Public docs artifact | Machine-readable docs index for the future docs site. |
-| `.needle/routes.json` | Generated app artifact | Route manifest. |
-| `.needle/render-manifest.json` | Generated app artifact | Render modes and cache metadata. |
-| `.needle/map.json` | Generated app artifact | Queryable Needle Map output. |
-| `.needle/graph.json` | Generated app artifact | Semantic app graph. |
-| `.needle/seo.report.json` | Generated app artifact | SEO audit output for agents and tooling. |
-| `.needle/perf.report.json` | Generated app artifact | Performance budget output for agents and tooling. |
-| `.needle/context/*.ctx.json` | Generated app artifact | Route or surface context capsules. |
-| `.needle/context/agent-index.json` | Generated app artifact | Index of generated agent context. |
-| `.needle/mutations.json` | Generated app artifact | Safe edit mutation log. |
-| `.needle/generated/*` | Generated app artifact | Generated runtime modules. |
-| `dist/routes.manifest.json` | Deployment artifact | Adapter-shaped route manifest copy. |
-| `dist/render.manifest.json` | Deployment artifact | Adapter-shaped render manifest copy. |
-| `dist/seo.report.json` | Deployment artifact | Adapter-shaped SEO report copy. |
-| `dist/adapter.manifest.json` | Deployment artifact | Adapter capabilities and deployment output metadata. |
-| `dist/*` | Deployment artifact | Production build output. |
+| `.needle/routes.json` | Planned generated app artifact | Route manifest. |
+| `.needle/render-manifest.json` | Planned generated app artifact | Render modes and cache metadata. |
+| `.needle/map.json` | Planned generated app artifact | Queryable Needle Map output. |
+| `.needle/graph.json` | Planned generated app artifact | Semantic app graph. |
+| `.needle/seo.report.json` | Planned generated app artifact | SEO audit output for agents and tooling. |
+| `.needle/perf.report.json` | Planned generated app artifact | Performance budget output for agents and tooling. |
+| `.needle/context/*.ctx.json` | Planned generated app artifact | Route or surface context capsules. |
+| `.needle/context/agent-index.json` | Planned generated app artifact | Index of generated agent context. |
+| `.needle/mutations.json` | Planned generated app artifact | Safe edit mutation log. |
+| `.needle/generated/*` | Planned generated app artifact | Generated runtime modules. |
+| `dist/routes.manifest.json` | Planned deployment artifact | Adapter-shaped route manifest copy. |
+| `dist/render.manifest.json` | Planned deployment artifact | Adapter-shaped render manifest copy. |
+| `dist/seo.report.json` | Planned deployment artifact | Adapter-shaped SEO report copy. |
+| `dist/adapter.manifest.json` | Planned deployment artifact | Adapter capabilities and deployment output metadata. |
+| `dist/*` | Planned deployment artifact | Production build output. |
 
 The `.needle/*` files are the canonical compiler, CLI, MCP, Agent Kernel, devtools, and test contracts. The named `dist/*` files are deployment-oriented adapter outputs. Agent-facing docs must preserve that distinction so agent metadata stays out of production runtime bundles.
 
