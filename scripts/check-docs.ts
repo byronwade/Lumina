@@ -2518,6 +2518,19 @@ for (const { file, terms } of prototypeScopeTerms) {
   }
 }
 
+const canonicalFirstWorkingSlice =
+  "first working slice scoped to create app, SEO-safe pages, `@needle/adapter-bun` serving, a basic map, agent inspection, and safe metadata edit";
+
+if (existsSync(join(root, "docs/roadmap.md"))) {
+  const roadmap = read("docs/roadmap.md");
+  if (!roadmap.includes(canonicalFirstWorkingSlice)) {
+    failures.push(`docs/roadmap.md does not use the canonical first working slice scope: ${canonicalFirstWorkingSlice}.`);
+  }
+  if (/first working slice centered on compiler IR, route discovery, basic graph, SEO-safe rendering, and a low-risk safe edit/i.test(roadmap)) {
+    failures.push("docs/roadmap.md still uses the older compiler-IR-centered first working slice wording.");
+  }
+}
+
 for (const { file, terms } of currentImplementationStepDocs) {
   if (!existsSync(join(root, file))) continue;
   const content = read(file);
