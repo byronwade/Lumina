@@ -436,12 +436,12 @@ Automated coverage in `bun run docs:check` also requires review checklist, threa
 ### 29. Release Version Placeholder Check
 
 ```powershell
-rg -n "0\.0\.0|private scaffold placeholder|workspace metadata|not release tags|not published release versions|compatibility guarantees" docs\status.md docs\release.md docs\versioning-and-upgrades.md
+rg -n "0\.0\.0|private scaffold placeholder|workspace metadata|not release tags|not published release versions|compatibility guarantees" README.md docs\status.md docs\release.md docs\versioning-and-upgrades.md
 ```
 
-Expected result: status, release, and versioning docs all state that current `0.0.0` package manifest versions are private scaffold placeholders, not published release versions or compatibility guarantees.
+Expected result: README, status, release, and versioning docs all state that current `0.0.0` package manifest versions are private scaffold placeholders, not published release versions or compatibility guarantees.
 
-Automated coverage in `bun run docs:check` also requires this wording to stay aligned across project status, release process, and versioning policy docs.
+Automated coverage in `bun run docs:check` also requires this wording to stay aligned across README, project status, release process, and versioning policy docs.
 
 ## Script Targets
 

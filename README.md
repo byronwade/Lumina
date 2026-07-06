@@ -30,6 +30,8 @@ This checkout is in Phase 1: monorepo scaffold. The product language below descr
 
 Current implemented scope is the Bun workspace scaffold, package placeholders, shared core types, CI, and verification scripts. Route discovery, rendering, CLI behavior, runtime adapter behavior, Needle Map generation, MCP tools, and safe edits remain planned.
 
+Package manifest versions currently use `0.0.0` as private scaffold placeholder metadata. No packages are published, and these placeholder versions are not release tags, published package versions, or compatibility guarantees.
+
 ## Product Thesis
 
 Modern React applications fail when they become too large to reason about. Routes drift away from tests, components drift away from schemas, SEO regressions hide inside client-heavy rendering, cache behavior hides behind framework magic, and AI agents waste context guessing how files relate to each other.
@@ -66,7 +68,7 @@ bun run build
 bun run start
 ```
 
-This repository is not yet at package-publish stage. The user-facing create/dev commands above remain target UX rather than verified local commands.
+This repository is not yet at package publication stage. The user-facing create/dev commands above remain target UX rather than verified local commands.
 
 Planned CLI surface:
 

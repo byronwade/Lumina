@@ -605,6 +605,10 @@ const documentationCompletionCoverageDocs = [
 
 const releaseVersionContractDocs = [
   {
+    file: "README.md",
+    terms: ["0.0.0", "private scaffold placeholder", "not release tags", "published package versions", "compatibility guarantees"],
+  },
+  {
     file: "docs/status.md",
     terms: ["0.0.0", "private scaffold placeholder", "not published release versions"],
   },
@@ -1722,6 +1726,11 @@ const staleStatusPatterns = [
     file: "docs/first-contribution.md",
     pattern: /Adding package scaffolding|Until package scripts exist/i,
     message: "docs/first-contribution.md still uses pre-scaffold contribution guidance.",
+  },
+  {
+    file: "README.md",
+    pattern: /package-publish stage/i,
+    message: "README.md should use package publication stage wording.",
   },
   {
     file: "docs/decisions/README.md",
