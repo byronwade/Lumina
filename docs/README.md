@@ -12,6 +12,7 @@ This directory is the source of truth for NeedleStart planning, architecture, ro
 - [Getting Started](getting-started.md): current status and target onboarding flow.
 - [Roadmap](roadmap.md): complete phase plan.
 - [Phase 1 Build Plan](phase-1-build-plan.md): concrete monorepo scaffold path and verification expectations.
+- [Lumina Rename And Documentation Overhaul Plan](superpowers/plans/2026-07-06-lumina-rename-documentation.md): approval-gated plan for the rename and Alpha documentation upgrade.
 - [Product Build Readiness](product-build-readiness.md): documentation and evidence gates before full product build work.
 - [Versioning And Upgrades](versioning-and-upgrades.md): package, docs, manifest, API, and upgrade policy.
 - [Documentation Standard](documentation-standard.md): docs information architecture, status labels, and page quality bar.
