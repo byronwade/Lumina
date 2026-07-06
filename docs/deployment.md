@@ -1,6 +1,6 @@
 # Deployment Guide
 
-NeedleStart deployment is planned. This document defines the target build output, adapter behavior, production runtime expectations, health endpoint policy, static export behavior, Node compatibility, Bun default path, and deployment checks.
+NeedleStart deployment is planned. This document defines the target build output, adapter behavior, production runtime expectations, health endpoint policy, static export behavior, Node compatibility, Bun default path, public open source hosting intent, and deployment checks.
 
 NeedleStart defaults to Bun for speed, but the framework must not make Bun a hard adoption blocker. User application code should stay runtime-portable, while adapter packages isolate runtime-specific behavior.
 
@@ -12,6 +12,7 @@ NeedleStart defaults to Bun for speed, but the framework must not make Bun a har
 - Keep adapter capabilities machine-readable.
 - Avoid shipping agent-only metadata in production bundles.
 - Make unsupported deployment targets fail clearly.
+- Support public open source docs, demos, and benchmark report hosting.
 - Back performance claims with reproducible benchmarks.
 
 ## Deployment Model
@@ -292,6 +293,20 @@ For the first credible prototype, also verify:
 - Cache headers match manifests.
 - Production bundle excludes agent metadata.
 
+## Open Source Project Infrastructure
+
+NeedleStart intends to host public open source project infrastructure on Vercel where appropriate:
+
+- public documentation website
+- pull request preview deployments for docs and examples
+- public demo apps
+- benchmark report pages
+- launch and comparison pages
+
+This is an open source collaboration plan, not a deployment lock-in strategy. NeedleStart should remain adapter-aware and should support non-Vercel deployment targets.
+
+Credits or hosted resources from an open source program must be used only for open source project work. See `docs/open-source-community.md`.
+
 ## Docker Direction
 
 Docker is a later adapter/deployment target.
@@ -322,6 +337,7 @@ Later deployment adapters may include:
 Rules:
 
 - Cloud adapters must document unsupported features.
+- Vercel hosting for project docs and demos must not imply Vercel-only application deployment.
 - Edge runtime is not a day-one requirement.
 - RSC and partial prerendering should not drive early deployment architecture.
 
@@ -379,6 +395,7 @@ Deployment tests should cover:
 - Health endpoint config and collision behavior.
 - Cache headers match manifest.
 - Production error hides stack trace.
+- Public docs/demo preview deployment configuration once website work begins.
 
 ## Out of Scope Initially
 
