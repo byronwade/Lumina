@@ -20,6 +20,21 @@ Compiler diagnostics should follow [Diagnostics Contract](diagnostics-contract.m
 
 ## Needle App
 
+The Phase 1 scaffold currently exposes a minimal `NeedleApp` from `@needle/core`:
+
+```ts
+export type NeedleApp = {
+  name: string
+  root: string
+  routes: RouteNode[]
+  diagnostics: NeedleDiagnostic[]
+}
+```
+
+This scaffold shape is intentionally smaller than the planned compiler IR. It exists so package boundaries, docs, and tests share one owner for the app-level model before route discovery, layout discovery, schema extraction, and graph generation exist.
+
+Planned expanded compiler IR shape:
+
 ```ts
 export type NeedleApp = {
   root: string
@@ -36,6 +51,29 @@ export type NeedleApp = {
 ```
 
 ## Route Node
+
+The Phase 1 scaffold currently exposes a minimal `RouteNode` and `RenderMode` from `@needle/core`:
+
+```ts
+export type RenderMode =
+  | "static"
+  | "prerender"
+  | "ssr"
+  | "stream"
+  | "client-only"
+  | "api"
+  | "hot-api"
+
+export type RouteNode = {
+  id: string
+  path: string
+  sourceFile: string
+  renderMode: RenderMode
+  cache?: CachePlan
+}
+```
+
+The planned compiler IR below adds route kind, params, layouts, metadata, ownership, and other compiler-only details. Any implementation PR that changes the shared scaffold types must update this page, `@needle/core`, scaffold tests, and generated manifest examples together.
 
 ```ts
 export type RouteNode = {

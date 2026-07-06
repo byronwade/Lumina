@@ -161,9 +161,19 @@ const coreModelDocs = [
   "docs/risk-mitigation.md",
 ];
 
-const cacheScaffoldDocs = [
-  "docs/cache-contract.md",
-  "docs/public/reference/cache.md",
+const sharedCoreScaffoldTerms = [
+  {
+    file: "docs/cache-contract.md",
+    terms: ["@needle/core", "CachePlan", "no-store", "public", "ttlSeconds", "staleWhileRevalidateSeconds"],
+  },
+  {
+    file: "docs/public/reference/cache.md",
+    terms: ["@needle/core", "CachePlan", "no-store", "public", "ttlSeconds", "staleWhileRevalidateSeconds"],
+  },
+  {
+    file: "docs/compiler-ir.md",
+    terms: ["@needle/core", "NeedleApp", "RouteNode", "RenderMode", "sourceFile", "client-only", "hot-api"],
+  },
 ];
 
 function rel(path: string): string {
@@ -635,12 +645,12 @@ for (const file of coreModelDocs) {
   }
 }
 
-for (const file of cacheScaffoldDocs) {
+for (const { file, terms } of sharedCoreScaffoldTerms) {
   if (!existsSync(join(root, file))) continue;
   const content = read(file);
-  for (const requiredTerm of ["@needle/core", "CachePlan", "no-store", "public", "ttlSeconds", "staleWhileRevalidateSeconds"]) {
+  for (const requiredTerm of terms) {
     if (!content.includes(requiredTerm)) {
-      failures.push(`${file} does not document the current scaffold CachePlan term: ${requiredTerm}.`);
+      failures.push(`${file} does not document the current shared-core scaffold term: ${requiredTerm}.`);
     }
   }
 }
