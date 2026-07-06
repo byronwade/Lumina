@@ -21,6 +21,8 @@ This directory is the source of truth for NeedleStart planning, architecture, ro
 - [Prototype Acceptance Demo](prototype-acceptance.md): demo that proves the wedge.
 - [Task Backlog](task-backlog.md): first concrete implementation tasks.
 - [Glossary](glossary.md): shared terminology.
+- [AI Skill Playbooks](../skills/README.md): root-level vendor-neutral skill workflows for agents.
+- [AI Subagent Roles](../subagents/README.md): root-level delegated-agent role briefs.
 
 ## Templates
 

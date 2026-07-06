@@ -2,6 +2,19 @@
 
 This backlog turns the roadmap into concrete implementation tasks. Each task should eventually become an issue or implementation plan using `docs/templates/task-template.md`.
 
+## PR 0A: AI Collaboration Playbooks
+
+Goal: maintain root-level, vendor-neutral skill and subagent guidance for AI companies and human reviewers.
+
+Status: initial documentation exists in `skills/` and `subagents/`.
+
+Definition of done:
+
+- Skill index covers strategic app building, documentation maintenance, project maintenance, Needle Map design, Agent Kernel design, and SEO/runtime review.
+- Subagent index covers architecture, compiler/map, runtime/SEO, agent safety, documentation, and verification roles.
+- README.md and docs hub link to the root-level guidance.
+- Guidance remains documentation-only until executable agent tooling exists.
+
 ## PR 1: Monorepo Skeleton
 
 Goal: create the Bun workspace and package scaffolds.

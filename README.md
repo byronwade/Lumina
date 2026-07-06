@@ -264,12 +264,14 @@ Start here:
 - [Migration Tooling](docs/migration.md)
 - [Prototype Acceptance Demo](docs/prototype-acceptance.md)
 - [Task Template](docs/templates/task-template.md)
+- [AI Skill Playbooks](skills/README.md)
+- [AI Subagent Roles](subagents/README.md)
 
 ## Current Status
 
 This repository is in Phase 0: project constitution and planning.
 
-No runtime implementation exists yet. The current work is to lock the product direction, architecture boundaries, package responsibilities, documentation rules, and agent workflow before implementation begins.
+No runtime implementation exists yet. The current work is to lock the product direction, architecture boundaries, package responsibilities, documentation rules, agent workflow, and vendor-neutral AI collaboration playbooks before implementation begins.
 
 The next implementation stage is Phase 1: monorepo skeleton, then route discovery.
 
