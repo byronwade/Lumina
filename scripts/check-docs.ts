@@ -943,6 +943,7 @@ for (const { file, terms } of sharedCoreScaffoldTerms) {
 }
 
 const publicReadme = read("docs/public/README.md");
+const publicDocsLanding = read("docs/public/docs.md");
 const websiteContentMap = read("docs/website-content-map.md");
 for (const publicDoc of allPublicDocs()) {
   if (publicDoc === "docs/public/README.md") continue;
@@ -952,6 +953,9 @@ for (const publicDoc of allPublicDocs()) {
   }
   if (!websiteContentMap.includes(publicDoc)) {
     failures.push(`docs/website-content-map.md does not map public page: ${publicDoc}`);
+  }
+  if (!["docs.md", "index.md"].includes(publicRelative) && !publicDocsLanding.includes(publicRelative)) {
+    failures.push(`docs/public/docs.md does not link public docs page: ${publicRelative}`);
   }
 }
 

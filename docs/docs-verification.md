@@ -113,6 +113,8 @@ rg -n "first-contribution|review-checklist|threat-model|benchmark-fixtures|examp
 
 Expected result: new durable docs are discoverable from the relevant root, docs hub, public docs, or website map surfaces.
 
+Automated coverage in `bun run docs:check` also requires every public page under `docs/public/`, except the public home and directory README, to be linked from `docs/public/docs.md`, `docs/public/README.md`, and `docs/website-content-map.md`.
+
 ### 6. Status Language Check
 
 ```powershell
