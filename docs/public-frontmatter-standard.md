@@ -43,7 +43,7 @@ tags:
 | --- | --- |
 | `title` | Human-readable page title for navigation, search, metadata, and indexes. |
 | `description` | Short summary for previews, search, and agent indexes. |
-| `status` | Page status: `draft`, `planned`, `scaffolded`, `implemented`, `verified`, or `deprecated`. |
+| `status` | Page status: `draft`, `proposed`, `planned`, `scaffolded`, `implemented`, `verified`, or `deprecated`. |
 | `audience` | Intended readers, such as `app developers`, `maintainers`, `AI agents`, or `future website visitors`. |
 | `category` | Navigation lane: `start`, `concept`, `guide`, `reference`, `deployment`, `community`, or `comparison`. |
 | `source` | Repository source path. |
@@ -64,6 +64,7 @@ tags:
 ## Status Rules
 
 - `draft`: content is incomplete or exploratory.
+- `proposed`: architecture or behavior is proposed for planning, but implementation has not proven it yet.
 - `planned`: accepted target behavior, not implemented.
 - `scaffolded`: files or packages exist, but behavior is not complete.
 - `implemented`: behavior exists and has current local evidence.

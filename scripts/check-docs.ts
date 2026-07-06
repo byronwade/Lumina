@@ -61,15 +61,17 @@ const packageSpecs = [
   { path: "packages/adapters/static", name: "@needle/adapter-static" },
 ];
 
-const allowedTopLevelStatuses = [
-  "Draft.",
-  "Proposed.",
-  "Planned.",
-  "Scaffolded.",
-  "Implemented.",
-  "Verified.",
-  "Deprecated.",
+const canonicalStatusLabels = [
+  { title: "Draft.", definition: "Draft:", publicValue: "draft" },
+  { title: "Proposed.", definition: "Proposed:", publicValue: "proposed" },
+  { title: "Planned.", definition: "Planned:", publicValue: "planned" },
+  { title: "Scaffolded.", definition: "Scaffolded:", publicValue: "scaffolded" },
+  { title: "Implemented.", definition: "Implemented:", publicValue: "implemented" },
+  { title: "Verified.", definition: "Verified:", publicValue: "verified" },
+  { title: "Deprecated.", definition: "Deprecated:", publicValue: "deprecated" },
 ];
+
+const allowedTopLevelStatuses = canonicalStatusLabels.map((status) => status.title);
 
 const plannedNeedleCommands = [
   "needle dev",
@@ -845,6 +847,25 @@ for (const file of statusDefinitionDocs) {
   for (const term of ["current local evidence", "full required checks"]) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing canonical status definition wording: ${term}.`);
+    }
+  }
+}
+
+for (const file of ["docs/status.md", "docs/documentation-standard.md"]) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file);
+  for (const status of canonicalStatusLabels) {
+    if (!content.includes(status.definition)) {
+      failures.push(`${file} is missing canonical status label definition: ${status.definition}`);
+    }
+  }
+}
+
+if (existsSync(join(root, "docs/public-frontmatter-standard.md"))) {
+  const publicFrontmatter = read("docs/public-frontmatter-standard.md");
+  for (const status of canonicalStatusLabels) {
+    if (!publicFrontmatter.includes(`\`${status.publicValue}\``)) {
+      failures.push(`docs/public-frontmatter-standard.md is missing public status value: ${status.publicValue}.`);
     }
   }
 }
