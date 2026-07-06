@@ -1170,6 +1170,16 @@ const staleStatusPatterns = [
     message: "README.md prototype and differentiator language should use planned `should` wording until framework behavior exists.",
   },
   {
+    file: "README.md",
+    pattern: /^## Key Features$|^## Core Promise$|^## Differentiators$/m,
+    message: "README.md should label planned feature, promise, and differentiator sections as planned until prototype behavior exists.",
+  },
+  {
+    file: "README.md",
+    pattern: /public routes ship with|every cacheable route, API, component, or function exposes|Safe edits are AST-based|Public routes ship with metadata|Every route compiles|Selected API routes bypass|Agents use scoped/i,
+    message: "README.md public-facing capability language should use planned `should` wording until framework behavior exists.",
+  },
+  {
     file: "docs/roadmap.md",
     pattern: /- `needle dev` starts Vite\.|- `virtual:needle\/routes` works\.|- Affected query works from changed file|- `needle mcp` starts server\.|- `SafeEditTransaction` shape is implemented\./i,
     message: "docs/roadmap.md future acceptance criteria should use planned `should` wording until behavior exists.",

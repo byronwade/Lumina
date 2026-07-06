@@ -113,6 +113,8 @@ Planned feature overviews must use planned acceptance criteria and `should` word
 
 README prototype goals and future roadmap or backlog acceptance bullets must also use `should` wording until the corresponding package behavior, fixtures, and checks exist.
 
+README feature and differentiator sections must label planned framework capabilities as planned and avoid public-facing present-tense capability claims until the prototype exists.
+
 ### 5. Navigation Coverage Check
 
 ```powershell

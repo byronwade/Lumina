@@ -100,21 +100,21 @@ bun run check
 
 These commands verify the package scaffold, documentation links, root docs metadata, docs navigation coverage, package-map/build-plan/backlog alignment, planned CLI command surface and prefix consistency, status-drift guardrails, config/adapter contract terms, structure rules, shared-core type ownership, shared-core scaffold terminology, performance-claim guardrails, TypeScript surface, and placeholder tests. They do not prove route discovery, rendering, CLI behavior, runtime adapters, Needle Map generation, MCP tools, or safe edits.
 
-## Key Features
+## Planned Key Features
 
 - App-graph-native core: Needle Map, context capsules, stable manifests, MCP read tools, and safe edit transactions.
 - Explainable framework behavior: `needle inspect why` should show why routes are static, SSR, cached, indexable, or risky.
-- SEO by default: public routes ship with meaningful HTML, metadata, sitemaps, structured data, audits, and accessibility-aware diagnostics.
-- No invisible caching: every cacheable route, API, component, or function exposes a cache plan and cache tags.
+- SEO by default: public routes should ship with meaningful HTML, metadata, sitemaps, structured data, audits, and accessibility-aware diagnostics.
+- No invisible caching: every cacheable route, API, component, or function should expose a cache plan and cache tags.
 - Hot API paths: generated validators, serializers, and micro-caching for performance-critical API routes.
 - Explicit render modes: `staticPage()`, `prerender()`, `ssr()`, `stream()`, `clientOnly()`, ordinary `app/api/` routes, and `apiHot()`.
-- Bun and Vite foundation: fast runtime with frontend ecosystem leverage.
+- Bun and Vite foundation: planned fast runtime paths with frontend ecosystem leverage.
 - Large-app safety: ownership, affected checks, dependency graph, route budgets, package boundaries, and risk visibility.
-- Agent-safe workflows: safe edits are AST-based, previewable, logged, check-backed, and reversible.
+- Agent-safe workflows: safe edits should be AST-based, previewable, logged, check-backed, and reversible.
 
 ## Safe Edits
 
-AI agents should not blindly write to a framework app. NeedleStart's edit path is designed as a transaction: validate, preview, regenerate the affected graph slice, run affected checks, apply, log, and support rollback.
+AI agents should not blindly write to a framework app. NeedleStart's planned edit path is designed as a transaction: validate, preview, regenerate the affected graph slice, run affected checks, apply, log, and support rollback.
 
 <p align="center">
   <img src="docs/assets/safe-edit-transaction.svg" alt="NeedleStart safe edit transaction flow from request through validation, preview, graph slice, affected checks, apply, log, and undo" width="100%" />
@@ -131,7 +131,7 @@ NeedleStart should be explained in this order:
 
 ## Wedge
 
-NeedleStart combines:
+NeedleStart is planned to combine:
 
 - A semantic app map as a first-class framework primitive.
 - Explicit render and cache behavior with `why` explanations.
@@ -144,7 +144,7 @@ NeedleStart combines:
 - Safe edit transactions instead of free-form agent writes.
 - A hot API path for performance-critical endpoints.
 
-## Core Promise
+## Planned Core Promise
 
 Build like a familiar React meta-framework.
 
@@ -158,19 +158,19 @@ Ask the framework why a route renders, caches, indexes, bundles, or breaks the w
 
 Let humans and agents inspect and modify the app through structured framework data instead of reading the whole repository.
 
-## Differentiators
+## Planned Differentiators
 
 | Differentiator | Why it matters |
 | --- | --- |
 | App-graph-native framework core | The planned framework emits a structured map of routes, components, APIs, schemas, tests, SEO, cache tags, ownership, generated files, and risk. |
 | Needle Map | Humans and agents can ask what uses this, what breaks if this changes, which tests should run, and which routes are affected. |
 | Explainable render/cache behavior | `why` fields and inspect commands reduce hidden framework magic. |
-| SEO engine built in | Public routes ship with metadata, canonical URLs, sitemap support, robots output, structured data, meaningful HTML, and audits. |
-| Route-mode compiler | Every route compiles to static, prerendered, SSR, streaming SSR, client-only, API, or hot API mode. |
-| Hot API path | Selected API routes bypass generic framework handling through generated handlers, validators, serializers, and caches. |
-| Agent-safe edit system | Agents use scoped, previewable, check-backed, reversible transactions rather than broad file edits. |
-| Large-app safety | Ownership, affected tests, route budgets, dependency boundaries, and agent permissions are first-class. |
-| Vite ecosystem first | NeedleStart uses Vite/Rolldown for the frontend build and keeps framework intelligence in the Needle compiler. |
+| SEO engine built in | Public routes should ship with metadata, canonical URLs, sitemap support, robots output, structured data, meaningful HTML, and audits. |
+| Route-mode compiler | Every route should compile to static, prerendered, SSR, streaming SSR, client-only, API, or hot API mode. |
+| Hot API path | Selected API routes should bypass generic framework handling through generated handlers, validators, serializers, and caches. |
+| Agent-safe edit system | Agents should use scoped, previewable, check-backed, reversible transactions rather than broad file edits. |
+| Large-app safety | Ownership, affected tests, route budgets, dependency boundaries, and agent permissions should be first-class. |
+| Vite ecosystem first | NeedleStart is planned to use Vite/Rolldown for the frontend build and keep framework intelligence in the Needle compiler. |
 
 ## Strategic Technology Stack
 
