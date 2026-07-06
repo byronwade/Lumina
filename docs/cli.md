@@ -13,7 +13,7 @@ Machine-readable command behavior is planned in [CLI JSON Contract](cli-json-con
 | Command | Purpose | JSON output required? |
 | --- | --- | --- |
 | `needle dev` | Start local development. | No |
-| `needle build` | Build app, manifests, graph, SEO, and adapter output. | Yes for diagnostics |
+| `needle build` | Build app, manifests, graph, SEO, and adapter output. | Yes |
 | `needle start` | Start built output. | No |
 | `needle routes` | List route manifest entries. | Yes |
 | `needle inspect` | Inspect route, file, or artifact details. | Yes |

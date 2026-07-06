@@ -1062,6 +1062,11 @@ const staleStatusPatterns = [
     message: "docs/cli-json-contract.md should use ROUTE_DUPLICATE_PATH for the route-conflict example.",
   },
   {
+    file: "docs/cli.md",
+    pattern: /Yes for diagnostics/i,
+    message: "docs/cli.md should treat needle build JSON output as a full planned automation contract.",
+  },
+  {
     file: "docs/config-contract.md",
     pattern: /"level":/i,
     message: "docs/config-contract.md should show diagnostic severity, not level.",
