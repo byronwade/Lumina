@@ -1738,7 +1738,7 @@ const staleStatusPatterns = [
   },
   {
     file: "VISION.md",
-    pattern: /low-level Bun server|Bun server|Serve through Bun|Adapter-aware Bun server/i,
+    pattern: /low-level Bun server|Bun server|Serve with Bun|Serve through Bun|Adapter-aware Bun server/i,
     message: "VISION.md should describe server execution through the Bun adapter path, not generic Bun server wording.",
   },
   {

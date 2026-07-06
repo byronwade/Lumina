@@ -140,7 +140,7 @@ NeedleStart becomes credible when it can say:
 
 - Create a React app with one command.
 - Render SEO-safe pages.
-- Serve with Bun.
+- Serve through the Bun adapter path.
 - Run hot APIs.
 - Generate a route manifest.
 - Generate a semantic app graph.
