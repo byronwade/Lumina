@@ -18,7 +18,7 @@ Also apply `docs/docs-freshness-policy.md` for any change that can make docs sta
 - `docs/docs-verification.md` still reflects the checks contributors are expected to run.
 - `docs/testing-contract.md` still reflects test layers, fixture layout, snapshot policy, CI gates, browser artifacts, network rules, and evidence reporting.
 - `docs/versioning-and-upgrades.md` still reflects public API, manifest, generated-file, compatibility, and release policy.
-- `docs/diagnostics-contract.md` still reflects diagnostic codes, severity levels, source locations, remediations, docs links, JSON behavior, security rules, and fixtures.
+- `docs/diagnostics-contract.md` still reflects diagnostic codes, severity values, source locations, remediations, docs links, JSON behavior, security rules, and fixtures.
 - `docs/config-contract.md` still reflects config loading, validation, environment-variable, and normalized-output behavior.
 - `docs/adapter-contract.md` still reflects adapter inputs, outputs, manifest fields, capabilities, static export behavior, environment variables, health endpoints, compatibility evidence, diagnostics, and fixtures.
 - `docs/examples-contract.md` still reflects example statuses, README requirements, create-command integration, generated-artifact expectations, verification evidence, and public guide linking rules.

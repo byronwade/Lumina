@@ -183,7 +183,7 @@ Expected result: diagnostic code rules, severity values, categories, source loca
 
 Automated coverage in `bun run docs:check` also requires internal and public diagnostics docs to keep severity, deterministic ordering, code, message, remediation, and docs-link vocabulary aligned.
 
-The same automated coverage rejects stale diagnostics summary wording that describes diagnostic severity as generic levels in the docs hub, product readiness checklist, completion audit, or manifest contracts.
+The same automated coverage rejects stale diagnostics summary wording that describes diagnostic severity as generic levels in AGENTS, the docs hub, the maintenance checklist, the product readiness checklist, the completion audit, or manifest contracts.
 
 ### 13. Configuration Contract Check
 

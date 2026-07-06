@@ -968,6 +968,21 @@ const staleStatusPatterns = [
     message: "docs/documentation-completion-audit.md should reference diagnostic severity values, not levels.",
   },
   {
+    file: "AGENTS.md",
+    pattern: /severity levels/i,
+    message: "AGENTS.md should reference diagnostic severity values, not severity levels.",
+  },
+  {
+    file: "docs/docs-maintenance-checklist.md",
+    pattern: /severity levels/i,
+    message: "docs/docs-maintenance-checklist.md should reference diagnostic severity values, not severity levels.",
+  },
+  {
+    file: "docs/documentation-completion-audit.md",
+    pattern: /diagnostic levels/i,
+    message: "docs/documentation-completion-audit.md should reference diagnostic severity values, not diagnostic levels.",
+  },
+  {
     file: "docs/cache.md",
     pattern: /Cache manifest fields/i,
     message: "docs/cache.md should reference cache metadata, not a required cache manifest.",

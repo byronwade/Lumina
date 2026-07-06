@@ -277,7 +277,7 @@ Test output used by agents must be deterministic.
 - Use `docs/checklists/performance-evidence.md` when adding or reviewing performance evidence or speed claims.
 - Use `docs/testing-contract.md` when changing test commands, fixture layout, snapshot policy, CI gates, HTTP tests, browser tests, security tests, performance tests, or evidence reporting.
 - Use `docs/cli-json-contract.md` when changing CLI JSON output, diagnostics, exit codes, or command automation behavior.
-- Use `docs/diagnostics-contract.md` when changing diagnostic codes, severity levels, source locations, remediation text, docs links, code frames, JSON diagnostic shape, or cross-surface diagnostic behavior.
+- Use `docs/diagnostics-contract.md` when changing diagnostic codes, severity values, source locations, remediation text, docs links, code frames, JSON diagnostic shape, or cross-surface diagnostic behavior.
 - Use `docs/config-contract.md` when changing config fields, config loading, env handling, normalized config, or config-generated output behavior.
 - Use `docs/adapter-contract.md` when changing adapter packages, adapter manifests, deployment output, runtime compatibility, static export behavior, health endpoints, adapter environment variables, or adapter capability claims.
 - Use `docs/examples-contract.md` when changing example apps, starter templates, create-command example support, fixture evidence, public guide snippets, or example status labels.
