@@ -145,6 +145,7 @@ needle migrate
 - New graph edges must include `kind`, `source`, `confidence`, and `why`.
 - Claims about scaffolded directories, examples, commands, generated files, and performance evidence must match the current filesystem and checks; otherwise mark them as planned.
 - Shared core model types belong in `@needle/core`; other packages must import them instead of defining local `NeedleApp`, `RouteNode`, `GraphEdge`, `NeedleDiagnostic`, `RenderMode`, `CachePlan`, or `AdapterManifest` substitutes.
+- Docs that describe planned expansions of shared core model types must also state the current scaffold shape and add or preserve an automated docs guardrail when drift would mislead readers.
 - Do not edit generated files manually.
 - Do not add network calls in tests unless explicitly required.
 - Do not introduce global mutable state in the server runtime.

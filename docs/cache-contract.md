@@ -36,7 +36,22 @@ Authenticated, session-sensitive, billing, webhook, and admin routes must never 
 
 ## Cache Plan Shape
 
-Draft cache plan:
+The Phase 1 scaffold currently exposes a minimal `CachePlan` placeholder from `@needle/core`:
+
+```ts
+type CachePlan =
+  | { mode: "no-store" }
+  | {
+      mode: "public"
+      ttlSeconds: number
+      staleWhileRevalidateSeconds?: number
+      tags?: string[]
+    }
+```
+
+This scaffold shape exists so packages, docs, and tests can share one owner for cache metadata before cache behavior exists. It is not the final cache model.
+
+Planned expanded cache plan:
 
 ```ts
 type CachePlan = {
@@ -58,7 +73,7 @@ Rules:
 - Tags must be deterministic strings.
 - Header output must be derived from the plan, not separately hand-authored by adapters.
 
-The final type belongs in `@needle/core` when implementation starts.
+The final expanded type belongs in `@needle/core` when implementation starts. Any implementation PR that changes `CachePlan` must update this page, the public cache reference, fixtures, scaffold tests, and generated manifest examples in the same change.
 
 ## Public API Draft
 

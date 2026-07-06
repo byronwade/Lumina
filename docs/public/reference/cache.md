@@ -47,6 +47,8 @@ export const config = {
 
 This behavior is not implemented yet. The repository is in Phase 1 scaffold, so examples are target API design rather than verified commands.
 
+The scaffolded `@needle/core` `CachePlan` currently supports only `{ mode: "no-store" }` and a public placeholder with `ttlSeconds`, optional `staleWhileRevalidateSeconds`, and `tags`. The broader cache API shown above remains planned until runtime behavior, manifests, fixtures, and adapter tests exist.
+
 ## Source
 
 - [Cache](../../cache.md)

@@ -161,6 +161,11 @@ const coreModelDocs = [
   "docs/risk-mitigation.md",
 ];
 
+const cacheScaffoldDocs = [
+  "docs/cache-contract.md",
+  "docs/public/reference/cache.md",
+];
+
 function rel(path: string): string {
   return relative(root, path).replaceAll("\\", "/");
 }
@@ -626,6 +631,16 @@ for (const file of coreModelDocs) {
   for (const typeName of coreModelTypes) {
     if (!content.includes(typeName)) {
       failures.push(`${file} does not document shared core type ${typeName}.`);
+    }
+  }
+}
+
+for (const file of cacheScaffoldDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file);
+  for (const requiredTerm of ["@needle/core", "CachePlan", "no-store", "public", "ttlSeconds", "staleWhileRevalidateSeconds"]) {
+    if (!content.includes(requiredTerm)) {
+      failures.push(`${file} does not document the current scaffold CachePlan term: ${requiredTerm}.`);
     }
   }
 }

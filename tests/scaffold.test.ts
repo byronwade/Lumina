@@ -63,6 +63,12 @@ describe("Phase 1 scaffold", () => {
       message: "Placeholder diagnostic shape.",
     };
     const cache: CachePlan = { mode: "no-store" };
+    const publicCache: CachePlan = {
+      mode: "public",
+      ttlSeconds: 60,
+      staleWhileRevalidateSeconds: 300,
+      tags: ["home"],
+    };
     const adapter: AdapterManifest = {
       schemaVersion: "needle.adapter.v0",
       adapter: "bun",
@@ -85,6 +91,8 @@ describe("Phase 1 scaffold", () => {
     expect(route.renderMode).toBe("static");
     expect(diagnostic.severity).toBe("info");
     expect(cache.mode).toBe("no-store");
+    expect(publicCache.ttlSeconds).toBe(60);
+    expect(publicCache.staleWhileRevalidateSeconds).toBe(300);
     expect(adapter.runtime.name).toBe("bun");
     expect(edge.why).toContain("scaffold");
     expect(needleCoreStatus.implementsRuntimeBehavior).toBe(false);

@@ -223,7 +223,7 @@ Expected result: schema helpers, validation result shape, issue shape, type infe
 rg -n "cache-contract|CachePlan|CACHE_|Cache-Control|revalidateTag|micro-cache|stale-while-revalidate|cache tags|no-store" README.md AGENTS.md docs\cache-contract.md docs\cache.md docs\runtime-contract.md docs\speed-strategy.md docs\api-route-contract.md docs\hot-api-path.md docs\manifest-contracts.md docs\security.md docs\public\reference\cache.md
 ```
 
-Expected result: cache plan shape, defaults, headers, tags, revalidation, micro-cache behavior, diagnostics, manifests, security rules, speed docs, and public reference docs remain connected.
+Expected result: cache plan shape, defaults, headers, tags, revalidation, micro-cache behavior, diagnostics, manifests, security rules, speed docs, and public reference docs remain connected. The automated `docs:check` also requires cache reference docs to name the current scaffolded `@needle/core` `CachePlan` fields so planned expanded APIs cannot be mistaken for implemented behavior.
 
 ### 20. SEO Contract Check
 
@@ -298,7 +298,7 @@ The initial Bun workspace exposes these package scripts:
 
 Target behavior:
 
-- `docs:check` validates required docs, required links, local Markdown links, root docs metadata, every `docs/` Markdown file's top-level status and audience metadata, durable internal docs hub coverage, local directory index coverage for prompts, decisions, checklists, skills, and subagents, every Markdown status label format, public docs navigation coverage, AI playbook placement, verification-section coverage, scaffold-status language, scaffolded-package-versus-implemented-package wording, current-vs-planned structure claims, agent-output naming guardrails, package-map/build-plan/backlog package coverage, planned CLI command surface and prefix consistency, adapter package paths, and the current `bun.lockb` lockfile name.
+- `docs:check` validates required docs, required links, local Markdown links, root docs metadata, every `docs/` Markdown file's top-level status and audience metadata, durable internal docs hub coverage, local directory index coverage for prompts, decisions, checklists, skills, and subagents, every Markdown status label format, public docs navigation coverage, AI playbook placement, verification-section coverage, scaffold-status language, scaffolded-package-versus-implemented-package wording, current-vs-planned structure claims, agent-output naming guardrails, package-map/build-plan/backlog package coverage, planned CLI command surface and prefix consistency, adapter package paths, scaffolded cache-plan terminology, and the current `bun.lockb` lockfile name.
 - `structure:check` validates workspace scripts, package names, package entrypoints, TypeScript scaffold files, CI, forbidden runtime dependencies on agent-only packages, and shared-core type ownership outside `@needle/core`.
 - `performance:check` validates performance docs, benchmark fixture coverage, raw-result rules, and unsupported root/public speed, benchmark, or SEO positioning claim patterns.
 - `check` runs the automated docs, structure, performance, typecheck, and test gates.
