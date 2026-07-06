@@ -10,7 +10,7 @@ NeedleStart is currently in Phase 1: monorepo scaffold.
 
 Phase 0 defined the product direction, architecture, package responsibilities, documentation system, safety rules, and implementation sequence.
 
-The Bun workspace and package placeholders exist. Runtime implementation is still planned.
+The Bun workspace, package placeholders, shared core types, CI, and enforcement scripts exist. Runtime implementation is still planned.
 
 The next implementation stage is Phase 1A: expand and stabilize the shared core data model, then begin route discovery.
 

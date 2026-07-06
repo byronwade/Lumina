@@ -558,6 +558,17 @@ const productIdentityDocs = [
   },
 ];
 
+const publicScaffoldStatusDocs = [
+  {
+    file: "docs/public/index.md",
+    terms: ["Bun workspace", "package placeholders", "shared core types", "CI", "enforcement scripts", "framework runtime behavior is still planned"],
+  },
+  {
+    file: "docs/public/roadmap.md",
+    terms: ["Bun workspace", "package placeholders", "shared core types", "CI", "enforcement scripts", "Runtime implementation is still planned"],
+  },
+];
+
 const publicAgentWorkflowLabelDocs = [
   {
     file: "docs/public/README.md",
@@ -2671,6 +2682,16 @@ for (const { file, terms } of productIdentityDocs) {
   for (const term of terms.map((term) => term.toLowerCase())) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing product identity term: ${term}.`);
+    }
+  }
+}
+
+for (const { file, terms } of publicScaffoldStatusDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of terms.map((term) => term.toLowerCase())) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing public scaffold status term: ${term}.`);
     }
   }
 }
