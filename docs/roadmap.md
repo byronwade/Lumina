@@ -508,7 +508,7 @@ Definition of done:
 
 - A basic Node adapter can serve built static routes.
 - A basic Node adapter can serve SSR routes.
-- Adapter capabilities are documented in `adapter.manifest.json`.
+- Adapter capabilities are documented in `dist/adapter.manifest.json`.
 - README documents Bun default plus Node compatibility.
 - Benchmarks distinguish Bun performance from Node compatibility.
 

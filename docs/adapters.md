@@ -61,7 +61,7 @@ Responsibilities:
 - Export static routes.
 - Emit sitemap and robots outputs.
 - Fail clearly when non-static routes cannot be exported.
-- Document unsupported runtime features in `adapter.manifest.json`.
+- Document unsupported runtime features in `dist/adapter.manifest.json`.
 
 ## Config
 

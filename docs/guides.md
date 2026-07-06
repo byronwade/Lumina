@@ -79,7 +79,7 @@ Planned guides:
 - Build and start with the Bun adapter.
 - Export static routes.
 - Use the Node adapter.
-- Read `adapter.manifest.json`.
+- Read `dist/adapter.manifest.json`.
 - Compare adapter capabilities.
 
 ## Migration Guides

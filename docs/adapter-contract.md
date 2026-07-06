@@ -66,6 +66,8 @@ dist/
   adapter.manifest.json
 ```
 
+Adapter output files are deployment-oriented copies or adapter-owned metadata. Canonical compiler and agent artifacts remain under `.needle/`.
+
 Adapter inputs must include:
 
 - normalized config,

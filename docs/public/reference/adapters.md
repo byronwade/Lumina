@@ -26,9 +26,11 @@ dist/
   seo.report.json
 ```
 
+These files are deployment output. Canonical compiler and agent artifacts stay under `.needle/`.
+
 ## Planned Manifest
 
-`adapter.manifest.json` should describe:
+`dist/adapter.manifest.json` should describe:
 
 - adapter package,
 - runtime,

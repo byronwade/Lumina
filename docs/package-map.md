@@ -86,7 +86,7 @@ Planned direction:
 - Node compatibility code belongs in `@needle/adapter-node`.
 - Static export logic belongs in `@needle/adapter-static`.
 - User application code must not require Bun-only APIs.
-- Adapter capability output belongs in `adapter.manifest.json`.
+- Adapter capability output belongs in `dist/adapter.manifest.json`.
 - Adapter delivery capabilities must match [Adapter Contract](adapter-contract.md), including compression, resource hints, 103 Early Hints, and bfcache-aware headers.
 
 ## `@needle/map` Query API

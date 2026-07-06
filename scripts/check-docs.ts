@@ -401,6 +401,36 @@ const staleStatusPatterns = [
     message: "docs/runtime-contract.md uses stale generated artifact names; canonical compiler artifacts live under .needle/*.",
   },
   {
+    file: "docs/adapters.md",
+    pattern: /unsupported runtime features in `adapter\.manifest\.json`/i,
+    message: "docs/adapters.md should reference dist/adapter.manifest.json for adapter output.",
+  },
+  {
+    file: "docs/guides.md",
+    pattern: /Read `adapter\.manifest\.json`/i,
+    message: "docs/guides.md should reference dist/adapter.manifest.json.",
+  },
+  {
+    file: "docs/package-map.md",
+    pattern: /belongs in `adapter\.manifest\.json`/i,
+    message: "docs/package-map.md should reference dist/adapter.manifest.json.",
+  },
+  {
+    file: "docs/roadmap.md",
+    pattern: /documented in `adapter\.manifest\.json`/i,
+    message: "docs/roadmap.md should reference dist/adapter.manifest.json.",
+  },
+  {
+    file: "docs/task-backlog.md",
+    pattern: /`adapter\.manifest\.json` is emitted/i,
+    message: "docs/task-backlog.md should reference dist/adapter.manifest.json.",
+  },
+  {
+    file: "docs/public/reference/adapters.md",
+    pattern: /`adapter\.manifest\.json` should describe:/i,
+    message: "docs/public/reference/adapters.md should reference dist/adapter.manifest.json.",
+  },
+  {
     file: "docs/assets/needle-map-data-flow.svg",
     pattern: /map\.manifest\.json|cache\.manifest\.json/i,
     message: "docs/assets/needle-map-data-flow.svg uses stale generated artifact names.",

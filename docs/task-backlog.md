@@ -516,7 +516,7 @@ Definition of done:
 
 - `needle.config.ts` supports `runtime` and `adapter`.
 - `.needle/generated/server-entry.ts` imports selected adapter.
-- `adapter.manifest.json` is emitted.
+- `dist/adapter.manifest.json` is emitted.
 - Static adapter can export compatible static routes.
 - Node adapter can serve a minimal SSR route.
 
