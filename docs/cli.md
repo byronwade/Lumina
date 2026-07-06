@@ -18,8 +18,10 @@ Machine-readable command behavior is planned in [CLI JSON Contract](cli-json-con
 | `lumina routes` | List route manifest entries. | Yes |
 | `lumina inspect` | Inspect route, file, or artifact details. | Yes |
 | `lumina check` | Run framework-aware checks. | Yes |
+| `lumina test` | Run framework-aware test selection. | Yes |
 | `lumina seo` | Run SEO audit. | Yes |
 | `lumina map` | Query Lumina Map. | Yes |
+| `lumina workspace` | Inspect workspace graph, apps, and shared-file impact. | Yes |
 | `lumina agent` | Generate or inspect agent context. | Yes |
 | `lumina mcp` | Start MCP server. | No |
 | `lumina edit` | Preview, apply, inspect, and undo safe-edit transactions. | Yes |
@@ -33,10 +35,16 @@ These variants are referenced by roadmap, guide, and contract docs. They remain 
 | Command variant | Purpose |
 | --- | --- |
 | `lumina inspect why` | Explain route render, cache, SEO, and risk decisions. |
+| `lumina build --affected` | Build only apps, routes, packages, and artifacts selected by the workspace graph. |
+| `lumina check --affected` | Run framework checks selected by affected workspace graph output. |
+| `lumina test --affected` | Run tests selected by affected apps, routes, packages, and shared files. |
 | `lumina map file` | Show graph details, route usage, and risk notes for one source file. |
 | `lumina map route` | Show the graph slice and route context for one route. |
 | `lumina map affected` | Show affected routes, files, and checks for a changed target. |
 | `lumina map explain` | Explain why a graph relationship or impact result exists. |
+| `lumina workspace graph` | Emit or inspect the planned workspace graph. |
+| `lumina workspace apps` | List workspace apps, package dependencies, and generated artifact owners. |
+| `lumina workspace explain` | Explain why one file, package, app, route, or artifact affects another. |
 | `lumina agent init` | Generate or refresh app-local agent guidance once app generation exists. |
 | `lumina agent context` | Emit a route or surface context capsule. |
 | `lumina agent task` | Create a structured task record from graph data and templates. |

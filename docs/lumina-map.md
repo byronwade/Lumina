@@ -225,7 +225,7 @@ The same query engine should power:
 - Agent context capsules
 - `lumina workspace graph --json`
 - `lumina workspace apps --json`
-- `lumina workspace explain <file>`
+- `lumina workspace explain <file> --json`
 
 ## Agent Read Surface
 

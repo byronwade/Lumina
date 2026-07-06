@@ -205,15 +205,18 @@ Planned commands:
 
 ```bash
 lumina build --affected
+lumina build --affected --json
 lumina check --affected
+lumina check --affected --json
 lumina test --affected
+lumina test --affected --json
 lumina map affected <file>
 lumina workspace graph --json
 lumina workspace apps --json
-lumina workspace explain <file>
+lumina workspace explain <file> --json
 ```
 
-All JSON output must be stable, compact, schema-versioned, and usable by agents.
+All JSON output must be stable, compact, schema-versioned, and usable by agents. Planned data shapes live in [CLI JSON Contract](cli-json-contract.md).
 
 Affected output should answer:
 
@@ -224,6 +227,42 @@ Affected output should answer:
 - Which generated artifacts need regeneration?
 - Which cache entries were reused or invalidated?
 - Why was each app or route affected?
+
+## Developer Escape Hatches
+
+The workspace graph should improve speed and introspection without making Lumina feel like a cage.
+
+Developers should be able to opt out of graph-aware behavior at these levels:
+
+- package,
+- app,
+- route,
+- generated artifact,
+- command invocation.
+
+Planned opt-out behavior:
+
+- A package can be excluded from workspace graph ownership and treated as an external dependency.
+- An app can disable affected builds and always run full build or check commands.
+- A route can opt out of deeper semantic inference while still appearing as a route node.
+- A generated artifact can be marked non-shared so each app owns its own output copy.
+- A command can bypass affected selection with a full-scope mode when a developer wants certainty over speed.
+
+Opting out should not break the app. Lumina should report what is lost:
+
+- affected builds may become less precise,
+- graph explanations may become lower confidence,
+- shared-file consumer lists may be incomplete,
+- cache reuse may be reduced,
+- agent context may include fewer relationships,
+- safe edit recommendations may require broader human review.
+
+Rules:
+
+- Escape hatches must be visible in CLI output and JSON output.
+- Opt-out diagnostics should be warnings or info unless the setting makes output unsafe or contradictory.
+- The default path should recommend graph-aware behavior, but full-repo commands must remain available.
+- Runtime adapters must continue to consume generated app artifacts only; escape hatches must not create runtime source discovery.
 
 ## Terminal Output And Logs
 

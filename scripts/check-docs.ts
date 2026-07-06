@@ -194,8 +194,10 @@ const plannedLuminaCommands = [
   "lumina routes",
   "lumina inspect",
   "lumina check",
+  "lumina test",
   "lumina seo",
   "lumina map",
+  "lumina workspace",
   "lumina agent",
   "lumina mcp",
   "lumina edit",
@@ -225,11 +227,17 @@ const plannedLuminaCommandDocs = [
 
 const plannedJsonCommandContracts = [
   "lumina build --json",
+  "lumina build --affected --json",
   "lumina routes --json",
   "lumina inspect --json",
   "lumina check --json",
+  "lumina check --affected --json",
+  "lumina test --affected --json",
   "lumina seo --json",
   "lumina map --json",
+  "lumina workspace graph --json",
+  "lumina workspace apps --json",
+  "lumina workspace explain <file> --json",
   "lumina agent context --json",
   "lumina edit --json",
   "lumina migrate --json",
@@ -238,10 +246,16 @@ const plannedJsonCommandContracts = [
 
 const plannedCommandVariants = [
   "lumina inspect why",
+  "lumina build --affected",
+  "lumina check --affected",
+  "lumina test --affected",
   "lumina map file",
   "lumina map route",
   "lumina map affected",
   "lumina map explain",
+  "lumina workspace graph",
+  "lumina workspace apps",
+  "lumina workspace explain",
   "lumina agent init",
   "lumina agent context",
   "lumina agent task",
@@ -501,7 +515,15 @@ const reviewEvidenceContractDocs = [
   },
   {
     file: "docs/benchmark-fixtures.md",
-    terms: ["benchmark fixtures", "stable name", "raw result output path", "equivalent behavior", "docs-site", "field data"],
+    terms: ["benchmark fixtures", "stable name", "raw result output path", "equivalent behavior", "docs-site", "field data", "not speed evidence"],
+  },
+  {
+    file: "docs/comparisons.md",
+    terms: ["where lumina is not competing yet", "next.js", "tanstack start", "astro", "large-workspace graph intelligence", "benchmark fixtures"],
+  },
+  {
+    file: "docs/public/comparisons/overview.md",
+    terms: ["next.js", "tanstack start", "astro", "current boundaries", "fixture or benchmark evidence"],
   },
   {
     file: "docs/examples-catalog.md",
@@ -1059,7 +1081,7 @@ const speedDecisionContractDocs = [
   },
   {
     file: "docs/large-repo-build-architecture.md",
-    terms: ["workspace graph", "shared file identity", "split-app", "affected build", "terminal output", "observability", "lumina.workspace.ts", ".lumina/workspace.json", ".lumina/workspace-graph.json", ".lumina/affected.json", ".lumina/build-trace.json", ".lumina/cache-report.json", ".lumina/hmr-report.json", ".lumina/split-report.json", "no absolute local paths"],
+    terms: ["workspace graph", "shared file identity", "split-app", "affected build", "terminal output", "observability", "developer escape hatches", "opt out", "lumina.workspace.ts", ".lumina/workspace.json", ".lumina/workspace-graph.json", ".lumina/affected.json", ".lumina/build-trace.json", ".lumina/cache-report.json", ".lumina/hmr-report.json", ".lumina/split-report.json", "no absolute local paths"],
   },
   {
     file: "docs/performance-contract.md",

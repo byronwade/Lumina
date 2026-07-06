@@ -107,11 +107,118 @@ Initial planned command data shapes:
 | `lumina map --json` | `{ "query": string, "nodes": GraphNode[], "edges": GraphEdge[] }` |
 | `lumina agent context --json` | `{ "context": RouteContextCapsule }` |
 | `lumina build --json` | `{ "outputs": BuildOutput[], "manifests": string[], "checks": CheckResult[] }` |
+| `lumina build --affected --json` | `{ "affected": AffectedSelection, "outputs": BuildOutput[], "manifests": string[], "checks": CheckResult[] }` |
+| `lumina check --affected --json` | `{ "affected": AffectedSelection, "checks": CheckResult[], "summary": CheckSummary }` |
+| `lumina test --affected --json` | `{ "affected": AffectedSelection, "tests": TestSelection[], "summary": TestSummary }` |
+| `lumina workspace graph --json` | `{ "workspace": WorkspaceSummary, "nodes": WorkspaceGraphNode[], "edges": GraphEdge[] }` |
+| `lumina workspace apps --json` | `{ "apps": WorkspaceAppSummary[], "packages": WorkspacePackageSummary[], "generatedArtifacts": WorkspaceArtifactSummary[] }` |
+| `lumina workspace explain <file> --json` | `{ "target": string, "consumers": WorkspaceConsumer[], "affected": AffectedSelection, "why": ExplanationStep[] }` |
 | `lumina edit --json` | `{ "transaction": SafeEditTransaction, "diff": DiffSummary, "checks": CheckResult[] }` |
 | `lumina migrate --json` | `{ "migration": MigrationReport, "contracts": string[], "manualReview": string[] }` |
 | `lumina bench --json` | `{ "fixture": string, "runs": BenchmarkRun[], "environment": BenchmarkEnvironment, "summary": BenchmarkSummary }` |
 
 The exact schemas belong in command-specific reference docs once implementation exists.
+
+### Workspace And Affected Shapes
+
+Workspace and affected command output should share these planned data contracts. Field names are draft contracts for implementation work; no command currently emits them.
+
+```ts
+type AffectedSelection = {
+  apps: AffectedApp[]
+  routes: AffectedRoute[]
+  packages: AffectedPackage[]
+  tests: TestSelection[]
+  generatedArtifacts: WorkspaceArtifactSummary[]
+  reasons: ExplanationStep[]
+}
+
+type AffectedApp = {
+  id: string
+  root: string
+  reason: string
+}
+
+type AffectedRoute = {
+  id: string
+  path: string
+  appId: string
+  reason: string
+}
+
+type AffectedPackage = {
+  name: string
+  path: string
+  reason: string
+}
+
+type TestSelection = {
+  id: string
+  path: string
+  runner: string
+  reason: string
+}
+
+type TestSummary = {
+  selected: number
+  skipped: number
+  status: "ok" | "warning" | "error"
+}
+
+type WorkspaceSummary = {
+  id: string
+  root: string
+  appCount: number
+  packageCount: number
+  routeCount: number
+}
+
+type WorkspaceGraphNode = {
+  id: string
+  kind: "workspace" | "app" | "package" | "route" | "file" | "test" | "generatedArtifact"
+  label: string
+}
+
+type WorkspaceAppSummary = {
+  id: string
+  root: string
+  routeCount: number
+  packageDependencies: string[]
+}
+
+type WorkspacePackageSummary = {
+  name: string
+  path: string
+  consumedByApps: string[]
+}
+
+type WorkspaceArtifactSummary = {
+  path: string
+  kind: string
+  sourceInputs: string[]
+  consumers: string[]
+}
+
+type WorkspaceConsumer = {
+  id: string
+  kind: "app" | "route" | "package" | "test" | "generatedArtifact"
+  reason: string
+}
+
+type ExplanationStep = {
+  kind: string
+  source: string
+  confidence: "high" | "medium" | "low"
+  why: string
+}
+```
+
+Rules:
+
+- Affected selections must include `reason` or `why` fields for every app, route, package, test, and generated artifact.
+- Workspace output must use normalized relative paths and must not expose absolute local paths.
+- `WorkspaceGraphNode` arrays and `GraphEdge` arrays must be sorted by stable IDs.
+- Workspace command output must read generated workspace artifacts when they exist instead of rediscovering source files at runtime.
 
 ## JSON Stability Rules
 

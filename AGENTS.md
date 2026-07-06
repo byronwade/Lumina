@@ -219,8 +219,10 @@ lumina start
 lumina routes
 lumina inspect
 lumina check
+lumina test
 lumina seo
 lumina map
+lumina workspace
 lumina agent
 lumina mcp
 lumina edit

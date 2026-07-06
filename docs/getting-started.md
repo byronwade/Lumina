@@ -65,8 +65,10 @@ Future planned commands outside the MVP Alpha first-run path include:
 lumina build
 lumina start
 lumina check
+lumina test
 lumina seo
 lumina agent
+lumina workspace
 lumina mcp
 lumina edit
 lumina migrate

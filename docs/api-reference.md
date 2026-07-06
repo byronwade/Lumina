@@ -29,8 +29,10 @@ Planned commands:
 | `lumina routes` | Planned | Inspect discovered routes. |
 | `lumina inspect` | Planned | Inspect a route, file, or generated artifact. |
 | `lumina check` | Planned | Run framework-aware checks. |
+| `lumina test` | Planned | Run framework-aware test selection, including future affected-test mode. |
 | `lumina seo` | Planned | Run SEO audits. |
 | `lumina map` | Planned | Query Lumina Map. |
+| `lumina workspace` | Planned | Inspect workspace graph, apps, shared-file consumers, and affected work. |
 | `lumina agent` | Planned | Generate and inspect agent context. |
 | `lumina mcp` | Planned | Start the MCP server. |
 | `lumina edit` | Planned | Preview, apply, inspect, and undo safe-edit transactions. |

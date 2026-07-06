@@ -518,7 +518,7 @@ Goal: plan how apps and routes can move across workspace boundaries without dupl
 
 Definition of done:
 
-- `lumina workspace explain <file>` and future split-report behavior are specified.
+- `lumina workspace explain <file> --json` and future split-report behavior are specified.
 - `.lumina/split-report.json` schema is documented.
 - Split plans list shared packages, affected routes, generated artifacts, and manual review items.
 - Safe edit transactions remain required before mutating user files.
@@ -529,7 +529,7 @@ Goal: select affected apps, routes, packages, tests, and generated artifacts fro
 
 Definition of done:
 
-- `lumina build --affected`, `lumina check --affected`, `lumina test --affected`, and `lumina map affected <file>` are planned with stable JSON output.
+- `lumina build --affected --json`, `lumina check --affected --json`, `lumina test --affected --json`, and `lumina map affected <file>` are planned with stable JSON output.
 - `.lumina/affected.json` schema is documented.
 - Fixtures cover shared-file changes, app-local changes, and route moves.
 

@@ -13,7 +13,7 @@ Scope: package names and entrypoints are scaffolded; package behavior remains pl
 | Package | Responsibility |
 | --- | --- |
 | `create-lumina` | One-command project creation. |
-| `@lumina/cli` | Planned `needle` command surface: `lumina dev`, `lumina build`, `lumina start`, `lumina routes`, `lumina inspect`, `lumina check`, `lumina seo`, `lumina map`, `lumina agent`, `lumina mcp`, `lumina edit`, `lumina migrate`, and `lumina bench`. |
+| `@lumina/cli` | Planned `needle` command surface: `lumina dev`, `lumina build`, `lumina start`, `lumina routes`, `lumina inspect`, `lumina check`, `lumina test`, `lumina seo`, `lumina map`, `lumina workspace`, `lumina agent`, `lumina mcp`, `lumina edit`, `lumina migrate`, and `lumina bench`. |
 | `@lumina/core` | Shared types, config, route definitions, render modes, diagnostics, workspace graph, shared-file identity, generated artifact identity, and public helper types. |
 | `@lumina/compiler` | App discovery, workspace discovery, route IR, render mode extraction, manifests, generated modules, route asset metadata, API codegen, graph inputs, incremental planning, affected selection, and large-repo reports. |
 | `@lumina/vite-plugin` | Vite integration, virtual modules, route HMR, app-scoped invalidation, client and server entry wiring. |

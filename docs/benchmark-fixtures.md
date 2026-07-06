@@ -8,6 +8,20 @@ This page defines the planned fixture set for proving Lumina speed claims. It co
 
 No benchmark fixture exists yet. Do not report results from this page.
 
+## Evidence Boundary
+
+This document makes Lumina ready to collect speed evidence. It is not speed evidence.
+
+Current limitations:
+
+- No benchmark fixture files exist yet.
+- No benchmark commands are implemented yet.
+- No raw benchmark results exist yet.
+- No public performance comparison can be made from this page.
+- No market performance claim should cite this document as proof.
+
+Before Lumina claims market performance, the repository needs implemented fixtures, equivalent-behavior definitions, raw results, runtime and dependency versions, hardware or environment metadata, run counts, variance, and review notes.
+
 ## Early Benchmark Skeleton
 
 The first benchmark work should create stable paths before route discovery, graph queries, or adapter dispatch are implemented:

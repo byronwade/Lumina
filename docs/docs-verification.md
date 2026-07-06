@@ -226,12 +226,12 @@ Expected result: test layers, fixture layout, snapshot policy, CI gates, network
 ### 11. CLI JSON Contract Check
 
 ```powershell
-rg -n "schemaVersion|diagnostics|Exit Codes|--json|stdout|exit-code|lumina.cli|CLI JSON|cli-json-contract|diagnostics-contract|lumina inspect why|lumina map file|lumina map route|lumina map affected|lumina map explain|lumina agent init|lumina agent context|lumina agent task|lumina agent plan|lumina agent apply|lumina agent log|lumina edit undo|lumina migrate from-next|lumina seo --route|lumina seo --sitemap|lumina seo --strict" docs\cli-json-contract.md docs\cli.md docs\api-reference.md docs\manifest-contracts.md docs\lumina-map.md docs\agent-kernel.md docs\mcp-server.md docs\diagnostics-contract.md docs\public\reference\cli.md docs\public\guides\lumina-map.md
+rg -n "schemaVersion|diagnostics|Exit Codes|--json|stdout|exit-code|lumina.cli|CLI JSON|cli-json-contract|diagnostics-contract|lumina inspect why|lumina build --affected|lumina check --affected|lumina test --affected|lumina map file|lumina map route|lumina map affected|lumina map explain|lumina workspace graph|lumina workspace apps|lumina workspace explain|lumina agent init|lumina agent context|lumina agent task|lumina agent plan|lumina agent apply|lumina agent log|lumina edit undo|lumina migrate from-next|lumina seo --route|lumina seo --sitemap|lumina seo --strict" docs\cli-json-contract.md docs\cli.md docs\api-reference.md docs\manifest-contracts.md docs\lumina-map.md docs\agent-kernel.md docs\mcp-server.md docs\diagnostics-contract.md docs\public\reference\cli.md docs\public\guides\lumina-map.md
 ```
 
 Expected result: command automation behavior and planned command variants remain connected across CLI reference, API reference, manifests, Lumina Map, Agent Kernel, MCP docs, and public CLI docs.
 
-Automated coverage in `bun run docs:check` also requires `docs/cli-json-contract.md` and `docs/public/reference/cli.md` to list every planned JSON automation command: `lumina build --json`, `lumina routes --json`, `lumina inspect --json`, `lumina check --json`, `lumina seo --json`, `lumina map --json`, `lumina agent context --json`, `lumina edit --json`, `lumina migrate --json`, and `lumina bench --json`. Public CLI docs must also label the command table as planned while no CLI behavior exists.
+Automated coverage in `bun run docs:check` also requires `docs/cli-json-contract.md` and `docs/public/reference/cli.md` to list every planned JSON automation command: `lumina build --json`, `lumina build --affected --json`, `lumina routes --json`, `lumina inspect --json`, `lumina check --json`, `lumina check --affected --json`, `lumina test --affected --json`, `lumina seo --json`, `lumina map --json`, `lumina workspace graph --json`, `lumina workspace apps --json`, `lumina workspace explain <file> --json`, `lumina agent context --json`, `lumina edit --json`, `lumina migrate --json`, and `lumina bench --json`. Public CLI docs must also label the command table as planned while no CLI behavior exists.
 
 Automated coverage also requires the internal Lumina Map contract and public Lumina Map guide to list the same planned map command surfaces: `lumina map`, `lumina map --json`, `lumina map file`, `lumina map route`, `lumina map affected`, and `lumina map explain`.
 
@@ -367,7 +367,7 @@ rg -n "cache-contract|CachePlan|CACHE_|Cache-Control|revalidateTag|micro-cache|s
 
 Expected result: cache plan shape, defaults, headers, tags, revalidation, micro-cache behavior, diagnostics, generated manifests, security rules, speed docs, and public reference docs remain connected.
 
-Automated coverage in `bun run docs:check` also requires cache contract, cache overview, and public cache reference docs to keep `Cache-Control`, cache tags, `revalidateTag`, micro-cache, `no-store`, diagnostics, generated manifests, and secret-exclusion language aligned. It also requires cache reference docs to name the current scaffolded `@lumina/core` `CachePlan` fields so planned expanded APIs cannot be mistaken for implemented behavior.
+Automated coverage in `bun run docs:check` also requires cache contract, cache overview, and public cache reference docs to keep `Cache-Control`, cache tags, `revalidateTag`, micro-cache, `no-store`, diagnostics, generated manifests, and secret-exclusion language aligned. It also requires cache reference docs to name the current `@lumina/core` `CachePlan` contract fields so planned runtime behavior cannot be mistaken for implemented behavior.
 
 ### 21. SEO Contract Check
 

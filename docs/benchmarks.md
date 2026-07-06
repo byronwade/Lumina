@@ -6,6 +6,8 @@ Audience: maintainers, performance reviewers, future website visitors.
 
 Lumina must not make benchmark claims without raw data and methodology.
 
+Current status: benchmark docs and fixture plans exist, but benchmark fixture files, benchmark commands, and raw results do not exist yet. The docs are ready for speed evidence; they are not speed evidence.
+
 ## Planned Benchmark Areas
 
 - Static route build and serve.
