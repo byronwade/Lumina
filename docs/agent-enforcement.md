@@ -31,6 +31,7 @@ Before editing, agents must identify which docs own the change:
 - `README.md` and `docs/status.md` for current phase, public positioning, prototype status, setup commands, and feature status.
 - `AGENTS.md` for workflow, safety rules, package boundaries, generated-file rules, and verification commands.
 - `docs/mvp-alpha-scope.md` for included MVP Alpha behavior, deferred work, demo-app scope, and readiness evidence before prototype implementation expands.
+- `docs/alpha-agent-operating-system.md`, `docs/alpha-work-routing.md`, `docs/alpha-implementation-sequence.md`, and `docs/alpha-drift-prevention.md` for Alpha agent workflow, task routing, implementation order, drift risks, and issue-closure rules.
 - `docs/package-map.md`, `docs/phase-1-build-plan.md`, and `docs/task-backlog.md` for package ownership, build sequence, and implementation tasks.
 - Feature contracts under `docs/*-contract.md` for behavior, diagnostics, generated artifacts, tests, and evidence.
 - `docs/performance-contract.md`, `docs/speed-strategy.md`, `docs/speed-decisions.md`, `docs/speed-capability-audit.md`, and `docs/benchmark-methodology.md` for speed-sensitive changes.
@@ -60,6 +61,7 @@ Agents must preserve these structure rules:
 
 - AI skill playbooks live under `docs/skills/`.
 - AI subagent role briefs live under `docs/subagents/`.
+- Tool-specific wrappers under `CLAUDE.md`, `.claude/`, `.agents/skills/`, and `.cursor/rules/` must remain thin pointers to the vendor-neutral docs.
 - Root `skills/` and `subagents/` directories are forbidden.
 - Shared model types live in `@lumina/core`.
 - Runtime packages must not depend on agent-only packages.

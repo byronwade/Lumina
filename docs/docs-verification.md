@@ -111,6 +111,8 @@ Planned overview pages for Cache, Lumina Map, Agent Kernel, MCP, and Safe Edit T
 
 Planned feature overviews must use planned acceptance criteria and `should` wording instead of current-tense "Definition of Done" bullets until the behavior exists and feature-specific evidence proves it.
 
+Tool-specific AI wrappers under `CLAUDE.md`, `.claude/`, `.agents/skills/`, and `.cursor/rules/` are scaffolded pointers. Review them for broken links, but keep source behavior in `docs/alpha-agent-operating-system.md`, `docs/skills/`, and `docs/subagents/`.
+
 README prototype goals and future roadmap or backlog acceptance bullets must also use `should` wording until the corresponding package behavior, fixtures, and checks exist.
 
 README feature and differentiator sections must label planned framework capabilities as planned and avoid public-facing present-tense capability claims until the prototype exists.
@@ -172,6 +174,8 @@ rg -n "Agent Enforcement Matrix|bun run docs:check|bun run structure:check|bun r
 Expected result: agent rules, automation commands, claim gates, performance evidence, and root playbook placement rules remain connected from README, AGENTS, docs hub, build-readiness docs, and the maintenance checklist.
 
 Automated coverage in `bun run docs:check` also requires `docs/agent-enforcement.md` to exist, be linked from README and the docs hub, appear in AGENTS required-documentation-sync, keep the command and claim-gate vocabulary aligned, and use the single combined root playbook placement rule.
+
+Alpha agent workflow docs should remain linked from README, AGENTS, and the docs hub, and tool-specific wrappers should stay thin enough that `docs/skills/` and `docs/subagents/` remain the canonical source.
 
 ### 7B. MVP Alpha Scope Check
 

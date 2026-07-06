@@ -1,0 +1,6 @@
+---
+description: Render manifest rules
+alwaysApply: false
+---
+
+For `.lumina/render-manifest.json`, use `docs/skills/render-manifest-builder.md`, `docs/runtime-contract.md`, and `docs/manifest-contracts.md`. Keep static and basic SSR explicit; do not imply RSC, streaming, cache, or full SEO behavior.

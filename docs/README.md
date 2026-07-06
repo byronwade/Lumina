@@ -9,6 +9,10 @@ This directory is the source of truth for Lumina planning, architecture, roadmap
 
 - [Project Status](status.md): current phase, what exists, and what does not exist yet.
 - [MVP Alpha Scope](mvp-alpha-scope.md): included, deferred, demo-app, and verification scope for the upcoming prototype.
+- [Alpha Agent Operating System](alpha-agent-operating-system.md): AI operating layer for safely building MVP Alpha.
+- [Alpha Work Routing](alpha-work-routing.md): maps Alpha tasks to skills and subagent roles.
+- [Alpha Implementation Sequence](alpha-implementation-sequence.md): planned order for the MVP Alpha slices.
+- [Alpha Drift Prevention](alpha-drift-prevention.md): drift risks and review gates for Alpha work.
 - [First Contribution Path](first-contribution.md): focused path for first-time contributors and agents.
 - [Getting Started](getting-started.md): current status and target onboarding flow.
 - [Roadmap](roadmap.md): complete phase plan.
@@ -114,6 +118,8 @@ This directory is the source of truth for Lumina planning, architecture, roadmap
 - [First Contribution Path](first-contribution.md): first safe contribution path for Phase 1 scaffold work.
 - [AI Skill Playbooks](skills/README.md): vendor-neutral skill workflows for agents.
 - [AI Subagent Roles](subagents/README.md): delegated-agent role briefs.
+- [Proposed Codex Agents](proposed-codex-agents.md): proposed Codex role mapping until a stable custom-agent format is adopted.
+- [Proposed Cursor Skills](proposed-cursor-skills.md): proposed Cursor skill mapping beyond the current `.cursor/rules/` wrappers.
 - [MVP Alpha Documentation Readiness Plan](superpowers/plans/2026-07-06-mvp-alpha-docs-readiness.md): execution plan for the MVP Alpha documentation alignment pass.
 
 ## Checklists
@@ -126,6 +132,11 @@ This directory is the source of truth for Lumina planning, architecture, roadmap
 ## Templates
 
 - [Implementation Task Template](templates/task-template.md)
+- [Alpha Task Template](templates/alpha-task-template.md)
+- [Alpha Subagent Handoff Template](templates/alpha-subagent-handoff-template.md)
+- [Alpha Review Report Template](templates/alpha-review-report-template.md)
+- [Alpha Threat Note Template](templates/alpha-threat-note-template.md)
+- [Alpha Drift Check Template](templates/alpha-drift-check-template.md)
 - [Architecture Decision Template](templates/adr-template.md)
 - [Documentation Page Template](templates/documentation-page-template.md)
 - [Prompts](prompts/README.md)

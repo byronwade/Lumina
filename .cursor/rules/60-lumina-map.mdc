@@ -1,0 +1,6 @@
+---
+description: Lumina Map V1 rules
+alwaysApply: false
+---
+
+For `.lumina/map.json`, use `docs/skills/lumina-map-v1-builder.md` and `docs/risk-mitigation.md`. Treat missing semantics as low-confidence or absent, never guessed.

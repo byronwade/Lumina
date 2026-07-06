@@ -1,0 +1,6 @@
+---
+description: CLI JSON contract rules
+alwaysApply: false
+---
+
+For CLI JSON, use `docs/skills/cli-json-builder.md` and `docs/cli-json-contract.md`. Keep stdout JSON stable and compact, diagnostics structured, and snapshots deterministic.

@@ -1,0 +1,6 @@
+---
+description: Fixture and snapshot evidence rules
+alwaysApply: false
+---
+
+Use `docs/skills/fixture-snapshot-testing.md` and `docs/testing-contract.md`. Normalize paths, remove volatile values, and require explicit snapshot updates.

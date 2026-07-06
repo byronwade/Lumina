@@ -1,0 +1,6 @@
+---
+description: MVP Alpha route discovery rules
+alwaysApply: false
+---
+
+For route discovery, use `docs/skills/route-discovery-builder.md` and `docs/routing-contract.md`. Output must be deterministic and scoped to MVP Alpha until broader routing is scheduled.

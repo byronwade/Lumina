@@ -1,0 +1,6 @@
+---
+description: Performance claim rules
+alwaysApply: true
+---
+
+Use `docs/skills/performance-claim-gate.md`. Do not publish speed, benchmark, SEO, or performance claims without the raw evidence required by `docs/performance-contract.md`.

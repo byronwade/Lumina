@@ -1,0 +1,6 @@
+---
+description: MVP Alpha scope gate
+alwaysApply: true
+---
+
+Use `docs/mvp-alpha-scope.md`, `docs/alpha-agent-operating-system.md`, and `docs/alpha-work-routing.md`. Do not pull API routes, MCP, safe edits, migration, benchmarks, or full agent context into MVP Alpha without changing the scope doc in the same change.

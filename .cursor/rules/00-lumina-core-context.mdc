@@ -1,0 +1,6 @@
+---
+description: Lumina repository context and first-read rules
+alwaysApply: true
+---
+
+Read `AGENTS.md` first. Lumina is in Phase 1 scaffold; route discovery, rendering, CLI behavior, runtime adapter behavior, Lumina Map generation, MCP tools, and safe edits remain planned until implemented and tested.

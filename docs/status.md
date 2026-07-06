@@ -14,6 +14,7 @@ Lumina is in Phase 1: monorepo scaffold.
 - Risk mitigation strategy.
 - Documentation system scaffolding.
 - AI skill and subagent playbooks.
+- Alpha agent operating docs, work routing, drift-prevention rules, and tool-specific wrapper scaffolds for Claude, Codex, and Cursor.
 - Prototype acceptance criteria.
 - Bun workspace package scaffold.
 - Root `package.json`, `bun.lockb`, `tsconfig.base.json`, and `tsconfig.json`.
@@ -36,10 +37,11 @@ Lumina is in Phase 1: monorepo scaffold.
 - MCP server.
 - Safe edit transactions.
 - Generated `.lumina/*` or `dist/*` artifacts.
+- Implemented agent automation beyond documentation and wrapper scaffolds.
 
 ## Current Next Step
 
-The next implementation step is Phase 1A: expand and stabilize the shared core data model, then begin route discovery. The next prototype target is MVP Alpha, defined in `docs/mvp-alpha-scope.md`, and should stay focused on route discovery, basic render modes, generated route/render/map artifacts, CLI inspection, and a demo app. See `docs/phase-1-build-plan.md` and `docs/task-backlog.md`.
+The next implementation step is Phase 1A: expand and stabilize the shared core data model, then begin route discovery. The next prototype target is MVP Alpha, defined in `docs/mvp-alpha-scope.md`, and should stay focused on route discovery, basic render modes, generated route/render/map artifacts, CLI inspection, and a demo app. Agent workflow for that build target is scaffolded in `docs/alpha-agent-operating-system.md`, `docs/alpha-work-routing.md`, and `docs/alpha-drift-prevention.md`. See `docs/phase-1-build-plan.md` and `docs/task-backlog.md`.
 
 ## MVP Alpha Target Status
 
@@ -72,4 +74,3 @@ Internal Markdown docs use title-case labels with periods. Future public docs fr
 | `Implemented.` | `implemented` |
 | `Verified.` | `verified` |
 | `Deprecated.` | `deprecated` |
-

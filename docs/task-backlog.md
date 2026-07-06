@@ -15,15 +15,16 @@ MVP Alpha implementation path: keep PR 1A through PR 4 focused on core model har
 
 Goal: maintain docs-level, vendor-neutral skill and subagent guidance for AI companies and human reviewers.
 
-Task status: Planned.
+Task status: Scaffolded.
 
-Evidence: initial documentation exists in `docs/skills/` and `docs/subagents/`.
+Evidence: documentation exists in `docs/skills/`, `docs/subagents/`, `docs/alpha-agent-operating-system.md`, `docs/alpha-work-routing.md`, `docs/alpha-implementation-sequence.md`, `docs/alpha-drift-prevention.md`, `CLAUDE.md`, `.claude/`, `.agents/skills/`, and `.cursor/rules/`.
 
 Definition of done:
 
-- Skill index covers strategic app building, documentation maintenance, project maintenance, Lumina Map design, Agent Kernel design, and SEO/runtime review.
-- Subagent index covers architecture, compiler/map, runtime/SEO, agent safety, documentation, and verification roles.
-- README.md, AGENTS.md, and docs hub link to the docs-level guidance.
+- Skill index covers strategic app building, documentation maintenance, project maintenance, Lumina Map design, Agent Kernel design, SEO/runtime review, and MVP Alpha slice playbooks.
+- Subagent index covers architecture, compiler/map, runtime/SEO, agent safety, documentation, verification, and MVP Alpha guardian roles.
+- README.md, AGENTS.md, and docs hub link to the docs-level guidance and Alpha operating docs.
+- Claude, Codex, and Cursor wrappers point back to vendor-neutral source docs.
 - Guidance remains documentation-only until executable agent tooling exists.
 
 ## PR 0B: Documentation System

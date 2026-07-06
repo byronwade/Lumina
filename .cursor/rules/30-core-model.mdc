@@ -1,0 +1,6 @@
+---
+description: Shared core model hardening
+alwaysApply: false
+---
+
+For `@lumina/core` work, use `docs/skills/core-model-hardening.md` and `docs/subagents/core-model-guardian.md`. Keep GraphEdge fields `kind`, `source`, `confidence`, and `why`.

@@ -33,6 +33,10 @@ Every agent change must evaluate whether these files need updates:
 - `docs/README.md`
 - `docs/status.md`
 - `docs/mvp-alpha-scope.md`
+- `docs/alpha-agent-operating-system.md`
+- `docs/alpha-work-routing.md`
+- `docs/alpha-implementation-sequence.md`
+- `docs/alpha-drift-prevention.md`
 - `docs/roadmap.md`
 - `docs/risk-mitigation.md`
 - `docs/engineering-standards.md`
@@ -121,19 +125,44 @@ Every agent change must evaluate whether these files need updates:
 - `docs/checklists/performance-evidence.md`
 - `docs/glossary.md`
 - `docs/task-backlog.md`
+- `docs/proposed-codex-agents.md`
+- `docs/proposed-cursor-skills.md`
 - `docs/skills/README.md`
+- `docs/skills/alpha-scope-gate.md`
 - `docs/skills/agent-kernel-designer.md`
+- `docs/skills/cli-json-builder.md`
+- `docs/skills/core-model-hardening.md`
+- `docs/skills/demo-app-builder.md`
+- `docs/skills/deterministic-json-review.md`
 - `docs/skills/docs-maintainer.md`
+- `docs/skills/docs-status-sync.md`
+- `docs/skills/fixture-snapshot-testing.md`
 - `docs/skills/lumina-map-designer.md`
+- `docs/skills/lumina-map-v1-builder.md`
+- `docs/skills/performance-claim-gate.md`
 - `docs/skills/project-maintainer.md`
+- `docs/skills/release-readiness-alpha.md`
+- `docs/skills/render-manifest-builder.md`
+- `docs/skills/route-discovery-builder.md`
 - `docs/skills/seo-runtime-guardian.md`
+- `docs/skills/security-threat-note.md`
 - `docs/skills/strategic-app-builder.md`
 - `docs/subagents/README.md`
 - `docs/subagents/agent-safety.md`
+- `docs/subagents/alpha-orchestrator.md`
 - `docs/subagents/architect.md`
+- `docs/subagents/cli-json-contract-keeper.md`
 - `docs/subagents/compiler-map.md`
+- `docs/subagents/core-model-guardian.md`
+- `docs/subagents/demo-fixture-reviewer.md`
 - `docs/subagents/docs-keeper.md`
+- `docs/subagents/map-contract-guardian.md`
+- `docs/subagents/performance-claim-reviewer.md`
+- `docs/subagents/release-readiness-reviewer.md`
+- `docs/subagents/render-manifest-guardian.md`
+- `docs/subagents/route-discovery-guardian.md`
 - `docs/subagents/runtime-seo.md`
+- `docs/subagents/security-threat-reviewer.md`
 - `docs/subagents/verification.md`
 
 Update `README.md` when:
@@ -153,6 +182,7 @@ Update `AGENTS.md` when:
 - Package ownership or edit boundaries change.
 - Agent workflow changes.
 - New high-risk areas are introduced.
+- Tool-specific AI wrappers are added, moved, or removed.
 
 Update both `README.md` and `AGENTS.md` when:
 
@@ -382,7 +412,8 @@ Before editing:
 6. Read `docs/review-checklist.md` before preparing non-trivial work for review.
 7. Read `docs/agent-enforcement.md` for non-trivial docs, structure, performance, package-boundary, status, or verification work.
 8. For AI collaboration or delegation changes, read `docs/skills/README.md` and `docs/subagents/README.md`.
-9. For Phase 1 scaffolding or package-boundary work, read `docs/phase-1-build-plan.md`.
+9. For MVP Alpha agent workflow, read `docs/alpha-agent-operating-system.md`, `docs/alpha-work-routing.md`, and `docs/alpha-drift-prevention.md`.
+10. For Phase 1 scaffolding or package-boundary work, read `docs/phase-1-build-plan.md`.
 
 While editing:
 
@@ -390,8 +421,9 @@ While editing:
 2. Update docs touched by the change.
 3. Prefer adding task files from `docs/templates/task-template.md` for implementation work.
 4. Keep docs-level skills and subagent role briefs vendor-neutral and aligned with the documented safety rules.
-5. Keep planned, scaffolded, implemented, and verified behavior separate.
-6. When a doc names a directory or example as current, confirm it exists or make the text explicitly planned.
+5. Keep Claude, Codex, Cursor, and future tool-specific wrappers thin; source behavior belongs in `docs/skills/`, `docs/subagents/`, and the Alpha operating docs.
+6. Keep planned, scaffolded, implemented, and verified behavior separate.
+7. When a doc names a directory or example as current, confirm it exists or make the text explicitly planned.
 
 Before finishing:
 

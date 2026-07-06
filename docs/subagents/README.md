@@ -15,6 +15,16 @@ This directory defines vendor-neutral subagent role briefs for AI systems that s
 | [`agent-safety`](agent-safety.md) | Agent Kernel, MCP, safe edits, AI collaboration safety. | `../agent-kernel.md`, `../mcp-server.md`, `../safe-edit-transactions.md` |
 | [`docs-keeper`](docs-keeper.md) | Documentation sync and status honesty. | `../../README.md`, `../../AGENTS.md`, `../README.md` |
 | [`verification`](verification.md) | Checks, test planning, deterministic outputs. | `../../AGENTS.md`, relevant task docs |
+| [`alpha-orchestrator`](alpha-orchestrator.md) | MVP Alpha slice routing, scope checks, and issue closure decisions. | `../alpha-agent-operating-system.md`, `../alpha-work-routing.md`, `../mvp-alpha-scope.md` |
+| [`core-model-guardian`](core-model-guardian.md) | Shared core model type ownership and graph evidence fields. | `../package-map.md`, `../manifest-contracts.md`, `../lumina-map.md` |
+| [`route-discovery-guardian`](route-discovery-guardian.md) | MVP Alpha route discovery and route manifest review. | `../routing-contract.md`, `../file-conventions.md`, `../manifest-contracts.md` |
+| [`render-manifest-guardian`](render-manifest-guardian.md) | Static/basic SSR render manifest review. | `../runtime-contract.md`, `../manifest-contracts.md`, `../performance-contract.md` |
+| [`map-contract-guardian`](map-contract-guardian.md) | Lumina Map V1 graph edge and confidence review. | `../risk-mitigation.md`, `../lumina-map.md`, `../manifest-contracts.md` |
+| [`cli-json-contract-keeper`](cli-json-contract-keeper.md) | CLI JSON, diagnostics, exit code, and snapshot review. | `../cli-json-contract.md`, `../diagnostics-contract.md`, `../testing-contract.md` |
+| [`demo-fixture-reviewer`](demo-fixture-reviewer.md) | Demo app fixture and snapshot evidence review. | `../mvp-alpha-scope.md`, `../examples-contract.md`, `../testing-contract.md` |
+| [`security-threat-reviewer`](security-threat-reviewer.md) | Threat notes, secret handling, and high-risk change review. | `../security-contract.md`, `../threat-model.md` |
+| [`performance-claim-reviewer`](performance-claim-reviewer.md) | Speed, benchmark, and performance claim review. | `../performance-contract.md`, `../benchmark-methodology.md`, `../speed-decisions.md` |
+| [`release-readiness-reviewer`](release-readiness-reviewer.md) | Merge readiness and issue-closure evidence review. | `../review-checklist.md`, `../docs-verification.md`, `../task-backlog.md` |
 
 ## Delegation Rules
 

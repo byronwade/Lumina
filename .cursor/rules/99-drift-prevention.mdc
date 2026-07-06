@@ -1,0 +1,6 @@
+---
+description: Alpha drift prevention
+alwaysApply: true
+---
+
+Use `docs/alpha-drift-prevention.md` before finishing. Run `bun run check` for non-trivial changes or state why a narrower gate was used. Do not close GitHub issues without solved acceptance criteria and current evidence.

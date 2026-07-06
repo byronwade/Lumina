@@ -1,0 +1,6 @@
+---
+description: Security threat note rules
+alwaysApply: false
+---
+
+Use `docs/skills/security-threat-note.md`, `docs/security-contract.md`, and `docs/threat-model.md` for high-risk surfaces. Do not make security claims without threat notes, implementation, and tests.

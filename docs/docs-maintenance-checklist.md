@@ -13,6 +13,7 @@ Also apply `docs/docs-freshness-policy.md` for any change that can make docs sta
 - `AGENTS.md` still gives correct agent workflow and safety rules.
 - `docs/status.md` matches the real project phase.
 - `docs/mvp-alpha-scope.md` still matches the real MVP Alpha target when route discovery, render modes, Lumina Map output, CLI inspection, demo-app scope, or deferred work changes.
+- `docs/alpha-agent-operating-system.md`, `docs/alpha-work-routing.md`, `docs/alpha-implementation-sequence.md`, and `docs/alpha-drift-prevention.md` still match MVP Alpha scope, package boundaries, generated-file rules, and issue-closure rules.
 - `docs/README.md` links to any new durable docs.
 - `.github/PULL_REQUEST_TEMPLATE.md` still reflects the required review gates.
 - `docs/docs-freshness-policy.md` still reflects current docs freshness rules.
@@ -36,6 +37,7 @@ Also apply `docs/docs-freshness-policy.md` for any change that can make docs sta
 - `docs/speed-capability-audit.md` still maps every major speed surface to a decision, source docs, proof gate, and implementation follow-up.
 - `docs/public-docs-site-architecture.md` and `docs/website-content-map.md` still reflect public docs metadata, routing, navigation, source mapping, and renderer decisions.
 - Planned, scaffolded, implemented, and verified behavior are clearly separated.
+- Tool-specific wrappers under `CLAUDE.md`, `.claude/`, `.agents/skills/`, and `.cursor/rules/` remain thin pointers to vendor-neutral docs instead of new sources of truth.
 - New examples are either verified or clearly marked as planned.
 
 ## Update README When
@@ -55,6 +57,7 @@ Also apply `docs/docs-freshness-policy.md` for any change that can make docs sta
 - Package ownership or edit boundaries change.
 - Agent workflow changes.
 - New high-risk areas are introduced.
+- Tool-specific AI wrappers are added, moved, or removed.
 
 ## Update Status, Roadmap, And Backlog When
 

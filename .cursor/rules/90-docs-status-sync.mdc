@@ -1,0 +1,6 @@
+---
+description: Documentation status sync rules
+alwaysApply: true
+---
+
+Use `docs/skills/docs-status-sync.md`, `docs/docs-freshness-policy.md`, and `docs/docs-maintenance-checklist.md`. New durable docs need `Status:` and `Audience:` and must be linked from the right index.

@@ -1,0 +1,6 @@
+---
+description: Lumina package boundary rules
+alwaysApply: true
+---
+
+Use `docs/package-map.md`. Shared model types belong in `@lumina/core`; runtime packages must not depend on `@lumina/agent`, `@lumina/mcp`, or `@lumina/devtools`; user application code must not require Bun-only APIs.
