@@ -93,6 +93,8 @@ Version behavior should follow [Versioning And Upgrades](versioning-and-upgrades
 
 Public docs metadata and route behavior should follow [Public Docs Site Architecture](public-docs-site-architecture.md) so generated docs indexes match the future website.
 
+The future renderer, route mapping, frontmatter, canonical URLs, source docs, and website navigation should stay connected through [Public Frontmatter Standard](public-frontmatter-standard.md), [Docs Site Build Plan](docs-site-build-plan.md), and [Website Content Map](website-content-map.md).
+
 Routing and route-manifest pages should follow [Routing Contract](routing-contract.md) so docs indexes, public reference pages, and generated route context agree on route terminology.
 
 API route docs should follow [API Route Contract](api-route-contract.md) so docs indexes, public reference pages, generated route context, and future OpenAPI output agree on handler terminology.

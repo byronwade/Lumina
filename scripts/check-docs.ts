@@ -164,6 +164,52 @@ const generatedArtifactRuleDocs = [
   "docs/public/reference/manifest-contracts.md",
 ];
 
+const machineReadableDocsContractDocs = [
+  {
+    file: "docs/machine-readable-docs.md",
+    terms: ["llms.txt", "llms-full.txt", "docs-index.json", "schemaversion", "generatedat", "deterministic", "production runtime bundles"],
+  },
+  {
+    file: "docs/agent-kernel.md",
+    terms: ["llms.txt", "llms-full.txt", "docs-index.json", "schemaversion", "generatedat", "deterministic", "production runtime bundles"],
+  },
+  {
+    file: "docs/mcp-server.md",
+    terms: ["llms.txt", "llms-full.txt", "docs-index.json", "schemaversion", "generatedat", "deterministic", "production runtime bundles"],
+  },
+  {
+    file: "docs/public-docs.md",
+    terms: ["llms.txt", "llms-full.txt", "docs-index.json", "schemaversion", "generatedat", "deterministic", "production runtime bundles"],
+  },
+];
+
+const publicDocsSiteContractDocs = [
+  {
+    file: "docs/public-docs-site-architecture.md",
+    terms: ["frontmatter", "canonical", "docs-index.json", "llms.txt", "route mapping", "renderer", "public-frontmatter-standard", "docs-site-build-plan", "source links"],
+  },
+  {
+    file: "docs/public-frontmatter-standard.md",
+    terms: ["frontmatter", "canonical", "docs-index.json", "llms.txt", "route rules", "source", "renderer", "metadata", "validation rules"],
+  },
+  {
+    file: "docs/docs-site-build-plan.md",
+    terms: ["frontmatter", "canonical", "docs-index.json", "llms.txt", "route mapping", "renderer", "source links", "deterministic"],
+  },
+  {
+    file: "docs/public-docs.md",
+    terms: ["frontmatter", "canonical", "docs-index.json", "llms.txt", "route mapping", "renderer", "source-of-truth", "website-content-map"],
+  },
+  {
+    file: "docs/website-content-map.md",
+    terms: ["frontmatter", "canonical", "docs-index.json", "llms.txt", "route mapping", "renderer", "source mapping", "public-frontmatter-standard"],
+  },
+  {
+    file: "docs/machine-readable-docs.md",
+    terms: ["frontmatter", "canonical", "docs-index.json", "llms.txt", "route mapping", "renderer", "source doc", "public docs site architecture"],
+  },
+];
+
 const prototypeScopeTerms = [
   {
     file: "AGENTS.md",
@@ -1163,6 +1209,26 @@ for (const file of generatedArtifactRuleDocs) {
   for (const term of ["schema version", "normalized paths", "stable ordering", "source inputs", "absolute local paths"]) {
     if (!content.toLowerCase().includes(term)) {
       failures.push(`${file} is missing generated artifact contract rule: ${term}.`);
+    }
+  }
+}
+
+for (const { file, terms } of machineReadableDocsContractDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of terms) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing machine-readable docs contract term: ${term}.`);
+    }
+  }
+}
+
+for (const { file, terms } of publicDocsSiteContractDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of terms) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing public docs site contract term: ${term}.`);
     }
   }
 }

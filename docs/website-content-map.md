@@ -8,6 +8,8 @@ This page maps repository docs to future public website pages.
 
 The route and metadata contract for these pages is defined in [Public Docs Site Architecture](public-docs-site-architecture.md) and [Public Frontmatter Standard](public-frontmatter-standard.md).
 
+This map is also the planned source mapping input for the future docs renderer, `docs-index.json`, `llms.txt`, and `llms-full.txt`. Keep route mapping, frontmatter expectations, canonical URLs, source mapping, and machine-readable docs output aligned when public pages move.
+
 ## Planned Website Navigation
 
 - Home: `docs/public/index.md`.

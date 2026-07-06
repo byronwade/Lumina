@@ -10,6 +10,8 @@ The future public website Markdown source lives in `docs/public/`.
 
 The planned content model, route mapping, frontmatter contract, and renderer decision criteria live in [Public Docs Site Architecture](public-docs-site-architecture.md).
 
+Public docs metadata must stay aligned with [Website Content Map](website-content-map.md), [Public Frontmatter Standard](public-frontmatter-standard.md), [Docs Site Build Plan](docs-site-build-plan.md), and [Machine-Readable Documentation](machine-readable-docs.md). Until a renderer exists, `frontmatter`, `canonical` routes, route mapping, source-of-truth links, `docs-index.json`, `llms.txt`, `llms-full.txt`, `schemaVersion`, `generatedAt`, deterministic output, and the rule that machine-readable docs do not enter production runtime bundles remain planned contracts.
+
 ## Requirements
 
 - Each public page has a clear audience.

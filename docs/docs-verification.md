@@ -139,6 +139,8 @@ rg -n "llms\.txt|llms-full\.txt|docs-index\.json|schemaVersion|generatedAt" docs
 
 Expected result: machine-readable docs outputs remain documented as planned, schema-versioned, deterministic, and separate from production runtime bundles.
 
+Automated coverage in `bun run docs:check` also requires machine-readable docs, Agent Kernel, MCP, and public docs readiness docs to keep `llms.txt`, `llms-full.txt`, `docs-index.json`, `schemaVersion`, `generatedAt`, deterministic output, and production-runtime-bundle exclusion language aligned.
+
 ### 9. Public Docs Site Contract Check
 
 ```powershell
@@ -146,6 +148,8 @@ rg -n "frontmatter|canonical|docs-index\.json|llms\.txt|route mapping|renderer|p
 ```
 
 Expected result: public docs metadata, routes, navigation, source mapping, renderer assumptions, and machine-readable outputs remain connected.
+
+Automated coverage in `bun run docs:check` also requires public docs architecture, public frontmatter, docs-site build plan, public docs readiness, website content map, and machine-readable docs pages to keep frontmatter, canonical route, route mapping, renderer, source mapping, `docs-index.json`, `llms.txt`, and related source-doc vocabulary aligned.
 
 ### 10. Testing Contract Check
 

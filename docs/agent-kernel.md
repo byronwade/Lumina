@@ -37,6 +37,8 @@ See `docs/machine-readable-docs.md` for the planned machine-readable documentati
 
 CLI-facing agent commands should follow `docs/cli-json-contract.md` for `--json` envelopes, diagnostics, and exit codes.
 
+Machine-readable public docs outputs must stay schema-versioned and deterministic. When `docs-index.json`, `llms.txt`, or `llms-full.txt` exist, their records should include `schemaVersion` and `generatedAt` where the artifact is structured, avoid secrets and local machine paths, and remain outside production runtime bundles.
+
 ## Commands
 
 Planned commands:

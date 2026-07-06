@@ -76,6 +76,8 @@ MCP write tools must return the same `SafeEditTransaction` shape as CLI write co
 
 Where practical, MCP tool payloads should reuse the same core route, graph, SEO, check, context, and safe-edit object shapes as the CLI JSON contract in `docs/cli-json-contract.md`.
 
+MCP resources that expose documentation context should follow [Machine-Readable Documentation](machine-readable-docs.md). If future MCP tools read `docs-index.json`, `llms.txt`, or `llms-full.txt`, the tool output must preserve `schemaVersion`, `generatedAt`, deterministic ordering, source paths, and the rule that agent metadata is not shipped in production runtime bundles.
+
 Required transaction fields:
 
 - Mutation ID.

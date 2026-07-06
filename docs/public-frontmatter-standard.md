@@ -79,6 +79,7 @@ Do not use `implemented` or `verified` on public pages until the repository has 
 - One source page should map to one canonical public route.
 - Redirects must be documented after the docs renderer is chosen.
 - Route changes require updates to [Website Content Map](website-content-map.md).
+- Frontmatter must remain parseable by the future renderer and consistent with `docs-index.json`, `llms.txt`, and `llms-full.txt` output.
 
 ## Validation Rules
 
