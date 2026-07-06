@@ -39,7 +39,7 @@ docs/public/
 
 ## Route Model
 
-Planned route mapping:
+Representative planned route mapping:
 
 | Source | Public route |
 | --- | --- |
@@ -53,7 +53,7 @@ Planned route mapping:
 | `docs/public/community/overview.md` | `/community` |
 | `docs/public/comparisons/overview.md` | `/compare` |
 
-The exact route map can change when the docs site renderer is chosen, but every public route should have one source Markdown file and one canonical URL.
+The complete planned public navigation inventory lives in [Website Content Map](website-content-map.md). The exact route map can change when the docs site renderer is chosen, but every public route should have one source Markdown file and one canonical URL.
 
 ## Frontmatter Contract
 

@@ -316,7 +316,7 @@ const machineReadableDocsContractDocs = [
 const publicDocsSiteContractDocs = [
   {
     file: "docs/public-docs-site-architecture.md",
-    terms: ["frontmatter", "canonical", "docs-index.json", "llms.txt", "route mapping", "renderer", "public-frontmatter-standard", "docs-site-build-plan", "source links"],
+    terms: ["frontmatter", "canonical", "docs-index.json", "llms.txt", "route mapping", "renderer", "public-frontmatter-standard", "docs-site-build-plan", "source links", "representative planned route mapping", "complete planned public navigation inventory"],
   },
   {
     file: "docs/public-frontmatter-standard.md",
