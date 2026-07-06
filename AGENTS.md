@@ -28,6 +28,8 @@ Every agent change must evaluate whether these files need updates:
 - `docs/risk-mitigation.md`
 - `docs/package-map.md`
 - `docs/task-backlog.md`
+- `skills/README.md`
+- `subagents/README.md`
 
 Update `README.md` when:
 
@@ -217,13 +219,15 @@ Before editing:
 2. Read this `AGENTS.md`.
 3. Read the relevant docs under `docs/`.
 4. Check whether the task is documentation-only, scaffolding, implementation, or verification.
+5. For AI collaboration or delegation changes, read `skills/README.md` and `subagents/README.md`.
 
 While editing:
 
 1. Keep changes scoped.
 2. Update docs touched by the change.
 3. Prefer adding task files from `docs/templates/task-template.md` for implementation work.
-4. Keep planned and implemented behavior separate.
+4. Keep root-level skills and subagent role briefs vendor-neutral and aligned with the documented safety rules.
+5. Keep planned and implemented behavior separate.
 
 Before finishing:
 
