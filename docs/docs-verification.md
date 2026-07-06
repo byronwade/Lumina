@@ -359,6 +359,8 @@ Expected result: metadata API, merge rules, sitemap output, robots output, struc
 
 Automated coverage in `bun run docs:check` also requires SEO contract, SEO overview, public SEO reference, and public SEO metadata guide docs to keep `defineMeta`, `generateMeta`, sitemap, robots, structured data, canonical URLs, `.needle/seo.report.json`, diagnostic severity, meaningful initial HTML, and client-only fallback language aligned.
 
+Performance report examples and references must use budget status values of `pass`, `warning`, or `fail`; use `warning`, not `warn`, to keep report wording aligned with diagnostic severity values.
+
 ### 22. Accessibility Contract Check
 
 ```powershell

@@ -1824,6 +1824,26 @@ const staleStatusPatterns = [
     message: "docs/performance.md should use canonical benchmark fixture names and hot-api render mode.",
   },
   {
+    file: "docs/performance.md",
+    pattern: /\bn\/a\s+warn\b/i,
+    message: "docs/performance.md should use budget status `warning`, not `warn`.",
+  },
+  {
+    file: "docs/performance-contract.md",
+    pattern: /`pass`, `warn`, or `fail`|`warn`, not `warning`/i,
+    message: "docs/performance-contract.md should use budget status `warning`, not `warn`.",
+  },
+  {
+    file: "docs/public/reference/performance.md",
+    pattern: /`pass`, `warn`, or `fail`|`warn`, not `warning`/i,
+    message: "docs/public/reference/performance.md should use budget status `warning`, not `warn`.",
+  },
+  {
+    file: "docs/docs-verification.md",
+    pattern: /`pass`, `warn`, or `fail`|`warn`, not `warning`/i,
+    message: "docs/docs-verification.md should use budget status `warning`, not `warn`.",
+  },
+  {
     file: "docs/diagnostics-contract.md",
     pattern: /"level":|`level`|level: "info"|diagnostic code rules, levels/i,
     message: "docs/diagnostics-contract.md should use NeedleDiagnostic severity, not level.",
@@ -2406,6 +2426,16 @@ for (const file of performanceContractDocs) {
   for (const term of ["core web vitals", "lcp", "inp", "cls", ".needle/perf.report.json", "perf_", "budget", "benchmark evidence", "delivery", "chunk count", "source-map", "rum", "field data", "resource hints", "early hints", "compression", "bfcache"]) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing performance contract term: ${term}.`);
+    }
+  }
+}
+
+for (const file of [...performanceContractDocs, "docs/docs-verification.md"]) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of ["pass", "warning", "fail"]) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing performance budget status term: ${term}.`);
     }
   }
 }

@@ -44,13 +44,13 @@ export default defineConfig({
 Route                  Mode       JS      CSS     SEO    Budget
 /                      static     18kb    6kb     pass   pass
 /blog/[slug]           prerender  24kb    8kb     pass   pass
-/dashboard             ssr        210kb   26kb    n/a    warn
+/dashboard             ssr        210kb   26kb    n/a    warning
 /api/users/[id]        hot-api    0kb     0kb     n/a    pass
 ```
 
 ## Planned Report And Diagnostics
 
-NeedleStart plans to emit `.needle/perf.report.json` with route IDs, render modes, budgets, delivery metadata, chunk count, source-map exposure, diagnostics, and benchmark evidence references when claims are made.
+NeedleStart plans to emit `.needle/perf.report.json` with route IDs, render modes, budgets, delivery metadata, chunk count, source-map exposure, diagnostics, and benchmark evidence references when claims are made. Budget status values should use `pass`, `warning`, or `fail`.
 
 Performance diagnostics should use `PERF_` code prefixes and follow [Diagnostics Contract](diagnostics-contract.md).
 

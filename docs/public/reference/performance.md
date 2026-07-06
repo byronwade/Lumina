@@ -45,7 +45,7 @@ NeedleStart plans to generate:
 .needle/perf.report.json
 ```
 
-The report should include route IDs, paths, render modes, payload sizes, chunk count, source-map exposure, budget status, and diagnostics.
+The report should include route IDs, paths, render modes, payload sizes, chunk count, source-map exposure, budget status, and diagnostics. Budget status values should use `pass`, `warning`, or `fail`.
 
 It should also include planned route delivery metadata for scripts, styles, images, fonts, resource hints through `resourceHints`, compression, 103 Early Hints eligibility, bfcache blockers, and optional RUM or field data evidence once those features exist.
 

@@ -220,6 +220,8 @@ Planned `.needle/perf.report.json` shape:
 
 Reports must avoid absolute local paths, secrets, random IDs, and machine-specific values unless explicitly part of a raw benchmark result.
 
+Budget status values must use `pass`, `warning`, or `fail`. Use `warning`, not `warn`, so performance reports align with the shared diagnostic severity vocabulary.
+
 Delivery fields must stay route-specific. Do not emit blanket preloads, preconnects, speculation rules, fetch priorities, compression claims, or Early Hints for assets that are not tied to route output or adapter capability evidence.
 
 Production debug artifacts must be reported separately from runtime payloads. Public source maps, inline source maps, verbose debug JSON, and oversized diagnostics are performance and security review items unless explicit config and deployment policy allow them.
