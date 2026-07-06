@@ -201,7 +201,8 @@ Key rules:
 - Build semantic graph extraction in layers: file graph, explicit contracts, convention inference, then optional static analysis.
 - Prefer explicit `.contract.ts` files for high-confidence semantic edges.
 - Every `GraphEdge` must include `kind`, `source`, `confidence`, and `why`.
-- Keep the first prototype scoped to create app, SEO-safe pages, Bun server, basic map, agent inspection, and safe metadata edit.
+- Keep the first working slice scoped to create app, SEO-safe pages, Bun server, basic map, agent inspection, and safe metadata edit.
+- Treat `docs/prototype-acceptance.md`, README, and the public roadmap as the broader first public prototype acceptance scope.
 - Move Node adapter work earlier than the long-term adapter phase to reduce Bun adoption friction.
 - Keep adapter boundaries early: Bun-specific APIs stay in `@needle/adapter-bun`, Node compatibility stays in `@needle/adapter-node`, and static export logic stays in `@needle/adapter-static`.
 - Safe edit transactions must validate, preview, apply through AST, format, regenerate graph, run affected checks, log, and support undo.

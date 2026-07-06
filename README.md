@@ -240,7 +240,7 @@ The runtime must stay small. Build-time compiler output should carry the complex
 
 ## Prototype Goal
 
-The first credible prototype proves:
+The first public prototype proves:
 
 1. A developer can create an app with one command.
 2. The app has file-based routes.
@@ -255,6 +255,8 @@ The first credible prototype proves:
 11. The framework exposes read-only MCP tools for agents.
 12. An AI agent can inspect routes, edit metadata safely, run affected checks, and report the mutation log.
 13. Build output can run on the Bun adapter, with Node and static adapter paths documented.
+
+Terminology: the first working slice is smaller and proves create app, SEO-safe pages, Bun serving, a basic map, agent inspection, and safe metadata edit. The first public prototype is the broader demo target listed above.
 
 ## First Prototype Sequence
 

@@ -131,7 +131,7 @@ This is a build-time distributed-system problem: routing, render modes, caching,
 
 ### Strategy
 
-The first prototype must stay ruthlessly scoped:
+The first working slice must stay ruthlessly scoped:
 
 - Create app.
 - Render SEO-safe pages.
@@ -139,6 +139,8 @@ The first prototype must stay ruthlessly scoped:
 - Generate a basic Needle Map.
 - Let an agent inspect the app.
 - Let an agent safely edit metadata through MCP or CLI.
+
+The broader first public prototype acceptance scope may include API routes, a hot API path, read-only MCP tools, adapter-aware server output, and documented Node/static paths. Keep the working slice small enough to prove the map and safe-edit wedge before expanding to that public demo.
 
 Cut from the first public release:
 
@@ -166,7 +168,7 @@ Every new feature must answer three questions before being scheduled:
 2. Can it be implemented with minimal production runtime code?
 3. Does it have a clear definition of done with tests and an agent demo?
 
-If the answer is no, it is lower priority for the first prototype.
+If the answer is no, it is lower priority for the first working slice and should not enter the first public prototype unless it directly strengthens the demo.
 
 ### Incremental Build Discipline
 
@@ -196,7 +198,7 @@ All owners must use the same core data model: `NeedleApp`, `RouteNode`, `GraphEd
 
 ### Success Metric
 
-The production runtime packages stay intentionally small, and the first working prototype with map plus basic safe metadata edit ships within the planned prototype window.
+The production runtime packages stay intentionally small, and the first working slice with map plus basic safe metadata edit ships within the planned prototype window.
 
 ## 3. Adoption Moat
 

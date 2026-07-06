@@ -26,7 +26,7 @@ See [Phase 1 Build Plan](../phase-1-build-plan.md).
 
 ## Prototype Goal
 
-The first credible prototype should prove:
+The first public prototype should prove:
 
 - App creation.
 - File-based routes.
@@ -41,6 +41,8 @@ The first credible prototype should prove:
 - Read-only MCP tools.
 - Safe metadata edit.
 - Bun adapter output with Node/static compatibility path documented.
+
+The first working slice is smaller: create app, SEO-safe pages, Bun serving, basic map, agent inspection, and safe metadata edit. The public prototype expands that slice into the full demo list above.
 
 ## Source Of Truth
 

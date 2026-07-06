@@ -80,7 +80,7 @@ Scope: complete for initial project constitution.
 Risk mitigation focus:
 
 - Lock the shared data model before implementation diverges.
-- Keep the first prototype centered on compiler IR, route discovery, basic graph, SEO-safe rendering, and a low-risk safe edit.
+- Keep the first working slice centered on compiler IR, route discovery, basic graph, SEO-safe rendering, and a low-risk safe edit.
 - Keep speed strategy visible from the start: static-first output, build-time intelligence, small runtime adapters, compact JSON, and benchmark honesty.
 - Treat `docs/risk-mitigation.md` as required reading for map, agent, MCP, adapter, and safe-edit work.
 

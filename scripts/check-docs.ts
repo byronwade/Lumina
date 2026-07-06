@@ -117,6 +117,33 @@ const generatedArtifactDocs = [
   "docs/public/reference/project-structure.md",
 ];
 
+const prototypeScopeTerms = [
+  {
+    file: "AGENTS.md",
+    terms: ["first working slice", "first public prototype acceptance scope"],
+  },
+  {
+    file: "README.md",
+    terms: ["first working slice", "first public prototype"],
+  },
+  {
+    file: "docs/risk-mitigation.md",
+    terms: ["first working slice", "broader first public prototype acceptance scope"],
+  },
+  {
+    file: "docs/prototype-acceptance.md",
+    terms: ["first public prototype", "first working slice"],
+  },
+  {
+    file: "docs/public/roadmap.md",
+    terms: ["first public prototype", "first working slice"],
+  },
+  {
+    file: "docs/roadmap.md",
+    terms: ["first public prototype", "first working slice"],
+  },
+];
+
 function rel(path: string): string {
   return relative(root, path).replaceAll("\\", "/");
 }
@@ -414,6 +441,16 @@ for (const file of generatedArtifactDocs) {
   for (const artifact of canonicalGeneratedArtifacts) {
     if (!content.includes(artifact)) {
       failures.push(`${file} does not document canonical generated artifact: ${artifact}.`);
+    }
+  }
+}
+
+for (const { file, terms } of prototypeScopeTerms) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file);
+  for (const term of terms) {
+    if (!content.includes(term)) {
+      failures.push(`${file} does not distinguish prototype scope with required term: ${term}.`);
     }
   }
 }
