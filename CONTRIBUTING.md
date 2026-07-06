@@ -1,8 +1,14 @@
 # Contributing to NeedleStart
 
-NeedleStart is currently in planning and constitution mode. The first contributor responsibility is to keep the product direction, architecture, implementation contracts, and task sequence coherent.
+NeedleStart is currently in planning and constitution mode. The first contributor responsibility is to keep the product direction, architecture, implementation contracts, open source governance, and task sequence coherent.
 
-We welcome contributions from both humans and AI agents.
+NeedleStart is intended to be a fully open source community project. We welcome contributions from both humans and AI agents.
+
+## Community Standards
+
+All contributors must follow `CODE_OF_CONDUCT.md`.
+
+NeedleStart values direct technical feedback, respectful collaboration, careful documentation, and honest status reporting. Disagree with ideas, code, architecture, benchmarks, or roadmap choices. Do not attack people.
 
 ## Areas Where Help Is Especially Needed
 
@@ -12,7 +18,9 @@ We welcome contributions from both humans and AI agents.
 - MCP tool implementations.
 - Documentation and examples.
 - Testing and benchmarks.
-- Security review for safe edits, MCP, manifests, and adapter output.
+- Public docs and website infrastructure.
+- Community issue triage once implementation begins.
+- Security review for safe edits, MCP, manifests, benchmark outputs, and adapter output.
 
 ## Development Principles
 
@@ -24,7 +32,8 @@ We welcome contributions from both humans and AI agents.
 - Prefer deterministic generated output.
 - Keep planned features separate from implemented features.
 - Keep user app code portable across Bun, Node, and static output where possible.
-- Do not expose secrets in manifests, logs, MCP responses, or agent context.
+- Do not expose secrets in manifests, logs, MCP responses, public docs, benchmark outputs, or agent context.
+- Keep open source infrastructure usage tied to NeedleStart project work.
 
 ## Planned Setup
 
@@ -41,15 +50,16 @@ Do not claim these commands pass until package scaffolding exists.
 ## Contribution Flow
 
 1. Read `README.md`.
-2. Read `AGENTS.md`.
-3. Read `docs/status.md`.
-4. Read the relevant contract document in `docs/`.
-5. Create or update a task using `docs/templates/task-template.md`.
-6. Implement the smallest complete slice.
-7. Add or update tests.
-8. Update README, AGENTS, status, and relevant docs when setup, commands, generated artifacts, package structure, security rules, or project behavior changes.
-9. Run checks.
-10. Document remaining scope clearly.
+2. Read `CODE_OF_CONDUCT.md`.
+3. Read `AGENTS.md`.
+4. Read `docs/status.md`.
+5. Read the relevant contract document in `docs/`.
+6. Create or update a task using `docs/templates/task-template.md`.
+7. Implement the smallest complete slice.
+8. Add or update tests.
+9. Update README, AGENTS, status, and relevant docs when setup, commands, generated artifacts, package structure, security rules, open source governance, or project behavior changes.
+10. Run checks.
+11. Document remaining scope clearly.
 
 For larger changes, open a discussion or design note first.
 
@@ -69,17 +79,30 @@ Read the docs that match your area:
 | Cache | `docs/cache.md` |
 | Needle Map | `docs/needle-map.md`, `docs/risk-mitigation.md` |
 | Agent/MCP/safe edits | `docs/agent-kernel.md`, `docs/mcp-server.md`, `docs/safe-edit-transactions.md`, `docs/security.md` |
+| Open source/community | `docs/open-source-community.md`, `GOVERNANCE.md`, `CODE_OF_CONDUCT.md` |
 | Tests | `docs/testing.md` |
 
 ## AI Agents
 
-AI agents should follow `AGENTS.md` and use the structured task prompt template when creating work. Agents must keep README, AGENTS, status, and relevant docs accurate when setup, commands, architecture, safety rules, generated artifacts, or implementation state change.
+AI agents should follow `AGENTS.md` and use the structured task prompt template when creating work. Agents must keep README, AGENTS, status, and relevant docs accurate when setup, commands, architecture, safety rules, generated artifacts, open source governance, or implementation state change.
 
 AI-assisted contributions require the same review standard as human-authored code. Human maintainers remain accountable for merging and releasing changes.
 
-## Code of Conduct
+## Open Source Community
 
-Be respectful. Focus on technical substance. The project values clarity, determinism, and dogfooding Needle Map and agent tools.
+NeedleStart should be easy to contribute to as it grows.
+
+After package scaffolding exists, maintainers should add and maintain:
+
+- `good first issue` labels.
+- `help wanted` labels.
+- clear package READMEs.
+- example app READMEs.
+- public roadmap discussions.
+- community impact metrics.
+- public docs or preview deployments.
+
+NeedleStart's open source readiness and Vercel program alignment are documented in `docs/open-source-community.md`.
 
 ## Documentation Requirements
 
@@ -93,6 +116,7 @@ Every stable feature should eventually include:
 - Manifest output when relevant.
 - Agent notes when relevant.
 - Security notes when relevant.
+- Open source/community notes when relevant.
 - Tests required.
 - Common pitfalls.
 - Out of scope.
@@ -106,7 +130,7 @@ Use the test type that matches the behavior:
 - Integration tests for CLI flows.
 - HTTP tests for runtime adapter behavior.
 - Stable JSON tests for agent, SEO, map, manifest, and diagnostic output.
-- Security redaction tests for config, manifests, MCP, logs, and agent context.
+- Security redaction tests for config, manifests, MCP, logs, public docs, benchmark outputs, and agent context.
 - Safe edit rejection tests as well as success tests.
 - Benchmarks only when performance claims are introduced.
 
@@ -115,6 +139,7 @@ Use the test type that matches the behavior:
 - `README.md` is still accurate.
 - `AGENTS.md` is still accurate.
 - `docs/status.md` reflects any state change.
+- `CODE_OF_CONDUCT.md` and `GOVERNANCE.md` still reflect community process if governance changed.
 - The feature is either implemented or clearly marked as planned.
 - New commands are documented in `docs/cli.md`.
 - New generated files are documented in `docs/manifest-contracts.md`.
