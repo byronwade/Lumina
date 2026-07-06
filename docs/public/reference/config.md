@@ -33,6 +33,20 @@ Config fields that affect routes, rendering, SEO, performance, agent context, or
 
 Runtime adapters should consume normalized generated output instead of rediscovering raw source config in production.
 
+## Planned Normalized Config
+
+When config is serialized for tools or generated artifacts, the planned normalized shape should include:
+
+- `schemaVersion`
+- `root`
+- `runtime`
+- `adapter`
+- `outDir`
+- `needleDir`
+- `mode`
+
+Normalized config output should use relative paths when possible, avoid absolute local paths in public or agent-facing artifacts, and never serialize secrets.
+
 ## Source
 
 - [Configuration Reference](../../config.md)

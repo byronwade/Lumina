@@ -812,6 +812,16 @@ const configEnvironmentContractDocs = [
   "docs/public/reference/config.md",
 ];
 
+const normalizedConfigContractTerms = [
+  "schemaVersion",
+  "root",
+  "runtime",
+  "adapter",
+  "outDir",
+  "needleDir",
+  "mode",
+];
+
 const diagnosticContractDocs = [
   "docs/diagnostics-contract.md",
   "docs/public/reference/diagnostics.md",
@@ -2035,6 +2045,16 @@ for (const file of configEnvironmentContractDocs) {
   for (const term of ["server-only", "public prefix", ".env*", "secret", "generated artifacts", "diagnostics"]) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing config environment contract term: ${term}.`);
+    }
+  }
+}
+
+for (const file of configEnvironmentContractDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file);
+  for (const term of normalizedConfigContractTerms) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing normalized config contract term: ${term}.`);
     }
   }
 }
