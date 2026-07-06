@@ -838,6 +838,11 @@ const staleStatusPatterns = [
     message: "docs/public/reference/project-structure.md claims planned example directories are scaffolded.",
   },
   {
+    file: "CONTRIBUTING.md",
+    pattern: /Bun server runtime details|Bun server details|Bun runtime package/i,
+    message: "CONTRIBUTING.md should direct runtime help to @needle/adapter-bun adapter work, not generic Bun server wording.",
+  },
+  {
     file: "docs/documentation-audit.md",
     pattern: /Many public-framework docs homes were missing before this pass|Add missing governance\/security\/release\/testing docs|Add machine-readable docs index and llms output plan|Add public website content map|Lacks governance\/security\/release links|Add PR template later|Add PR templates and generated docs index|not yet specified in one place|The next step is to define `docs-index\.json`, `llms\.txt`, `llms-full\.txt`/i,
     message: "docs/documentation-audit.md should reflect current docs homes and machine-readable docs contracts instead of pre-expansion gaps.",

@@ -23,7 +23,7 @@ Before contributing, read:
 
 - Compiler internals and graph algorithms.
 - Vite plugin and virtual modules.
-- Bun server runtime details.
+- `@needle/adapter-bun` runtime adapter details.
 - MCP tool implementations.
 - Documentation and examples.
 - Testing and benchmarks.

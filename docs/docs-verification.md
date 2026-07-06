@@ -137,7 +137,7 @@ Automated coverage in `bun run docs:check` also requires the AGENTS required-doc
 
 It also parses the AGENTS required-documentation-sync section directly. Every path listed there must exist, and every canonical must-check documentation contract, security, performance, public-docs, and checklist file must remain listed there. It also discovers every Markdown file under `docs/skills/` and `docs/subagents/` and requires each playbook file to appear in the AGENTS sync list.
 
-Prototype, public-roadmap, and implementation-sequence docs must describe Bun serving through `@needle/adapter-bun` instead of generic "Bun serving" or "Bun server" wording that could imply a separate active runtime package.
+Prototype, public-roadmap, implementation-sequence, and contributor docs must describe Bun serving through `@needle/adapter-bun` instead of generic "Bun serving" or "Bun server" wording that could imply a separate active runtime package.
 
 ### 8. Machine-Readable Docs Contract Check
 
