@@ -260,10 +260,12 @@ Automated coverage in `bun run docs:check` also requires cache contract, cache o
 ### 21. SEO Contract Check
 
 ```powershell
-rg -n "seo-contract|defineMeta|generateMeta|SEO_|sitemap|robots|structuredData|canonical|seo.report" README.md AGENTS.md docs\seo-contract.md docs\seo-engine.md docs\api-reference.md docs\manifest-contracts.md docs\runtime-contract.md docs\cache-contract.md docs\public\reference\seo.md docs\public\guides\seo-metadata.md
+rg -n "seo-contract|defineMeta|generateMeta|SEO_|sitemap|robots|structured data|canonical|seo.report|severity|meaningful initial HTML|client-only" README.md AGENTS.md docs\seo-contract.md docs\seo-engine.md docs\api-reference.md docs\manifest-contracts.md docs\runtime-contract.md docs\cache-contract.md docs\public\reference\seo.md docs\public\guides\seo-metadata.md
 ```
 
 Expected result: metadata API, merge rules, sitemap output, robots output, structured data, diagnostics, manifests, runtime/cache interaction, and public reference docs remain connected.
+
+Automated coverage in `bun run docs:check` also requires SEO contract, SEO overview, public SEO reference, and public SEO metadata guide docs to keep `defineMeta`, `generateMeta`, sitemap, robots, structured data, canonical URLs, `.needle/seo.report.json`, diagnostic severity, meaningful initial HTML, and client-only fallback language aligned.
 
 ### 22. Accessibility Contract Check
 

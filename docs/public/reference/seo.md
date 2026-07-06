@@ -23,6 +23,8 @@ export const meta = defineMeta({
 })
 ```
 
+Dynamic metadata is planned through `generateMeta()` when a route needs params or data to resolve metadata.
+
 ## Planned Checks
 
 Public indexable routes should eventually check:
@@ -35,6 +37,8 @@ Public indexable routes should eventually check:
 - Robots policy.
 - Open Graph and Twitter metadata when configured.
 - Structured data when configured.
+- Diagnostic severity values of `info`, `warning`, and `error`.
+- Client-only routes should require meaningful static fallback HTML before passing public indexable checks.
 
 ## Planned Outputs
 
@@ -51,6 +55,7 @@ dist/robots.txt
 - Robots output should not be treated as a privacy or security mechanism.
 - JSON-LD structured data must be escaped safely.
 - Client-only routes should not pass indexable public-page checks unless they provide meaningful static fallback HTML.
+- `.needle/seo.report.json` should include route IDs, canonical status, sitemap reasons, robots policy, structured data status, and diagnostics.
 
 ## Source
 

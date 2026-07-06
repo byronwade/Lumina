@@ -307,6 +307,13 @@ const cacheContractDocs = [
   "docs/public/reference/cache.md",
 ];
 
+const seoContractDocs = [
+  "docs/seo-contract.md",
+  "docs/seo-engine.md",
+  "docs/public/reference/seo.md",
+  "docs/public/guides/seo-metadata.md",
+];
+
 const routingContractDocs = [
   "docs/routing-contract.md",
   "docs/routing.md",
@@ -759,6 +766,11 @@ const staleStatusPatterns = [
     message: "docs/seo-contract.md should use diagnostic severity `warning`, not `warn`.",
   },
   {
+    file: "docs/seo-contract.md",
+    pattern: /\| Code \| Level \| Meaning \|/i,
+    message: "docs/seo-contract.md should use diagnostic severity, not level.",
+  },
+  {
     file: "docs/schema-contract.md",
     pattern: /\| `SCHEMA_[^`]+` \| `warn(?:`| or)/i,
     message: "docs/schema-contract.md should use diagnostic severity `warning`, not `warn`.",
@@ -922,6 +934,16 @@ for (const file of cacheContractDocs) {
   for (const term of ["cache-control", "cache tags", "revalidatetag", "micro-cache", "no-store", "diagnostics", "generated manifests", "secrets"]) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing cache contract term: ${term}.`);
+    }
+  }
+}
+
+for (const file of seoContractDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of ["definemeta", "generatemeta", "sitemap", "robots", "structured data", "canonical", ".needle/seo.report.json", "severity", "meaningful initial html", "client-only"]) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing SEO contract term: ${term}.`);
     }
   }
 }

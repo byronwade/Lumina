@@ -279,7 +279,7 @@ Rules:
 
 Planned diagnostic codes:
 
-| Code | Level | Meaning |
+| Code | Severity | Meaning |
 | --- | --- | --- |
 | `SEO_TITLE_MISSING` | `error` | Public indexable route has no title. |
 | `SEO_DESCRIPTION_MISSING` | `error` | Public indexable route has no description. |

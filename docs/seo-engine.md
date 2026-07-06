@@ -5,7 +5,7 @@ Audience: app developers, framework contributors, SEO reviewers.
 
 NeedleStart is SEO-first. Public routes should render meaningful HTML by default and expose their indexability through machine-readable reports.
 
-The planned metadata API, merge rules, sitemap output, robots output, structured data behavior, diagnostics, manifest fields, security rules, and fixture requirements are defined in [SEO Contract](seo-contract.md).
+The planned metadata API, `generateMeta()` behavior, merge rules, sitemap output, robots output, structured data behavior, diagnostic severity, manifest fields, security rules, and fixture requirements are defined in [SEO Contract](seo-contract.md).
 
 ## Product Promise
 
@@ -17,6 +17,7 @@ No SEO archaeology. Every route tells you whether it can be crawled, indexed, sh
 - Every indexable page has metadata.
 - Every indexable page can be included in a sitemap.
 - Canonical URLs are explicit.
+- Client-only routes require meaningful initial HTML through static fallback HTML before they can pass public indexable checks.
 - Bot-specific dynamic rendering is not the default strategy.
 - Structured data is typed.
 - SEO reports are machine-readable.
@@ -43,9 +44,12 @@ export const meta = defineMeta({
 })
 ```
 
+Dynamic metadata is planned through `generateMeta()` for routes that need params or data to resolve SEO fields.
+
 ## Features
 
 - `defineMeta()`
+- `generateMeta()`
 - Static metadata.
 - Dynamic metadata.
 - Title and description.
@@ -63,6 +67,7 @@ export const meta = defineMeta({
 - Crawler preview.
 - Stable SEO diagnostics.
 - Generated `.needle/seo.report.json`.
+- Diagnostic severity values follow the shared `info`, `warning`, and `error` vocabulary.
 
 ## SEO Audit Output
 
@@ -101,8 +106,10 @@ Public indexable routes should check:
 - Canonical URL exists.
 - Initial HTML has meaningful content.
 - Route appears in sitemap unless excluded.
+- Robots policy does not conflict with sitemap inclusion.
 - Open Graph image is valid when configured.
 - Structured data validates when configured.
+- Client-only routes provide meaningful initial HTML through static fallback HTML before passing public indexable checks.
 - 404 and 410 pages return correct status.
 
 ## Out of Scope for Early SEO
