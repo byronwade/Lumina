@@ -239,7 +239,7 @@ rg -n "examples-contract|examples-catalog|Examples And Templates Contract|Verifi
 
 Expected result: example status labels, starter-template requirements, create-command examples, fixture expectations, public references, and verification evidence remain connected.
 
-Automated coverage in `bun run docs:check` also requires generated app package scripts (`bun run dev`, `bun run build`, and `bun run start`) to stay documented as wrappers around `needle dev`, `needle build`, and `needle start` in the onboarding and examples docs.
+Automated coverage in `bun run docs:check` also requires generated app package scripts (`bun run dev`, `bun run build`, and `bun run start`) to stay documented as wrappers around `needle dev`, `needle build`, and `needle start` in the onboarding and examples docs. Example command blocks must not list both `bun run build` and direct `needle build` as separate required build steps.
 
 ### 18. API Route Contract Check
 

@@ -822,6 +822,11 @@ const staleStatusPatterns = [
     message: "docs/examples.md should list planned example paths from docs/examples-catalog.md.",
   },
   {
+    file: "docs/examples-contract.md",
+    pattern: /```bash[\s\S]*bun run build[\s\S]*needle build[\s\S]*```/i,
+    message: "docs/examples-contract.md should not list bun run build and direct needle build as separate required example build steps.",
+  },
+  {
     file: "README.md",
     pattern: /Agent Kernel: AGENTS\.md generation/i,
     message: "README.md must distinguish app-local AGENTS.md generation from the hand-maintained repository root AGENTS.md.",

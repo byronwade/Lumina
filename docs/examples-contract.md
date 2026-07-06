@@ -103,12 +103,14 @@ Example READMEs should be short enough for a new user to follow, but exact enoug
 
 Each verified example should document the smallest complete command set. `bun run dev`, `bun run build`, and `bun run start` are generated app package scripts; they must call the equivalent `needle dev`, `needle build`, and `needle start` framework commands instead of becoming separate framework behavior.
 
+Use generated app package scripts for the normal run/build/start path. Use direct `needle ... --json` commands only when the example needs machine-readable framework inspection output that package scripts do not wrap.
+
 ```bash
 bun install
 bun run dev
 bun run build
+bun run start
 bun test
-needle build
 needle routes --json
 needle inspect --json
 needle check --json
