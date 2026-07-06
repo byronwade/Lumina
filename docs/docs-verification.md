@@ -194,7 +194,7 @@ Expected result: test layers, fixture layout, snapshot policy, CI gates, network
 ### 11. CLI JSON Contract Check
 
 ```powershell
-rg -n "schemaVersion|diagnostics|Exit Codes|--json|stdout|exit-code|needle.cli|CLI JSON|cli-json-contract|diagnostics-contract|needle inspect why|needle map route|needle map affected|needle map explain|needle agent init|needle agent context|needle agent task|needle agent plan|needle agent apply|needle agent log|needle edit undo|needle migrate from-next|needle seo --route|needle seo --sitemap|needle seo --strict" docs\cli-json-contract.md docs\cli.md docs\api-reference.md docs\manifest-contracts.md docs\needle-map.md docs\agent-kernel.md docs\mcp-server.md docs\diagnostics-contract.md docs\public\reference\cli.md docs\public\guides\needle-map.md
+rg -n "schemaVersion|diagnostics|Exit Codes|--json|stdout|exit-code|needle.cli|CLI JSON|cli-json-contract|diagnostics-contract|needle inspect why|needle map file|needle map route|needle map affected|needle map explain|needle agent init|needle agent context|needle agent task|needle agent plan|needle agent apply|needle agent log|needle edit undo|needle migrate from-next|needle seo --route|needle seo --sitemap|needle seo --strict" docs\cli-json-contract.md docs\cli.md docs\api-reference.md docs\manifest-contracts.md docs\needle-map.md docs\agent-kernel.md docs\mcp-server.md docs\diagnostics-contract.md docs\public\reference\cli.md docs\public\guides\needle-map.md
 ```
 
 Expected result: command automation behavior and planned command variants remain connected across CLI reference, API reference, manifests, Needle Map, Agent Kernel, MCP docs, and public CLI docs.

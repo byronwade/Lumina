@@ -33,6 +33,7 @@ These variants are referenced by roadmap, guide, and contract docs. They remain 
 | Command variant | Purpose |
 | --- | --- |
 | `needle inspect why` | Explain route render, cache, SEO, and risk decisions. |
+| `needle map file` | Show graph details, route usage, and risk notes for one source file. |
 | `needle map route` | Show the graph slice and route context for one route. |
 | `needle map affected` | Show affected routes, files, and checks for a changed target. |
 | `needle map explain` | Explain why a graph relationship or impact result exists. |

@@ -219,6 +219,7 @@ const plannedJsonCommandContracts = [
 
 const plannedCommandVariants = [
   "needle inspect why",
+  "needle map file",
   "needle map route",
   "needle map affected",
   "needle map explain",

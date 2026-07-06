@@ -30,6 +30,7 @@ These variants are referenced by public guides, roadmap, and internal contracts:
 
 ```txt
 needle inspect why
+needle map file
 needle map route
 needle map affected
 needle map explain

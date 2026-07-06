@@ -115,6 +115,7 @@ query("route:/pricing affectedBy component:ProductCard")
 
 The same query engine should power:
 
+- `needle map file`
 - `needle map route`
 - `needle map affected`
 - `needle map explain`
