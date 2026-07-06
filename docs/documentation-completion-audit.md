@@ -48,24 +48,19 @@ This document maps the documentation-system objective to current repository evid
 
 ## Verification Evidence
 
-Checks run during this documentation pass:
+Current required verification for documentation-system changes:
 
 - `git diff --check`
-- Repository-wide local Markdown link check.
-- Documentation verification runbook review.
-- Top-level `docs/*.md` hub-link coverage check.
-- Required-file presence check for all files named in the objective.
-- Required strategic-audit-section search.
-- Documentation-standard coverage search.
-
-Checks intentionally not run at the time of this audit:
-
-- `bun test`
+- `bun run docs:check`
+- `bun run structure:check`
+- `bun run performance:check`
 - `bun run typecheck`
+- `bun test`
+- `bun run check`
 
-Reason: the repository had no Bun workspace or package scaffold yet. The docs explicitly marked these commands as planned and unverified.
+The root `bun run check` gate now runs documentation checks, structure checks, performance-documentation checks, TypeScript type checking, and scaffold tests. It verifies the current documentation and scaffold guardrails. It does not prove runtime framework behavior such as route discovery, rendering, adapters, generated manifests, MCP tools, safe edits, or real benchmark results.
 
-Current note: Phase 1 scaffold work has since added the Bun workspace, package placeholders, `bun test`, `bun run typecheck`, and the root `bun run check` gate. Treat this section as historical context, not current command status.
+Manual review should still use `docs/docs-verification.md`, `docs/docs-maintenance-checklist.md`, and `docs/documentation-standard.md` for claims, status labels, links, public-facing wording, and feature-surface consistency.
 
 ## Deferred By Design
 

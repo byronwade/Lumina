@@ -389,16 +389,17 @@ Competitor lessons applied:
 - Vercel-style build output and deployment contract thinking.
 - Open source governance guidance from Open Source Guides.
 
-Checks run:
+Current verification gate:
 
-- Local Markdown link check.
 - `git diff --check`.
+- `bun run docs:check`.
+- `bun run structure:check`.
+- `bun run performance:check`.
+- `bun run typecheck`.
+- `bun test`.
+- `bun run check`.
 
-Checks not run at the time of this audit:
-
-- `bun test` and `bun run typecheck`, because the repository had not scaffolded package scripts yet.
-
-Current note: Phase 1 scaffold work has since added `bun test`, `bun run typecheck`, and the root `bun run check` gate. Treat this audit section as historical context, not current command status.
+The automated gate verifies the current documentation, scaffold structure, performance-claim hygiene, TypeScript surface, and scaffold tests. It does not prove framework runtime behavior, generated manifests, adapters, MCP tools, safe edits, or benchmark results.
 
 Remaining follow-up work:
 

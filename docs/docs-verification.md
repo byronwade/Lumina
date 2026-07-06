@@ -105,7 +105,7 @@ Expected result: every match is either:
 
 This is a review aid, not a binary test.
 
-Automated coverage in `bun run docs:check` also requires historical audit docs that mention pre-scaffold command limitations to label that text as historical context, so old "no scaffold" evidence cannot be mistaken for current repository status.
+Automated coverage in `bun run docs:check` also rejects pre-scaffold command-limitation language in historical audit docs, so old "no scaffold" evidence cannot be mistaken for current repository status.
 
 ### 5. Navigation Coverage Check
 

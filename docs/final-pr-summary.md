@@ -115,21 +115,17 @@ Major updated files:
 - `docs/performance.md`
 - `docs/hot-api-path.md`
 
-## Checks Run
+## Current Checks
 
 - `git diff --check`
-- Repository-wide local Markdown link check.
-- Top-level `docs/*.md` docs-hub link coverage check.
-- Documentation verification runbook review.
-
-## Checks Not Run
-
-- `bun test`
+- `bun run docs:check`
+- `bun run structure:check`
+- `bun run performance:check`
 - `bun run typecheck`
+- `bun test`
+- `bun run check`
 
-Historical reason: the repository had no Bun workspace or package scaffold yet, so the docs explicitly kept those commands marked as planned, not verified.
-
-Current note: Phase 1 scaffold work has since added the Bun workspace, package placeholders, `bun test`, `bun run typecheck`, and the root `bun run check` gate.
+The root `bun run check` gate verifies the current documentation, scaffold structure, performance-claim hygiene, TypeScript surface, and scaffold tests. It does not prove planned framework runtime behavior, generated manifests, MCP tools, safe edits, or benchmark results.
 
 ## Remaining Follow-Up Work
 

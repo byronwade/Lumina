@@ -853,8 +853,18 @@ const staleStatusPatterns = [
   },
   {
     file: "docs/documentation-audit.md",
-    pattern: /because the repository (has|had) no package scaffold yet/i,
+    pattern: /because the repository (has|had) no package scaffold yet|Checks not run at the time of this audit|Treat this audit section as historical context/i,
     message: "docs/documentation-audit.md still presents pre-scaffold status as current.",
+  },
+  {
+    file: "docs/documentation-completion-audit.md",
+    pattern: /Checks intentionally not run|repository had no Bun workspace|Treat this section as historical context/i,
+    message: "docs/documentation-completion-audit.md should report current Phase 1 scaffold verification evidence directly.",
+  },
+  {
+    file: "docs/final-pr-summary.md",
+    pattern: /Checks Not Run|Historical reason: the repository had no Bun workspace|Current note: Phase 1 scaffold work has since added/i,
+    message: "docs/final-pr-summary.md should report current Phase 1 scaffold verification evidence directly.",
   },
   {
     file: "SECURITY.md",
@@ -1630,8 +1640,8 @@ for (const file of historicalAuditDocs) {
     content.includes("had no bun workspace") ||
     content.includes("had no package scaffold") ||
     content.includes("had not scaffolded package scripts");
-  if (containsPreScaffoldHistory && !content.includes("historical context")) {
-    failures.push(`${file} includes pre-scaffold history without labeling it as historical context.`);
+  if (containsPreScaffoldHistory) {
+    failures.push(`${file} includes pre-scaffold verification history; report the current scaffold gates instead.`);
   }
 }
 
