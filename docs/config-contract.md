@@ -76,7 +76,7 @@ The compiler should eventually produce or use a normalized config shape similar 
   "runtime": "bun",
   "adapter": "bun",
   "outDir": "dist",
-  "needleDir": ".lumina",
+  "luminaDir": ".lumina",
   "mode": "development"
 }
 ```
@@ -97,7 +97,7 @@ Rules:
 | `adapter` | Planned | Production output adapter, initially `bun`, later `node` or `static`. |
 | `root` | Planned | Project root override. |
 | `outDir` | Planned | Production output directory. |
-| `needleDir` | Planned | Generated framework artifact directory. |
+| `luminaDir` | Planned | Generated framework artifact directory. |
 | `routes` | Planned | Route discovery options and ignored paths. |
 | `seo` | Planned | Metadata defaults, sitemap, robots, and audit behavior. |
 | `cache` | Planned | Default route and API cache policy. |

@@ -1,4 +1,4 @@
-export const needleVitePluginStatus = {
+export const luminaVitePluginStatus = {
   name: "@lumina/vite-plugin",
   phase: "scaffold",
   implementsRuntimeBehavior: false,

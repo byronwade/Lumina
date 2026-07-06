@@ -245,7 +245,7 @@ Automated coverage in `bun run docs:check` also requires config, public config, 
 
 Config docs must tie final default readiness to config-loading behavior, not package existence or generic package implementation. The Phase 1 package scaffold can exist while config loading remains planned.
 
-Automated coverage also requires config, public config, and config contract docs to keep normalized config vocabulary aligned: `schemaVersion`, `root`, `runtime`, `adapter`, `outDir`, `needleDir`, and `mode`.
+Automated coverage also requires config, public config, and config contract docs to keep normalized config vocabulary aligned: `schemaVersion`, `root`, `runtime`, `adapter`, `outDir`, `luminaDir`, and `mode`.
 
 ### 14. Adapter Contract Check
 

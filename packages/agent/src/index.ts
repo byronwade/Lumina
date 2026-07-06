@@ -1,4 +1,4 @@
-export const needleAgentStatus = {
+export const luminaAgentStatus = {
   name: "@lumina/agent",
   phase: "scaffold",
   implementsRuntimeBehavior: false,

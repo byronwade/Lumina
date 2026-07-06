@@ -1,4 +1,4 @@
-export const needleCompilerStatus = {
+export const luminaCompilerStatus = {
   name: "@lumina/compiler",
   phase: "scaffold",
   implementsRuntimeBehavior: false,

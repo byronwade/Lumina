@@ -35,7 +35,7 @@ export default defineConfig({
 
 ## Planned Normalized Config
 
-Serialized normalized config should use `schemaVersion`, `root`, `runtime`, `adapter`, `outDir`, `needleDir`, and `mode`.
+Serialized normalized config should use `schemaVersion`, `root`, `runtime`, `adapter`, `outDir`, `luminaDir`, and `mode`.
 
 Normalized config should prefer relative paths when possible, avoid absolute local paths in public or agent-facing artifacts, and never include secrets.
 

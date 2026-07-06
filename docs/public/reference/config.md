@@ -42,7 +42,7 @@ When config is serialized for tools or generated artifacts, the planned normaliz
 - `runtime`
 - `adapter`
 - `outDir`
-- `needleDir`
+- `luminaDir`
 - `mode`
 
 Normalized config output should use relative paths when possible, avoid absolute local paths in public or agent-facing artifacts, and never serialize secrets.

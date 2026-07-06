@@ -1,4 +1,4 @@
-export const needleMcpStatus = {
+export const luminaMcpStatus = {
   name: "@lumina/mcp",
   phase: "scaffold",
   implementsRuntimeBehavior: false,

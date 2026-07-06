@@ -1,4 +1,4 @@
-export const needleMapStatus = {
+export const luminaMapStatus = {
   name: "@lumina/map",
   phase: "scaffold",
   implementsRuntimeBehavior: false,

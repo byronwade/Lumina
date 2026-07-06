@@ -1,4 +1,4 @@
-export const needleSchemaStatus = {
+export const luminaSchemaStatus = {
   name: "@lumina/schema",
   phase: "scaffold",
   implementsRuntimeBehavior: false,

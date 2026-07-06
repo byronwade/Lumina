@@ -973,7 +973,7 @@ const normalizedConfigContractTerms = [
   "runtime",
   "adapter",
   "outDir",
-  "needleDir",
+  "luminaDir",
   "mode",
 ];
 
