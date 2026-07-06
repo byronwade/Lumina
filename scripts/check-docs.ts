@@ -385,6 +385,37 @@ const performanceContractDocs = [
   "docs/public/reference/performance.md",
 ];
 
+const speedDecisionContractDocs = [
+  {
+    file: "docs/speed-decisions.md",
+    terms: ["vite/rolldown", "vite 8", "bundled dev", "custom bundler", "bun.serve({ routes })", "route code splitting", "css delivery", "source maps", "rum", "field data", "react compiler", "react streaming", "103 early hints", "resource hints", "fetchpriority", "speculation", "bfcache", "compression", "images", "fonts", "waterfalls", "hot api", "payload budgets", "compiler scaling", "rejected until proven"],
+  },
+  {
+    file: "docs/speed-capability-audit.md",
+    terms: ["vite/rolldown", "vite 8", "bundled dev", "custom bundler", "bun native dispatch", "route code splitting", "css delivery", "source maps", "rum", "field data", "react compiler", "react streaming", "103 early hints", "resource hints", "fetchpriority", "speculation", "bfcache", "compression", "images", "fonts", "async waterfalls", "hot api", "client payload", "compiler scaling"],
+  },
+  {
+    file: "docs/speed-strategy.md",
+    terms: ["speed decisions", "vite bundled dev", "custom bundler", "route code splitting", "css delivery", "source maps", "rum", "react compiler", "resource hints", "speculation", "bfcache", "compression", "images", "fonts", "async waterfall", "hot api", "payload discipline", "large-app readiness"],
+  },
+  {
+    file: "docs/performance-contract.md",
+    terms: ["speed decisions", "vite/rolldown", "react compiler", "103 early hints", "resource hints", "fetchpriority", "bfcache", "compression", "images", "fonts", "hot api", "field data", "rum", "source-map", "budget"],
+  },
+  {
+    file: "docs/benchmark-methodology.md",
+    terms: ["speed decisions", "vite/rolldown", "bundled dev mode", "bun native", "hot api", "images", "fonts", "compression", "resource hints", "speculation", "bfcache", "raw results", "variance"],
+  },
+  {
+    file: "docs/product-build-readiness.md",
+    terms: ["speed decisions", "vite/rolldown", "route code splitting", "css delivery", "production source maps", "react compiler", "react streaming", "resource hints", "speculation rules", "bfcache", "compression", "optional rum", "hot apis", "payload budgets", "compiler scaling", "rejected defaults"],
+  },
+  {
+    file: "docs/task-backlog.md",
+    terms: ["speed decisions", "vite/rolldown", "route code splitting", "css delivery", "production source maps", "react compiler", "react streaming", "resource hints", "103 early hints", "speculation rules", "bfcache", "compression", "optional rum", "hot apis", "compiler scaling", "rejected defaults"],
+  },
+];
+
 const apiRouteContractDocs = [
   "docs/api-route-contract.md",
   "docs/api-routes.md",
@@ -1110,6 +1141,16 @@ for (const file of performanceContractDocs) {
   for (const term of ["core web vitals", "lcp", "inp", "cls", ".needle/perf.report.json", "perf_", "budget", "benchmark evidence", "delivery", "chunk count", "source-map", "rum", "field data", "resource hints", "early hints", "compression", "bfcache"]) {
     if (!content.includes(term)) {
       failures.push(`${file} is missing performance contract term: ${term}.`);
+    }
+  }
+}
+
+for (const { file, terms } of speedDecisionContractDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file).toLowerCase();
+  for (const term of terms) {
+    if (!content.includes(term)) {
+      failures.push(`${file} is missing speed decision contract term: ${term}.`);
     }
   }
 }

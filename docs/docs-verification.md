@@ -327,6 +327,8 @@ rg -n "speed-capability-audit|Speed Capability Audit|speed-decisions|Speed Decis
 
 Expected result: speed-sensitive architecture choices, browser-delivery choices, rejected defaults, implementation gates, performance reports, benchmark methodology, README, AGENTS, architecture, and backlog remain connected.
 
+Automated coverage in `bun run docs:check` also requires speed decisions, speed capability audit, speed strategy, performance contract, benchmark methodology, product build readiness, and task backlog docs to keep Vite/Rolldown, Vite 8, bundled dev mode, custom bundler avoidance, native route dispatch, route code splitting, CSS delivery, source maps, RUM, field data, React Compiler, React streaming, 103 Early Hints, resource hints, fetchpriority, speculation, bfcache, compression, images, fonts, async waterfall, hot API, payload budget, compiler scaling, and rejected-default language aligned.
+
 ### 27. Contributor, ADR, Checklist, And Glossary Check
 
 ```powershell
