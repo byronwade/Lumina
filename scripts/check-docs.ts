@@ -213,6 +213,14 @@ const sharedCoreScaffoldTerms = [
     terms: ["@needle/core", "NeedleApp", "RouteNode", "RenderMode", "sourceFile", "client-only", "hot-api"],
   },
   {
+    file: "docs/api-reference.md",
+    terms: ["@needle/core", "RenderMode", "\"static\"", "\"prerender\"", "\"ssr\"", "\"stream\"", "\"client-only\"", "\"api\"", "\"hot-api\""],
+  },
+  {
+    file: "docs/public/reference/render-modes.md",
+    terms: ["@needle/core", "RenderMode", "\"static\"", "\"prerender\"", "\"ssr\"", "\"stream\"", "\"client-only\"", "\"api\"", "\"hot-api\""],
+  },
+  {
     file: "docs/diagnostics-contract.md",
     terms: ["@needle/core", "NeedleDiagnostic", "severity", "info", "warning", "error", "docsUrl"],
   },

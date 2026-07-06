@@ -19,7 +19,7 @@ The first public prototype focuses on proving the agent-native and semantic grap
 
 ### Core Wedge
 
-- Render modes: `staticPage`, `prerender`, `ssr`, and `apiHot`.
+- Render modes: `staticPage`, `prerender`, `ssr`, `stream`, `clientOnly`, ordinary API routes, and `apiHot`, mapped to the shared `@needle/core` `RenderMode` literals.
 - SEO engine: metadata, sitemap, robots, and audits.
 - Adapter-aware Bun production server.
 - API routes and hot API compiler with schemas.

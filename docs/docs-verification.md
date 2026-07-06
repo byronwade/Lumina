@@ -209,6 +209,14 @@ rg -n "api-route-contract|API_METHOD|ApiRouteContext|Request|Response|VALIDATION
 
 Expected result: API handler context, method exports, request/response behavior, validation, diagnostics, hot API integration, security rules, manifests, and public reference docs remain connected.
 
+### 17A. Render Mode Contract Check
+
+```powershell
+rg -n "RenderMode|staticPage|prerender|ssr|stream|clientOnly|client-only|app/api|hot-api|apiHot" README.md AGENTS.md packages\core\src\index.ts docs\api-reference.md docs\compiler-ir.md docs\runtime-contract.md docs\roadmap.md docs\public\reference\render-modes.md docs\public\reference\api-routes.md
+```
+
+Expected result: public helper names, ordinary API route mode, manifest literal values, compiler IR, runtime docs, roadmap, and the `@needle/core` `RenderMode` union remain connected.
+
 ### 18. Schema Contract Check
 
 ```powershell

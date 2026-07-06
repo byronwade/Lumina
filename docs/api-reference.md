@@ -87,6 +87,8 @@ Planned helpers:
 | `apiHot()` | Planned | `needlestart` | Compile a specialized API handler path. |
 | `schema` | Planned | `needlestart` | Define validation and serialization contracts. |
 
+Planned render helper outputs must map to the shared `@needle/core` `RenderMode` literals: `"static"`, `"prerender"`, `"ssr"`, `"stream"`, `"client-only"`, `"api"`, and `"hot-api"`. Ordinary API route files under `app/api/` compile to `renderMode: "api"` without a separate `api()` helper. `apiHot()` is an explicit opt-in to `renderMode: "hot-api"`.
+
 ## Manifest Reference
 
 Planned generated files:

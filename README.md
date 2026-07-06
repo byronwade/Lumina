@@ -101,7 +101,7 @@ These commands verify the package scaffold, documentation links, root docs metad
 - SEO by default: public routes ship with meaningful HTML, metadata, sitemaps, structured data, audits, and accessibility-aware diagnostics.
 - No invisible caching: every cacheable route, API, component, or function exposes a cache plan and cache tags.
 - Hot API paths: generated validators, serializers, and micro-caching for performance-critical API routes.
-- Explicit render modes: `staticPage()`, `prerender()`, `ssr()`, `stream()`, and `apiHot()`.
+- Explicit render modes: `staticPage()`, `prerender()`, `ssr()`, `stream()`, `clientOnly()`, ordinary `app/api/` routes, and `apiHot()`.
 - Bun and Vite foundation: fast runtime with frontend ecosystem leverage.
 - Large-app safety: ownership, affected checks, dependency graph, route budgets, package boundaries, and risk visibility.
 - Agent-safe workflows: safe edits are AST-based, previewable, logged, check-backed, and reversible.
