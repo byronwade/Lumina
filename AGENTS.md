@@ -16,6 +16,8 @@ Current phase: Phase 1, monorepo scaffold.
 
 The repository currently contains documentation, a Bun workspace scaffold, package placeholders, shared core types, CI, and enforcement scripts. Do not invent implemented framework behavior in docs unless the implementation exists or the text clearly marks it as planned.
 
+The next prototype target is defined in `docs/mvp-alpha-scope.md`. Agents must keep MVP Alpha scope language aligned with README.md, this file, status, roadmap, getting started, examples, file conventions, and Lumina Map docs.
+
 ## Required Documentation Sync
 
 Every agent change must evaluate whether these files need updates:
@@ -30,6 +32,7 @@ Every agent change must evaluate whether these files need updates:
 - `ARCHITECTURE.md`
 - `docs/README.md`
 - `docs/status.md`
+- `docs/mvp-alpha-scope.md`
 - `docs/roadmap.md`
 - `docs/risk-mitigation.md`
 - `docs/engineering-standards.md`

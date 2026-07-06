@@ -32,6 +32,8 @@ Current implemented scope is the Bun workspace scaffold, package placeholders, s
 
 Package manifest versions currently use `0.0.0` as private scaffold placeholder metadata. No packages are published, and these placeholder versions are not release tags, published package versions, or compatibility guarantees.
 
+The next documentation and prototype target is [MVP Alpha Scope](docs/mvp-alpha-scope.md): route discovery, explicit render modes, first Lumina Map output, CLI inspection, and a demo app. Anything outside that scope remains future unless the scope document changes in the same pull request.
+
 ## Product Thesis
 
 Modern React applications fail when they become too large to reason about. Routes drift away from tests, components drift away from schemas, SEO regressions hide inside client-heavy rendering, cache behavior hides behind framework magic, and AI agents waste context guessing how files relate to each other.
@@ -363,6 +365,7 @@ Start here:
 - [Public Website Content](docs/public/README.md)
 - [First Contribution Path](docs/first-contribution.md)
 - [Project Status](docs/status.md)
+- [MVP Alpha Scope](docs/mvp-alpha-scope.md)
 - [Getting Started](docs/getting-started.md)
 - [Guides](docs/guides.md)
 - [API Reference](docs/api-reference.md)

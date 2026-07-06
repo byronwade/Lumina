@@ -8,6 +8,7 @@ This directory is the source of truth for Lumina planning, architecture, roadmap
 ## Start Here
 
 - [Project Status](status.md): current phase, what exists, and what does not exist yet.
+- [MVP Alpha Scope](mvp-alpha-scope.md): included, deferred, demo-app, and verification scope for the upcoming prototype.
 - [First Contribution Path](first-contribution.md): focused path for first-time contributors and agents.
 - [Getting Started](getting-started.md): current status and target onboarding flow.
 - [Roadmap](roadmap.md): complete phase plan.

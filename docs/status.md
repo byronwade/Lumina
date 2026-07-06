@@ -39,7 +39,7 @@ Lumina is in Phase 1: monorepo scaffold.
 
 ## Current Next Step
 
-The next implementation step is Phase 1A: expand and stabilize the shared core data model, then begin route discovery. See `docs/phase-1-build-plan.md` and `docs/task-backlog.md`.
+The next implementation step is Phase 1A: expand and stabilize the shared core data model, then begin route discovery. The next prototype target is MVP Alpha, defined in `docs/mvp-alpha-scope.md`, and should stay focused on route discovery, basic render modes, generated route/render/map artifacts, CLI inspection, and a demo app. See `docs/phase-1-build-plan.md` and `docs/task-backlog.md`.
 
 ## Status Language
 

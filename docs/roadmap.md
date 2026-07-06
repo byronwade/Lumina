@@ -44,6 +44,8 @@ Unless a phase is explicitly marked `Verified.` or `Scaffolded.` with evidence, 
 
 The repository is in Phase 1. The monorepo scaffold exists with Bun workspace configuration, package placeholders, shared core scaffold types, CI, and enforcement scripts. The next implementation stage is Phase 1A: expand and stabilize the shared core data model, then begin route discovery.
 
+The upcoming prototype target is MVP Alpha, defined in `docs/mvp-alpha-scope.md`. MVP Alpha should keep the first build narrow: route discovery, basic render modes, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, CLI inspection, and a demo app. API routes, MCP, safe edits, migration tooling, Node runtime behavior, and benchmark claims remain post-MVP unless the scope doc changes.
+
 ## How We Build
 
 - Every major task uses a structured task template.
