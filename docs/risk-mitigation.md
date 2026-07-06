@@ -439,7 +439,7 @@ Safe edits produce zero silent breaks in demo scenarios and catch nearly all int
 | Risk | Primary mitigation | When to tackle | Success metric |
 | --- | --- | --- | --- |
 | Semantic graph | Layered extraction with contracts first | Phases 11-13 | Agents prefer Needle Map over search. |
-| Execution scope | Brutal MVP cut and shared data model | Day 1 | First public prototype ships quickly. |
+| Execution scope | Tight first working slice and shared data model | Day 1 | First working slice proves the map and safe-edit wedge quickly. |
 | Adoption | Lead with agent demo and migration story | Marketing and examples | Teams choose NeedleStart because of map and agent workflows. |
 | Bun perception | Adapter abstraction and benchmarks | Phase 7-8 | Bun by default, Node-compatible by design. |
 | Safe edits | Defense in depth and risk tiers | Safe edit phase | No silent breaks in demo scenarios. |

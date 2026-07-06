@@ -5,7 +5,7 @@ Audience: maintainers, framework contributors, AI agents.
 
 NeedleStart should be built in phases. Each phase must define what it proves, what it implements, and what remains out of scope.
 
-The first public prototype focuses on proving the agent-native and semantic graph wedge.
+The first working slice is intended to prove create app, SEO-safe pages, `@needle/adapter-bun` serving, a basic map, agent inspection, and safe metadata edit. The first public prototype expands that slice into API routes, hot API, read-only MCP tools, adapter-aware output, and documented Node/static paths.
 
 Unless a phase is explicitly marked `Verified.` or `Scaffolded.` with evidence, its "Definition of done" is planned acceptance criteria, not a claim that the behavior exists today. Future-phase acceptance bullets should use `should` wording when they describe behavior that does not exist yet.
 

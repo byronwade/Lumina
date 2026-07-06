@@ -1415,6 +1415,21 @@ const staleStatusPatterns = [
     message: "docs/prototype-acceptance.md should describe the working slice as intended proof until implementation exists.",
   },
   {
+    file: "docs/roadmap.md",
+    pattern: /agent-native and semantic graph wedge|first public prototype focuses on proving/i,
+    message: "docs/roadmap.md should distinguish the first working slice from the broader first public prototype scope.",
+  },
+  {
+    file: "docs/decisions/0003-risk-mitigation-from-day-one.md",
+    pattern: /\bMVP scope\b|graph and agent wedge/i,
+    message: "ADR 0003 should use first-working-slice terminology instead of MVP shorthand.",
+  },
+  {
+    file: "docs/risk-mitigation.md",
+    pattern: /Brutal MVP cut|First public prototype ships quickly/i,
+    message: "docs/risk-mitigation.md should describe execution scope through the first working slice and map/safe-edit proof.",
+  },
+  {
     file: "docs/prototype-acceptance.md",
     pattern: /\bbun dev\b|\bbun build\b|\bbun start\b/i,
     message: "docs/prototype-acceptance.md should use generated app script commands with `bun run ...`.",
