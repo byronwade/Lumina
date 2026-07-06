@@ -108,7 +108,7 @@ Planned generated files:
 | `dist/adapter.manifest.json` | Planned | Adapter capabilities and deployment output metadata. |
 | `dist/*` | Planned | Production build output. |
 
-Generated JSON must use normalized paths, stable ordering, schema versions, and compact agent-friendly fields.
+Generated JSON must use schema versions, normalized paths, stable ordering, compact agent-friendly fields, documented source inputs when practical, and no absolute local paths in public artifacts.
 
 ## Related References
 

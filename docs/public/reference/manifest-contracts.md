@@ -23,6 +23,12 @@ Planned generated files include:
 
 Adapters may also emit deployment-oriented copies such as `dist/routes.manifest.json`, `dist/render.manifest.json`, and `dist/seo.report.json`. The canonical compiler and agent contracts stay under `.needle/`; `dist/*` is the planned production build output surface.
 
+## Contract Rules
+
+Generated JSON must use schema versions, normalized paths, stable ordering, and compact agent-friendly fields. Public artifacts must avoid absolute local paths and should document source inputs when practical.
+
+Generated files must be deterministic and must not be edited manually.
+
 ## Source
 
 - [Manifest Contracts](../../manifest-contracts.md)

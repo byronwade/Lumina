@@ -144,8 +144,8 @@ Rules:
 ## Contract Rules
 
 - Include schema version.
-- Normalize paths across operating systems.
-- Sort arrays by stable keys.
+- Use normalized paths across operating systems.
+- Use stable ordering for arrays and object fields where ordering is observable.
 - Keep agent-facing JSON compact.
 - Avoid absolute local paths in public artifacts.
 - Document source inputs when practical.

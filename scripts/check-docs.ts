@@ -158,6 +158,12 @@ const generatedArtifactDocs = [
   "docs/public/reference/project-structure.md",
 ];
 
+const generatedArtifactRuleDocs = [
+  "docs/api-reference.md",
+  "docs/manifest-contracts.md",
+  "docs/public/reference/manifest-contracts.md",
+];
+
 const prototypeScopeTerms = [
   {
     file: "AGENTS.md",
@@ -902,6 +908,16 @@ for (const file of generatedArtifactDocs) {
   for (const artifact of canonicalGeneratedArtifacts) {
     if (!content.includes(artifact)) {
       failures.push(`${file} does not document canonical generated artifact: ${artifact}.`);
+    }
+  }
+}
+
+for (const file of generatedArtifactRuleDocs) {
+  if (!existsSync(join(root, file))) continue;
+  const content = read(file);
+  for (const term of ["schema version", "normalized paths", "stable ordering", "source inputs", "absolute local paths"]) {
+    if (!content.toLowerCase().includes(term)) {
+      failures.push(`${file} is missing generated artifact contract rule: ${term}.`);
     }
   }
 }
