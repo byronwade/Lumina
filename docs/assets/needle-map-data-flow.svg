@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">NeedleStart Needle Map data flow</title>
+  <desc id="desc">A professional architecture diagram showing source application files flowing through the Needle compiler into AI-readable manifests and consumers.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}.panel{fill:#fff;stroke:#d8e0ea;stroke-width:1.5}.soft{fill:#f1f5f9;stroke:#d8e0ea;stroke-width:1}.title{font:700 34px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#0f172a}.subtitle{font:400 16px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#475569}.h{font:700 16px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#0f172a}.t{font:500 13px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#334155}.small{font:500 12px -apple-system,BlinkMacSystemFont,Segoe UI,Inter,Arial,sans-serif;fill:#64748b}.code{font:500 12px SFMono-Regular,Consolas,Menlo,monospace;fill:#334155}.lineblue{stroke:#2563eb;stroke-width:2.6;fill:none}.chip{fill:#eef6ff;stroke:#bfdbfe}.chip2{fill:#ecfdf5;stroke:#bbf7d0}.chip3{fill:#faf5ff;stroke:#ddd6fe}.shadow{filter:url(#shadow)}
+    </style>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.08"/></filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="675" rx="28"/>
+  <text class="title" x="60" y="62">Needle Map: the AI-readable app graph</text>
+  <text class="subtitle" x="60" y="92">Source files compile into stable manifests, context capsules, and graph edges that humans and agents can query.</text>
+
+  <rect class="panel shadow" x="60" y="135" width="235" height="385" rx="18"/>
+  <text class="h" x="84" y="170">1. Source app</text>
+  <text class="small" x="84" y="194">What the developer writes</text>
+  <rect class="soft" x="84" y="220" width="187" height="38" rx="10"/><text class="t" x="104" y="244">app routes</text>
+  <rect class="soft" x="84" y="268" width="187" height="38" rx="10"/><text class="t" x="104" y="292">components</text>
+  <rect class="soft" x="84" y="316" width="187" height="38" rx="10"/><text class="t" x="104" y="340">api handlers</text>
+  <rect class="soft" x="84" y="364" width="187" height="38" rx="10"/><text class="t" x="104" y="388">schemas</text>
+  <rect class="soft" x="84" y="412" width="187" height="38" rx="10"/><text class="t" x="104" y="436">tests and metadata</text>
+
+  <rect class="panel shadow" x="365" y="135" width="235" height="385" rx="18"/>
+  <text class="h" x="389" y="170">2. Needle compiler</text>
+  <text class="small" x="389" y="194">Build-time intelligence</text>
+  <rect class="chip" x="389" y="220" width="187" height="38" rx="10"/><text class="t" x="409" y="244">route discovery</text>
+  <rect class="chip" x="389" y="268" width="187" height="38" rx="10"/><text class="t" x="409" y="292">render classification</text>
+  <rect class="chip" x="389" y="316" width="187" height="38" rx="10"/><text class="t" x="409" y="340">cache plan extraction</text>
+  <rect class="chip" x="389" y="364" width="187" height="38" rx="10"/><text class="t" x="409" y="388">graph builder</text>
+  <rect class="chip" x="389" y="412" width="187" height="38" rx="10"/><text class="t" x="409" y="436">why explanations</text>
+
+  <rect class="panel shadow" x="670" y="135" width="235" height="385" rx="18"/>
+  <text class="h" x="694" y="170">3. Generated contracts</text>
+  <text class="small" x="694" y="194">Stable JSON for tools</text>
+  <rect class="chip2" x="694" y="220" width="187" height="38" rx="10"/><text class="code" x="714" y="244">routes.manifest.json</text>
+  <rect class="chip2" x="694" y="268" width="187" height="38" rx="10"/><text class="code" x="714" y="292">map.manifest.json</text>
+  <rect class="chip2" x="694" y="316" width="187" height="38" rx="10"/><text class="code" x="714" y="340">seo.report.json</text>
+  <rect class="chip2" x="694" y="364" width="187" height="38" rx="10"/><text class="code" x="714" y="388">cache.manifest.json</text>
+  <rect class="chip2" x="694" y="412" width="187" height="38" rx="10"/><text class="code" x="714" y="436">context/*.ctx.json</text>
+
+  <rect class="panel shadow" x="965" y="135" width="175" height="385" rx="18"/>
+  <text class="h" x="989" y="170">4. Consumers</text>
+  <text class="small" x="989" y="194">Same app model</text>
+  <rect class="chip3" x="989" y="220" width="127" height="38" rx="10"/><text class="t" x="1010" y="244">CLI</text>
+  <rect class="chip3" x="989" y="268" width="127" height="38" rx="10"/><text class="t" x="1010" y="292">MCP</text>
+  <rect class="chip3" x="989" y="316" width="127" height="38" rx="10"/><text class="t" x="1010" y="340">AI agents</text>
+  <rect class="chip3" x="989" y="364" width="127" height="38" rx="10"/><text class="t" x="1010" y="388">checks</text>
+  <rect class="chip3" x="989" y="412" width="127" height="38" rx="10"/><text class="t" x="1010" y="436">devtools</text>
+
+  <path class="lineblue" marker-end="url(#arrowBlue)" d="M295 328 C320 328 340 328 365 328"/>
+  <path class="lineblue" marker-end="url(#arrowBlue)" d="M600 328 C625 328 645 328 670 328"/>
+  <path class="lineblue" marker-end="url(#arrowBlue)" d="M905 328 C930 328 940 328 965 328"/>
+
+  <rect class="panel" x="244" y="560" width="712" height="72" rx="16"/>
+  <text class="h" x="274" y="590">Core invariant</text>
+  <text class="subtitle" x="274" y="615">Every edge carries kind, source, confidence, and why, so agents read evidence instead of guessing.</text>
+</svg>
