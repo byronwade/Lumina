@@ -20,6 +20,8 @@ The goal is not to clone Next.js. The goal is to win a newer category:
 
 > The React framework where your app ships with a map.
 
+NeedleStart is MIT-licensed and intended to be built fully in public as an open source community project.
+
 ## Product Thesis
 
 Modern React applications fail when they become too large to reason about. Routes drift away from tests, components drift away from schemas, cache behavior hides behind framework magic, SEO regressions hide inside client-heavy rendering, and AI agents waste context guessing how files relate to each other.
@@ -125,6 +127,26 @@ NeedleStart starts with:
 
 The framework should avoid building a custom bundler until the app-graph and agent-safe wedge is proven.
 
+## Open Source and Community
+
+NeedleStart is intended to be a fully open source project.
+
+The project includes or plans:
+
+- MIT license.
+- Code of Conduct.
+- Contributing guide.
+- Security policy.
+- Governance model.
+- Public roadmap.
+- Public project status matrix.
+- Public docs and reproducible benchmark methodology.
+- Contributor-friendly issue and pull request templates.
+
+NeedleStart also intends to host its public docs, preview deployments, examples, and benchmark result pages on Vercel where appropriate, while keeping the framework adapter-aware and deployable beyond Vercel.
+
+Open source and Vercel program readiness are tracked in [Open Source Community and Vercel Program Readiness](docs/open-source-community.md).
+
 ## Monorepo Target Structure
 
 ```txt
@@ -138,6 +160,8 @@ needlestart/
   ARCHITECTURE.md
   CONTRIBUTING.md
   SECURITY.md
+  CODE_OF_CONDUCT.md
+  GOVERNANCE.md
   packages/
     create-needle/
     cli/
@@ -200,6 +224,7 @@ The first credible prototype proves:
 11. The framework exposes read-only MCP tools for agents.
 12. An AI agent can inspect routes, edit metadata safely, run affected checks, and report the mutation log.
 13. Build output can run on the Bun adapter, with Node and static adapter paths documented.
+14. Public docs, examples, and benchmark reports can be hosted as open source project infrastructure.
 
 ## First Prototype Sequence
 
@@ -287,6 +312,7 @@ Start here:
 - [Configuration Contract](docs/config.md)
 - [Routing Contract](docs/routing.md)
 - [Manifest Contracts](docs/manifest-contracts.md)
+- [Open Source Community and Vercel Program Readiness](docs/open-source-community.md)
 - [Public Docs Publishing Contract](docs/public-docs.md)
 - [Website Content Map](docs/website-content-map.md)
 - [Benchmark System](docs/benchmarks.md)
@@ -307,13 +333,13 @@ Start here:
 
 This repository is in Phase 0: project constitution and planning.
 
-No runtime implementation exists yet. The current work is to lock the product direction, architecture boundaries, package responsibilities, documentation rules, command contracts, generated artifact contracts, public docs publishing contracts, benchmark methodology, and agent workflow before implementation begins.
+No runtime implementation exists yet. The current work is to lock the product direction, architecture boundaries, package responsibilities, documentation rules, command contracts, generated artifact contracts, public docs publishing contracts, benchmark methodology, open source community governance, and agent workflow before implementation begins.
 
 The next implementation stage is Phase 1: monorepo skeleton, core data model, adapter package baseline, then route discovery.
 
 ## Philosophy
 
-NeedleStart treats the semantic app graph and agent collaboration as first-class concerns from day one, not late add-ons. The compiler does the heavy lifting so runtime and adapters stay small and predictable.
+NeedleStart treats the semantic app graph, open source community, and agent collaboration as first-class concerns from day one, not late add-ons. The compiler does the heavy lifting so runtime and adapters stay small and predictable.
 
 The project was initially shaped with AI-assisted architecture and roadmap planning. Implementation and release decisions remain human-accountable, with agents expected to work through documented contracts, tests, and safety checks.
 
