@@ -33,7 +33,7 @@ Describe what changed and why.
 - [ ] `docs/public-frontmatter-standard.md` was applied when public docs metadata, future frontmatter fields, route metadata, or docs-site validation changed.
 - [ ] `docs/testing-contract.md` was applied when test commands, fixtures, snapshots, CI gates, browser tests, security tests, performance tests, or evidence reporting changed.
 - [ ] `docs/cli-json-contract.md` was applied when CLI JSON, diagnostics, exit codes, or command automation behavior changed.
-- [ ] `docs/diagnostics-contract.md` was applied when diagnostic codes, severity levels, source locations, remediations, docs links, child diagnostics, JSON ordering, or code frames changed.
+- [ ] `docs/diagnostics-contract.md` was applied when diagnostic codes, severity values, source locations, remediations, docs links, child diagnostics, JSON ordering, or code frames changed.
 - [ ] `docs/config-contract.md` was applied when config loading, validation, env behavior, or normalized config output changed.
 - [ ] `docs/adapter-contract.md` was applied when adapter packages, adapter manifests, deployment output, static export behavior, health endpoints, adapter env vars, compatibility evidence, or adapter capability claims changed.
 - [ ] `docs/examples-contract.md` was applied when examples, starter templates, fixtures, create-command example support, or public guide snippets changed.

@@ -12,12 +12,12 @@ This matrix evaluates the current documentation system file by file. It uses the
 | `VISION.md` | Maintainers, contributors | Strong | Aspirational language could be mistaken for current product if copied public | Add status framing when surfaced on website | Medium | Low | Partial | Yes |
 | `ARCHITECTURE.md` | Contributors | Strong | Dense and mostly internal | Add diagrams and link beginner docs | Medium | Medium | No | Yes |
 | `AGENTS.md` | AI agents | Strong | Must track commands and package changes closely | Keep required-docs list current | High | Low | No | Yes |
-| `CONTRIBUTING.md` | Contributors | Good | Needs enforcement through PR template | Link and use checklist | High | Low | Partial | Partial |
+| `CONTRIBUTING.md` | Contributors | Good | Links core governance and security docs; release-specific contributor flow remains future work | Link release process when release work begins | High | Low | Partial | Partial |
 | `CODE_OF_CONDUCT.md` | Community | Good initial | No private contact yet | Add contact before public launch | High | Low | Partial | Partial |
 | `GOVERNANCE.md` | Maintainers | Good planned | Area ownership is not real yet | Convert planned roles to real roles as contributors emerge | High | Medium | Partial | Partial |
 | `SECURITY.md` | Security reviewers | Good planned | No vulnerability intake contact yet | Add private contact before release | High | Low | Partial | Partial |
 | `docs/README.md` | All | Strong | Large navigation may grow unwieldy | Group by docs lanes as site evolves | High | Medium | Yes | Yes |
-| `docs/status.md` | All | Strong | Must be updated with every phase change | Make status update part of PR template | High | Low | Yes | Yes |
+| `docs/status.md` | All | Strong | PR template checks status accuracy; the doc still must change on every phase change | Keep status, README, roadmap, and AGENTS aligned | High | Low | Yes | Yes |
 | `docs/product-strategy.md` | Maintainers, website visitors | Basic | Thin strategic framing | Add market wedge and non-goals after implementation starts | Medium | Medium | Partial | Partial |
 | `docs/engineering-standards.md` | Maintainers, contributors, agents | Strong planned | Needs continued enforcement through review | Keep PR template and governance aligned | High | Low | Partial | Yes |
 | `docs/operating-cadence.md` | Maintainers, contributors, agents | Good planned | Needs use once implementation starts | Apply at phase boundaries and releases | Medium | Low | Partial | Yes |
@@ -94,9 +94,9 @@ This matrix evaluates the current documentation system file by file. It uses the
 | `docs/release.md` | Maintainers | Good planned | No release tooling yet | Add changelog and release workflow later | High | Medium | Partial | Partial |
 | `docs/versioning-and-upgrades.md` | Maintainers, contributors, app developers, agents | New | Policy only until releases exist | Convert into real upgrade guides, deprecation policy, and docs versioning after public package releases exist | High | Medium | Partial | Yes |
 | `docs/glossary.md` | All | Basic | Sparse | Expand with API terms as they land | Low | Low | Yes | Yes |
-| `docs/documentation-standard.md` | Docs contributors, agents | Strong | Needs enforcement | Enforce through PR template | High | Low | No | Yes |
+| `docs/documentation-standard.md` | Docs contributors, agents | Strong | PR template and docs checks enforce core standards; examples should grow with the docs site | Add frontmatter and page examples as public docs tooling lands | High | Low | No | Yes |
 | `docs/docs-freshness-policy.md` | Maintainers, contributors, agents | Strong planned | Needs continued use in PRs | Keep update triggers current as project changes | High | Low | No | Yes |
-| `docs/docs-maintenance-checklist.md` | Maintainers, agents | Strong | Needs PR integration | Added PR template; keep current | High | Low | No | Yes |
+| `docs/docs-maintenance-checklist.md` | Maintainers, agents | Strong | Enforced through the PR template; must keep tracking new docs surfaces | Keep PR template and checklist aligned | High | Low | No | Yes |
 | `docs/docs-verification.md` | Maintainers, contributors, agents | New | Scaffold scripts exist; some checks remain manual review | Expand generated index, claim, and anchor checks as docs tooling grows | High | Medium | No | Yes |
 | `docs/documentation-audit.md` | Maintainers | Strong | Large and strategic | Keep as periodic audit artifact | Medium | Medium | No | Yes |
 | `docs/documentation-research.md` | Docs contributors | Strong | Needs periodic refresh | Revisit before public launch | Medium | Medium | No | Partial |
@@ -104,7 +104,7 @@ This matrix evaluates the current documentation system file by file. It uses the
 | `docs/machine-readable-docs.md` | Agents, contributors | Strong planned | Generated outputs do not exist | Implement with the docs index or public docs pipeline | High | Medium | No | Yes |
 | `docs/maintainer-guide.md` | Maintainers | Good planned | Roles are not active yet | Convert planned roles into real maintainership later | High | Medium | Partial | Partial |
 | `docs/decisions/*` | Maintainers | Good | Limited ADR set | Add ADRs for new architecture decisions | Medium | Low | No | Yes |
-| `docs/templates/*` | Contributors | Good | Needs usage through PR template | Link from contributing and PR template | Medium | Low | No | Yes |
+| `docs/templates/*` | Contributors | Good | Task and ADR templates are linked from contributing and the PR template; usage should expand as implementation starts | Keep template links aligned with contributor flow | Medium | Low | No | Yes |
 | `docs/prompts/*` | AI agents | Good planned | Prompt set is small | Add prompts for security/release/map reviews later | Medium | Medium | No | Yes |
 | `docs/skills/*` | AI agents | Good | Canonical docs-side playbooks only | Keep linked from README, AGENTS, and docs hub | Medium | Low | No | Yes |
 | `docs/subagents/*` | AI agents | Good | Canonical docs-side role briefs only | Keep linked from README, AGENTS, and docs hub | Medium | Low | No | Yes |

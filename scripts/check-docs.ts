@@ -832,6 +832,16 @@ const staleStatusPatterns = [
     message: "docs/documentation-audit.md should reflect current docs homes and machine-readable docs contracts instead of pre-expansion gaps.",
   },
   {
+    file: "docs/documentation-matrix.md",
+    pattern: /Needs enforcement through PR template|Make status update part of PR template|Enforce through PR template|Needs PR integration|Needs usage through PR template|Lacks governance\/security\/release links/i,
+    message: "docs/documentation-matrix.md should reflect current PR-template enforcement and governance/security links.",
+  },
+  {
+    file: ".github/PULL_REQUEST_TEMPLATE.md",
+    pattern: /severity levels/i,
+    message: ".github/PULL_REQUEST_TEMPLATE.md should reference diagnostic severity values, not severity levels.",
+  },
+  {
     file: "README.md",
     pattern: /examples\/[\s\S]*dashboard\/(?!client)/i,
     message: "README.md should use the planned dashboard-client example path.",

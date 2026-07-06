@@ -105,7 +105,7 @@ Expected result: every match is either:
 
 This is a review aid, not a binary test.
 
-Automated coverage in `bun run docs:check` also rejects pre-scaffold command-limitation language and stale pre-expansion audit tasks in historical audit docs, so old "no scaffold" or "missing docs homes" evidence cannot be mistaken for current repository status.
+Automated coverage in `bun run docs:check` also rejects pre-scaffold command-limitation language, stale pre-expansion audit tasks, stale improvement-matrix PR-template tasks, and PR-template diagnostic severity wording, so old "no scaffold," "missing docs homes," or "add PR template later" evidence cannot be mistaken for current repository status.
 
 ### 5. Navigation Coverage Check
 
