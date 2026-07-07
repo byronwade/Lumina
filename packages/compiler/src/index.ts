@@ -1,10 +1,12 @@
-import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
+import * as ts from "typescript";
 import { createGraphEdge } from "@lumina/core";
 import type {
   GraphNode,
   LuminaDiagnostic,
   LuminaMap,
+  RenderMode,
   RenderManifest,
   RouteNode,
   RouteParam,
@@ -61,12 +63,30 @@ type ParsedSegments = {
   pathParts: string[];
 };
 
+type RenderModeExtraction = {
+  mode: RenderMode;
+  diagnostics: LuminaDiagnostic[];
+};
+
 const routeFileNames = new Set(["page.tsx"]);
+const supportedRenderHelpers = new Map<string, RenderMode>([
+  ["staticPage", "static"],
+  ["ssr", "ssr"],
+]);
+const unsupportedRenderHelpers = new Map<string, RenderMode>([
+  ["prerender", "prerender"],
+  ["stream", "stream"],
+  ["clientOnly", "client-only"],
+  ["apiHot", "hot-api"],
+]);
 
 export function createRoutesManifest(options: RouteDiscoveryOptions): RoutesManifest {
   const routeRoot = options.routeRoot ?? "app";
   const routes = discoverRoutes({ ...options, routeRoot });
-  const diagnostics = createDuplicatePathDiagnostics(routes);
+  const diagnostics = sortDiagnostics([
+    ...routes.flatMap((route) => route.diagnostics),
+    ...createDuplicatePathDiagnostics(routes),
+  ]);
 
   return {
     schemaVersion: "lumina.routes.v0",
@@ -264,18 +284,150 @@ function createRouteNode(appRoot: string, routeRoot: "app", sourceFile: string):
   const kind = isApiRoute(sourceFile) ? "api" : "page";
   const routeSegments = segmentsForSourceFile(routeRoot, sourceFile, kind);
   const parsed = parseSegments(routeSegments);
+  const path = createRoutePath(parsed.pathParts);
+  const renderMode = extractRenderMode({ appRoot, sourceFile, kind, path });
 
   return {
     id: createRouteId(sourceFile, kind),
     kind,
-    path: createRoutePath(parsed.pathParts),
+    path,
     sourceFile,
-    renderMode: kind === "api" ? "api" : "static",
+    renderMode: renderMode.mode,
     segments: parsed.segments,
     params: parsed.params,
     layouts: kind === "page" ? collectLayouts(appRoot, routeRoot, sourceFile) : [],
     routeGroups: parsed.routeGroups,
-    diagnostics: [],
+    diagnostics: renderMode.diagnostics,
+  };
+}
+
+function extractRenderMode(options: {
+  appRoot: string;
+  sourceFile: string;
+  kind: "page" | "api";
+  path: string;
+}): RenderModeExtraction {
+  if (options.kind === "api") {
+    return {
+      mode: "api",
+      diagnostics: [],
+    };
+  }
+
+  const absolutePath = join(options.appRoot, ...options.sourceFile.split("/"));
+  if (!existsSync(absolutePath)) {
+    return {
+      mode: "static",
+      diagnostics: [],
+    };
+  }
+
+  const sourceText = readFileSync(absolutePath, "utf8");
+  const source = ts.createSourceFile(options.sourceFile, sourceText, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
+  const renderDeclaration = findExportedRenderDeclaration(source);
+
+  if (!renderDeclaration) {
+    return {
+      mode: "static",
+      diagnostics: [],
+    };
+  }
+
+  const helperName = renderDeclaration.initializer && renderHelperName(renderDeclaration.initializer);
+  if (helperName && supportedRenderHelpers.has(helperName)) {
+    return {
+      mode: supportedRenderHelpers.get(helperName)!,
+      diagnostics: [],
+    };
+  }
+
+  if (helperName && unsupportedRenderHelpers.has(helperName)) {
+    const mode = unsupportedRenderHelpers.get(helperName)!;
+    return {
+      mode,
+      diagnostics: [
+        renderDiagnostic({
+          code: "RENDER_MODE_UNSUPPORTED",
+          message: `${helperName}() is not implemented in the MVP render pipeline.`,
+          source,
+          node: renderDeclaration,
+          sourceFile: options.sourceFile,
+          routePath: options.path,
+          why: "The route declares a render helper that is reserved for a later implementation phase.",
+          remediation: "Use staticPage() or ssr() for MVP Alpha routes, or keep this route out of the build/start proof.",
+          tags: ["rendering", "unsupported"],
+        }),
+      ],
+    };
+  }
+
+  return {
+    mode: "static",
+    diagnostics: [
+      renderDiagnostic({
+        code: "RENDER_MODE_INVALID_EXPORT",
+        message: "Route render export must call staticPage() or ssr() in MVP Alpha.",
+        source,
+        node: renderDeclaration,
+        sourceFile: options.sourceFile,
+        routePath: options.path,
+        why: "The compiler could not map the render export to a supported MVP render mode.",
+        remediation: "Change the export to `export const render = staticPage()` or `export const render = ssr()`.",
+        tags: ["rendering"],
+      }),
+    ],
+  };
+}
+
+function findExportedRenderDeclaration(source: ts.SourceFile): ts.VariableDeclaration | undefined {
+  for (const statement of source.statements) {
+    if (!ts.isVariableStatement(statement)) continue;
+    if (!statement.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)) continue;
+
+    for (const declaration of statement.declarationList.declarations) {
+      if (ts.isIdentifier(declaration.name) && declaration.name.text === "render") {
+        return declaration;
+      }
+    }
+  }
+}
+
+function renderHelperName(expression: ts.Expression): string | undefined {
+  if (!ts.isCallExpression(expression)) return undefined;
+  if (!ts.isIdentifier(expression.expression)) return undefined;
+  return expression.expression.text;
+}
+
+function renderDiagnostic(options: {
+  code: "RENDER_MODE_INVALID_EXPORT" | "RENDER_MODE_UNSUPPORTED";
+  message: string;
+  source: ts.SourceFile;
+  node: ts.Node;
+  sourceFile: string;
+  routePath: string;
+  why: string;
+  remediation: string;
+  tags: Array<"rendering" | "unsupported">;
+}): LuminaDiagnostic {
+  const position = options.source.getLineAndCharacterOfPosition(options.node.getStart(options.source));
+  return {
+    code: options.code,
+    severity: "error",
+    category: "rendering",
+    message: options.message,
+    source: {
+      file: options.sourceFile,
+      owner: "compiler",
+    },
+    location: {
+      line: position.line + 1,
+      column: position.character + 1,
+    },
+    routePath: options.routePath,
+    docs: "docs/file-conventions.md#render-mode-exports",
+    why: options.why,
+    remediation: options.remediation,
+    tags: options.tags,
   };
 }
 
@@ -447,6 +599,17 @@ function createDuplicatePathDiagnostics(routes: RouteNode[]): LuminaDiagnostic[]
     const pathOrder = compareStrings(left.routePath ?? "", right.routePath ?? "");
     if (pathOrder !== 0) return pathOrder;
     return compareStrings(left.source?.file ?? "", right.source?.file ?? "");
+  });
+}
+
+function sortDiagnostics(diagnostics: LuminaDiagnostic[]): LuminaDiagnostic[] {
+  return diagnostics.sort((left, right) => {
+    return (
+      compareStrings(left.source?.file ?? "", right.source?.file ?? "") ||
+      compareStrings(left.routePath ?? "", right.routePath ?? "") ||
+      compareStrings(left.code, right.code) ||
+      compareStrings(left.message, right.message)
+    );
   });
 }
 

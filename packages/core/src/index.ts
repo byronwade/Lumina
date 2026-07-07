@@ -40,6 +40,11 @@ export type RenderMode =
   | "api"
   | "hot-api";
 
+export type RenderModeDefinition = {
+  kind: "lumina.render-mode";
+  mode: RenderMode;
+};
+
 export type GraphEdgeConfidence = "high" | "medium" | "low";
 
 export type GraphEdgeSource =

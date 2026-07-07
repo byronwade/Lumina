@@ -183,7 +183,7 @@ Target MVP behavior:
 lumina routes --json
 ```
 
-The command should print deterministic route data for the demo app. The current `apps/www` route list includes `/`, `/about`, `/docs`, `/benchmarks`, `/examples`, and `/roadmap`, including source files and render modes from the current default static route behavior.
+The command should print deterministic route data for the demo app. The current `apps/www` route list includes `/`, `/about`, `/docs`, `/benchmarks`, `/examples`, and `/roadmap`, including source files and render modes from the current default static route behavior. Separate compiler fixtures cover explicit `staticPage()` and `ssr()` declarations.
 
 ## Inspect Why A Route Works
 

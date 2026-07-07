@@ -8,6 +8,7 @@
   },
   "types": "./src/index.ts",
   "dependencies": {
-    "@lumina/core": "workspace:*"
+    "@lumina/core": "workspace:*",
+    "typescript": "6.0.3"
   }
 }

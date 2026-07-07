@@ -7,7 +7,7 @@ This backlog turns the roadmap into concrete implementation tasks. Each task sho
 
 Unless a task is explicitly marked `Verified.` or `Scaffolded.` with evidence, its "Definition of done" is planned acceptance criteria, not a claim that the behavior exists today. Future implementation tasks should use `should` wording for behavior that does not exist yet.
 
-Current implementation path: complete client hydration and production hardening after the first static build/start slice. Phase 1A shared core model hardening is implemented in `@lumina/core`; route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/hmr-report.json`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, initial `dist/*` deployment manifests, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev`, `virtual:lumina/routes`, static `lumina build`, static `lumina start`, and scaffolded app/example route evidence are implemented; the early benchmark/status skeleton exists with `not implemented` status and no public claims.
+Current implementation path: complete client hydration and production hardening after the first static build/start slice. Phase 1A shared core model hardening is implemented in `@lumina/core`; route discovery, explicit static/SSR render-mode extraction, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/hmr-report.json`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, initial `dist/*` deployment manifests, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev`, `virtual:lumina/routes`, static `lumina build`, static `lumina start`, and scaffolded app/example route evidence are implemented; the early benchmark/status skeleton exists with `not implemented` status and no public claims.
 
 MVP Alpha implementation path: keep PR 1A through PR 4 focused on core model hardening, the early benchmark skeleton, large-repo architecture planning, route discovery, deterministic `.lumina/routes.json`, basic render mode data for `.lumina/render-manifest.json`, the first file-level `.lumina/map.json`, CLI inspection, and a demo app. API routes, MCP, safe edits, migration, Node adapter runtime behavior, benchmark publishing, and performance claims are post-MVP unless `docs/mvp-alpha-scope.md` changes in the same work.
 
@@ -638,9 +638,9 @@ Definition of done:
 
 Goal: support `staticPage()` and emit static HTML.
 
-Task status: Implemented for build-time static page routes.
+Task status: Implemented for explicit `staticPage()` render declarations and build-time static page routes.
 
-Evidence: `@lumina/vite-plugin` exposes static build output, `@lumina/cli` exposes `build <appPath>`, and `tests/static-build-and-start.test.ts` covers `apps/www` static HTML output, `.lumina/build-trace.json`, `.lumina/perf.report.json`, and deployment manifest copies under `dist/`.
+Evidence: `@lumina/react` exposes `staticPage()` / `ssr()` helpers, `@lumina/compiler` extracts explicit static/SSR render declarations with diagnostics for unsupported declarations, `@lumina/vite-plugin` exposes static build output, `@lumina/cli` exposes `build <appPath>`, `tests/render-mode-extraction.test.ts` covers explicit render modes, and `tests/static-build-and-start.test.ts` covers `apps/www` static HTML output, `.lumina/build-trace.json`, `.lumina/perf.report.json`, and deployment manifest copies under `dist/`.
 
 Definition of done:
 

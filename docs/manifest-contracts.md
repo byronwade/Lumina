@@ -74,7 +74,7 @@ Draft route entry:
 }
 ```
 
-The route manifest shape, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, `dist/routes.manifest.json`, `dist/render.manifest.json`, `dist/adapter.manifest.json`, and static `dist/public` HTML emission are backed by route-discovery, artifact, CLI JSON, build, and adapter HTTP tests. Broader generated artifacts remain planned until their owning implementations land.
+The route manifest shape, explicit static/SSR render-mode extraction, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, `dist/routes.manifest.json`, `dist/render.manifest.json`, `dist/adapter.manifest.json`, and static `dist/public` HTML emission are backed by route-discovery, render-mode, artifact, CLI JSON, build, and adapter HTTP tests. Broader generated artifacts remain planned until their owning implementations land.
 
 API route entries should follow [API Route Contract](api-route-contract.md) for method lists, schema flags, cache metadata, hot API flags, and API diagnostics.
 

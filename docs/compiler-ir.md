@@ -134,7 +134,7 @@ Example:
 
 ## Render Manifest
 
-The `.lumina/render-manifest.json` render manifest records how every route should execute. Deployment adapters may copy that canonical compiler artifact into `dist/render.manifest.json`, but the `.lumina/` file remains the source contract for compiler, CLI, MCP, Agent Kernel, devtools, and tests.
+The `.lumina/render-manifest.json` render manifest records how every route should execute. The current compiler supports default static/API modes plus explicit `staticPage()` and `ssr()` declarations. Deployment adapters may copy that canonical compiler artifact into `dist/render.manifest.json`, but the `.lumina/` file remains the source contract for compiler, CLI, MCP, Agent Kernel, devtools, and tests.
 
 ```ts
 export type RenderManifest = {

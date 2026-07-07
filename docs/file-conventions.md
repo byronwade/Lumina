@@ -4,7 +4,7 @@ Status: Planned.
 
 Audience: app developers, framework contributors, AI agents.
 
-This page documents file and folder conventions for Lumina apps. The route-discovery subset is implemented for compiler fixtures; rendering, config loading, metadata, and runtime behavior remain planned.
+This page documents file and folder conventions for Lumina apps. The route-discovery subset and explicit `staticPage()` / `ssr()` render declarations are implemented for compiler fixtures; config loading, metadata, client hydration, and production SSR/API behavior remain planned.
 
 For exact route parsing, route IDs, sorting, conflict diagnostics, and fixture requirements, see [Routing Contract](routing-contract.md).
 
@@ -95,7 +95,7 @@ API files should export HTTP method handlers such as `GET`, `POST`, `PUT`, `PATC
 
 ## Render Mode Exports
 
-Planned render mode export:
+Implemented MVP render mode export:
 
 ```ts
 import { staticPage } from "lumina"
@@ -103,7 +103,7 @@ import { staticPage } from "lumina"
 export const render = staticPage()
 ```
 
-Render modes should compile into the render manifest rather than being rediscovered at runtime.
+`staticPage()` and `ssr()` declarations compile into the render manifest rather than being rediscovered at runtime. Deferred helpers such as `prerender()`, `stream()`, `clientOnly()`, and `apiHot()` remain planned and should produce diagnostics if declared before support lands.
 
 ## Metadata Exports
 

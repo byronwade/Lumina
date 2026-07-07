@@ -82,9 +82,9 @@ Planned helpers:
 | --- | --- | --- | --- |
 | `defineConfig()` | Planned | `lumina` | Define project config. |
 | `defineMeta()` | Planned | `lumina` | Define route metadata for SEO, social cards, sitemap output, robots policy, and structured data. |
-| `staticPage()` | Planned | `lumina` | Mark a route as static. |
+| `staticPage()` | Implemented in `@lumina/react` for MVP render declarations | `lumina` target, local `@lumina/react` package | Mark a route as static. |
 | `prerender()` | Planned | `lumina` | Mark a route as prerendered with revalidation metadata. |
-| `ssr()` | Planned | `lumina` | Mark a route as server-rendered. |
+| `ssr()` | Implemented in `@lumina/react` for MVP render declarations | `lumina` target, local `@lumina/react` package | Mark a route as server-rendered in manifests; production SSR serving remains planned. |
 | `stream()` | Planned | `lumina` | Mark a route as streaming SSR. |
 | `clientOnly()` | Planned | `lumina` | Intentionally skip server-rendered content. |
 | `apiHot()` | Planned | `lumina` | Compile a specialized API handler path. |
@@ -99,7 +99,7 @@ Planned generated files:
 | File | Status | Purpose |
 | --- | --- | --- |
 | `.lumina/routes.json` | Implemented | Stable route manifest. |
-| `.lumina/render-manifest.json` | Implemented for default static/API route modes | Route render modes and generated file metadata. |
+| `.lumina/render-manifest.json` | Implemented for default static/API route modes plus explicit `staticPage()` / `ssr()` declarations | Route render modes and generated file metadata. |
 | `.lumina/map.json` | Implemented for first file-level route graph | Public Lumina Map output. |
 | `.lumina/graph.json` | Planned | Graph data for compiler, map, and agents. |
 | `.lumina/seo.report.json` | Planned | SEO audit output. |

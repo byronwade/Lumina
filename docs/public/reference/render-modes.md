@@ -1,23 +1,23 @@
 # Render Modes
 
-Status: Planned.
+Status: Implemented.
 
 Audience: app developers, framework contributors.
 
-Render modes tell Lumina how each route should execute. The shared scaffold contract is the `RenderMode` type in `@lumina/core`.
+Render modes tell Lumina how each route should execute. The shared scaffold contract is the `RenderMode` type in `@lumina/core`. The current MVP implementation supports `staticPage()` and `ssr()` render declarations through `@lumina/react` and records them in `.lumina/render-manifest.json`.
 
-## Planned APIs
+## APIs
 
 ```ts
 export const render = staticPage()
-export const render = prerender({ revalidate: "10m" })
 export const render = ssr()
+export const render = prerender({ revalidate: "10m" })
 export const render = stream()
 export const render = clientOnly()
 export const render = apiHot({ validate: true })
 ```
 
-These APIs are planned and not implemented.
+`staticPage()` and `ssr()` are implemented for MVP Alpha render declarations. `prerender()`, `stream()`, `clientOnly()`, and `apiHot()` remain planned; declaring them should produce compiler diagnostics instead of pretending runtime support exists.
 
 ## Render Mode Mapping
 

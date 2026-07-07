@@ -115,7 +115,7 @@ Cache plans, cache headers, cache tags, revalidation, micro-cache behavior, and 
 
 Runtime diagnostics, source locations, production sanitization, and JSON diagnostic fields are defined in `docs/diagnostics-contract.md`.
 
-Render mode literals must stay aligned with `@lumina/core` `RenderMode`: `"static"`, `"prerender"`, `"ssr"`, `"stream"`, `"client-only"`, `"api"`, and `"hot-api"`. Client-only routes must be intentional and visible in generated manifests so runtime behavior does not silently hide SEO, hydration, or payload costs.
+Render mode literals must stay aligned with `@lumina/core` `RenderMode`: `"static"`, `"prerender"`, `"ssr"`, `"stream"`, `"client-only"`, `"api"`, and `"hot-api"`. The current compiler records default static/API modes and explicit `staticPage()` / `ssr()` declarations in `.lumina/render-manifest.json`; production SSR serving remains planned. Client-only routes must be intentional and visible in generated manifests so runtime behavior does not silently hide SEO, hydration, or payload costs.
 
 ## Server Inputs
 

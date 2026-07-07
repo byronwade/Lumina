@@ -7,7 +7,7 @@ This page defines the first Lumina MVP Alpha target. It is a target scope, not a
 
 ## Current Evidence
 
-The repository currently has the Phase 1 scaffold: Bun workspace, package placeholders, shared `@lumina/core` scaffold types, `@lumina/compiler` route discovery, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/hmr-report.json`, `.lumina/build-trace.json`, and `.lumina/perf.report.json` output, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` Vite SSR route serving, `virtual:lumina/routes`, static `lumina build`, static `lumina start`, scaffolded `apps/www` and example source fixtures, CI, and verification scripts. It does not yet have client hydration, component-level HMR, production SSR/API serving, or Lumina Map query CLI behavior.
+The repository currently has the Phase 1 scaffold: Bun workspace, package placeholders, shared `@lumina/core` scaffold types, `@lumina/react` `staticPage()` / `ssr()` helpers, `@lumina/compiler` route discovery and explicit static/SSR render-mode extraction, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/hmr-report.json`, `.lumina/build-trace.json`, and `.lumina/perf.report.json` output, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` Vite SSR route serving, `virtual:lumina/routes`, static `lumina build`, static `lumina start`, scaffolded `apps/www` and example source fixtures, CI, and verification scripts. It does not yet have client hydration, component-level HMR, production SSR/API serving, or Lumina Map query CLI behavior.
 
 ## MVP Alpha Goal
 
@@ -64,7 +64,7 @@ The first `apps/www` fixture contains:
 - `components/ExampleCard.tsx`
 - `lumina.config.ts`
 
-The fixture proves route discovery, generated route/render/map artifacts, route-file update reporting, Lumina Map nodes and edges, `lumina inspect why`, `virtual:lumina/routes`, minimal dev-server SSR page rendering, static build output, and static built-output serving through `@lumina/adapter-bun`. Client hydration, broader example verification, production SSR/API serving, and measured speed evidence remain required before MVP Alpha is ready.
+The fixture proves route discovery, generated route/render/map artifacts, route-file update reporting, Lumina Map nodes and edges, `lumina inspect why`, `virtual:lumina/routes`, minimal dev-server SSR page rendering, static build output, and static built-output serving through `@lumina/adapter-bun`. Separate fixture tests prove explicit `staticPage()` and `ssr()` render-mode extraction plus diagnostics for unsupported declarations. Client hydration, broader example verification, production SSR/API serving, and measured speed evidence remain required before MVP Alpha is ready.
 
 ## Verification Required Before Calling MVP Alpha Ready
 

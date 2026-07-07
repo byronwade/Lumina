@@ -43,7 +43,7 @@ Unless a phase is explicitly marked `Verified.` or `Scaffolded.` with evidence, 
 
 ## Current Status
 
-The repository is in Phase 1. The monorepo scaffold exists with Bun workspace configuration, package placeholders, contract-backed shared core model types, `@lumina/compiler` route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/hmr-report.json`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` Vite SSR route serving, `virtual:lumina/routes`, static `lumina build`, static `lumina start` through `@lumina/adapter-bun`, scaffolded `apps/www` and example fixtures, early benchmark/status skeletons, CI, and enforcement scripts. Phase 1A shared core model hardening is implemented. The next implementation stage is completing client hydration and production hardening after the first static build/start slice.
+The repository is in Phase 1. The monorepo scaffold exists with Bun workspace configuration, package placeholders, contract-backed shared core model types, `@lumina/react` `staticPage()` / `ssr()` helpers, `@lumina/compiler` route discovery and explicit static/SSR render-mode extraction, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/hmr-report.json`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` Vite SSR route serving, `virtual:lumina/routes`, static `lumina build`, static `lumina start` through `@lumina/adapter-bun`, scaffolded `apps/www` and example fixtures, early benchmark/status skeletons, CI, and enforcement scripts. Phase 1A shared core model hardening is implemented. The next implementation stage is completing client hydration and production hardening after the first static build/start slice.
 
 The upcoming prototype target is MVP Alpha, defined in `docs/mvp-alpha-scope.md`. MVP Alpha should keep the first build narrow: route discovery, basic render modes, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, CLI inspection, and a demo app. API routes, MCP, safe edits, migration tooling, Node runtime behavior, and benchmark claims remain post-MVP unless the scope doc changes.
 
@@ -52,7 +52,7 @@ The upcoming prototype target is MVP Alpha, defined in `docs/mvp-alpha-scope.md`
 1. Core model hardening for route, render, manifest, and graph output. Implemented in `@lumina/core`.
 2. Early benchmark and fixture skeleton with `not implemented` status only. Scaffolded.
 3. Route discovery, deterministic `.lumina/routes.json`, and `lumina routes --json`. Implemented.
-4. Basic render mode extraction and `.lumina/render-manifest.json`. Implemented for default static/API route modes.
+4. Basic render mode extraction and `.lumina/render-manifest.json`. Implemented for default static/API route modes plus explicit `staticPage()` and `ssr()` declarations.
 5. File-level Lumina Map and `.lumina/map.json`. Implemented for route, source, layout, render-mode, and generated-artifact evidence.
 6. CLI inspection: `lumina routes --json`, `lumina inspect --json`, and `lumina inspect why` are implemented for app and route evidence.
 7. Demo app and example source fixtures proving route/render/map/inspect workflow inputs. Scaffolded.
