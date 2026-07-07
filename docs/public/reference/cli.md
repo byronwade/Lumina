@@ -8,7 +8,7 @@ The `@lumina/cli` package implements the first route inspection paths, minimal m
 
 | Command | Purpose | Status |
 | --- | --- | --- |
-| `lumina dev` | Start local development. | Implemented for minimal `<appPath>` Vite SSR route serving, route-specific dev hydration bundles, browser-verified interactive root-route hydration, `virtual:lumina/routes`, and route-file update reports; component-level HMR planned |
+| `lumina dev` | Start local development. | Implemented for minimal `<appPath>` Vite SSR route serving, route-specific dev hydration bundles, browser-verified interactive root-route hydration, `virtual:lumina/routes`, route-file update reports, and direct local imported component affected-route reports; broader component-level browser HMR planned |
 | `lumina build` | Build app output and generated artifacts. | Implemented for build-time static page routes; SSR/API output planned |
 | `lumina start` | Start a built app. | Implemented for static HTML in `dist/public`; SSR/API serving planned |
 | `lumina routes` | Inspect discovered routes. | Implemented for `<appPath> --json` |
@@ -34,7 +34,7 @@ bun run lumina -- dev apps/www --port 5173
 bun run lumina -- dev apps/www --once
 ```
 
-The implemented dev path writes the first `.lumina` artifacts, exposes route-specific dev hydration bundles, hydrates a browser-tested root-route counter, exposes `virtual:lumina/routes`, emits `.lumina/hmr-report.json` for route-file changes, and renders page routes on the server. The implemented build/start path emits static HTML, route-specific production client bundles, initial build/performance report artifacts, deployment manifest copies, and serves static built output through `@lumina/adapter-bun`. The implemented browser smoke hydrates the root-route counter in dev and built output. The implemented map affected path reports route impact from direct local import edges. The implemented benchmark list path emits skeleton benchmark status without running benchmarks or publishing timings. `lumina start` requires prior build output and reports a clean error when `dist/` artifacts are missing. SSR/API production behavior, component-level HMR, and broader Lumina Map query modes remain planned.
+The implemented dev path writes the first `.lumina` artifacts, exposes route-specific dev hydration bundles, hydrates a browser-tested root-route counter, exposes `virtual:lumina/routes`, emits `.lumina/hmr-report.json` for route-file changes and direct local imported component affected-route reports, and renders page routes on the server. The implemented build/start path emits static HTML, route-specific production client bundles, initial build/performance report artifacts, deployment manifest copies, and serves static built output through `@lumina/adapter-bun`. The implemented browser smoke hydrates the root-route counter in dev and built output. The implemented map affected path reports route impact from direct local import edges. The implemented benchmark list path emits skeleton benchmark status without running benchmarks or publishing timings. `lumina start` requires prior build output and reports a clean error when `dist/` artifacts are missing. SSR/API production behavior, broader component-level browser HMR, and broader Lumina Map query modes remain planned.
 
 `lumina dev` uses the selected port strictly. If the default port or a provided `--port` value is already occupied, rerun with a different `--port` value.
 

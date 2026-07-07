@@ -1,4 +1,4 @@
-import { publicDocsPages, type DocsStatus } from "./docs-content";
+import { docsNavGroups, publicDocsPages, type DocsStatus } from "./docs-content";
 import { getPublicDocsMarkdown } from "./public-docs-source";
 
 export type DocsIndexEntry = {
@@ -13,6 +13,27 @@ export type DocsIndexEntry = {
   headings: string[];
   keywords: string[];
   searchText: string;
+};
+
+export type DocsNavigationLink = {
+  title: string;
+  href: string;
+  status: DocsStatus;
+  source: string;
+  lane: string;
+  description: string;
+};
+
+export type DocsNavigationSection = {
+  title: string;
+  kind: "curated" | "inventory";
+  links: DocsNavigationLink[];
+};
+
+export type DocsNavigation = {
+  schemaVersion: "lumina.docs-navigation.v0";
+  docsVersion: "unreleased";
+  sections: DocsNavigationSection[];
 };
 
 export const docsIndex: DocsIndexEntry[] = publicDocsPages.map((page) => {
@@ -45,6 +66,37 @@ export const docsIndexStats = {
   pages: docsIndex.length,
   lanes: new Set(docsIndex.map((entry) => entry.lane)).size,
   sources: new Set(docsIndex.map((entry) => entry.source)).size,
+};
+
+export const docsNavigation: DocsNavigation = {
+  schemaVersion: "lumina.docs-navigation.v0",
+  docsVersion: "unreleased",
+  sections: [
+    ...docsNavGroups.map((group) => ({
+      title: group.title,
+      kind: "curated" as const,
+      links: group.links.map((link) => ({
+        title: link.title,
+        href: link.href,
+        status: link.status,
+        source: link.source,
+        lane: link.lane,
+        description: link.description,
+      })),
+    })),
+    ...docsIndexByLane().map((group) => ({
+      title: group.lane,
+      kind: "inventory" as const,
+      links: group.entries.map((entry) => ({
+        title: entry.title,
+        href: entry.href,
+        status: entry.status,
+        source: entry.source,
+        lane: entry.lane,
+        description: entry.description,
+      })),
+    })),
+  ],
 };
 
 export function searchDocsIndex(query: string, limit = 12): DocsIndexEntry[] {

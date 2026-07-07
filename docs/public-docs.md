@@ -10,7 +10,7 @@ The future public website Markdown source lives in `docs/public/`.
 
 The planned content model, route mapping, frontmatter contract, and renderer decision criteria live in [Public Docs Site Architecture](public-docs-site-architecture.md).
 
-Public docs metadata must stay aligned with [Website Content Map](website-content-map.md), [Public Frontmatter Standard](public-frontmatter-standard.md), [Docs Site Build Plan](docs-site-build-plan.md), and [Machine-Readable Documentation](machine-readable-docs.md). Until a renderer exists, `frontmatter`, `canonical` routes, route mapping, source-of-truth links, `docs-index.json`, `llms.txt`, `llms-full.txt`, `schemaVersion`, `generatedAt`, deterministic output, and the rule that machine-readable docs do not enter production runtime bundles remain planned contracts.
+Public docs metadata must stay aligned with [Website Content Map](website-content-map.md), [Public Frontmatter Standard](public-frontmatter-standard.md), [Docs Site Build Plan](docs-site-build-plan.md), and [Machine-Readable Documentation](machine-readable-docs.md). Until a renderer exists, `frontmatter`, `canonical` routes, route mapping, source-of-truth links, broader `docs-index.json`, `docs-navigation.json`, `llms.txt`, and `llms-full.txt` generation, `schemaVersion`, optional deterministic `generatedAt` behavior, deterministic output, and the rule that machine-readable docs do not ship agent metadata in production runtime bundles remain planned contracts. The current `apps/www` static build emits deterministic preview `docs-index.json`, `docs-navigation.json`, `llms.txt`, and `llms-full.txt` artifacts from the bundled public-docs inventory.
 
 ## Requirements
 
@@ -24,7 +24,7 @@ Public docs metadata must stay aligned with [Website Content Map](website-conten
 - Public-facing pages in `docs/public/` link back to source-of-truth reference docs.
 - Public project structure pages distinguish app structure, repository structure, generated files, and docs-only agent playbooks.
 - Public pages have metadata or a documented frontmatter path before launch.
-- Public docs can generate or validate `docs-index.json`, `llms.txt`, and `llms-full.txt`.
+- Public docs can generate or validate `docs-index.json`, `docs-navigation.json`, `llms.txt`, and `llms-full.txt`.
 
 ## Public Page Readiness Checklist
 

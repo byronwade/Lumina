@@ -43,7 +43,7 @@ Unless a phase is explicitly marked `Verified.` or `Scaffolded.` with evidence, 
 
 ## Current Status
 
-The repository is in Phase 1. The monorepo scaffold exists with Bun workspace configuration, package placeholders, contract-backed shared core model types, `@lumina/react` `staticPage()` / `ssr()` helpers, `@lumina/compiler` route discovery and explicit static/SSR render-mode extraction, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json` with direct local import edges, `.lumina/client/*.js` dev hydration bundles, `dist/public/_lumina/client/*.js` production hydration bundles, browser-verified interactive dev and production hydration, `.lumina/hmr-report.json`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina map affected --json`, `lumina bench --list --json`, minimal `lumina dev` Vite SSR route serving, `virtual:lumina/routes`, static `lumina build`, static `lumina start` through `@lumina/adapter-bun`, scaffolded `apps/www` and example fixtures, early benchmark/status skeletons, CI, and enforcement scripts. Phase 1A shared core model hardening is implemented. The next implementation stage is completing component-level HMR and production hardening after the dev and production hydration proof.
+The repository is in Phase 1. The monorepo scaffold exists with Bun workspace configuration, package placeholders, contract-backed shared core model types, `@lumina/react` `staticPage()` / `ssr()` helpers, `@lumina/compiler` route discovery and explicit static/SSR render-mode extraction, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json` with direct local import edges, `.lumina/client/*.js` dev hydration bundles, `dist/public/_lumina/client/*.js` production hydration bundles, browser-verified interactive dev and production hydration, `.lumina/hmr-report.json` route-file and direct local imported component affected-route reports, `.lumina/build-trace.json`, `.lumina/perf.report.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina map affected --json`, `lumina bench --list --json`, minimal `lumina dev` Vite SSR route serving, `virtual:lumina/routes`, static `lumina build`, static `lumina start` through `@lumina/adapter-bun`, scaffolded `apps/www` and example fixtures, early benchmark/status skeletons, CI, and enforcement scripts. Phase 1A shared core model hardening is implemented. The next implementation stage is completing component-level HMR and production hardening after the dev and production hydration proof.
 
 The upcoming prototype target is MVP Alpha, defined in `docs/mvp-alpha-scope.md`. MVP Alpha should keep the first build narrow: route discovery, basic render modes, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, CLI inspection, and a demo app. API routes, MCP, safe edits, migration tooling, Node runtime behavior, and benchmark claims remain post-MVP unless the scope doc changes.
 
@@ -56,9 +56,9 @@ The upcoming prototype target is MVP Alpha, defined in `docs/mvp-alpha-scope.md`
 5. File-level Lumina Map and `.lumina/map.json`. Implemented for route, source, layout, direct local import, render-mode, and generated-artifact evidence.
 6. CLI inspection: `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina map affected --json`, and `lumina bench --list --json` are implemented for app, route, direct-import route-impact, and benchmark-skeleton evidence.
 7. Demo app and example source fixtures proving route/render/map/inspect workflow inputs. Scaffolded.
-8. Minimal Vite dev integration for the scaffolded `apps/www` app and examples. Implemented for SSR page serving, `virtual:lumina/routes`, and route-file update reports.
+8. Minimal Vite dev integration for the scaffolded `apps/www` app and examples. Implemented for SSR page serving, `virtual:lumina/routes`, route-file update reports, and direct local imported component affected-route reports.
 9. Static build output and static `@lumina/adapter-bun` serving. Implemented for build-time static page routes.
-10. Complete component-level HMR. The first dev and production hydration bundle slices and browser-verified interactive counter proof are implemented.
+10. Complete broader component-level browser HMR. The first dev and production hydration bundle slices, browser-verified interactive counter proof, and direct local imported component affected-route report are implemented.
 
 API routes, MCP, safe edits, migration, Node adapter runtime behavior, and benchmark claims are post-MVP unless `docs/mvp-alpha-scope.md` is updated in the same change.
 
@@ -308,7 +308,7 @@ Definition of done:
 - Search params are available to page components in the Vite dev server.
 - 404 uses nearest `app/**/not-found.tsx` in the Vite dev server.
 - Errors use nearest `app/**/error.tsx` in the Vite dev server.
-- Hydration works for the first simple client component in the dev server and built static output; broader component-level HMR remains planned.
+- Hydration works for the first simple client component in the dev server and built static output; direct local imported component affected-route reporting exists, and broader component-level browser HMR remains planned.
 
 ## Phase 5: Render Modes
 

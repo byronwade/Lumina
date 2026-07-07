@@ -321,6 +321,57 @@ describe("Vite dev integration", () => {
       rmSync(appRoot, { recursive: true, force: true });
     }
   }, 15_000);
+
+  test("reports affected routes when an imported component changes", async () => {
+    const appRoot = createComponentHmrApp();
+    const port = await getFreePort();
+    const dev = await startLuminaDevServer({
+      appRoot,
+      host: "127.0.0.1",
+      port,
+      logLevel: "silent",
+    });
+
+    try {
+      const initialResponse = await fetchWithTimeout(`${dev.url}/`);
+      expect(initialResponse.status).toBe(200);
+      expect(await initialResponse.text()).toContain("Hello from component");
+
+      writeFileSync(
+        join(appRoot, "components", "Greeting.tsx"),
+        [
+          "export function Greeting() {",
+          "  return <strong>Hello after update</strong>;",
+          "}",
+          "",
+        ].join("\n"),
+        "utf8",
+      );
+
+      await waitFor(() => {
+        const reportPath = join(appRoot, ".lumina", "hmr-report.json");
+        if (!existsSync(reportPath)) return false;
+        const report = JSON.parse(readFileSync(reportPath, "utf8"));
+        return report.changedFile === "components/Greeting.tsx";
+      });
+
+      const hmrReport = JSON.parse(readFileSync(join(appRoot, ".lumina", "hmr-report.json"), "utf8"));
+      expect(hmrReport.schemaVersion).toBe("lumina.hmr-report.v0");
+      expect(hmrReport.changedFile).toBe("components/Greeting.tsx");
+      expect(hmrReport.routes).toEqual([
+        {
+          id: "app.page",
+          path: "/",
+          sourceFile: "app/page.tsx",
+          reason: "components/Greeting.tsx is imported by app/page.tsx, which defines /.",
+        },
+      ]);
+      expect(hmrReport.artifacts).toEqual([".lumina/hmr-report.json", ".lumina/map.json"]);
+    } finally {
+      await dev.close();
+      rmSync(appRoot, { recursive: true, force: true });
+    }
+  }, 15_000);
 });
 
 async function getFreePort(): Promise<number> {
@@ -405,6 +456,49 @@ function createVirtualRoutesApp(): string {
     [
       "export default function AboutPage() {",
       "  return <main><h1>About</h1></main>;",
+      "}",
+      "",
+    ].join("\n"),
+    "utf8",
+  );
+
+  return appRoot;
+}
+
+function createComponentHmrApp(): string {
+  const scratchRoot = join(repoRoot, ".tmp");
+  mkdirSync(scratchRoot, { recursive: true });
+  const appRoot = mkdtempSync(join(scratchRoot, "lumina-vite-component-hmr-"));
+  mkdirSync(join(appRoot, "app"), { recursive: true });
+  mkdirSync(join(appRoot, "components"), { recursive: true });
+
+  writeFileSync(
+    join(appRoot, "app", "layout.tsx"),
+    [
+      "export default function RootLayout({ children }: { children: unknown }) {",
+      "  return <html lang=\"en\"><body>{children}</body></html>;",
+      "}",
+      "",
+    ].join("\n"),
+    "utf8",
+  );
+  writeFileSync(
+    join(appRoot, "app", "page.tsx"),
+    [
+      "import { Greeting } from \"../components/Greeting\";",
+      "",
+      "export default function HomePage() {",
+      "  return <main><h1>Home</h1><Greeting /></main>;",
+      "}",
+      "",
+    ].join("\n"),
+    "utf8",
+  );
+  writeFileSync(
+    join(appRoot, "components", "Greeting.tsx"),
+    [
+      "export function Greeting() {",
+      "  return <strong>Hello from component</strong>;",
       "}",
       "",
     ].join("\n"),

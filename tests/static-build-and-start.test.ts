@@ -61,6 +61,10 @@ describe("static build and Bun start integration", () => {
     expect(output.data.outputs).toContain("dist/public/about/index.html");
     expect(output.data.outputs).toContain("dist/public/docs/reference/cli/index.html");
     expect(output.data.outputs).toContain("dist/server/ssr-routes.js");
+    expect(output.data.outputs).toContain("dist/public/docs-index.json");
+    expect(output.data.outputs).toContain("dist/public/docs-navigation.json");
+    expect(output.data.outputs).toContain("dist/public/llms.txt");
+    expect(output.data.outputs).toContain("dist/public/llms-full.txt");
     expect(output.data.outputs).toContain("dist/public/_lumina/client/app.page.js");
     expect(output.data.manifests).toContain(".lumina/build-trace.json");
     expect(output.data.manifests).toContain(".lumina/perf.report.json");
@@ -75,11 +79,70 @@ describe("static build and Bun start integration", () => {
       "dist/routes.manifest.json",
       "dist/render.manifest.json",
       "dist/adapter.manifest.json",
+      "dist/public/docs-index.json",
+      "dist/public/docs-navigation.json",
     ]) {
       const artifactPath = join(wwwRoot, artifact);
       expect(existsSync(artifactPath)).toBe(true);
       expect(readFileSync(artifactPath, "utf8")).not.toContain("\n");
     }
+
+    const docsIndexText = readFileSync(join(wwwRoot, "dist", "public", "docs-index.json"), "utf8");
+    const docsIndex = JSON.parse(docsIndexText);
+    expect(docsIndex.schemaVersion).toBe("lumina.docs-index.v0");
+    expect(docsIndex.docsVersion).toBe("unreleased");
+    expect(docsIndex.pages).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          slug: "reference/security",
+          href: "/docs/reference/security",
+          source: "docs/public/reference/security.md",
+        }),
+      ]),
+    );
+    expect(docsIndexText).not.toContain(wwwRoot);
+    expect(docsIndexText).not.toMatch(/[A-Za-z]:\\/);
+
+    const docsNavigationText = readFileSync(join(wwwRoot, "dist", "public", "docs-navigation.json"), "utf8");
+    const docsNavigation = JSON.parse(docsNavigationText);
+    expect(docsNavigation.schemaVersion).toBe("lumina.docs-navigation.v0");
+    expect(docsNavigation.docsVersion).toBe("unreleased");
+    expect(docsNavigation.sections).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          title: "Reference",
+          kind: "curated",
+          links: expect.arrayContaining([
+            expect.objectContaining({
+              href: "/docs/reference/security",
+              source: "docs/public/reference/security.md",
+            }),
+          ]),
+        }),
+        expect.objectContaining({
+          title: "Reference",
+          kind: "inventory",
+          links: expect.arrayContaining([
+            expect.objectContaining({
+              href: "/docs/reference/security",
+              source: "docs/public/reference/security.md",
+            }),
+          ]),
+        }),
+      ]),
+    );
+    expect(docsNavigationText).not.toContain(wwwRoot);
+    expect(docsNavigationText).not.toMatch(/[A-Za-z]:\\/);
+
+    const llmsTxt = readFileSync(join(wwwRoot, "dist", "public", "llms.txt"), "utf8");
+    expect(llmsTxt).toContain("# Lumina Documentation");
+    expect(llmsTxt).toContain("/docs/reference/security");
+    expect(llmsTxt).not.toContain(wwwRoot);
+
+    const llmsFullTxt = readFileSync(join(wwwRoot, "dist", "public", "llms-full.txt"), "utf8");
+    expect(llmsFullTxt).toContain("# Security");
+    expect(llmsFullTxt).toContain("Do not treat Lumina as security-audited");
+    expect(llmsFullTxt).not.toContain(wwwRoot);
 
     const homeHtml = readFileSync(join(wwwRoot, "dist", "public", "index.html"), "utf8");
     expect(homeHtml).toContain("<h1>Your app ships with a map.</h1>");
@@ -127,6 +190,7 @@ describe("static build and Bun start integration", () => {
     expect(output).toMatch(/^map generation\s+\d+ms\s+ok$/m);
     expect(output).toMatch(/^client bundles\s+\d+ms\s+ok$/m);
     expect(output).toMatch(/^static output\s+\d+ms\s+ok$/m);
+    expect(output).toMatch(/^public docs artifacts\s+\d+ms\s+ok$/m);
     expect(output).toMatch(/^adapter output\s+\d+ms\s+ok$/m);
     expect(output).toMatch(/^Done in \d+ms$/m);
   }, 20_000);
@@ -315,6 +379,31 @@ describe("static build and Bun start integration", () => {
       expect(searchHtml).toContain("<h3>Adapters</h3>");
       expect(searchHtml).toContain("docs/public/reference/adapters.md");
       expect(searchHtml).toContain('data-lumina-route="/docs/search"');
+
+      const docsIndex = await fetchWithTimeout(`${server.url}/docs-index.json`);
+      expect(docsIndex.status).toBe(200);
+      expect(docsIndex.headers.get("content-type")).toContain("application/json");
+      const docsIndexBody = await docsIndex.text();
+      expect(docsIndexBody).toContain('"schemaVersion":"lumina.docs-index.v0"');
+      expect(docsIndexBody).toContain('"href":"/docs/reference/security"');
+
+      const docsNavigation = await fetchWithTimeout(`${server.url}/docs-navigation.json`);
+      expect(docsNavigation.status).toBe(200);
+      expect(docsNavigation.headers.get("content-type")).toContain("application/json");
+      const docsNavigationBody = await docsNavigation.text();
+      expect(docsNavigationBody).toContain('"schemaVersion":"lumina.docs-navigation.v0"');
+      expect(docsNavigationBody).toContain('"kind":"inventory"');
+      expect(docsNavigationBody).toContain('"href":"/docs/reference/security"');
+
+      const llms = await fetchWithTimeout(`${server.url}/llms.txt`);
+      expect(llms.status).toBe(200);
+      expect(llms.headers.get("content-type")).toContain("text/plain");
+      expect(await llms.text()).toContain("# Lumina Documentation");
+
+      const llmsFull = await fetchWithTimeout(`${server.url}/llms-full.txt`);
+      expect(llmsFull.status).toBe(200);
+      expect(llmsFull.headers.get("content-type")).toContain("text/plain");
+      expect(await llmsFull.text()).toContain("# Security");
     } finally {
       await server.close();
     }

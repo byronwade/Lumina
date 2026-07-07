@@ -28,6 +28,7 @@ Planned public docs and app-agent outputs:
 | `llms.txt` | Public docs or app-local artifact | Compact AI-readable summary. |
 | `llms-full.txt` | Public docs or app-local artifact | Expanded AI-readable context. |
 | `docs-index.json` | Public docs artifact | Machine-readable docs index for the future docs site. |
+| `docs-navigation.json` | Public docs artifact | Machine-readable docs navigation for the future docs site. |
 | `.lumina/routes.json` | Planned generated app artifact | Route manifest. |
 | `.lumina/render-manifest.json` | Implemented generated app artifact | Default route render modes and generated file metadata. |
 | `.lumina/map.json` | Implemented generated app artifact | First file-level Lumina Map output. |
@@ -39,7 +40,7 @@ Planned public docs and app-agent outputs:
 | `.lumina/affected.json` | Planned generated app artifact | Affected apps, routes, packages, tests, generated artifacts, and reasons. |
 | `.lumina/build-trace.json` | Implemented initial static build artifact | Build phases, timings, cache behavior, and diagnostics. |
 | `.lumina/cache-report.json` | Planned generated app artifact | Cache keys, hits, misses, invalidations, and reused artifact summary. |
-| `.lumina/hmr-report.json` | Implemented dev artifact for route-file changes | Dev server update scope, invalidated modules, route updates, and timings. |
+| `.lumina/hmr-report.json` | Implemented dev artifact for route-file and direct local imported component affected-route reports | Dev server update scope, affected route updates, and planned invalidation/timing expansion. |
 | `.lumina/split-report.json` | Planned generated app artifact | Planned app or route split analysis and generated artifact movement. |
 | `.lumina/context/*.ctx.json` | Planned generated app artifact | Route or surface context capsules. |
 | `.lumina/context/agent-index.json` | Planned generated app artifact | Index of generated agent context. |
@@ -60,7 +61,7 @@ See `docs/machine-readable-docs.md` for the planned machine-readable documentati
 
 CLI-facing agent commands should follow `docs/cli-json-contract.md` for `--json` envelopes, diagnostics, and exit codes.
 
-Machine-readable public docs outputs must stay schema-versioned and deterministic. When `docs-index.json`, `llms.txt`, or `llms-full.txt` exist, their records should include `schemaVersion` and `generatedAt` where the artifact is structured, avoid secrets and local machine paths, and remain outside production runtime bundles.
+Machine-readable public docs outputs must stay schema-versioned and deterministic. When `docs-index.json`, `docs-navigation.json`, `llms.txt`, or `llms-full.txt` exist, structured records should include `schemaVersion`, may include `generatedAt` only when it can remain deterministic for the build contract, must avoid secrets and local machine paths, and must remain outside agent metadata shipped in production runtime bundles.
 
 ## Commands
 

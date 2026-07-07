@@ -107,7 +107,7 @@ This directory is the source of truth for Lumina planning, architecture, roadmap
 - [Versioning And Upgrades](versioning-and-upgrades.md): versioned surfaces, schema changes, deprecations, and upgrade guides.
 - [Open Source Community](open-source-community.md): community and OSS readiness notes.
 - [App Graph Visual](app-graph-visual.md): planned graph and workflow diagrams.
-- [Machine-Readable Documentation](machine-readable-docs.md): planned `llms.txt`, `llms-full.txt`, and `docs-index.json` outputs.
+- [Machine-Readable Documentation](machine-readable-docs.md): planned `llms.txt`, `llms-full.txt`, `docs-index.json`, and `docs-navigation.json` outputs.
 - [Maintainer Guide](maintainer-guide.md): maintainer review, merge, and release responsibilities.
 - [Documentation Strategy Audit](documentation-audit.md): audit, competitor lessons, matrices, IA, and plan.
 - [Documentation Improvement Matrix](documentation-matrix.md): file-by-file quality and readiness matrix.

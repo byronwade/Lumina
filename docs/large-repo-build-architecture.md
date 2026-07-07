@@ -344,7 +344,7 @@ Likely owners:
 | `@lumina/compiler` | Workspace discovery, graph extraction, incremental planning, affected build selection, generated reports. |
 | `@lumina/map` | Workspace graph query engine, affected queries, shared-file consumers, explain output. |
 | `@lumina/cli` | Terminal output, JSON output, affected commands, workspace commands. |
-| `@lumina/vite-plugin` | Graph-aware dev server integration, route-file update reports, planned app-scoped invalidation. |
+| `@lumina/vite-plugin` | Graph-aware dev server integration, route-file update reports, direct local imported component affected-route reports, planned app-scoped invalidation. |
 | Runtime adapters | Consume app-specific generated output only; never rediscover workspace source at runtime. |
 
 ## Runtime Boundary

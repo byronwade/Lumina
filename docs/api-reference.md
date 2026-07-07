@@ -113,7 +113,7 @@ Planned generated files:
 | `.lumina/affected.json` | Planned | Affected apps, routes, packages, tests, generated artifacts, and reasons. |
 | `.lumina/build-trace.json` | Implemented initial static build trace | Build phases, timings, cache behavior, and diagnostics. |
 | `.lumina/cache-report.json` | Planned | Cache keys, hits, misses, invalidations, and reused artifact summary. |
-| `.lumina/hmr-report.json` | Implemented for route-file changes | Dev server update scope, invalidated modules, route updates, and timings. |
+| `.lumina/hmr-report.json` | Implemented for route-file and direct local imported component affected-route reports | Dev server update scope, affected route updates, and planned invalidation/timing expansion. |
 | `.lumina/split-report.json` | Planned | Planned app or route split analysis and generated artifact movement. |
 | `.lumina/context/*.ctx.json` | Planned | Route or surface context capsules. |
 | `.lumina/context/agent-index.json` | Planned | Agent context index. |

@@ -163,7 +163,7 @@ Vision, prototype, public-roadmap, Phase 1 build plan, task backlog, and contrib
 
 Feature scheduling gates in compiler IR and risk-mitigation docs must use `planned acceptance criteria` wording for tests and agent demos, rather than ambiguous current-tense definition-of-done wording.
 
-The current implementation path must stay aligned across README, project status, roadmap, public roadmap, product-readiness, and backlog docs: Phase 1A shared core model hardening is implemented, the first `@lumina/compiler` route-discovery package API exists, the early benchmark/status skeleton exists with `not implemented` status, static `@lumina/adapter-bun` serving exists for built HTML, first dev hydration bundles exist under `.lumina/client/*.js`, first production hydration bundles exist under `dist/public/_lumina/client/*.js`, browser-verified interactive dev and production hydration exists, and the next work connects component-level HMR plus production hardening. Current-status and verification docs must distinguish static `@lumina/adapter-bun` serving from planned SSR/API runtime adapter behavior.
+The current implementation path must stay aligned across README, project status, roadmap, public roadmap, product-readiness, and backlog docs: Phase 1A shared core model hardening is implemented, the first `@lumina/compiler` route-discovery package API exists, the early benchmark/status skeleton exists with `not implemented` status, static `@lumina/adapter-bun` serving exists for built HTML, first dev hydration bundles exist under `.lumina/client/*.js`, first production hydration bundles exist under `dist/public/_lumina/client/*.js`, browser-verified interactive dev and production hydration exists, route-file and direct local imported component affected-route reports exist under `.lumina/hmr-report.json`, and the next work connects broader component-level browser HMR plus production hardening. Current-status and verification docs must distinguish static `@lumina/adapter-bun` serving from planned SSR/API runtime adapter behavior.
 
 ### 7A. Agent Enforcement Matrix Check
 
@@ -190,12 +190,12 @@ Automated coverage in `bun run docs:check` requires README, status, roadmap, get
 ### 8. Machine-Readable Docs Contract Check
 
 ```powershell
-rg -n "llms\.txt|llms-full\.txt|docs-index\.json|schemaVersion|generatedAt" docs\machine-readable-docs.md docs\agent-kernel.md docs\mcp-server.md docs\public-docs.md
+rg -n "llms\.txt|llms-full\.txt|docs-index\.json|docs-navigation\.json|schemaVersion|generatedAt" docs\machine-readable-docs.md docs\agent-kernel.md docs\mcp-server.md docs\public-docs.md
 ```
 
-Expected result: machine-readable docs outputs remain documented as planned, schema-versioned, deterministic, and separate from production runtime bundles.
+Expected result: the current `apps/www` preview outputs and the broader planned machine-readable docs outputs remain documented as schema-versioned, deterministic, and separate from agent metadata shipped in production runtime bundles.
 
-Automated coverage in `bun run docs:check` also requires machine-readable docs, Agent Kernel, MCP, and public docs readiness docs to keep `llms.txt`, `llms-full.txt`, `docs-index.json`, `schemaVersion`, `generatedAt`, deterministic output, and production-runtime-bundle exclusion language aligned. It also requires Agent Kernel artifact tables to label `.lumina/*` and `dist/*` outputs as planned while generated artifacts remain unimplemented.
+Automated coverage in `bun run docs:check` also requires machine-readable docs, Agent Kernel, MCP, and public docs readiness docs to keep `llms.txt`, `llms-full.txt`, `docs-index.json`, `docs-navigation.json`, `schemaVersion`, optional deterministic `generatedAt` behavior, deterministic output, and production-runtime-bundle exclusion language aligned. It also requires Agent Kernel artifact tables to label planned `.lumina/*` and `dist/*` outputs honestly while generated artifacts remain unimplemented.
 
 Automated coverage also requires machine-readable docs to distinguish `.lumina/*` compiler or agent source contracts from deployment-shaped `dist/*` copies.
 
@@ -206,12 +206,12 @@ Automated coverage also requires the internal MCP server contract and public MCP
 ### 9. Public Docs Site Contract Check
 
 ```powershell
-rg -n "frontmatter|canonical|docs-index\.json|llms\.txt|route mapping|renderer|public-frontmatter-standard|docs-site-build-plan" docs\public-docs-site-architecture.md docs\public-frontmatter-standard.md docs\docs-site-build-plan.md docs\public-docs.md docs\website-content-map.md docs\machine-readable-docs.md
+rg -n "frontmatter|canonical|docs-index\.json|docs-navigation\.json|llms\.txt|route mapping|renderer|public-frontmatter-standard|docs-site-build-plan" docs\public-docs-site-architecture.md docs\public-frontmatter-standard.md docs\docs-site-build-plan.md docs\public-docs.md docs\website-content-map.md docs\machine-readable-docs.md
 ```
 
 Expected result: public docs metadata, routes, navigation, source mapping, renderer assumptions, and machine-readable outputs remain connected.
 
-Automated coverage in `bun run docs:check` also requires public docs architecture, public frontmatter, docs-site build plan, public docs readiness, website content map, and machine-readable docs pages to keep frontmatter, canonical route, route mapping, renderer, source mapping, `docs-index.json`, `llms.txt`, and related source-doc vocabulary aligned. It also requires public docs architecture and public frontmatter docs to list the same canonical public status values: `draft`, `proposed`, `planned`, `scaffolded`, `implemented`, `verified`, and `deprecated`.
+Automated coverage in `bun run docs:check` also requires public docs architecture, public frontmatter, docs-site build plan, public docs readiness, website content map, and machine-readable docs pages to keep frontmatter, canonical route, route mapping, renderer, source mapping, `docs-index.json`, `docs-navigation.json`, `llms.txt`, and related source-doc vocabulary aligned. It also requires public docs architecture and public frontmatter docs to list the same canonical public status values: `draft`, `proposed`, `planned`, `scaffolded`, `implemented`, `verified`, and `deprecated`.
 
 Automated coverage also requires the public docs architecture route table to identify itself as representative and to point to [Website Content Map](website-content-map.md) as the complete planned public navigation inventory.
 

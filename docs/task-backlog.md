@@ -7,7 +7,7 @@ This backlog turns the roadmap into concrete implementation tasks. Each task sho
 
 Unless a task is explicitly marked `Verified.` or `Scaffolded.` with evidence, its "Definition of done" is planned acceptance criteria, not a claim that the behavior exists today. Future implementation tasks should use `should` wording for behavior that does not exist yet.
 
-Current implementation path: complete component-level HMR and production hardening after the dev and production hydration proof. Phase 1A shared core model hardening is implemented in `@lumina/core`; route discovery, explicit static/SSR render-mode extraction, MVP Bun `lumina.config.ts` parsing and diagnostics, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, dynamic and catch-all page route params plus search params in the Vite dev server, dev not-found/error components, `.lumina/client/*.js` dev hydration bundles, `dist/public/_lumina/client/*.js` production hydration bundles, browser-verified interactive dev and production hydration, `.lumina/hmr-report.json`, `.lumina/generated/server-entry.ts`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, initial `dist/*` deployment manifests, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, `lumina bench --list --json`, minimal `lumina dev` with timed human startup output, `virtual:lumina/routes`, static `lumina build`, static `lumina start`, verified `examples/basic` dev/build/start evidence, runnable content example evidence, and generated large-route fixture source/artifact evidence are implemented; the early benchmark/status skeleton exists with `not implemented` status and no public claims.
+Current implementation path: complete component-level HMR and production hardening after the dev and production hydration proof. Phase 1A shared core model hardening is implemented in `@lumina/core`; route discovery, explicit static/SSR render-mode extraction, MVP Bun `lumina.config.ts` parsing and diagnostics, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, dynamic and catch-all page route params plus search params in the Vite dev server, dev not-found/error components, `.lumina/client/*.js` dev hydration bundles, `dist/public/_lumina/client/*.js` production hydration bundles, browser-verified interactive dev and production hydration, `.lumina/hmr-report.json` route-file and direct local imported component affected-route reports, `.lumina/generated/server-entry.ts`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, initial `dist/*` deployment manifests, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, `lumina bench --list --json`, minimal `lumina dev` with timed human startup output, `virtual:lumina/routes`, static `lumina build`, static `lumina start`, verified `examples/basic` dev/build/start evidence, runnable content example evidence, and generated large-route fixture source/artifact evidence are implemented; the early benchmark/status skeleton exists with `not implemented` status and no public claims.
 
 MVP Alpha implementation path: keep PR 1A through PR 4 focused on core model hardening, the early benchmark skeleton, large-repo architecture planning, route discovery, deterministic `.lumina/routes.json`, basic render mode data for `.lumina/render-manifest.json`, the first file-level `.lumina/map.json`, CLI inspection, and a demo app. API routes, MCP, safe edits, migration, Node adapter runtime behavior, benchmark publishing, and performance claims are post-MVP unless `docs/mvp-alpha-scope.md` changes in the same work.
 
@@ -48,7 +48,7 @@ Remaining follow-up:
 
 - Add verified tutorials after app creation and runtime behavior exist.
 - Add public docs frontmatter after a docs site parser is chosen.
-- Add generated `docs-index.json`, `llms.txt`, and `llms-full.txt` plans to Agent Kernel implementation tasks.
+- Add generated `docs-index.json`, `docs-navigation.json`, `llms.txt`, and `llms-full.txt` plans to Agent Kernel implementation tasks.
 - Keep the pull request template aligned with `docs/docs-maintenance-checklist.md`, `docs/docs-verification.md`, and `docs/review-checklist.md`.
 - Expand `docs/machine-readable-docs.md` into generated schemas when the owning packages have schema output behavior.
 - Use `docs/templates/documentation-page-template.md` for new durable docs pages.
@@ -606,7 +606,7 @@ MVP Alpha role: start the demo app path and keep route/render/map artifacts insp
 
 Task status: Scaffolded.
 
-Evidence: `@lumina/vite-plugin` exposes `startLuminaDevServer`, `@lumina/cli` exposes `dev <appPath>`, and `tests/vite-dev-server.test.ts` covers SSR page serving, generated route/render/map artifacts, timed human startup output, `virtual:lumina/routes`, route-file artifact regeneration with `.lumina/hmr-report.json`, Vite client passthrough, 404 behavior, and `--once` CLI smoke startup.
+Evidence: `@lumina/vite-plugin` exposes `startLuminaDevServer`, `@lumina/cli` exposes `dev <appPath>`, and `tests/vite-dev-server.test.ts` covers SSR page serving, generated route/render/map artifacts, timed human startup output, `virtual:lumina/routes`, route-file artifact regeneration with `.lumina/hmr-report.json`, direct local imported component affected-route reporting through `.lumina/hmr-report.json`, Vite client passthrough, 404 behavior, and `--once` CLI smoke startup.
 
 Definition of done:
 
@@ -619,7 +619,7 @@ Definition of done:
 
 Goal: support basic SSR and client hydration.
 
-Task status: Implemented for root-route SSR, route-specific dev and production hydration bundles, and browser-verified interactive counter hydration in dev and built output; component-level HMR remains planned.
+Task status: Implemented for root-route SSR, route-specific dev and production hydration bundles, browser-verified interactive counter hydration in dev and built output, and direct local imported component affected-route reporting; broader component-level browser HMR remains planned.
 
 MVP Alpha role: prove the smallest render path needed for the demo app, with basic SSR and explicit render mode evidence only.
 

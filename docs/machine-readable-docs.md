@@ -4,16 +4,17 @@ Status: Planned.
 
 Audience: AI agents, maintainers, framework contributors.
 
-Lumina should make documentation consumable by humans and AI agents. Machine-readable docs are planned outputs, not implemented behavior.
+Lumina should make documentation consumable by humans and AI agents. The full machine-readable docs pipeline is planned. The current `apps/www` static build emits a deterministic preview slice for the bundled public docs inventory: `dist/public/docs-index.json`, `dist/public/docs-navigation.json`, `dist/public/llms.txt`, and `dist/public/llms-full.txt`.
 
 ## Planned Outputs
 
 | Output | Purpose | Production surface |
 | --- | --- | --- |
 | `AGENTS.md` | App-local operating guide for AI agents in generated user applications. | Agent-only app-local artifact; not a production runtime bundle |
-| `llms.txt` | Compact public docs or app-local summary for AI tools. | Docs or agent artifact; not a production runtime bundle |
-| `llms-full.txt` | Full AI-readable public docs or app-local context. | Docs or agent artifact; not a production runtime bundle |
-| `docs-index.json` | Index of docs pages, status, audience, tags, and source paths. | Public docs artifact only |
+| `llms.txt` | Compact public docs or app-local summary for AI tools. | `apps/www` public preview artifact exists; broader docs or agent artifact remains planned |
+| `llms-full.txt` | Full AI-readable public docs or app-local context. | `apps/www` public preview artifact exists; broader docs or agent artifact remains planned |
+| `docs-index.json` | Index of docs pages, status, audience, tags, and source paths. | `apps/www` public preview artifact exists; broader public docs artifact remains planned |
+| `docs-navigation.json` | Sidebar and navigation sections with page status, source, and lane metadata. | `apps/www` public preview artifact exists; broader public docs artifact remains planned |
 | `.lumina/routes.json` | Stable route manifest for apps. | Compiler source contract; adapter output consumes deployment-shaped `dist/*` copies |
 | `.lumina/render-manifest.json` | Render modes and cache metadata for apps. | Compiler source contract; adapter output consumes deployment-shaped `dist/*` copies |
 | `.lumina/map.json` | Queryable Lumina Map output for apps. | Compiler and agent source contract; not a production runtime bundle |
@@ -37,6 +38,10 @@ Lumina should make documentation consumable by humans and AI agents. Machine-rea
 | `.lumina/generated/client/*.tsx` | Generated source entries for route hydration bundles. | Build source artifact; not served directly in production |
 | `.lumina/client/*.js` | Generated route-specific hydration bundles before adapter copying. | Compiler build artifact copied into production output when static build runs |
 | `dist/public/_lumina/client/*.js` | Generated route-specific production hydration bundles for static built pages. | Production static asset |
+| `dist/public/docs-index.json` | Deterministic `apps/www` public docs preview index generated from the bundled docs inventory. | Public static asset |
+| `dist/public/docs-navigation.json` | Deterministic `apps/www` public docs preview navigation generated from the bundled docs inventory and curated docs lanes. | Public static asset |
+| `dist/public/llms.txt` | Deterministic `apps/www` compact public docs preview for AI-assisted reading. | Public static asset |
+| `dist/public/llms-full.txt` | Deterministic `apps/www` full public docs preview for AI-assisted reading. | Public static asset |
 | `dist/routes.manifest.json` | Deployment-oriented route manifest copy for adapters. | Adapter artifact |
 | `dist/render.manifest.json` | Deployment-oriented render manifest copy for adapters. | Adapter artifact |
 | `dist/seo.report.json` | Deployment-oriented SEO report copy for adapters. | Adapter artifact |
@@ -53,47 +58,73 @@ Canonical generated artifact names must stay aligned with [Manifest Contracts](m
 {
   "schemaVersion": "lumina.docs-index.v0",
   "docsVersion": "unreleased",
-  "generatedAt": "2026-07-06T00:00:00.000Z",
   "pages": [
     {
-      "path": "docs/routing.md",
+      "slug": "reference/routing",
+      "href": "/docs/reference/routing",
+      "source": "docs/public/reference/routing.md",
       "title": "Routing",
-      "status": "planned",
-      "audience": ["app developers", "AI agents"],
-      "tags": ["routing", "file-conventions"],
-      "source": "manual"
+      "description": "File route behavior, current support, and planned grammar.",
+      "status": "Planned",
+      "lane": "Reference",
+      "related": ["docs/routing.md"],
+      "headings": ["Current Status", "Implemented Route Shapes"],
+      "keywords": ["routing", "file-conventions"],
+      "searchText": "Routing File route behavior..."
     },
     {
-      "path": "docs/routing-contract.md",
-      "title": "Routing Contract",
-      "status": "planned",
-      "audience": ["framework contributors", "runtime adapter authors", "AI agents"],
-      "tags": ["routing", "manifests", "diagnostics"],
-      "source": "manual"
+      "slug": "reference/security",
+      "href": "/docs/reference/security",
+      "source": "docs/public/reference/security.md",
+      "title": "Security",
+      "description": "Security posture, high-risk areas, and safety boundaries.",
+      "status": "Planned",
+      "lane": "Reference",
+      "related": ["docs/security-contract.md", "docs/threat-model.md"],
+      "headings": ["Current Status", "High-Risk Surfaces"],
+      "keywords": ["security", "threat-model"],
+      "searchText": "Security Security posture..."
+    }
+  ]
+}
+```
+
+The current `apps/www` preview omits `generatedAt` so repeated static builds can produce byte-stable JSON. Future versioned docs may add a deterministic version or build identifier when releases exist.
+
+## `docs-navigation.json` Draft
+
+```json
+{
+  "schemaVersion": "lumina.docs-navigation.v0",
+  "docsVersion": "unreleased",
+  "sections": [
+    {
+      "title": "Reference",
+      "kind": "curated",
+      "links": [
+        {
+          "title": "Security",
+          "href": "/docs/reference/security",
+          "status": "Planned",
+          "source": "docs/public/reference/security.md",
+          "lane": "Reference",
+          "description": "Security posture, high-risk areas, and safety boundaries."
+        }
+      ]
     },
     {
-      "path": "docs/api-route-contract.md",
-      "title": "API Route Contract",
-      "status": "planned",
-      "audience": ["framework contributors", "runtime adapter authors", "security reviewers", "AI agents"],
-      "tags": ["api-routes", "schemas", "diagnostics", "manifests"],
-      "source": "manual"
-    },
-    {
-      "path": "docs/schema-contract.md",
-      "title": "Schema Contract",
-      "status": "planned",
-      "audience": ["framework contributors", "API route authors", "runtime adapter authors", "AI agents"],
-      "tags": ["schemas", "validation", "serializers", "openapi"],
-      "source": "manual"
-    },
-    {
-      "path": "docs/cache-contract.md",
-      "title": "Cache Contract",
-      "status": "planned",
-      "audience": ["framework contributors", "runtime adapter authors", "performance reviewers", "AI agents"],
-      "tags": ["cache", "headers", "revalidation", "manifests"],
-      "source": "manual"
+      "title": "Reference",
+      "kind": "inventory",
+      "links": [
+        {
+          "title": "Security",
+          "href": "/docs/reference/security",
+          "status": "Planned",
+          "source": "docs/public/reference/security.md",
+          "lane": "Reference",
+          "description": "Security posture, high-risk areas, and safety boundaries."
+        }
+      ]
     }
   ]
 }
@@ -113,9 +144,9 @@ Canonical generated artifact names must stay aligned with [Manifest Contracts](m
 
 ## Maintenance
 
-Machine-readable docs should be generated once the docs index or public docs pipeline exists. Until then, this page is the contract draft.
+Machine-readable docs should be generated by the full docs index or public docs pipeline once that pipeline exists. Until then, this page is the broader contract draft and the `apps/www` build output is a preview slice.
 
-Use [Documentation Verification](docs-verification.md) to check that `llms.txt`, `llms-full.txt`, `docs-index.json`, schema versions, and generated agent context remain documented consistently while the outputs are still planned.
+Use [Documentation Verification](docs-verification.md) to check that `llms.txt`, `llms-full.txt`, `docs-index.json`, `docs-navigation.json`, schema versions, deterministic output, optional `generatedAt` behavior, and generated agent context remain documented consistently while the broader outputs are still planned.
 
 Version behavior should follow [Versioning And Upgrades](versioning-and-upgrades.md).
 

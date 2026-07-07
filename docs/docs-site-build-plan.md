@@ -8,7 +8,7 @@ This page turns the public docs architecture into an implementation plan for the
 
 No docs site renderer has been chosen yet. This page describes decision gates and implementation phases, not current behavior.
 
-The `apps/www` docs area currently provides a visual public-docs route scaffold for the marketing fixture. It includes the docs home, hand-authored static lane and topic pages, an in-app public-docs inventory sidebar grouped by lane, an SSR `/docs/search` route backed by a bundled public-docs index, and an SSR `/docs/*` viewer backed by metadata and bundled Markdown body snapshots for the current `docs/public/` page set. This is useful for design direction, navigation shape, source-path presentation, whole-inventory coverage, Markdown readability, search-result layout, and route-discovery evidence, but it does not complete the phases below. Generated navigation artifacts, generated static routes, generated search artifacts, frontmatter validation, and machine-readable docs outputs remain planned.
+The `apps/www` docs area currently provides a visual public-docs route scaffold for the marketing fixture. It includes the docs home, hand-authored static lane and topic pages, an in-app public-docs inventory sidebar grouped by lane, an SSR `/docs/search` route backed by a bundled public-docs index, an SSR `/docs/*` viewer backed by metadata and bundled Markdown body snapshots for the current `docs/public/` page set, and deterministic static build preview outputs for `docs-index.json`, `docs-navigation.json`, `llms.txt`, and `llms-full.txt`. This is useful for design direction, navigation shape, source-path presentation, whole-inventory coverage, Markdown readability, search-result layout, route-discovery evidence, and early AI-readable output shape, but it does not complete the phases below. Generated static routes, generated search artifacts, frontmatter validation, and the broader machine-readable docs pipeline remain planned.
 
 ## Goals
 
@@ -78,9 +78,12 @@ Exit criteria:
 
 ### Phase D: Machine-Readable Outputs
 
+Current `apps/www` static builds emit a deterministic preview slice of these outputs from the bundled docs inventory. The full phase remains planned because it still needs frontmatter parsing, generated route metadata, source validation, and renderer-integrated indexes.
+
 Planned tasks:
 
 - Generate `docs-index.json`.
+- Generate `docs-navigation.json`.
 - Generate `llms.txt`.
 - Generate `llms-full.txt`.
 - Include source path, canonical route, status, audience, category, and related docs.
@@ -152,4 +155,4 @@ Before public launch:
 - Implementing the docs site.
 - Adding frontmatter to every public page.
 - Choosing the renderer without an ADR.
-- Publishing generated `docs-index.json`, `llms.txt`, or `llms-full.txt`.
+- Treating the current `apps/www` preview `docs-index.json`, `docs-navigation.json`, `llms.txt`, or `llms-full.txt` as the final docs-site pipeline.

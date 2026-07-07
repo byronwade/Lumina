@@ -28,6 +28,21 @@ export const appStyles = String.raw`
   --code-bg: rgba(255, 255, 255, 0.62);
   --card-shadow: 0 14px 34px rgba(38, 66, 48, 0.08);
   --focus-contrast: #ffffff;
+  --console-bg: #f3f6f0;
+  --console-fg: #17211b;
+  --console-muted: rgba(23, 33, 27, 0.68);
+  --console-soft: rgba(36, 90, 65, 0.07);
+  --console-strong: rgba(255, 255, 255, 0.88);
+  --console-border: rgba(23, 33, 27, 0.12);
+  --console-divider: rgba(23, 33, 27, 0.08);
+  --console-accent: #245a41;
+  --console-accent-soft: rgba(36, 90, 65, 0.12);
+  --console-warm: #b96826;
+  --console-warm-soft: rgba(185, 104, 38, 0.1);
+  --console-grid: rgba(23, 33, 27, 0.055);
+  --console-active: #245a41;
+  --console-active-fg: #ffffff;
+  --console-shadow: 0 18px 42px rgba(38, 66, 48, 0.11);
 }
 
 html.dark {
@@ -58,6 +73,21 @@ html.dark {
   --code-bg: rgba(12, 16, 14, 0.62);
   --card-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
   --focus-contrast: #082014;
+  --console-bg: #102018;
+  --console-fg: #edf6ee;
+  --console-muted: rgba(237, 246, 238, 0.72);
+  --console-soft: rgba(247, 248, 245, 0.06);
+  --console-strong: rgba(16, 32, 24, 0.84);
+  --console-border: rgba(237, 246, 238, 0.13);
+  --console-divider: rgba(237, 246, 238, 0.12);
+  --console-accent: #8bd3a9;
+  --console-accent-soft: rgba(139, 211, 169, 0.16);
+  --console-warm: #f0c497;
+  --console-warm-soft: rgba(214, 155, 98, 0.11);
+  --console-grid: rgba(237, 246, 238, 0.055);
+  --console-active: #dcefe2;
+  --console-active-fg: #f4fff6;
+  --console-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
 }
 
 * {
@@ -223,8 +253,9 @@ html.dark .theme-icon-moon {
   display: grid;
   min-height: 72dvh;
   align-items: center;
-  grid-template-columns: minmax(0, 0.88fr) minmax(390px, 1.12fr);
-  gap: clamp(2rem, 6vw, 5rem);
+  max-width: 1320px;
+  grid-template-columns: minmax(420px, 0.75fr) minmax(620px, 1.25fr);
+  gap: clamp(2rem, 4vw, 4rem);
   padding-top: clamp(2.5rem, 7vw, 5rem);
 }
 
@@ -279,18 +310,18 @@ html.dark .theme-icon-moon {
   position: relative;
   min-height: 520px;
   overflow: hidden;
-  border: 1px solid rgba(23, 33, 27, 0.12);
+  border: 1px solid var(--console-border);
   border-radius: 10px;
-  background: #102018;
+  background: var(--console-bg);
   box-shadow: var(--shadow);
-  color: #edf6ee;
+  color: var(--console-fg);
 }
 
 .console-topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(237, 246, 238, 0.12);
+  border-bottom: 1px solid var(--console-divider);
   padding: 0.85rem 1rem;
 }
 
@@ -304,12 +335,12 @@ html.dark .theme-icon-moon {
   width: 0.65rem;
   height: 0.65rem;
   border-radius: 999px;
-  background: #c7d6c7;
+  background: var(--console-accent);
   opacity: 0.72;
 }
 
 .console-label {
-  color: rgba(237, 246, 238, 0.72);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.78rem;
 }
@@ -318,8 +349,8 @@ html.dark .theme-icon-moon {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
-  border-bottom: 1px solid rgba(237, 246, 238, 0.12);
-  background: rgba(237, 246, 238, 0.08);
+  border-bottom: 1px solid var(--console-divider);
+  background: var(--console-divider);
 }
 
 .console-metrics div {
@@ -327,8 +358,8 @@ html.dark .theme-icon-moon {
   min-width: 0;
   align-items: center;
   gap: 0.52rem;
-  background: rgba(16, 32, 24, 0.84);
-  color: rgba(237, 246, 238, 0.78);
+  background: var(--console-strong);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.68rem;
   padding: 0.78rem 0.9rem;
@@ -336,7 +367,7 @@ html.dark .theme-icon-moon {
 
 .console-metrics svg {
   flex: 0 0 auto;
-  color: #b9e9cc;
+  color: var(--console-accent);
 }
 
 .route-map {
@@ -345,8 +376,8 @@ html.dark .theme-icon-moon {
   margin: 1.25rem;
   border-radius: 8px;
   background:
-    linear-gradient(90deg, rgba(237, 246, 238, 0.055) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(237, 246, 238, 0.055) 1px, transparent 1px);
+    linear-gradient(90deg, var(--console-grid) 1px, transparent 1px),
+    linear-gradient(180deg, var(--console-grid) 1px, transparent 1px);
   background-size: 34px 34px;
 }
 
@@ -354,7 +385,8 @@ html.dark .theme-icon-moon {
   position: absolute;
   height: 2px;
   transform-origin: left center;
-  background: rgba(173, 198, 173, 0.55);
+  background: var(--console-accent);
+  opacity: 0.55;
 }
 
 .map-line-one {
@@ -383,9 +415,9 @@ html.dark .theme-icon-moon {
   display: grid;
   gap: 0.25rem;
   min-width: 9.4rem;
-  border: 1px solid rgba(237, 246, 238, 0.13);
+  border: 1px solid var(--console-border);
   border-radius: 8px;
-  background: rgba(247, 248, 245, 0.08);
+  background: var(--console-soft);
   padding: 0.8rem;
 }
 
@@ -399,7 +431,7 @@ html.dark .theme-icon-moon {
 }
 
 .map-node span {
-  color: rgba(237, 246, 238, 0.68);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.72rem;
 }
@@ -427,42 +459,42 @@ html.dark .theme-icon-moon {
 .console-log {
   display: grid;
   gap: 0.55rem;
-  border-top: 1px solid rgba(237, 246, 238, 0.12);
+  border-top: 1px solid var(--console-divider);
   padding: 1rem 1.25rem 1.25rem;
-  color: rgba(237, 246, 238, 0.78);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.76rem;
 }
 
 .relationship-board {
   display: grid;
-  grid-template-columns: minmax(210px, 0.9fr) minmax(320px, 1.28fr) minmax(210px, 0.9fr);
-  gap: 1rem;
+  grid-template-columns: minmax(225px, 0.92fr) minmax(380px, 1.36fr) minmax(230px, 0.95fr);
+  gap: 0.9rem;
   padding: 1rem;
 }
 
 .tree-panel {
   min-width: 0;
-  border: 1px solid rgba(237, 246, 238, 0.12);
+  border: 1px solid var(--console-border);
   border-radius: 8px;
-  background: rgba(247, 248, 245, 0.06);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.16);
+  background: var(--console-soft);
+  box-shadow: var(--console-shadow);
 }
 
 .source-panel {
   background:
-    linear-gradient(180deg, rgba(237, 246, 238, 0.075), rgba(237, 246, 238, 0.035)),
-    rgba(247, 248, 245, 0.045);
+    linear-gradient(180deg, var(--console-soft), transparent),
+    var(--console-strong);
 }
 
 .inspector-panel {
-  background: rgba(247, 248, 245, 0.08);
+  background: var(--console-strong);
 }
 
 .output-panel {
   background:
-    linear-gradient(180deg, rgba(214, 155, 98, 0.08), rgba(247, 248, 245, 0.04)),
-    rgba(247, 248, 245, 0.055);
+    linear-gradient(180deg, var(--console-warm-soft), transparent),
+    var(--console-strong);
 }
 
 .panel-title {
@@ -470,10 +502,10 @@ html.dark .theme-icon-moon {
   align-items: center;
   justify-content: space-between;
   gap: 0.7rem;
-  border-bottom: 1px solid rgba(237, 246, 238, 0.12);
+  border-bottom: 1px solid var(--console-divider);
   min-height: 3.5rem;
   padding: 0.85rem 0.95rem;
-  color: rgba(237, 246, 238, 0.86);
+  color: var(--console-fg);
   font-size: 0.82rem;
   font-weight: 700;
 }
@@ -498,14 +530,14 @@ html.dark .theme-icon-moon {
   align-items: center;
   border: 1px solid transparent;
   border-radius: 8px;
-  color: rgba(237, 246, 238, 0.78);
+  color: var(--console-muted);
   font-size: 0.82rem;
   min-height: 2.55rem;
   padding: 0.5rem 0.62rem;
 }
 
 .tree-folder {
-  color: rgba(237, 246, 238, 0.9);
+  color: var(--console-fg);
   font-weight: 700;
 }
 
@@ -515,12 +547,12 @@ html.dark .theme-icon-moon {
 }
 
 .tree-row-active {
-  border-color: rgba(187, 215, 188, 0.28);
+  border-color: var(--console-accent);
   background:
-    linear-gradient(90deg, rgba(139, 211, 169, 0.16), rgba(220, 239, 226, 0.06)),
-    rgba(220, 239, 226, 0.1);
-  color: #f4fff6;
-  box-shadow: inset 3px 0 0 rgba(139, 211, 169, 0.75);
+    linear-gradient(90deg, var(--console-accent-soft), transparent),
+    var(--console-soft);
+  color: var(--console-active-fg);
+  box-shadow: inset 3px 0 0 var(--console-accent);
 }
 
 .tree-row strong,
@@ -534,7 +566,7 @@ html.dark .theme-icon-moon {
 
 .tree-row small,
 .output-card small {
-  color: rgba(237, 246, 238, 0.58);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.68rem;
   font-weight: 500;
@@ -543,8 +575,8 @@ html.dark .theme-icon-moon {
 .tree-indent {
   width: 0.8rem;
   height: 1.35rem;
-  border-bottom: 1px solid rgba(237, 246, 238, 0.22);
-  border-left: 1px solid rgba(237, 246, 238, 0.22);
+  border-bottom: 1px solid var(--console-border);
+  border-left: 1px solid var(--console-border);
   border-bottom-left-radius: 6px;
 }
 
@@ -559,7 +591,7 @@ html.dark .theme-icon-moon {
   position: absolute;
   inset: 2rem 50% 2rem auto;
   width: 1px;
-  background: rgba(237, 246, 238, 0.16);
+  background: var(--console-divider);
   content: "";
 }
 
@@ -570,14 +602,14 @@ html.dark .theme-icon-moon {
   align-items: center;
   justify-content: space-between;
   gap: 0.35rem;
-  border: 1px solid rgba(237, 246, 238, 0.13);
+  border: 1px solid var(--console-border);
   border-radius: 8px;
-  background: #14291f;
-  color: rgba(237, 246, 238, 0.82);
+  background: var(--console-strong);
+  color: var(--console-fg);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.68rem;
   padding: 0.52rem 0.58rem;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  box-shadow: var(--console-shadow);
 }
 
 .output-stack {
@@ -590,16 +622,16 @@ html.dark .theme-icon-moon {
   grid-template-columns: auto 1fr;
   gap: 0.72rem;
   align-items: start;
-  border: 1px solid rgba(237, 246, 238, 0.12);
+  border: 1px solid var(--console-border);
   border-radius: 8px;
-  background: rgba(247, 248, 245, 0.075);
-  color: rgba(237, 246, 238, 0.86);
+  background: var(--console-soft);
+  color: var(--console-fg);
   padding: 0.82rem;
 }
 
 .output-card span {
   display: block;
-  color: rgba(237, 246, 238, 0.62);
+  color: var(--console-muted);
   font-size: 0.72rem;
 }
 
@@ -608,10 +640,10 @@ html.dark .theme-icon-moon {
   width: 2.15rem;
   height: 2.15rem;
   place-items: center;
-  border: 1px solid rgba(237, 246, 238, 0.1);
+  border: 1px solid var(--console-border);
   border-radius: 8px;
-  background: rgba(214, 155, 98, 0.11);
-  color: #f0c497;
+  background: var(--console-warm-soft);
+  color: var(--console-warm);
 }
 
 .output-card span,
@@ -630,9 +662,9 @@ html.dark .theme-icon-moon {
   grid-template-columns: auto 1fr;
   gap: 0.78rem;
   align-items: start;
-  border: 1px solid rgba(237, 246, 238, 0.14);
+  border: 1px solid var(--console-border);
   border-radius: 8px;
-  background: rgba(220, 239, 226, 0.1);
+  background: var(--console-accent-soft);
   padding: 0.85rem;
 }
 
@@ -642,8 +674,8 @@ html.dark .theme-icon-moon {
   height: 2.25rem;
   place-items: center;
   border-radius: 8px;
-  background: rgba(220, 239, 226, 0.14);
-  color: #d9f1de;
+  background: var(--console-strong);
+  color: var(--console-accent);
 }
 
 .route-summary-card span,
@@ -655,7 +687,7 @@ html.dark .theme-icon-moon {
 }
 
 .route-summary-card span {
-  color: rgba(237, 246, 238, 0.58);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.68rem;
   font-weight: 700;
@@ -663,12 +695,12 @@ html.dark .theme-icon-moon {
 }
 
 .route-summary-card strong {
-  color: #f5fff7;
+  color: var(--console-fg);
   font-size: 0.95rem;
 }
 
 .route-summary-card small {
-  color: rgba(237, 246, 238, 0.62);
+  color: var(--console-muted);
   font-size: 0.76rem;
 }
 
@@ -683,9 +715,9 @@ html.dark .theme-icon-moon {
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 0.62rem;
   align-items: center;
-  border: 1px solid rgba(237, 246, 238, 0.1);
+  border: 1px solid var(--console-border);
   border-radius: 8px;
-  background: rgba(16, 32, 24, 0.42);
+  background: var(--console-soft);
   padding: 0.7rem;
 }
 
@@ -698,13 +730,13 @@ html.dark .theme-icon-moon {
 }
 
 .edge-node {
-  color: rgba(237, 246, 238, 0.76);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.7rem;
 }
 
 .edge-node-target {
-  color: #f5fff7;
+  color: var(--console-fg);
   font-family: "Geist", "Aptos", "Segoe UI", system-ui, sans-serif;
   font-size: 0.82rem;
   font-weight: 720;
@@ -715,10 +747,10 @@ html.dark .theme-icon-moon {
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
-  border: 1px solid rgba(237, 246, 238, 0.12);
+  border: 1px solid var(--console-border);
   border-radius: 999px;
-  background: rgba(237, 246, 238, 0.08);
-  color: #eff9f1;
+  background: var(--console-strong);
+  color: var(--console-fg);
   font-size: 0.66rem;
   justify-self: start;
   padding: 0.32rem 0.45rem;
@@ -726,7 +758,7 @@ html.dark .theme-icon-moon {
 }
 
 .edge-relation small {
-  color: rgba(237, 246, 238, 0.5);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.6rem;
 }
@@ -743,10 +775,10 @@ html.dark .theme-icon-moon {
   grid-template-columns: auto 1fr;
   gap: 0.48rem;
   align-items: start;
-  border: 1px solid rgba(237, 246, 238, 0.11);
+  border: 1px solid var(--console-border);
   border-radius: 8px;
-  background: rgba(247, 248, 245, 0.06);
-  color: rgba(237, 246, 238, 0.82);
+  background: var(--console-soft);
+  color: var(--console-fg);
   padding: 0.65rem;
 }
 
@@ -764,7 +796,7 @@ html.dark .theme-icon-moon {
 }
 
 .evidence-card small {
-  color: rgba(237, 246, 238, 0.56);
+  color: var(--console-muted);
   font-size: 0.66rem;
 }
 
@@ -779,10 +811,10 @@ html.dark .theme-icon-moon {
   max-width: 100%;
   align-items: center;
   gap: 0.34rem;
-  border: 1px solid rgba(237, 246, 238, 0.11);
+  border: 1px solid var(--console-border);
   border-radius: 999px;
-  background: rgba(247, 248, 245, 0.06);
-  color: rgba(237, 246, 238, 0.72);
+  background: var(--console-soft);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.66rem;
   padding: 0.36rem 0.5rem;
@@ -793,15 +825,15 @@ html.dark .theme-icon-moon {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  border-top: 1px solid rgba(237, 246, 238, 0.12);
-  background: rgba(237, 246, 238, 0.08);
-  color: rgba(237, 246, 238, 0.74);
+  border-top: 1px solid var(--console-divider);
+  background: var(--console-divider);
+  color: var(--console-muted);
   font-family: "Geist Mono", "Cascadia Code", monospace;
   font-size: 0.72rem;
 }
 
 .relationship-footer span {
-  background: #102018;
+  background: var(--console-strong);
   padding: 0.8rem 1rem;
 }
 
@@ -2142,6 +2174,33 @@ html.dark .ui-badge-warning {
   height: auto;
 }
 
+@media (max-width: 1240px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 980px;
+  }
+
+  .relationship-board {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  }
+
+  .output-panel {
+    grid-column: 1 / -1;
+  }
+
+  .output-stack {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 900px) {
   .site-header {
     display: grid;
@@ -2174,7 +2233,6 @@ html.dark .ui-badge-warning {
     justify-self: end;
   }
 
-  .hero-section,
   .speed-layout,
   .map-preview-grid,
   .page-grid,
@@ -2196,6 +2254,10 @@ html.dark .ui-badge-warning {
   }
 
   .relationship-board {
+    grid-template-columns: 1fr;
+  }
+
+  .output-stack {
     grid-template-columns: 1fr;
   }
 

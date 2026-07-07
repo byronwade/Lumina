@@ -1,7 +1,9 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { dirname, relative, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 import { loadLuminaConfig, writeLuminaMap, writeRenderManifest, writeRoutesManifest } from "@lumina/compiler";
 import type { LuminaAdapter, NormalizedLuminaConfig, RouteNode } from "@lumina/core";
+import { getAffectedRoutes } from "@lumina/map";
 import { createElement, type ReactNode } from "react";
 import { renderToString } from "react-dom/server";
 import { createServer, type ModuleNode, type ViteDevServer } from "vite";
@@ -160,7 +162,7 @@ export async function startLuminaDevServer(options: LuminaDevServerOptions): Pro
               const rawUrl = request.url ?? "/";
               const url = normalizeRequestPath(rawUrl);
               if (url.startsWith("/@lumina/client/")) {
-                await serveClientBundle(appRoot, url, response);
+                await serveClientBundle(appRoot, url, response, routeState.routes);
                 return;
               }
               if (shouldPassThroughToVite(request.method, url)) {
@@ -231,7 +233,10 @@ export async function startLuminaDevServer(options: LuminaDevServerOptions): Pro
             });
           },
           handleHotUpdate({ file, server, modules, timestamp }) {
-            if (!isAppSourceFile(appRoot, file)) return;
+            if (!isAppSourceFile(appRoot, file)) {
+              writeSourceHmrReport(appRoot, file);
+              return;
+            }
             routeState = regenerateArtifacts(appRoot, file);
             void queueClientBundleWrite().catch(() => undefined);
             const invalidatedModules = new Set<ModuleNode>();
@@ -369,6 +374,9 @@ async function buildLuminaStaticAppLocked(options: LuminaDevServerOptions, appRo
   });
   outputs.push(...ssrOutputs);
 
+  const docsOutputs = await timePhase(phaseTimings, "public docs artifacts", () => writePublicDocsArtifacts(appRoot));
+  outputs.push(...docsOutputs);
+
   const serverEntryPath = await timePhase(phaseTimings, "adapter output", () => {
     copyJsonArtifact(appRoot, ".lumina/routes.json", "dist/routes.manifest.json", routeState.manifest);
     copyJsonArtifact(appRoot, ".lumina/render-manifest.json", "dist/render.manifest.json", routeState.renderManifest);
@@ -471,11 +479,26 @@ function regenerateBuildArtifacts(appRoot: string, outputDir: string, phaseTimin
   };
 }
 
+function writeSourceHmrReport(appRoot: string, changedFile: string): void {
+  if (!isLocalSourceFile(appRoot, changedFile)) return;
+
+  const relativeChangedFile = toRelativePath(appRoot, changedFile);
+  const mapResult = writeLuminaMap({ appRoot });
+  const affectedRoutes = getAffectedRoutes(mapResult.map, relativeChangedFile);
+  if (affectedRoutes.length === 0) return;
+
+  writeHmrReport(appRoot, {
+    changedFile: relativeChangedFile,
+    routes: affectedRoutes,
+    artifacts: [".lumina/hmr-report.json", ".lumina/map.json"],
+  });
+}
+
 function writeHmrReport(
   appRoot: string,
   report: {
     changedFile: string;
-    routes: RouteNode[];
+    routes: Array<Pick<RouteNode, "id" | "path" | "sourceFile"> & { reason?: string }>;
     artifacts: string[];
   },
 ): void {
@@ -494,8 +517,9 @@ function writeHmrReport(
         id: route.id,
         path: route.path,
         sourceFile: route.sourceFile,
+        ...(route.reason ? { reason: route.reason } : {}),
       })),
-      artifacts: report.artifacts,
+      artifacts: report.artifacts.sort(compareStrings),
     }),
     "utf8",
   );
@@ -569,6 +593,7 @@ async function writeClientBundles(appRoot: string, routes: RouteNode[]): Promise
   rmSync(entryRoot, { recursive: true, force: true });
   rmSync(outdir, { recursive: true, force: true });
   mkdirSync(entryRoot, { recursive: true });
+  mkdirSync(outdir, { recursive: true });
 
   const entrypoints = routes
     .filter((route) => route.kind === "page")
@@ -702,6 +727,213 @@ async function writeSsrServerBundle(appRoot: string, routes: RouteNode[]): Promi
   return ["dist/server/ssr-routes.js"];
 }
 
+async function writePublicDocsArtifacts(appRoot: string): Promise<string[]> {
+  const indexModulePath = resolve(appRoot, "lib", "docs-index.ts");
+  const sourceModulePath = resolve(appRoot, "lib", "public-docs-source.ts");
+  if (!existsSync(indexModulePath) || !existsSync(sourceModulePath)) return [];
+
+  const [indexModule, sourceModule] = await Promise.all([
+    importAppModule(indexModulePath),
+    importAppModule(sourceModulePath),
+  ]);
+  const docsIndex = Array.isArray(indexModule.docsIndex) ? indexModule.docsIndex.map(normalizeDocsIndexEntry) : [];
+  const markdownRecords = Array.isArray(sourceModule.publicDocsMarkdown)
+    ? sourceModule.publicDocsMarkdown.map(normalizeDocsMarkdownRecord)
+    : [];
+  if (docsIndex.length === 0) return [];
+
+  const markdownBySlug = new Map(markdownRecords.map((record) => [record.slug, record]));
+  const docsIndexArtifact = {
+    schemaVersion: "lumina.docs-index.v0",
+    docsVersion: "unreleased",
+    pages: docsIndex.map((entry) => ({
+      slug: entry.slug,
+      href: entry.href,
+      lane: entry.lane,
+      title: entry.title,
+      description: entry.description,
+      status: entry.status,
+      source: entry.source,
+      related: entry.related,
+      headings: entry.headings,
+      keywords: entry.keywords,
+      searchText: entry.searchText,
+    })),
+  };
+  const docsNavigationArtifact = normalizeDocsNavigationArtifact(indexModule.docsNavigation);
+
+  const llmsTxt = createLlmsTxt(docsIndex);
+  const llmsFullTxt = createLlmsFullTxt(docsIndex, markdownBySlug);
+  const outputs = [
+    "dist/public/docs-index.json",
+    "dist/public/docs-navigation.json",
+    "dist/public/llms.txt",
+    "dist/public/llms-full.txt",
+  ];
+
+  writeJsonArtifact(appRoot, outputs[0]!, docsIndexArtifact);
+  writeJsonArtifact(appRoot, outputs[1]!, docsNavigationArtifact);
+  writeTextArtifact(appRoot, outputs[2]!, llmsTxt);
+  writeTextArtifact(appRoot, outputs[3]!, llmsFullTxt);
+  return outputs;
+}
+
+async function importAppModule(modulePath: string): Promise<Record<string, unknown>> {
+  const version = statSync(modulePath).mtimeMs;
+  return await import(`${pathToFileURL(modulePath).href}?mtime=${version}`);
+}
+
+type PublicDocsIndexArtifactEntry = {
+  slug: string;
+  href: string;
+  lane: string;
+  title: string;
+  description: string;
+  status: string;
+  source: string;
+  related: string[];
+  headings: string[];
+  keywords: string[];
+  searchText: string;
+};
+
+type PublicDocsMarkdownArtifactRecord = {
+  slug: string;
+  source: string;
+  markdown: string;
+};
+
+type PublicDocsNavigationArtifact = {
+  schemaVersion: string;
+  docsVersion: string;
+  sections: Array<{
+    title: string;
+    kind: string;
+    links: Array<{
+      title: string;
+      href: string;
+      status: string;
+      source: string;
+      lane: string;
+      description: string;
+    }>;
+  }>;
+};
+
+function normalizeDocsIndexEntry(value: unknown): PublicDocsIndexArtifactEntry {
+  const entry = isRecord(value) ? value : {};
+  return {
+    slug: stringValue(entry.slug),
+    href: stringValue(entry.href),
+    lane: stringValue(entry.lane),
+    title: stringValue(entry.title),
+    description: stringValue(entry.description),
+    status: stringValue(entry.status),
+    source: normalizeArtifactPath(stringValue(entry.source)),
+    related: stringArrayValue(entry.related).map(normalizeArtifactPath).sort(compareStrings),
+    headings: stringArrayValue(entry.headings),
+    keywords: stringArrayValue(entry.keywords).sort(compareStrings),
+    searchText: stringValue(entry.searchText),
+  };
+}
+
+function normalizeDocsMarkdownRecord(value: unknown): PublicDocsMarkdownArtifactRecord {
+  const record = isRecord(value) ? value : {};
+  return {
+    slug: stringValue(record.slug),
+    source: normalizeArtifactPath(stringValue(record.source)),
+    markdown: stringValue(record.markdown).replace(/\r\n/g, "\n"),
+  };
+}
+
+function normalizeDocsNavigationArtifact(value: unknown): PublicDocsNavigationArtifact {
+  const navigation = isRecord(value) ? value : {};
+  return {
+    schemaVersion: stringValue(navigation.schemaVersion) || "lumina.docs-navigation.v0",
+    docsVersion: stringValue(navigation.docsVersion) || "unreleased",
+    sections: arrayValue(navigation.sections).map((sectionValue) => {
+      const section = isRecord(sectionValue) ? sectionValue : {};
+      return {
+        title: stringValue(section.title),
+        kind: stringValue(section.kind),
+        links: arrayValue(section.links).map((linkValue) => {
+          const link = isRecord(linkValue) ? linkValue : {};
+          return {
+            title: stringValue(link.title),
+            href: stringValue(link.href),
+            status: stringValue(link.status),
+            source: normalizeArtifactPath(stringValue(link.source)),
+            lane: stringValue(link.lane),
+            description: stringValue(link.description),
+          };
+        }),
+      };
+    }),
+  };
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function stringValue(value: unknown): string {
+  return typeof value === "string" ? value : "";
+}
+
+function stringArrayValue(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is string => typeof item === "string");
+}
+
+function arrayValue(value: unknown): unknown[] {
+  return Array.isArray(value) ? value : [];
+}
+
+function normalizeArtifactPath(value: string): string {
+  return value.replace(/\\/g, "/").replace(/^\.\//, "");
+}
+
+function createLlmsTxt(entries: PublicDocsIndexArtifactEntry[]): string {
+  return [
+    "# Lumina Documentation",
+    "",
+    "> Public docs index for Lumina. Generated from the bundled `docs/public/` website inventory.",
+    "",
+    "## Pages",
+    "",
+    ...entries.map((entry) => `- [${entry.title}](${entry.href}) - ${entry.status}; ${entry.lane}; source: ${entry.source}`),
+    "",
+  ].join("\n");
+}
+
+function createLlmsFullTxt(
+  entries: PublicDocsIndexArtifactEntry[],
+  markdownBySlug: Map<string, PublicDocsMarkdownArtifactRecord>,
+): string {
+  const sections = entries.map((entry) => {
+    const markdown = markdownBySlug.get(entry.slug)?.markdown.trim() ?? "";
+    return [
+      `# ${entry.title}`,
+      "",
+      `Route: ${entry.href}`,
+      `Status: ${entry.status}`,
+      `Lane: ${entry.lane}`,
+      `Source: ${entry.source}`,
+      "",
+      markdown,
+      "",
+    ].join("\n");
+  });
+
+  return [
+    "# Lumina Full Documentation",
+    "",
+    "> Full public docs text for AI-assisted reading. Generated from the bundled `docs/public/` website inventory.",
+    "",
+    ...sections,
+  ].join("\n");
+}
+
 function createSsrRoutesModule(routes: RouteNode[], fromFile: string, appRoot: string): string {
   const imports = [
     `import { createElement } from "react";`,
@@ -751,7 +983,12 @@ function clientEntryUrl(route: RouteNode, basePath = "/@lumina/client"): string 
   return `${basePath}/${route.id}.js`;
 }
 
-async function serveClientBundle(appRoot: string, url: string, response: { statusCode: number; setHeader: (name: string, value: string) => void; end: (body: string | Uint8Array) => void }): Promise<void> {
+async function serveClientBundle(
+  appRoot: string,
+  url: string,
+  response: { statusCode: number; setHeader: (name: string, value: string) => void; end: (body: string | Uint8Array) => void },
+  routes: RouteNode[],
+): Promise<void> {
   const requestedFile = url.slice("/@lumina/client/".length);
   if (!/^[a-zA-Z0-9.-]+\.js$/.test(requestedFile)) {
     response.statusCode = 400;
@@ -761,6 +998,10 @@ async function serveClientBundle(appRoot: string, url: string, response: { statu
   }
 
   const bundlePath = resolve(appRoot, ".lumina", "client", requestedFile);
+  if (!existsSync(bundlePath)) {
+    await writeClientBundles(appRoot, routes);
+  }
+
   if (!existsSync(bundlePath)) {
     response.statusCode = 404;
     response.setHeader("Content-Type", "text/plain; charset=utf-8");
@@ -878,6 +1119,15 @@ function isAppSourceFile(appRoot: string, file: string): boolean {
   const normalized = toRelativePath(appRoot, file);
   return normalized.startsWith("app/")
     && (normalized.endsWith(".ts") || normalized.endsWith(".tsx") || normalized.endsWith(".js") || normalized.endsWith(".jsx"));
+}
+
+function isLocalSourceFile(appRoot: string, file: string): boolean {
+  const normalized = toRelativePath(appRoot, file);
+  if (normalized === ".." || normalized.startsWith("../")) return false;
+  if (normalized.startsWith(".lumina/")) return false;
+  if (normalized.startsWith("dist/")) return false;
+  if (normalized.startsWith("node_modules/")) return false;
+  return normalized.endsWith(".ts") || normalized.endsWith(".tsx") || normalized.endsWith(".js") || normalized.endsWith(".jsx");
 }
 
 function isAppDirectory(appRoot: string, directory: string): boolean {

@@ -10,7 +10,7 @@ This page defines the planned content model for turning `docs/public/` into an a
 
 Lumina already has public-facing Markdown under `docs/public/`, but a polished docs site needs more than pages. It needs consistent metadata, navigation, route rules, source links, status labels, version context, machine-readable outputs, and validation. Mature docs systems use frontmatter, sidebar configuration, file-based routing, generated indexes, and page-level metadata to keep documentation navigable for humans and agents.
 
-The current `apps/www` docs area is a visual route scaffold for this future system. It includes `/docs` plus hand-authored static pages for start, concepts, guides, reference, deployment, and community lanes, and an SSR `/docs/*` viewer backed by metadata and bundled Markdown body snapshots for the current `docs/public/` page set. The site can demonstrate navigation shape, source-path cards, status language, whole-inventory coverage, and readable Markdown bodies, but it is not yet a generated sidebar, search index, frontmatter parser, generated static docs router, or machine-readable docs output.
+The current `apps/www` docs area is a visual route scaffold for this future system. It includes `/docs` plus hand-authored static pages for start, concepts, guides, reference, deployment, and community lanes, an SSR `/docs/search` route, an SSR `/docs/*` viewer backed by metadata and bundled Markdown body snapshots for the current `docs/public/` page set, and deterministic preview outputs for `docs-index.json`, `docs-navigation.json`, `llms.txt`, and `llms-full.txt`. The site can demonstrate navigation shape, source-path cards, status language, whole-inventory coverage, readable Markdown bodies, search layout, and early machine-readable output shape, but it is not yet a frontmatter parser, generated static docs router, or full machine-readable docs pipeline.
 
 Research backing:
 
@@ -177,6 +177,7 @@ This supports docs review, agent navigation, and public transparency.
 The docs site should eventually generate or serve:
 
 - `docs-index.json`.
+- `docs-navigation.json`.
 - `llms.txt`.
 - `llms-full.txt`.
 - Markdown views of public pages if the renderer outputs HTML.
@@ -194,6 +195,7 @@ Before public launch, validate that:
 - Every reference page links to deeper internal docs.
 - Navigation matches [Website Content Map](website-content-map.md).
 - `docs-index.json` matches the public page set.
+- `docs-navigation.json` matches the public navigation sections.
 - `llms.txt` links to current public docs and upgrade guides.
 - No public page claims unimplemented behavior works.
 - Docs navigation, search, code blocks, copy buttons, and status labels remain usable by keyboard and do not rely on color alone.

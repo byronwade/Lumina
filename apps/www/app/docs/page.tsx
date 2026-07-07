@@ -3,14 +3,16 @@ import { DocsSidebar } from "../../components/DocsSidebar";
 import { PageHeader } from "../../components/PageHeader";
 import { Badge } from "../../components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
-import { docsIndexByLane, docsIndexStats } from "../../lib/docs-index";
-import { docsArticles, docsNavGroups, publicDocsPages } from "../../lib/docs-content";
+import { docsIndexStats, docsNavigation } from "../../lib/docs-index";
+import { docsArticles, publicDocsPages } from "../../lib/docs-content";
 
 const featuredDocs = docsArticles.filter((article) =>
   ["start", "concepts/app-graph", "reference/cli", "reference/routing"].includes(article.slug),
 );
 
 const referenceLanes = publicDocsPages.filter((article) => article.lane === "Reference");
+const curatedNavigationSections = docsNavigation.sections.filter((section) => section.kind === "curated");
+const inventoryNavigationSections = docsNavigation.sections.filter((section) => section.kind === "inventory");
 
 export default function DocsPage() {
   return (
@@ -31,7 +33,7 @@ export default function DocsPage() {
             <p>
               The source Markdown files remain canonical today. This public layer now has static docs routes for the
               main lanes, an SSR Markdown viewer for mapped public docs, and a search page backed by the bundled docs
-              inventory. Generated sidebars, generated static docs routes, and frontmatter parsing remain planned.
+              inventory. Generated static docs routes, generated search artifacts, and frontmatter parsing remain planned.
             </p>
           </div>
 
@@ -91,7 +93,7 @@ export default function DocsPage() {
           </section>
 
           <section className="docs-lane-grid" aria-label="Documentation lanes">
-            {docsNavGroups.map((group) => (
+            {curatedNavigationSections.map((group) => (
               <Card className="docs-lane-card" key={group.title}>
                 <CardHeader>
                   <div className="feature-icon">
@@ -133,13 +135,13 @@ export default function DocsPage() {
               </p>
             </div>
             <div className="docs-full-index-grid">
-              {docsIndexByLane().map((group) => (
-                <Card className="docs-index-card" key={group.lane}>
+              {inventoryNavigationSections.map((group) => (
+                <Card className="docs-index-card" key={group.title}>
                   <CardHeader>
-                    <CardTitle>{group.lane}</CardTitle>
+                    <CardTitle>{group.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    {group.entries.map((entry) => (
+                    {group.links.map((entry) => (
                       <a href={entry.href} key={entry.href}>
                         <span>{entry.title}</span>
                         <Badge variant={entry.status === "Implemented" ? "success" : entry.status === "Planned" ? "warning" : "secondary"}>

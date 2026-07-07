@@ -13,18 +13,20 @@ the fixture can prove the marketing and docs surface without changing Lumina's b
 contract.
 
 The root layout supports light and dark mode through shadcn-style CSS variables, the `dark` class on
-`html`, a header theme toggle, and `localStorage` persistence under `lumina-theme`. The inline CSS
-path and `app/globals.css` should stay aligned until Lumina implements direct CSS asset delivery for
-the app renderer.
+`html`, a header theme toggle, and `localStorage` persistence under `lumina-theme`. The homepage graph
+relationship preview uses the same theme tokens so light and dark mode both apply to the primary
+visual surface. The inline CSS path and `app/globals.css` should stay aligned until Lumina implements
+direct CSS asset delivery for the app renderer.
 
 The docs area is a public-docs route scaffold inspired by documentation systems such as Next.js: it
 has a docs home, lane pages, topic pages, source-path cards, reference lanes, active sidebar
 navigation, status language, an SSR `/docs/search` route backed by a bundled docs index, and an SSR
 `/docs/*` inventory viewer backed by metadata for the current `docs/public/` page set. The catch-all
 route now renders a bundled Markdown body snapshot for mapped public docs pages, and docs pages use a
-complete in-app public-docs inventory sidebar grouped by lane. It is not yet a frontmatter parser,
-generated sidebar artifact, generated static docs router, generated search artifact, or
-machine-readable docs output.
+complete in-app public-docs inventory sidebar grouped by lane. Static builds also emit deterministic
+preview artifacts at `dist/public/docs-index.json`, `dist/public/docs-navigation.json`,
+`dist/public/llms.txt`, and `dist/public/llms-full.txt`. It is not yet a frontmatter parser,
+generated static docs router, or broader machine-readable docs pipeline.
 
 ## Routes
 
@@ -71,12 +73,16 @@ These commands generate and inspect:
 - `dist/routes.manifest.json`
 - `dist/render.manifest.json`
 - `dist/adapter.manifest.json`
+- `dist/public/docs-index.json`
+- `dist/public/docs-navigation.json`
+- `dist/public/llms.txt`
+- `dist/public/llms-full.txt`
 - `dist/public/*.html`
 
 ## Known Limitations
 
 - Hydration is currently proven for the root marketing route and counter fixture, not for a complete
   application interaction model.
-- Component-level HMR is not implemented yet.
+- Broader component-level browser HMR is not implemented yet beyond direct local imported component affected-route reports.
 - Production SSR/API serving is not implemented yet.
 - Benchmark pages describe status only and make no performance claims.

@@ -1,6 +1,5 @@
 import { ArrowLeft, Search } from "lucide-react";
-import { docsNavGroups } from "../lib/docs-content";
-import { docsIndexByLane, docsIndexStats } from "../lib/docs-index";
+import { docsIndexStats, docsNavigation } from "../lib/docs-index";
 import type { MarkdownHeading } from "./MarkdownBody";
 
 export function DocsSidebar({
@@ -42,7 +41,7 @@ export function DocsSidebar({
         </nav>
       ) : null}
 
-      {docsNavGroups.map((group) => (
+      {docsNavigation.sections.filter((section) => section.kind === "curated").map((group) => (
         <nav className="docs-nav-group" key={group.title} aria-label={group.title}>
           <h2>{group.title}</h2>
           {group.links.map((link) => (
@@ -55,10 +54,10 @@ export function DocsSidebar({
 
       <div className="docs-sidebar-divider" />
 
-      {docsIndexByLane().map((group) => (
-        <nav className="docs-nav-group docs-inventory-group" key={group.lane} aria-label={`${group.lane} public docs`}>
-          <h2>{group.lane}</h2>
-          {group.entries.map((entry) => (
+      {docsNavigation.sections.filter((section) => section.kind === "inventory").map((group) => (
+        <nav className="docs-nav-group docs-inventory-group" key={group.title} aria-label={`${group.title} public docs`}>
+          <h2>{group.title}</h2>
+          {group.links.map((entry) => (
             <a aria-current={entry.href === activeHref ? "page" : undefined} href={entry.href} key={entry.href}>
               <span>{entry.title}</span>
               <small>{entry.status}</small>

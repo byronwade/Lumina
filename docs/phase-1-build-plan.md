@@ -182,7 +182,7 @@ bun run performance:check
 
 If a command is not available yet, the PR must say so and update the relevant docs. Do not leave stale claims that the command passes.
 
-Tests should prove package entrypoints, shared type surfaces, and explicitly implemented compiler, CLI, dev-server, static-build, or adapter behavior. They should not imply production adapter behavior beyond static built-output serving, CLI behavior beyond implemented route/inspect/map/bench-list/dev/build/start paths, component-level HMR, benchmark execution, or generated artifacts beyond `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/client/*.js`, `dist/public/_lumina/client/*.js`, and `.lumina/hmr-report.json` exist.
+Tests should prove package entrypoints, shared type surfaces, and explicitly implemented compiler, CLI, dev-server, static-build, or adapter behavior. They should not imply production adapter behavior beyond static built-output serving, CLI behavior beyond implemented route/inspect/map/bench-list/dev/build/start paths, broader component-level browser HMR, benchmark execution, or generated artifacts beyond `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/client/*.js`, `dist/public/_lumina/client/*.js`, and `.lumina/hmr-report.json` exist.
 
 When benchmark skeletons are added, checks should verify path existence, deterministic fixture naming, and claim hygiene only. They should not treat skeleton files as performance evidence.
 

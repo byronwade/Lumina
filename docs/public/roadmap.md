@@ -12,7 +12,7 @@ Phase 0 defined the product direction, architecture, package responsibilities, d
 
 The Bun workspace, package placeholders, shared core types, CI, enforcement scripts, `@lumina/compiler` route discovery, `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, `.lumina/build-trace.json`, `.lumina/perf.report.json`, `lumina routes --json`, `lumina inspect --json`, `lumina inspect why`, minimal `lumina dev` Vite SSR route serving, static/SSR `lumina build`, static/SSR `lumina start` through `@lumina/adapter-bun`, scaffolded `apps/www`, verified `examples/basic` starter evidence, runnable `examples/blog-seo` content evidence, runnable generated large-route fixture evidence, a scaffolded multi-app workspace fixture, and early benchmark/status skeletons exist. Phase 1A shared core model hardening is implemented in `@lumina/core`. Full SSR/API production runtime implementation is still planned beyond generated SSR page routes, and API production runtime implementation is still planned.
 
-The next implementation path is completing component-level HMR and production hardening after the dev and production hydration proof.
+The next implementation path is completing component-level HMR and production hardening after the dev and production hydration proof. Direct local imported component affected-route reports already exist.
 
 MVP Alpha is the upcoming prototype target: route discovery, basic render modes, generated `.lumina/routes.json`, `.lumina/render-manifest.json`, `.lumina/map.json`, CLI inspection, and a demo app.
 
