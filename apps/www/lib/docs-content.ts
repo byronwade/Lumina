@@ -33,6 +33,7 @@ export type DocsArticle = {
     label: string;
     href: string;
   }>;
+  related?: string[];
 };
 
 export type PublicDocsPage = {
@@ -812,6 +813,29 @@ export const docsNavGroups: Array<{ title: string; links: Array<DocsArticle | Pu
   },
 ];
 
+export function getAdjacentDocsLinks(href: string): {
+  previous?: { label: string; href: string };
+  next?: { label: string; href: string };
+} {
+  const seen = new Set<string>();
+  const orderedLinks = docsNavGroups
+    .flatMap((group) => group.links)
+    .filter((link) => {
+      if (seen.has(link.href)) return false;
+      seen.add(link.href);
+      return true;
+    });
+  const index = orderedLinks.findIndex((link) => link.href === href);
+  if (index === -1) return {};
+
+  const previous = orderedLinks[index - 1];
+  const next = orderedLinks[index + 1];
+  return {
+    previous: previous ? { label: previous.title, href: previous.href } : undefined,
+    next: next ? { label: next.title, href: next.href } : undefined,
+  };
+}
+
 export function getDocsArticle(slug: string): DocsArticle {
   const article = docsArticles.find((candidate) => candidate.slug === slug);
   if (!article) {
@@ -864,5 +888,6 @@ export function createPublicDocsArticle(page: PublicDocsPage): DocsArticle {
           { label: "Reference", href: "/docs/reference" },
           { label: "Roadmap", href: "/roadmap" },
         ],
+    related: page.related,
   };
 }

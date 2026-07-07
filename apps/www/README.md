@@ -10,7 +10,9 @@ The public pages use a local shadcn-style source component layer under `componen
 `components.json` file for future shadcn CLI additions, and a Tailwind v4 entry file at
 `app/globals.css`. The current Lumina renderer still inlines the app-owned CSS from `styles.ts` so
 the fixture can prove the marketing and docs surface without changing Lumina's broader CSS delivery
-contract.
+contract. The About, Benchmarks, Examples, and Roadmap pages use the same card, badge, icon, evidence
+strip, and source-path patterns as the docs surface so the public app reads as one coherent
+framework site.
 
 The root layout supports light and dark mode through shadcn-style CSS variables, the `dark` class on
 `html`, a header theme toggle, and `localStorage` persistence under `lumina-theme`. The homepage graph
@@ -23,8 +25,9 @@ has a docs home, lane pages, topic pages, source-path cards, reference lanes, ac
 navigation, status language, an SSR `/docs/search` route backed by a bundled docs index, and an SSR
 `/docs/*` inventory viewer backed by metadata for the current `docs/public/` page set. The catch-all
 route now renders a bundled Markdown body snapshot for mapped public docs pages, and docs pages use a
-complete in-app public-docs inventory sidebar grouped by lane. Static builds also emit deterministic
-preview artifacts at `dist/public/docs-index.json`, `dist/public/docs-navigation.json`,
+complete in-app public-docs inventory sidebar grouped by lane. Docs article pages include route/source
+metadata, previous and next navigation, related source-doc cards, and keep-reading links. Static builds
+also emit deterministic preview artifacts at `dist/public/docs-index.json`, `dist/public/docs-navigation.json`,
 `dist/public/llms.txt`, and `dist/public/llms-full.txt`. It is not yet a frontmatter parser,
 generated static docs router, or broader machine-readable docs pipeline.
 

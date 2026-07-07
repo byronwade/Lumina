@@ -1090,6 +1090,163 @@ html.dark .theme-icon-moon {
   gap: 0.75rem;
 }
 
+.section-heading {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 760px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4vw, 3.4rem);
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted-foreground);
+}
+
+.evidence-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--border);
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.evidence-strip div {
+  display: grid;
+  gap: 0.35rem;
+  background: var(--surface);
+  padding: 1rem;
+}
+
+.evidence-strip span {
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.evidence-strip strong {
+  color: var(--foreground);
+  font-family: "Geist Mono", "Cascadia Code", monospace;
+  font-size: clamp(1.6rem, 4vw, 2.55rem);
+  line-height: 0.95;
+}
+
+.evidence-strip p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+}
+
+.proof-loop-section,
+.benchmark-evidence-panel,
+.planned-example-section {
+  display: grid;
+  gap: 1rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.proof-loop-grid,
+.artifact-card-grid,
+.roadmap-lane-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.proof-loop-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--card-shadow);
+  padding: 1rem;
+}
+
+.proof-loop-index {
+  display: grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--foreground);
+  color: var(--background);
+  font-family: "Geist Mono", "Cascadia Code", monospace;
+  font-size: 0.78rem;
+}
+
+.proof-loop-card > div:last-child,
+.artifact-card .ui-card-content,
+.roadmap-lane-card .ui-card-content {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.proof-loop-card h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.proof-loop-card p,
+.artifact-card p,
+.roadmap-lane-card p {
+  margin: 0;
+  color: var(--muted-foreground);
+}
+
+.proof-loop-card code,
+.artifact-card code {
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--code-bg);
+  color: var(--foreground);
+  font-family: "Geist Mono", "Cascadia Code", monospace;
+  font-size: 0.78rem;
+  padding: 0.36rem 0.48rem;
+  overflow-wrap: anywhere;
+}
+
+.surface-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.surface-panel > div {
+  display: grid;
+  gap: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 1.15rem;
+}
+
+.surface-panel h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 3vw, 2.1rem);
+  line-height: 1.05;
+}
+
+.surface-panel p {
+  margin: 0;
+  color: var(--muted-foreground);
+}
+
 .compact-callout {
   align-items: start;
 }
@@ -1105,6 +1262,56 @@ html.dark .theme-icon-moon {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.examples-proof-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.examples-proof-list span {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.92rem;
+}
+
+.examples-proof-list svg {
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.evidence-checklist {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.evidence-checklist div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.55rem;
+  align-items: start;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0.9rem;
+}
+
+.evidence-checklist span {
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 999px;
+  background: var(--primary);
+  margin-top: 0.42rem;
+}
+
+.evidence-checklist p {
+  margin: 0;
+  color: var(--foreground);
+  font-weight: 650;
 }
 
 .card-title-row {
@@ -1133,6 +1340,7 @@ html.dark .theme-icon-moon {
   display: grid;
   gap: 0.85rem;
   max-width: 840px;
+  margin-top: clamp(2rem, 5vw, 3rem);
 }
 
 .roadmap-rail {
@@ -1819,6 +2027,47 @@ html.dark .theme-icon-moon {
   overflow-wrap: anywhere;
 }
 
+.docs-article-map {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--border);
+}
+
+.docs-article-map > div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.58rem;
+  align-items: center;
+  min-width: 0;
+  background: var(--surface);
+  padding: 0.85rem 0.95rem;
+}
+
+.docs-article-map svg {
+  color: var(--primary);
+}
+
+.docs-article-map span {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+.docs-article-map strong,
+.docs-article-map code {
+  grid-column: 2;
+  min-width: 0;
+  color: var(--foreground);
+  font-family: "Geist Mono", "Cascadia Code", monospace;
+  font-size: 0.86rem;
+  overflow-wrap: anywhere;
+}
+
 .docs-article-sections {
   display: grid;
   gap: 1px;
@@ -1972,17 +2221,81 @@ html.dark .theme-icon-moon {
   padding: 0.8rem 1rem;
 }
 
-.docs-next-card .ui-card-content {
+.docs-article-footer {
+  display: grid;
+  gap: 1rem;
+}
+
+.docs-prev-next {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.docs-pagination-link {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--foreground);
+  padding: 0.9rem 1rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.docs-pagination-link:hover,
+.docs-pagination-link:focus-visible {
+  border-color: var(--ring);
+  box-shadow: var(--card-shadow);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.docs-pagination-link span {
+  display: grid;
+  min-width: 0;
+  gap: 0.15rem;
+  font-weight: 720;
+  overflow-wrap: anywhere;
+}
+
+.docs-pagination-link small {
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 760;
+  text-transform: uppercase;
+}
+
+.docs-pagination-next {
+  grid-template-columns: 1fr auto;
+  text-align: right;
+}
+
+.docs-pagination-empty {
+  color: var(--muted-foreground);
+}
+
+.docs-article-footer-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  gap: 1rem;
+}
+
+.docs-next-card .ui-card-content,
+.docs-related-card .ui-card-content {
   padding-top: 0.9rem;
 }
 
 .docs-next-links {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
 }
 
-.docs-next-links a {
+.docs-next-links a,
+.docs-related-card a {
   display: flex;
   min-height: 3.1rem;
   min-width: 0;
@@ -1999,9 +2312,32 @@ html.dark .theme-icon-moon {
 }
 
 .docs-next-links a:hover,
-.docs-next-links a:focus-visible {
+.docs-next-links a:focus-visible,
+.docs-related-card a:hover,
+.docs-related-card a:focus-visible {
   border-color: var(--ring);
   outline: none;
+}
+
+.docs-related-card .ui-card-content {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.docs-related-card a {
+  justify-content: flex-start;
+}
+
+.docs-related-card code {
+  min-width: 0;
+  font-family: "Geist Mono", "Cascadia Code", monospace;
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+}
+
+.docs-related-card p {
+  margin: 0;
+  color: var(--muted-foreground);
 }
 
 .ui-button {
@@ -2211,20 +2547,14 @@ html.dark .ui-badge-warning {
 
   .primary-nav {
     grid-column: 1 / -1;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: flex-start;
     max-width: 100%;
-    overflow-x: auto;
-    padding-bottom: 0.1rem;
-    scrollbar-width: none;
-  }
-
-  .primary-nav::-webkit-scrollbar {
-    display: none;
+    overflow: visible;
   }
 
   .primary-nav a {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
   }
 
   .theme-toggle {
@@ -2237,6 +2567,11 @@ html.dark .ui-badge-warning {
   .map-preview-grid,
   .page-grid,
   .benchmark-grid,
+  .proof-loop-grid,
+  .artifact-card-grid,
+  .roadmap-lane-grid,
+  .surface-panel,
+  .evidence-checklist,
   .callout-band,
   .examples-layout,
   .docs-browser,
@@ -2271,6 +2606,7 @@ html.dark .ui-badge-warning {
 
   .docs-sidebar {
     position: static;
+    max-height: 22rem;
   }
 
   .docs-feature-grid {
@@ -2278,12 +2614,16 @@ html.dark .ui-badge-warning {
   }
 
   .docs-index-strip,
+  .evidence-strip,
+  .docs-article-map,
   .docs-index-summary {
     grid-template-columns: 1fr;
   }
 
   .docs-lane-grid,
   .docs-full-index-grid,
+  .docs-prev-next,
+  .docs-article-footer-grid,
   .docs-next-links {
     grid-template-columns: 1fr;
   }

@@ -370,6 +370,12 @@ describe("static build and Bun start integration", () => {
       expect(securityHtml).toContain('data-lumina-route="/docs/*"');
       expect(securityHtml).toContain("Agent-Safe Workflows");
       expect(securityHtml).toContain('aria-current="page" href="/docs/reference/security"');
+      expect(securityHtml).toContain("<span>Route</span>");
+      expect(securityHtml).toContain("<code>/docs/reference/security</code>");
+      expect(securityHtml).toContain("<small>Previous</small>");
+      expect(securityHtml).toContain("<small>Next</small>");
+      expect(securityHtml).toContain("Related source docs");
+      expect(securityHtml).toContain("docs/security-contract.md");
 
       const search = await fetchWithTimeout(`${server.url}/docs/search?q=adapter`);
       expect(search.status).toBe(200);

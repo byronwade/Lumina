@@ -24,6 +24,19 @@ async function createRepoWritableCopy(relativePath: string, prefix: string): Pro
 }
 
 describe("MVP app and example fixtures", () => {
+  test("apps/www public pages keep current evidence labels honest", () => {
+    const aboutPage = readFileSync(join(repoRoot, "apps/www/app/about/page.tsx"), "utf8");
+    const benchmarksPage = readFileSync(join(repoRoot, "apps/www/app/benchmarks/page.tsx"), "utf8");
+    const examplesPage = readFileSync(join(repoRoot, "apps/www/app/examples/page.tsx"), "utf8");
+
+    expect(aboutPage).toContain('{ label: "Check gate", value: "Passing"');
+    expect(aboutPage).toContain("docs, types, tests, browser smoke");
+    expect(aboutPage).not.toContain('value: "44"');
+    expect(examplesPage).toContain('<ExampleCard name="Blog SEO" status="Runnable" path="examples/blog-seo" />');
+    expect(benchmarksPage).toContain("bun run lumina -- bench route-discovery --json");
+    expect(benchmarksPage).toContain("does not execute benchmark code");
+  });
+
   test("apps/www is a real marketing app fixture for route, render, map, and inspect output", async () => {
     const appRoot = await createWritableCopy("apps/www", "lumina-www-");
     const stdout: string[] = [];

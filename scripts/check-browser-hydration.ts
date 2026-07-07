@@ -11,6 +11,16 @@ const watchdog = setTimeout(() => {
   process.exit(1);
 }, 60_000);
 
+console.log("Building production app...");
+const build = spawn("bun", ["packages/cli/src/index.ts", "build", appRoot, "--json"], {
+  cwd: repoRoot,
+  env: { ...process.env, NO_COLOR: "1" },
+});
+const buildOutput = await waitForExit(build);
+if (buildOutput.exitCode !== 0) {
+  throw new Error(`Lumina build failed with code ${buildOutput.exitCode}.\n${buildOutput.output.join("")}`);
+}
+
 const port = await getFreePort();
 const devUrl = `http://127.0.0.1:${port}`;
 const dev = spawn("bun", ["packages/cli/src/index.ts", "dev", appRoot, "--port", String(port)], {
@@ -27,16 +37,6 @@ let browser: Browser | undefined;
 let production: ChildProcessWithoutNullStreams | undefined;
 
 try {
-  console.log("Building production app...");
-  const build = spawn("bun", ["packages/cli/src/index.ts", "build", appRoot, "--json"], {
-    cwd: repoRoot,
-    env: { ...process.env, NO_COLOR: "1" },
-  });
-  const buildOutput = await waitForExit(build);
-  if (buildOutput.exitCode !== 0) {
-    throw new Error(`Lumina build failed with code ${buildOutput.exitCode}.\n${buildOutput.output.join("")}`);
-  }
-
   const productionPort = await getFreePort();
   const productionUrl = `http://127.0.0.1:${productionPort}`;
   production = spawn("bun", ["packages/cli/src/index.ts", "start", appRoot, "--port", String(productionPort)], {

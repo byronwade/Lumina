@@ -1,6 +1,7 @@
-import { CheckCircle2, CircleDashed, FileJson, Rocket } from "lucide-react";
+import { CheckCircle2, CircleDashed, FileJson, GitBranch, Rocket, ShieldCheck } from "lucide-react";
 import { PageHeader } from "../../components/PageHeader";
 import { Badge } from "../../components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 
 const roadmap = [
   {
@@ -30,6 +31,33 @@ const roadmap = [
   },
 ];
 
+const roadmapStats = [
+  { label: "Implemented proof", value: "4", detail: "route, dev, build, start slices" },
+  { label: "Preview docs artifacts", value: "4", detail: "index, navigation, llms files" },
+  { label: "Remaining high-risk surfaces", value: "5", detail: "API, MCP, safe edits, benchmarks, broader HMR" },
+];
+
+const roadmapLanes = [
+  {
+    title: "Now",
+    description: "Harden component-level HMR, production output behavior, and docs polish around current evidence.",
+    status: "Current path",
+    icon: GitBranch,
+  },
+  {
+    title: "Next",
+    description: "Add metadata and SEO audit behavior, cache metadata, API route contracts, and broader map queries.",
+    status: "Planned",
+    icon: FileJson,
+  },
+  {
+    title: "Later",
+    description: "Layer in MCP read tools, safe edit transactions, Node/static adapters, migration help, and benchmark evidence.",
+    status: "Planned",
+    icon: ShieldCheck,
+  },
+];
+
 export default function RoadmapPage() {
   return (
     <main className="page-shell" id="main-content">
@@ -38,6 +66,36 @@ export default function RoadmapPage() {
         title="Roadmap"
         description="The public roadmap separates implemented proof from planned framework expansion so the site stays useful without overclaiming the current scaffold."
       />
+
+      <section className="evidence-strip" aria-label="Roadmap proof summary">
+        {roadmapStats.map((stat) => (
+          <div key={stat.label}>
+            <span>{stat.label}</span>
+            <strong>{stat.value}</strong>
+            <p>{stat.detail}</p>
+          </div>
+        ))}
+      </section>
+
+      <section className="roadmap-lane-grid" aria-label="Roadmap lanes">
+        {roadmapLanes.map((lane) => {
+          const Icon = lane.icon;
+          return (
+            <Card className="roadmap-lane-card" key={lane.title}>
+              <CardHeader>
+                <div className="feature-icon">
+                  <Icon aria-hidden="true" size={18} />
+                </div>
+                <CardTitle>{lane.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>{lane.description}</p>
+                <Badge variant={lane.status === "Current path" ? "success" : "warning"}>{lane.status}</Badge>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </section>
 
       <section className="roadmap-panel">
         <div className="roadmap-rail" aria-hidden="true" />
