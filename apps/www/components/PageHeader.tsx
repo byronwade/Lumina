@@ -7,11 +7,17 @@ export function PageHeader({
   eyebrow,
   title,
   description,
+  facts = [],
   children,
 }: {
   eyebrow: string;
   title: string;
   description: string;
+  facts?: Array<{
+    label: string;
+    value: string;
+    href?: string;
+  }>;
   children?: ReactNode;
 }) {
   return (
@@ -22,6 +28,26 @@ export function PageHeader({
         <p>{description}</p>
       </div>
       {children ? <div className="page-hero-actions">{children}</div> : null}
+      {facts.length ? (
+        <div className="page-proof-rail" aria-label={`${title} page evidence`}>
+          {facts.map((fact) => {
+            const content = (
+              <>
+                <span>{fact.label}</span>
+                <strong>{fact.value}</strong>
+              </>
+            );
+
+            return fact.href ? (
+              <a href={fact.href} key={`${fact.label}:${fact.value}`}>
+                {content}
+              </a>
+            ) : (
+              <div key={`${fact.label}:${fact.value}`}>{content}</div>
+            );
+          })}
+        </div>
+      ) : null}
     </section>
   );
 }

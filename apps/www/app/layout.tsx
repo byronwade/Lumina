@@ -1,4 +1,5 @@
 import { Moon, Sun } from "lucide-react";
+import { SiteFooter } from "../components/SiteFooter";
 import { appStyles } from "../styles";
 
 const themeBootstrap = String.raw`
@@ -113,6 +114,7 @@ export default function RootLayout({ children }: { children: unknown }) {
           </button>
         </header>
         <div className="site-shell">{children}</div>
+        <SiteFooter />
         <script dangerouslySetInnerHTML={{ __html: themeToggleScript }} />
       </body>
     </html>

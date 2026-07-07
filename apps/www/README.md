@@ -20,16 +20,31 @@ relationship preview uses the same theme tokens so light and dark mode both appl
 visual surface. The inline CSS path and `app/globals.css` should stay aligned until Lumina implements
 direct CSS asset delivery for the app renderer.
 
+Public page headers use a shared route/source/status proof rail so About, Benchmarks, Examples,
+Roadmap, Docs, and Docs Search expose the same evidence shape before the reader reaches the page body.
+This keeps the marketing pages and docs pages aligned with the same shadcn/Vercel-inspired surface
+language instead of treating docs as a separate app.
+
+The root layout also renders a shared site footer across every route. It exposes product links, docs
+lanes, docs artifact links, docs inventory counts, and canonical source status using the same token
+system as the header, docs sidebar, article footer, and page proof rail.
+
 The docs area is a public-docs route scaffold inspired by documentation systems such as Next.js: it
 has a docs home, lane pages, topic pages, source-path cards, reference lanes, active sidebar
 navigation, status language, an SSR `/docs/search` route backed by a bundled docs index, and an SSR
 `/docs/*` inventory viewer backed by metadata for the current `docs/public/` page set. The catch-all
-route now renders a bundled Markdown body snapshot for mapped public docs pages, and docs pages use a
-complete in-app public-docs inventory sidebar grouped by lane. Docs article pages include route/source
-metadata, previous and next navigation, related source-doc cards, and keep-reading links. Static builds
-also emit deterministic preview artifacts at `dist/public/docs-index.json`, `dist/public/docs-navigation.json`,
-`dist/public/llms.txt`, and `dist/public/llms-full.txt`. It is not yet a frontmatter parser,
-generated static docs router, or broader machine-readable docs pipeline.
+route now renders a bundled Markdown body snapshot for mapped public docs pages, including headings,
+lists, code blocks, quotes, and responsive tables, and docs pages use a complete in-app public-docs
+inventory sidebar grouped by lane. Docs article pages include breadcrumbs, route/source metadata, a
+reader panel with page contents and source actions, a sidebar docs-channel summary with machine-readable
+artifact links, previous and next navigation, related source-doc cards, and keep-reading links. The docs
+home now includes a search command panel with common query links and an adjacent preview-artifact panel,
+while the search page includes suggested query chips and source-aligned result context. Article footers
+include edit-on-GitHub and scroll-to-top actions alongside previous/next pagination, related source docs,
+and keep-reading links. Static builds also emit deterministic preview artifacts at
+`dist/public/docs-index.json`, `dist/public/docs-navigation.json`, `dist/public/llms.txt`, and
+`dist/public/llms-full.txt`. It is not yet a frontmatter parser, generated static docs router, or broader
+machine-readable docs pipeline.
 
 ## Routes
 

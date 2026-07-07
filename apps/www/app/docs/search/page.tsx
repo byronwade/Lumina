@@ -11,6 +11,8 @@ export const render = ssr();
 
 type SearchParams = Record<string, string | string[] | undefined>;
 
+const suggestedQueries = ["routing", "adapter", "security", "map", "SEO", "benchmarks"];
+
 export default function DocsSearchPage({ searchParams = {} }: { searchParams?: SearchParams }) {
   const rawQuery = searchParams.q;
   const query = Array.isArray(rawQuery) ? rawQuery[0] ?? "" : rawQuery ?? "";
@@ -23,6 +25,11 @@ export default function DocsSearchPage({ searchParams = {} }: { searchParams?: S
         eyebrow="Docs search"
         title="Search Lumina docs"
         description="Find public docs pages across concepts, guides, references, deployment, and community notes from the current bundled Markdown inventory."
+        facts={[
+          { label: "Route", value: "/docs/search" },
+          { label: "Source", value: "app/docs/search/page.tsx" },
+          { label: "Status", value: "SSR search" },
+        ]}
       />
 
       <section className="docs-search-layout" aria-label="Search documentation">
@@ -40,6 +47,14 @@ export default function DocsSearchPage({ searchParams = {} }: { searchParams?: S
           </Button>
         </form>
 
+        <div className="docs-search-chips" aria-label="Suggested docs searches">
+          {suggestedQueries.map((suggestion) => (
+            <a aria-current={suggestion.toLowerCase() === cleanQuery.toLowerCase() ? "true" : undefined} href={`/docs/search?q=${suggestion}`} key={suggestion}>
+              {suggestion}
+            </a>
+          ))}
+        </div>
+
         <div className="docs-index-summary" aria-label="Docs index summary">
           <div>
             <strong>{docsIndexStats.pages}</strong>
@@ -54,6 +69,31 @@ export default function DocsSearchPage({ searchParams = {} }: { searchParams?: S
             <span>source files</span>
           </div>
         </div>
+
+        <section className="docs-search-proof" aria-label="Search data sources">
+          <Card>
+            <CardContent>
+              <Badge variant="secondary">Source aligned</Badge>
+              <h2>Search uses the same bundled docs index that ships as JSON.</h2>
+              <p>
+                Result cards expose page status, lane, description, and canonical source path so the public site does
+                not hide whether a topic is implemented, scaffolded, or planned.
+              </p>
+              <a href="/docs-index.json">Open docs-index.json</a>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent>
+              <Badge variant="outline">AI-readable</Badge>
+              <h2>Machine-readable docs outputs stay adjacent to human docs.</h2>
+              <p>
+                The same build emits navigation and LLM text previews while the full generated docs pipeline remains a
+                planned larger implementation.
+              </p>
+              <a href="/llms-full.txt">Open llms-full.txt</a>
+            </CardContent>
+          </Card>
+        </section>
 
         <div className="docs-search-results-heading">
           <div>

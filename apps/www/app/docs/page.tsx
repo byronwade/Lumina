@@ -1,8 +1,10 @@
-import { BookOpen, FileCode2, ShieldCheck } from "lucide-react";
+import { ArrowRight, BookOpen, Braces, Command, FileCode2, FileText, Search, ShieldCheck } from "lucide-react";
 import { DocsSidebar } from "../../components/DocsSidebar";
 import { PageHeader } from "../../components/PageHeader";
 import { Badge } from "../../components/ui/badge";
+import { Button } from "../../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
+import { Input } from "../../components/ui/input";
 import { docsIndexStats, docsNavigation } from "../../lib/docs-index";
 import { docsArticles, publicDocsPages } from "../../lib/docs-content";
 
@@ -13,6 +15,33 @@ const featuredDocs = docsArticles.filter((article) =>
 const referenceLanes = publicDocsPages.filter((article) => article.lane === "Reference");
 const curatedNavigationSections = docsNavigation.sections.filter((section) => section.kind === "curated");
 const inventoryNavigationSections = docsNavigation.sections.filter((section) => section.kind === "inventory");
+const quickSearches = ["routing", "adapter", "security", "map", "performance"];
+const docsArtifacts = [
+  {
+    href: "/docs-index.json",
+    label: "docs-index.json",
+    description: "Searchable page metadata",
+    icon: Braces,
+  },
+  {
+    href: "/docs-navigation.json",
+    label: "docs-navigation.json",
+    description: "Sidebar and lane structure",
+    icon: Braces,
+  },
+  {
+    href: "/llms.txt",
+    label: "llms.txt",
+    description: "Compact AI docs map",
+    icon: FileText,
+  },
+  {
+    href: "/llms-full.txt",
+    label: "llms-full.txt",
+    description: "Bundled public docs text",
+    icon: FileText,
+  },
+];
 
 export default function DocsPage() {
   return (
@@ -21,6 +50,11 @@ export default function DocsPage() {
         eyebrow="Public documentation"
         title="Documentation"
         description="A Next.js-style docs surface for the whole Lumina project: quick start, concepts, guides, contracts, operations, and implementation status in one readable system."
+        facts={[
+          { label: "Route", value: "/docs" },
+          { label: "Source", value: "app/docs/page.tsx" },
+          { label: "Status", value: "Docs index" },
+        ]}
       />
 
       <section className="docs-browser">
@@ -36,6 +70,56 @@ export default function DocsPage() {
               inventory. Generated static docs routes, generated search artifacts, and frontmatter parsing remain planned.
             </p>
           </div>
+
+          <section className="docs-command-panel" aria-labelledby="docs-command-title">
+            <div className="docs-command-copy">
+              <div className="feature-icon">
+                <Command aria-hidden="true" size={18} />
+              </div>
+              <Badge variant="secondary">Bundled search</Badge>
+              <h2 id="docs-command-title">Jump straight to the contract you need.</h2>
+              <p>
+                Search reads the same bundled inventory used by the sidebar and AI-readable files, so page status,
+                source paths, related docs, and lane names stay aligned across the public docs surface.
+              </p>
+              <form action="/docs/search" className="docs-command-search" method="get" role="search">
+                <Search aria-hidden="true" size={17} />
+                <Input
+                  aria-label="Search Lumina docs"
+                  autoComplete="off"
+                  name="q"
+                  placeholder="Search routes, adapters, map, CLI..."
+                />
+                <Button type="submit">Search</Button>
+              </form>
+              <div className="docs-query-row" aria-label="Common docs searches">
+                {quickSearches.map((query) => (
+                  <a href={`/docs/search?q=${query}`} key={query}>
+                    {query}
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div className="docs-artifact-panel" aria-label="AI-readable docs outputs">
+              <div className="docs-artifact-heading">
+                <Badge variant="outline">Preview artifacts</Badge>
+                <p>Static builds emit these deterministic docs files today.</p>
+              </div>
+              {docsArtifacts.map((artifact) => {
+                const Icon = artifact.icon;
+                return (
+                  <a href={artifact.href} key={artifact.href}>
+                    <Icon aria-hidden="true" size={16} />
+                    <span>
+                      <strong>{artifact.label}</strong>
+                      <small>{artifact.description}</small>
+                    </span>
+                    <ArrowRight aria-hidden="true" size={15} />
+                  </a>
+                );
+              })}
+            </div>
+          </section>
 
           <div className="docs-index-strip" aria-label="Bundled docs index">
             <div>

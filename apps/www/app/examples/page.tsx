@@ -41,6 +41,11 @@ export default function ExamplesPage() {
         eyebrow="Examples"
         title="Examples"
         description="Starter and fixture apps show what the current compiler can prove. Labels stay conservative until each example has build and inspection evidence."
+        facts={[
+          { label: "Route", value: "/examples" },
+          { label: "Source", value: "app/examples/page.tsx" },
+          { label: "Status", value: "Fixture catalog" },
+        ]}
       />
 
       <section className="examples-layout">

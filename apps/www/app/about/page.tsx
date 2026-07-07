@@ -60,6 +60,11 @@ export default function AboutPage() {
         eyebrow="Project thesis"
         title="Why Lumina Exists"
         description="Lumina is being built for React applications that need route structure, render behavior, generated artifacts, and agent context to stay visible as the codebase grows."
+        facts={[
+          { label: "Route", value: "/about" },
+          { label: "Source", value: "app/about/page.tsx" },
+          { label: "Status", value: "Current thesis" },
+        ]}
       >
         <DocsCta />
       </PageHeader>

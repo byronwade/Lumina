@@ -2,6 +2,7 @@ import {
   ArrowRight,
   Braces,
   CheckCircle2,
+  CircleDot,
   FileCode2,
   FileJson,
   Folder,
@@ -20,6 +21,7 @@ const sourceTree = [
       { label: "layout.tsx", detail: "wraps route", icon: LayoutTemplate },
       { label: "page.tsx", detail: "defines /", icon: Route, active: true },
       { label: "docs/page.tsx", detail: "docs entry", icon: Route },
+      { label: "docs/[...parts]", detail: "public docs inventory", icon: Route },
     ],
   },
   {
@@ -27,7 +29,7 @@ const sourceTree = [
     icon: Folder,
     rows: [
       { label: "Hero.tsx", detail: "imports visual", icon: FileCode2 },
-      { label: "GraphTree.tsx", detail: "relationship preview", icon: GitBranch, active: true },
+      { label: "GraphRelationshipTree.tsx", detail: "relationship preview", icon: GitBranch, active: true },
     ],
   },
 ];
@@ -54,14 +56,24 @@ const outputs = [
 ];
 
 const relationships = [
-  { from: "app/page.tsx", relation: "declares", to: "Route /", confidence: "high" },
-  { from: "app/layout.tsx", relation: "wraps", to: "Shared route layout", confidence: "high" },
-  { from: "Hero.tsx", relation: "imports", to: "Graph relationship preview", confidence: "direct" },
+  { from: "app/page.tsx", relation: "route.source", to: "Route /", confidence: "high" },
+  { from: "app/layout.tsx", relation: "route.layout", to: "Shared layout", confidence: "high" },
+  { from: "Hero.tsx", relation: "file.imports", to: "GraphRelationshipTree", confidence: "direct" },
+  { from: "staticPage()", relation: "route.renderMode", to: "Static HTML", confidence: "declared" },
+  { from: "Route /", relation: "route.generates", to: ".lumina/* manifests", confidence: "build" },
+];
+
+const pathStages = [
+  { label: "Source", value: "app/page.tsx" },
+  { label: "Route", value: "/" },
+  { label: "Layout", value: "app/layout.tsx" },
+  { label: "Render", value: "static" },
+  { label: "Artifacts", value: "routes + map" },
 ];
 
 export function GraphRelationshipTree() {
   return (
-    <div className="map-console" aria-label="Lumina graph relationship preview">
+    <div className="map-console" aria-label="Graph relationship preview">
       <div className="console-topbar">
         <div className="console-dots" aria-hidden="true">
           <span />
@@ -135,6 +147,21 @@ export function GraphRelationshipTree() {
                 <strong>{"app/page.tsx -> /"}</strong>
                 <small>Static page, wrapped by app/layout.tsx, hydrated by a generated client entry.</small>
               </div>
+            </div>
+
+            <div className="relationship-path" aria-label="Selected route relationship path">
+              {pathStages.map((stage, index) => (
+                <div className="relationship-stage" key={stage.label}>
+                  <span className="stage-marker" aria-hidden="true">
+                    <CircleDot size={14} />
+                  </span>
+                  <span>
+                    <small>{stage.label}</small>
+                    <strong>{stage.value}</strong>
+                  </span>
+                  {index < pathStages.length - 1 ? <ArrowRight aria-hidden="true" className="stage-arrow" size={14} /> : null}
+                </div>
+              ))}
             </div>
 
             <div className="relationship-list">

@@ -1,4 +1,4 @@
-import { ArrowLeft, Search } from "lucide-react";
+import { ArrowLeft, FileJson, Search } from "lucide-react";
 import { docsIndexStats, docsNavigation } from "../lib/docs-index";
 import type { MarkdownHeading } from "./MarkdownBody";
 
@@ -29,6 +29,24 @@ export function DocsSidebar({
         <span>Search docs</span>
         <kbd>{docsIndexStats.pages}</kbd>
       </a>
+
+      <section className="docs-sidebar-status" aria-label="Documentation channel">
+        <div>
+          <span>Docs version</span>
+          <strong>Unreleased</strong>
+        </div>
+        <p>{docsIndexStats.pages} public pages, {docsIndexStats.lanes} lanes, {docsIndexStats.sources} source files.</p>
+        <div className="docs-sidebar-artifacts" aria-label="Machine-readable docs outputs">
+          <a href="/docs-navigation.json">
+            <FileJson aria-hidden="true" size={13} />
+            Navigation JSON
+          </a>
+          <a href="/llms.txt">
+            <FileJson aria-hidden="true" size={13} />
+            llms.txt
+          </a>
+        </div>
+      </section>
 
       {headings.length ? (
         <nav className="docs-nav-group docs-toc-group" aria-label="On this page">

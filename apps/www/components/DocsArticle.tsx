@@ -1,4 +1,17 @@
-import { ArrowLeft, ArrowRight, BookOpen, FileText, GitBranch, Route } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUp,
+  ArrowUpRight,
+  BookOpen,
+  ChevronRight,
+  FileJson,
+  FileText,
+  GitBranch,
+  ListChecks,
+  Route,
+  Search,
+} from "lucide-react";
 import type { DocsArticle } from "../lib/docs-content";
 import { getAdjacentDocsLinks } from "../lib/docs-content";
 import { getMarkdownHeadings, MarkdownBody } from "./MarkdownBody";
@@ -18,12 +31,25 @@ export function DocsArticlePage({ article }: { article: DocsArticle }) {
   const adjacent = getAdjacentDocsLinks(article.href);
   const relatedSources = article.related ?? [];
   const sectionCount = article.markdown ? headings.filter((heading) => heading.depth === 2).length : article.sections.length;
+  const contentsLinks = article.markdown
+    ? headings.filter((heading) => heading.depth === 2).slice(0, 8).map((heading) => ({ label: heading.text, href: `#${heading.id}` }))
+    : article.sections.map((section) => ({ label: section.title, href: `#${sectionId(section.title)}` }));
+  const sourceUrl = repositorySourceHref(article.source);
+  const laneUrl = docsLaneHref(article.lane);
 
   return (
     <main className="docs-page docs-article-page" id="main-content">
       <DocsSidebar activeHref={article.href} headings={headings} showBackLink />
 
       <article className="docs-article">
+        <nav className="docs-breadcrumb" aria-label="Breadcrumb">
+          <a href="/docs">Docs</a>
+          <ChevronRight aria-hidden="true" size={14} />
+          <a href={laneUrl}>{article.lane}</a>
+          <ChevronRight aria-hidden="true" size={14} />
+          <span aria-current="page">{article.title}</span>
+        </nav>
+
         <header className="docs-article-header">
           <div className="docs-article-icon">
             <Icon aria-hidden="true" size={22} />
@@ -64,12 +90,62 @@ export function DocsArticlePage({ article }: { article: DocsArticle }) {
           </div>
         </section>
 
+        <section className="docs-reader-panel" aria-label="Documentation reader tools">
+          <div className="docs-reader-column docs-reader-contents">
+            <div className="docs-reader-heading">
+              <ListChecks aria-hidden="true" size={17} />
+              <span>Page contents</span>
+            </div>
+            <div className="docs-reader-links">
+              {contentsLinks.length ? (
+                contentsLinks.map((link) => (
+                  <a href={link.href} key={link.href}>
+                    {link.label}
+                  </a>
+                ))
+              ) : (
+                <span>No section headings yet</span>
+              )}
+            </div>
+          </div>
+          <div className="docs-reader-column docs-reader-source">
+            <div className="docs-reader-heading">
+              <FileJson aria-hidden="true" size={17} />
+              <span>Reader context</span>
+            </div>
+            <dl>
+              <div>
+                <dt>Status</dt>
+                <dd>{article.status}</dd>
+              </div>
+              <div>
+                <dt>Inventory</dt>
+                <dd>{article.markdown ? "Markdown snapshot" : "Curated article"}</dd>
+              </div>
+            </dl>
+          </div>
+          <div className="docs-reader-actions" aria-label="Documentation actions">
+            <a href="/docs/search">
+              <Search aria-hidden="true" size={15} />
+              Search docs
+            </a>
+            <a href={sourceUrl}>
+              <ArrowUpRight aria-hidden="true" size={15} />
+              Open source
+            </a>
+            <a href="/docs-index.json">
+              <FileJson aria-hidden="true" size={15} />
+              Docs index
+            </a>
+          </div>
+        </section>
+
         {article.markdown ? (
           <MarkdownBody markdown={article.markdown} source={article.source} />
         ) : (
           <div className="docs-article-sections">
             {article.sections.map((section) => (
-              <section className="docs-prose-section" key={section.title}>
+              <section className="docs-prose-section" id={sectionId(section.title)} key={section.title}>
                 <h2>{section.title}</h2>
                 <p>{section.body}</p>
               </section>
@@ -78,6 +154,17 @@ export function DocsArticlePage({ article }: { article: DocsArticle }) {
         )}
 
         <footer className="docs-article-footer">
+          <div className="docs-article-utility" aria-label="Article actions">
+            <a href={sourceUrl}>
+              <ArrowUpRight aria-hidden="true" size={15} />
+              Edit this page on GitHub
+            </a>
+            <a href="#main-content">
+              <ArrowUp aria-hidden="true" size={15} />
+              Scroll to top
+            </a>
+          </div>
+
           <div className="docs-prev-next" aria-label="Previous and next docs pages">
             {adjacent.previous ? (
               <a className="docs-pagination-link" href={adjacent.previous.href}>
@@ -166,4 +253,27 @@ function sourceHref(source: string): string {
     return `/docs/${slug}`;
   }
   return `https://github.com/byronwade/Lumina/blob/main/${source}`;
+}
+
+function repositorySourceHref(source: string): string {
+  return `https://github.com/byronwade/Lumina/blob/main/${source}`;
+}
+
+function docsLaneHref(lane: string): string {
+  if (lane === "Start") return "/docs/start";
+  if (lane === "Concepts") return "/docs/concepts";
+  if (lane === "Guides") return "/docs/guides";
+  if (lane === "Reference") return "/docs/reference";
+  if (lane === "Deployment" || lane === "Operations") return "/docs/deployment";
+  if (lane === "Community") return "/docs/community";
+  if (lane === "Comparisons") return "/docs/comparisons/overview";
+  return "/docs";
+}
+
+function sectionId(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/`/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }

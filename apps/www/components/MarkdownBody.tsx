@@ -4,6 +4,7 @@ type MarkdownBlock =
   | { type: "heading"; depth: 2 | 3 | 4; text: string }
   | { type: "paragraph"; text: string }
   | { type: "list"; ordered: boolean; items: string[] }
+  | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "code"; language: string; code: string }
   | { type: "quote"; text: string };
 
@@ -61,6 +62,32 @@ export function MarkdownBody({ markdown, source }: { markdown: string; source: s
                 <li key={`${item}-${itemIndex}`}>{renderInlineMarkdown(item, source)}</li>
               ))}
             </List>
+          );
+        }
+
+        if (block.type === "table") {
+          return (
+            <div className="docs-table-scroll" key={`table-${index}`}>
+              <table>
+                <thead>
+                  <tr>
+                    {block.headers.map((header, headerIndex) => (
+                      <th key={`${header}-${headerIndex}`}>{renderInlineMarkdown(header, source)}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {block.rows.map((row, rowIndex) => (
+                    <tr key={`row-${rowIndex}`}>
+                      {block.headers.map((_, cellIndex) => {
+                        const cell = row[cellIndex] ?? "";
+                        return <td key={`${cell}-${cellIndex}`}>{renderInlineMarkdown(cell, source)}</td>;
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           );
         }
 
@@ -138,6 +165,18 @@ function parseMarkdownBlocks(markdown: string): MarkdownBlock[] {
       continue;
     }
 
+    if (isTableRow(line) && isTableSeparator(lines[index + 1] ?? "")) {
+      const headers = parseTableRow(line);
+      const rows: string[][] = [];
+      index += 2;
+      while (index < lines.length && isTableRow(lines[index] ?? "")) {
+        rows.push(parseTableRow(lines[index] ?? ""));
+        index += 1;
+      }
+      blocks.push({ type: "table", headers, rows });
+      continue;
+    }
+
     if (/^\s*[-*]\s+/.test(line)) {
       const items: string[] = [];
       while (index < lines.length && /^\s*[-*]\s+/.test(lines[index] ?? "")) {
@@ -171,7 +210,14 @@ function parseMarkdownBlocks(markdown: string): MarkdownBlock[] {
     const paragraphLines: string[] = [];
     while (index < lines.length && lines[index]?.trim()) {
       const nextLine = lines[index] ?? "";
-      if (/^```/.test(nextLine) || /^#{2,4}\s+/.test(nextLine) || /^\s*[-*]\s+/.test(nextLine) || /^\s*\d+\.\s+/.test(nextLine) || /^>\s+/.test(nextLine)) {
+      if (
+        /^```/.test(nextLine) ||
+        /^#{2,4}\s+/.test(nextLine) ||
+        (isTableRow(nextLine) && isTableSeparator(lines[index + 1] ?? "")) ||
+        /^\s*[-*]\s+/.test(nextLine) ||
+        /^\s*\d+\.\s+/.test(nextLine) ||
+        /^>\s+/.test(nextLine)
+      ) {
         break;
       }
       paragraphLines.push(nextLine.trim());
@@ -181,6 +227,25 @@ function parseMarkdownBlocks(markdown: string): MarkdownBlock[] {
   }
 
   return blocks;
+}
+
+function isTableRow(line: string): boolean {
+  const trimmed = line.trim();
+  return trimmed.startsWith("|") && trimmed.endsWith("|") && trimmed.slice(1, -1).includes("|");
+}
+
+function isTableSeparator(line: string): boolean {
+  if (!isTableRow(line)) return false;
+  return parseTableRow(line).every((cell) => /^:?-{3,}:?$/.test(cell.trim()));
+}
+
+function parseTableRow(line: string): string[] {
+  return line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((cell) => cell.trim());
 }
 
 function renderInlineMarkdown(text: string, source = ""): ReactNode[] {

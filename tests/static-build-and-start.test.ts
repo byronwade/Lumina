@@ -152,8 +152,53 @@ describe("static build and Bun start integration", () => {
     expect(homeHtml).toContain("Generated outputs");
     expect(homeHtml).toContain("5 relationship edges");
     expect(homeHtml).toContain('data-lumina-route="/"');
+    expect(homeHtml).toContain('aria-label="Site footer"');
+    expect(homeHtml).toContain("Your app ships with a map.");
+    expect(homeHtml).toContain("Docs artifacts");
+    expect(homeHtml).toContain("docs-index.json");
+    expect(homeHtml).toContain("Website fixture: apps/www");
     expect(homeHtml).toContain('<script type="module" src="/_lumina/client/app.page.js"></script>');
     expect(readFileSync(join(wwwRoot, "dist", "public", "_lumina", "client", "app.page.js"), "utf8")).toContain("hydrateRoot");
+
+    const aboutHtml = readFileSync(join(wwwRoot, "dist", "public", "about", "index.html"), "utf8");
+    expect(aboutHtml).toContain('aria-label="Why Lumina Exists page evidence"');
+    expect(aboutHtml).toContain("app/about/page.tsx");
+    expect(aboutHtml).toContain("Current thesis");
+
+    const benchmarksHtml = readFileSync(join(wwwRoot, "dist", "public", "benchmarks", "index.html"), "utf8");
+    expect(benchmarksHtml).toContain('aria-label="Benchmarks page evidence"');
+    expect(benchmarksHtml).toContain("app/benchmarks/page.tsx");
+    expect(benchmarksHtml).toContain("Measured surfaces");
+
+    const examplesHtml = readFileSync(join(wwwRoot, "dist", "public", "examples", "index.html"), "utf8");
+    expect(examplesHtml).toContain('aria-label="Examples page evidence"');
+    expect(examplesHtml).toContain("app/examples/page.tsx");
+    expect(examplesHtml).toContain("Fixture catalog");
+
+    const roadmapHtml = readFileSync(join(wwwRoot, "dist", "public", "roadmap", "index.html"), "utf8");
+    expect(roadmapHtml).toContain('aria-label="Roadmap page evidence"');
+    expect(roadmapHtml).toContain("app/roadmap/page.tsx");
+    expect(roadmapHtml).toContain("Alpha path");
+
+    const docsHomeHtml = readFileSync(join(wwwRoot, "dist", "public", "docs", "index.html"), "utf8");
+    expect(docsHomeHtml).toContain('aria-label="Documentation page evidence"');
+    expect(docsHomeHtml).toContain("app/docs/page.tsx");
+    expect(docsHomeHtml).toContain("Docs index");
+    expect(docsHomeHtml).toContain("Jump straight to the contract you need.");
+    expect(docsHomeHtml).toContain("docs-navigation.json");
+    expect(docsHomeHtml).toContain("/docs/search?q=performance");
+
+    const docsStartHtml = readFileSync(join(wwwRoot, "dist", "public", "docs", "start", "index.html"), "utf8");
+    expect(docsStartHtml).toContain('aria-label="Breadcrumb"');
+    expect(docsStartHtml).toContain("Docs version");
+    expect(docsStartHtml).toContain("Unreleased");
+    expect(docsStartHtml).toContain("Navigation JSON");
+    expect(docsStartHtml).toContain("Page contents");
+    expect(docsStartHtml).toContain("Reader context");
+    expect(docsStartHtml).toContain("Search docs");
+    expect(docsStartHtml).toContain("Open source");
+    expect(docsStartHtml).toContain("Edit this page on GitHub");
+    expect(docsStartHtml).toContain("Scroll to top");
 
     const buildTrace = readFileSync(join(wwwRoot, ".lumina", "build-trace.json"), "utf8");
     const perfReport = readFileSync(join(wwwRoot, ".lumina", "perf.report.json"), "utf8");
@@ -376,14 +421,45 @@ describe("static build and Bun start integration", () => {
       expect(securityHtml).toContain("<small>Next</small>");
       expect(securityHtml).toContain("Related source docs");
       expect(securityHtml).toContain("docs/security-contract.md");
+      expect(securityHtml).toContain("Page contents");
+      expect(securityHtml).toContain("Reader context");
+      expect(securityHtml).toContain("Markdown snapshot");
+      expect(securityHtml).toContain("Open source");
+      expect(securityHtml).toContain("Edit this page on GitHub");
+      expect(securityHtml).toContain("Scroll to top");
+      expect(securityHtml).toContain('aria-label="Breadcrumb"');
+      expect(securityHtml).toContain("Docs version");
+      expect(securityHtml).toContain("Navigation JSON");
+      expect(securityHtml).toContain("/docs-navigation.json");
+      expect(securityHtml).toContain("/llms.txt");
+      expect(securityHtml).toContain("https://github.com/byronwade/Lumina/blob/main/docs/public/reference/security.md");
+
+      const cache = await fetchWithTimeout(`${server.url}/docs/reference/cache`);
+      expect(cache.status).toBe(200);
+      const cacheHtml = await cache.text();
+      expect(cacheHtml).toContain("<h1>Cache</h1>");
+      expect(cacheHtml).toContain("docs-table-scroll");
+      expect(cacheHtml).toContain("<table>");
+      expect(cacheHtml).toContain("<th>Surface</th>");
+      expect(cacheHtml).toContain("<td>Hashed static assets</td>");
+      expect(cacheHtml).toContain("<td>Public immutable cache.</td>");
+      expect(cacheHtml).toContain("<code>no-store</code>");
 
       const search = await fetchWithTimeout(`${server.url}/docs/search?q=adapter`);
       expect(search.status).toBe(200);
       const searchHtml = await search.text();
       expect(searchHtml).toContain("<h1>Search Lumina docs</h1>");
+      expect(searchHtml).toContain('aria-label="Search Lumina docs page evidence"');
+      expect(searchHtml).toContain("app/docs/search/page.tsx");
+      expect(searchHtml).toContain("SSR search");
+      expect(searchHtml).toContain('aria-label="Site footer"');
+      expect(searchHtml).toContain("Docs artifacts");
+      expect(searchHtml).toContain("llms-full.txt");
       expect(searchHtml).toContain('value="adapter"');
       expect(searchHtml).toContain("<h3>Adapters</h3>");
       expect(searchHtml).toContain("docs/public/reference/adapters.md");
+      expect(searchHtml).toContain("Search uses the same bundled docs index that ships as JSON.");
+      expect(searchHtml).toContain("/docs/search?q=security");
       expect(searchHtml).toContain('data-lumina-route="/docs/search"');
 
       const docsIndex = await fetchWithTimeout(`${server.url}/docs-index.json`);

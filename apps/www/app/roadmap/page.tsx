@@ -65,6 +65,11 @@ export default function RoadmapPage() {
         eyebrow="Alpha path"
         title="Roadmap"
         description="The public roadmap separates implemented proof from planned framework expansion so the site stays useful without overclaiming the current scaffold."
+        facts={[
+          { label: "Route", value: "/roadmap" },
+          { label: "Source", value: "app/roadmap/page.tsx" },
+          { label: "Status", value: "Alpha path" },
+        ]}
       />
 
       <section className="evidence-strip" aria-label="Roadmap proof summary">
